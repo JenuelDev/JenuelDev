@@ -24,7 +24,7 @@ onMounted(() => {
 <template>
     <div
         id="cursor-pointer-light"
-        class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"
+        class="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute opacity-50"
         :style="`background: radial-gradient(
                 600px at ${lightX}px ${lightY}px,
                 rgba(29, 78, 216, 0.15),

@@ -36,7 +36,6 @@ const noMoreData = ref(false);
 watch(
     () => targetIsVisible.value,
     (val) => {
-        console.log(val);
         if (noMoreData.value) return;
         if (val) {
             filter.page += 1;
@@ -150,7 +149,7 @@ onMounted(() => {
                     :key="`${blog.id}-${i}`"
                     :href="`/blog/${blog.slug}`"
                     :style="`order: ${i > 0 ? i + 1 : i}`"
-                    class="rounded-md cursor-pointer gap-1 decoration-none relative pb-1 transition-all md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 grid grid-cols-1 sm:grid-cols-8 text-center sm:text-left"
+                    class="rounded-md cursor-pointer gap-1 decoration-none relative pb-1 transition-all md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-70 grid grid-cols-1 sm:grid-cols-8 text-center sm:text-left"
                 >
                     <NuxtImg
                         v-if="blog.cover_img"
@@ -173,10 +172,10 @@ onMounted(() => {
                             />
                             {{ $dayjs(blog.updated_at).format("DD MMM, YYYY") }}
                         </div>
-                        <b> {{ blog.title }} </b>.
-                        <div class="h-70 overflow-hidden">
-                            <p class="truncate">{{ blog.summary }}</p>
-                        </div>
+                        <h4>{{ blog.title }}</h4>
+                        <p class="line-clamp-6 font-thin text-sm">
+                            {{ blog.summary }}
+                        </p>
                     </div>
                 </NuxtLink>
             </div>
