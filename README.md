@@ -63,11 +63,11 @@ When I’m not at the computer, I’m usually playing a guitar even though I'm n
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
-- [JavaScript: Ways To Manipulate String](https://brojenuel.com/blog/JavaScript-Ways-To-Manipulate-String)
-- [Why VueJS will be the future?](https://brojenuel.com/blog/Why-VueJS-will-be-the-future-)
-- [Top 3 Best Freelance Websites](https://brojenuel.com/blog/Top-3-Best-Freelance-Websites)
-- [Why &quot;CANVA&quot; is essential for most businesses?](https://brojenuel.com/blog/Why-CANVA-is-essential-for-most-businesses-)
-- [Ways To Manipulate Objects In JavaScript](https://brojenuel.com/blog/Ways-To-Manipulate-Objects-In-JavaScript)
+- [JavaScript: Tips and Tricks for Array](https://jenuel.dev/blog/JavaScript-Tips-and-Tricks-for-Array-)
+- [JavaScript: Ways To Manipulate String](https://jenuel.dev/blog/JavaScript-Ways-To-Manipulate-String)
+- [Why VueJS will be the future?](https://jenuel.dev/blog/Why-VueJS-will-be-the-future-)
+- [Top 3 Best Freelance Websites](https://jenuel.dev/blog/Top-3-Best-Freelance-Websites)
+- [Why &quot;CANVA&quot; is essential for most businesses?](https://jenuel.dev/blog/Why-CANVA-is-essential-for-most-businesses-)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
