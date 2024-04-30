@@ -24,7 +24,7 @@
     "@vueuse/nuxt": "^10.9.0",
     "nuxt": "^3.11.2",
     "nuxt-icon": "^0.6.10",
-    "nuxt-og-image": "3.0.0-rc.52",
+    "nuxt-og-image": "3.0.0-rc.53",
     "sass": "^1.74.1",
     "sitemap": "^7.1.1"
   }
