@@ -6,9 +6,9 @@ withDefaults(
         appName?: string;
     }>(),
     {
-        title: "BroJenuel",
+        title: "Jenuel.Dev",
         description: "Jenuel Ganawed's Portfolio",
-        appName: "www.BroJenuel.com",
+        appName: "Jenuel.Dev",
     }
 );
 

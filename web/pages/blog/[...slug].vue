@@ -51,13 +51,15 @@ useHead({
                   image: coverImageLink.value,
               }
             : {}),
-        ...(["BroJenuel", "KateAwisan"].includes(
-            author && author.username ? author.username : "BroJenuel"
+        ...(["Jenuel.Dev", "KateAwisan"].includes(
+            author && author.username ? author.username : "Jenuel.Dev"
         )
             ? {}
             : {
                   author:
-                      author && author.username ? author.username : "BroJenuel",
+                      author && author.username
+                          ? author.username
+                          : "Jenuel.Dev",
               }),
     }),
 });
@@ -76,7 +78,7 @@ onMounted(() => {
         v-if="!coverImageLink"
         :description="data ? data.summary : 'Page Not Found'"
         :title="data ? data.title : 'Page Not Found'"
-        component="BroJenuelOgImage"
+        component="JenuelDevOgImage"
     />
     <Transition>
         <main

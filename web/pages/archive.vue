@@ -1,5 +1,10 @@
 <script setup lang="ts">
 const projects = useProjects();
+
+defineOgImageComponent("JenuelDevOgImage", {
+    title: "Jenuel Ganawed -  Personal Project Archives",
+    about: "I'm a bit of a digital product junky. I've created a bunch of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to try designing and building my own.",
+});
 </script>
 <template>
     <div id="main-content" class="relative">
@@ -10,8 +15,11 @@ const projects = useProjects();
         >
             <NuxtLink to="/" class="hover:text-teal-300">
                 <Icon name="ic:baseline-arrow-back" class="w-6 h-6" />
-                BroJenuel
+                Jenuel.Dev
             </NuxtLink>
+            <h1 class="text-2xl font-bold mb-5 mt-3">
+                Jenuel.Dev Personal Project Archives
+            </h1>
             <div class="mt-16">
                 <ul class="group/list">
                     <li v-for="project in projects" class="mb-12">

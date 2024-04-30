@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://brojenuel.com/sitemap.xml
+Sitemap: https://jenuel.dev/sitemap.xml
