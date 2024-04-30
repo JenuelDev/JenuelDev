@@ -37,7 +37,7 @@ useHead({
     }),
 });
 
-defineOgImageComponent("BroJenuelOgImage", {
+defineOgImageComponent("JenuelDevOgImage", {
     title: "Jenuel Ganawed -  Software Engineer",
     about: "I build web apps that are engaging, accessible and scalable.",
 });

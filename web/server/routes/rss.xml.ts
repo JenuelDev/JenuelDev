@@ -17,12 +17,12 @@ export default defineEventHandler(async (event) => {
     }
 
     const feed = new RSS({
-        title: "BroJenuel - Articles",
-        site_url: "https://brojenuel.com",
-        feed_url: `https://brojenuel.com/rss.xml`,
+        title: "Jenuel.Dev - Articles",
+        site_url: "https://jenuel.dev",
+        feed_url: `https://jenuel.dev/rss.xml`,
         description:
-            "Latest articles in BroJenuel Site by Jenuel Oras Ganawed.",
-        copyright: `${new Date().getFullYear()} BroJenuel`,
+            "Latest articles in Jenuel.Dev Site by Jenuel Oras Ganawed.",
+        copyright: `${new Date().getFullYear()} Jenuel.Dev`,
         language: "en",
     });
 
@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
     for (const doc of data) {
         feed.item({
             title: doc.title ?? "-",
-            url: `https://brojenuel.com/blog/${doc.slug}`,
+            url: `https://jenuel.dev/blog/${doc.slug}`,
             date: doc.updated_at,
             description: doc.summary,
         });

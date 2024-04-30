@@ -117,7 +117,7 @@ const JumpLinks = [
             <li class="mr-5 text-xs shrink-0">
                 <a
                     class="block hover:text-slate-200"
-                    href="https://instagram.com/brojenuel"
+                    href="https://instagram.com/jenuel.dev"
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label="Instagram (opens in a new tab)"
@@ -129,7 +129,7 @@ const JumpLinks = [
             <li class="mr-5 text-xs shrink-0">
                 <a
                     class="block hover:text-slate-200"
-                    href="https://twitter.com/brojenuel"
+                    href="https://twitter.com/JenuelDev"
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label="Twitter (opens in a new tab)"
@@ -142,7 +142,7 @@ const JumpLinks = [
             <li class="mr-5 text-xs shrink-0">
                 <a
                     class="block hover:text-slate-200"
-                    href="https://dev.to/brojenuel"
+                    href="https://dev.to/jenueldev"
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label="Twitter (opens in a new tab)"

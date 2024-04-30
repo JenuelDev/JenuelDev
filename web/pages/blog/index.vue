@@ -35,16 +35,23 @@ const noMoreData = ref(false);
 
 useHead({
     ...setMeta({
-        title: "Blog - BroJenuel",
+        title: "Blog - Jenuel.Dev",
         description: "Learn about tips and tricks about tech and programming.",
         path: route.path,
-        keywords: ["brojenuel", "Jenuel", "Ganawed", "tech", "programming"],
+        keywords: [
+            "jenuel.dev",
+            "Jenuel",
+            "dev",
+            "Ganawed",
+            "tech",
+            "programming",
+        ],
         lang: "en",
     }),
 });
 
-defineOgImageComponent("BroJenuelOgImage", {
-    title: "BroJenuel - Blog",
+defineOgImageComponent("JenuelDevOgImage", {
+    title: "Blog - Jenuel.Dev",
     description:
         "Learn programming tips, tricks, best practices to make programming and other information that will benefit you.",
 });
@@ -94,10 +101,6 @@ async function getBlogs(isReset = false) {
     return data;
 }
 
-// await useAsyncData("blogs", async () => {
-
-// });
-
 function searchRoute() {
     getBlogs(true);
 }
@@ -129,11 +132,11 @@ onMounted(async () => {
                     class="hover:text-teal-300 pb-3 sm:pb-0 cursor-pointer"
                 >
                     <Icon name="ic:baseline-arrow-back" class="w-6 h-6" />
-                    BroJenuel
+                    Jenuel.Dev
                 </div>
                 <NuxtLink v-else to="/" class="hover:text-teal-300 py-10">
                     <Icon name="ic:baseline-arrow-back" class="w-6 h-6" />
-                    BroJenuel
+                    Jenuel.Dev
                 </NuxtLink>
                 <form
                     @submit.prevent="searchRoute"
@@ -154,6 +157,7 @@ onMounted(async () => {
                 </form>
             </div>
         </div>
+        <h1 class="text-3xl font-bold mb-5">Jenuel.Dev Blog</h1>
         <div v-if="!blogsList.length" class="min-h-[100vh]">
             <div v-for="i in 8" class="rounded-lg shadow-md pb-4 animate-pulse">
                 <div class="w-40 h-3 bg-slate-500 rounded mb-2"></div>

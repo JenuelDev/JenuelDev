@@ -20,7 +20,7 @@ const setMeta = (data: {
             },
             {
                 name: "copyright",
-                content: "BroJenuel",
+                content: "Jenuel.Dev",
             },
             {
                 name: "language",
@@ -36,11 +36,11 @@ const setMeta = (data: {
             },
             {
                 name: "author",
-                content: data.author ?? "BroJenuel, jenuelganawed936@gmail.com",
+                content: data.author ?? "Jenuel, jenuelganawed936@gmail.com",
             },
             {
                 name: "url",
-                content: "https://brojenuel.com" + data.path,
+                content: "https://jenuel.dev" + data.path,
             },
 
             // Social Media Tags
@@ -52,7 +52,7 @@ const setMeta = (data: {
             },
             {
                 property: "og:url",
-                content: "https://brojenuel.com" + data.path,
+                content: "https://jenuel.dev" + data.path,
             },
             ...(data.image
                 ? [
@@ -92,7 +92,7 @@ const setMeta = (data: {
             },
             {
                 name: "twitter:url",
-                content: "https://brojenuel.com" + data.path,
+                content: "https://jenuel.dev" + data.path,
             },
             {
                 name: "twitter:card",
