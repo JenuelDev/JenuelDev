@@ -72,7 +72,13 @@ async function getBlogs(isReset = false) {
         .order("id", { ascending: false });
 
     if (filter.search && filter.search != "") {
-        query.textSearch("search_blogs", `'${filter.search}'`);
+        // need to search by words
+        const searchByWords = filter.search.split(" ");
+        const searchWithAnd = searchByWords
+            .map((word) => `'${word}'`)
+            .join(" | ");
+
+        query.textSearch("search_blogs", `${searchWithAnd}`);
     }
 
     if (filter.cat && filter.cat != "") {
@@ -134,8 +140,12 @@ onMounted(async () => {
                     class="flex items-center mb-1"
                 >
                     <div class="relative">
+                        <Icon
+                            name="ic:baseline-search"
+                            class="absolute top-1/2 -translate-y-1/2 left-2"
+                        />
                         <input
-                            class="bg-slate-800 appearance-none border-2 border-gray-200 rounded px-4 text-gray-700 leading-tight focus:outline-none focus:text-slate-200 focus:border-purple-500 border-none block h-[30px]"
+                            class="bg-slate-800 appearance-none border-2 border-gray-200 rounded px-4 text-slate-200 leading-tight focus:outline-none focus:text-slate-200 focus:border-purple-500 border-none block h-[30px] pl-8"
                             type="text"
                             placeholder="Search..."
                             v-model="filter.search"
@@ -152,13 +162,13 @@ onMounted(async () => {
                 <div class="w-1/2 h-5 bg-slate-500 rounded"></div>
             </div>
         </div>
-        <div v-else class="grid min-h-[100vh] grid-cols-1 gap-10 group/list">
+        <div v-else class="min-h-[100vh] gap-10 group/list">
             <NuxtLink
                 v-for="(blog, i) in blogsList"
                 :key="`${blog.id}-${i}`"
                 :href="`/blog/${blog.slug}`"
                 :style="`order: ${i > 0 ? i + 1 : i}`"
-                class="rounded-md cursor-pointer gap-1 decoration-none relative pb-1 transition-all md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-70 grid grid-cols-1 sm:grid-cols-8 text-center sm:text-left"
+                class="rounded-md cursor-pointer gap-1 decoration-none relative pb-1 transition-all md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-70 grid grid-cols-1 sm:grid-cols-8 text-center sm:text-left mb-5 hover:bg-slate-900 group p-2"
             >
                 <NuxtImg
                     v-if="blog.cover_img"
@@ -175,14 +185,16 @@ onMounted(async () => {
                 <div
                     class="content-summary leading-5 col-span-6 text-slate-200"
                 >
-                    <div class="opacity-70 text-xs">
+                    <div class="opacity-70 text-xs mb-1">
                         <span
                             class="icon--solar icon--solar--calendar-bold-duotone"
                         />
                         {{ $dayjs(blog.updated_at).format("DD MMM, YYYY") }}
                     </div>
-                    <h4>{{ blog.title }}</h4>
-                    <p class="line-clamp-6 font-thin text-sm">
+                    <h4 class="mb-2">{{ blog.title }}</h4>
+                    <p
+                        class="line-clamp-6 font-light opacity-80 group-hover:opacity-100 text-sm"
+                    >
                         {{ blog.summary }}
                     </p>
                 </div>
