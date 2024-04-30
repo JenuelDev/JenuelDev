@@ -77,9 +77,10 @@
     }
 
     pre {
+        @apply bg-slate-900;
+
         position: relative;
         padding: 10px;
-        background-color: var(--background-secondary);
         border-radius: 7px;
         overflow-x: auto;
         transition: all 0.25s;
@@ -125,11 +126,8 @@
                 to right,
                 var(--gradient-color-stops)
             );
-            border-radius: 0.125rem;
-            font-size: 1.125rem;
-            overflow-wrap: break-word;
-            padding: 0.25rem 0.5rem;
-            color: black;
+
+            @apply text-slate-950 px-1 text-lg rounded-md;
         }
     }
 
