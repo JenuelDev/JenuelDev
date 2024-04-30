@@ -1,6 +1,6 @@
 export const useShareFunction = () => ({
     share: (social: string) => {
-        let url = "https://jenuel.com" + window.location.pathname;
+        let url = "https://jenuel.dev" + window.location.pathname;
         if (social == "facebook") {
             const navUrl =
                 "https://www.facebook.com/sharer/sharer.php?u=" + url;
