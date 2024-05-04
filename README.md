@@ -12,10 +12,6 @@ I take pride in my attention to details, meticulously examining even the smalles
 
 When I’m not at the computer, I’m usually playing a guitar even though I'm not a pro in it, trying to read books, walking outside, having a home work out, eating a meal or playing a PUBG Mobile with friends.
 
--   🗺 Im from Benguet, Luzon, Philippines!
--   I know how to 🏊‍♀️🏊‍♂️ `swim`, 🎸 play `guitar` (a little bit), i also play 💻 `games`.
--   🙏 👆 I believe in a Creator, as I also am a creator of apps.
-
 ### 🛠 Languages And Tools
 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
