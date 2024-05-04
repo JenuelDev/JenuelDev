@@ -12,10 +12,6 @@ I take pride in my attention to details, meticulously examining even the smalles
 
 When I’m not at the computer, I’m usually playing a guitar even though I'm not a pro in it, trying to read books, walking outside, having a home work out, eating a meal or playing a PUBG Mobile with friends.
 
--   🗺 Im from Benguet, Luzon, Philippines!
--   I know how to 🏊‍♀️🏊‍♂️ `swim`, 🎸 play `guitar` (a little bit), i also play 💻 `games`.
--   🙏 👆 I believe in a Creator, as I also am a creator of apps.
-
 ### 🛠 Languages And Tools
 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
@@ -63,11 +59,11 @@ When I’m not at the computer, I’m usually playing a guitar even though I'm n
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
-- [Top 3 Best Freelance Websites](https://brojenuel.com/blog/Top-3-Best-Freelance-Websites)
-- [Why &quot;CANVA&quot; is essential for most businesses?](https://brojenuel.com/blog/Why-CANVA-is-essential-for-most-businesses-)
-- [Ways To Manipulate Objects In JavaScript](https://brojenuel.com/blog/Ways-To-Manipulate-Objects-In-JavaScript)
-- [Best ReactJs Component Libraries 2024](https://brojenuel.com/blog/Best-ReactJs-Component-Libraries-2024)
-- [What to do if your tired and stressed doing a lot of programming?](https://brojenuel.com/blog/What-to-do-if-your-tired-and-stressed-doing-a-lot-of-programming-)
+- [JavaScript: Tips and Tricks for Array](https://jenuel.dev/blog/JavaScript-Tips-and-Tricks-for-Array-)
+- [JavaScript: Ways To Manipulate String](https://jenuel.dev/blog/JavaScript-Ways-To-Manipulate-String)
+- [Why VueJS will be the future?](https://jenuel.dev/blog/Why-VueJS-will-be-the-future-)
+- [Top 3 Best Freelance Websites](https://jenuel.dev/blog/Top-3-Best-Freelance-Websites)
+- [Why &quot;CANVA&quot; is essential for most businesses?](https://jenuel.dev/blog/Why-CANVA-is-essential-for-most-businesses-)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
