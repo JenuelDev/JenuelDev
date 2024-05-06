@@ -158,7 +158,7 @@ onMounted(() => {
                     </button>
                     <a
                         class="h-[30px] w-[30px] bg-[#FFDD00] rounded-full flex items-center justify-center relative group text-dark-700"
-                        href="https://bit.ly/BroJenuel-BuyMeCoffee"
+                        href="https://www.buymeacoffee.com/jenuel.dev"
                         alt="Jenuel Ganawed Buy me Coffee"
                         target="_blank"
                     >
@@ -345,18 +345,10 @@ onMounted(() => {
                         support, you can easily do so by buying me a coffee.
                         Your contribution is greatly appreciated!
                     </p>
-                    <a
-                        href="https://bit.ly/BroJenuel-BuyMeCoffee"
-                        target="_blank"
-                    >
+                    <a href="https://www.buymeacoffee.com/jenuel.dev">
                         <NuxtImg
-                            height="50"
-                            width="260"
-                            style="border: 0px; height: 50px; width: auto"
-                            src="/img/buymecoffee/bmc-button.png"
-                            border="0"
-                            alt="Buy Me a Coffee at https://www.buymeacoffee.com"
-                            class="rounded-lg"
+                            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=jenuel.dev&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
+                            alt="Jenuel Ganawed Buy me Coffee"
                         />
                     </a>
                 </div>
