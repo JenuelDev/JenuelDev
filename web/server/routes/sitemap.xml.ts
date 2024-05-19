@@ -2,17 +2,9 @@ import dayjs from "dayjs";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { serverSupabaseClient } from "#supabase/server";
 
-const domain = "https://jenuel.dev";
+const domain = "https://www.jenuel.dev";
 
 const pages = [
-    {
-        url: domain + "/about",
-        lastmod: "2023-12-20",
-    },
-    {
-        url: domain + "/contact",
-        lastmod: "2023-04-17",
-    },
     {
         url: domain + "/archive",
         lastmod: "2024-04-18",
