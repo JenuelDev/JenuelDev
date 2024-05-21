@@ -59,6 +59,10 @@ onMounted(() => {
                     <HomeAbout ref="HomeAboutRef" id="about" />
                     <HomeExperience ref="HomeExperienceRef" id="experience" />
                     <HomeProjects ref="HomeProjectsRef" id="projects" />
+                    <HomeAchievements
+                        ref="HomeAchievementsRef"
+                        id="achievements"
+                    />
                     <HomeFooter />
                 </main>
             </div>

@@ -1,6 +1,39 @@
 <script setup lang="ts">
 const showMobileMenu = ref(false);
 
+const JumpLinks = [
+    {
+        key: "about",
+        name: "About",
+        link: "#about",
+        isRoute: false,
+    },
+    {
+        key: "experience",
+        name: "Experience",
+        link: "#experience",
+        isRoute: false,
+    },
+    {
+        key: "projects",
+        name: "Projects",
+        link: "#projects",
+        isRoute: false,
+    },
+    {
+        key: "Achievements",
+        name: "Achievements",
+        link: "#achievements",
+        isRoute: false,
+    },
+    {
+        key: "blog",
+        name: "Blog",
+        link: "/blog",
+        isRoute: true,
+    },
+];
+
 function toggleMobileMenu() {
     showMobileMenu.value = !showMobileMenu.value;
 
@@ -23,36 +56,26 @@ function toggleMobileMenu() {
         }"
         style="z-index: 50"
     >
-        <a
-            class="p-2 text-2xl font-bold"
-            href="#about"
-            @click="toggleMobileMenu"
-        >
-            About
-        </a>
-        <a
-            class="p-2 text-2xl font-bold"
-            href="#experience"
-            @click="toggleMobileMenu"
-        >
-            Experience
-        </a>
-        <a
-            class="p-2 text-2xl font-bold"
-            href="#projects"
-            @click="toggleMobileMenu"
-        >
-            Projects
-        </a>
-        <div
-            class="p-2 text-2xl font-bold"
-            @click="
-                toggleMobileMenu();
-                $router.push('/blog');
-            "
-        >
-            Blog
-        </div>
+        <template v-for="link in JumpLinks">
+            <a
+                v-if="!link.isRoute"
+                class="p-2 text-2xl font-bold"
+                :href="link.link"
+                @click="toggleMobileMenu"
+            >
+                {{ link.name }}
+            </a>
+            <div
+                v-else
+                class="p-2 text-2xl font-bold"
+                @click="
+                    toggleMobileMenu();
+                    $router.push(link.link);
+                "
+            >
+                Blog
+            </div>
+        </template>
     </div>
 </template>
 <style lang="scss">
