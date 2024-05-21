@@ -23,6 +23,12 @@ const JumpLinks = [
         isRoute: false,
     },
     {
+        key: "Achievements",
+        name: "Achievements",
+        link: "#achievements",
+        isRoute: false,
+    },
+    {
         key: "blog",
         name: "Blog",
         link: "/blog",
