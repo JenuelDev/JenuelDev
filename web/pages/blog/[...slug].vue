@@ -87,23 +87,9 @@ onMounted(() => {
         >
             <div class="sticky top-10 z-50">
                 <div class="absolute flex flex-col items-center z-50 gap-5">
-                    <button
-                        v-if="isHasHistory"
-                        title="Go back"
-                        class="h-[40px] w-[40px] hover:bg-slate-900 rounded-full flex items-center justify-center hover:text-slate-100 p-3 relative group border-none cursor-pointer"
-                        @click="$router.back()"
-                    >
-                        <Icon name="material-symbols:arrow-back"></Icon>
-                        <span
-                            class="absolute lg:left-[50px] left-0 lg:top-0 top-[50px] whitespace-nowrap bg-slate-800 opacity-0 group-hover:opacity-100 transition-all rounded-lg p-2 pointer-events-none"
-                        >
-                            Go Back
-                        </span>
-                    </button>
                     <NuxtLink
                         title="Go back"
-                        v-else
-                        to="/"
+                        to="/blog"
                         class="h-[40px] w-[40px] hover:bg-slate-900 rounded-full flex items-center justify-center hover:text-[var(--primary)] p-3 relative group border-none hover:text-slate-100 cursor-pointer"
                         @click="$router.back()"
                     >
