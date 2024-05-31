@@ -208,7 +208,7 @@ const experiences: ExperienceItem[] = [
     },
     {
         from: 2018,
-        to: 2028,
+        to: 2018,
         company: "ILearn Skills Development Academy",
         position: "Designer and Web Developer",
         description: [
