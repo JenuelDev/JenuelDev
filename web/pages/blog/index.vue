@@ -123,21 +123,16 @@ onMounted(async () => {
 });
 </script>
 <template>
-    <div class="mx-auto max-w-2xl px-6 pt-5 sm:pt-0 relative">
+    <div class="mx-auto max-w-2xl px-3 pt-5 sm:pt-0 relative">
         <div class="pt-0 sm:pt-10 pb-10">
-            <div class="flex justify-between flex-col sm:flex-row">
+            <div class="flex justify-between flex-row flex-wrap">
                 <div
-                    v-if="isHasHistory"
-                    @click="$router.go(-1)"
+                    @click="$router.back()"
                     class="hover:text-teal-300 pb-3 sm:pb-0 cursor-pointer"
                 >
-                    <Icon name="ic:baseline-arrow-back" class="w-6 h-6" />
-                    Jenuel.Dev
+                    <Icon name="ic:baseline-arrow-back" class="w-5 h-5" />
+                    Jenuel.Dev <b>Blog</b>
                 </div>
-                <NuxtLink v-else to="/" class="hover:text-teal-300 py-10">
-                    <Icon name="ic:baseline-arrow-back" class="w-6 h-6" />
-                    Jenuel.Dev
-                </NuxtLink>
                 <form
                     @submit.prevent="searchRoute"
                     class="flex items-center mb-1"
@@ -157,7 +152,6 @@ onMounted(async () => {
                 </form>
             </div>
         </div>
-        <h1 class="text-3xl font-bold mb-5">Jenuel.Dev Blog</h1>
         <div v-if="!blogsList.length" class="min-h-[100vh]">
             <div v-for="i in 8" class="rounded-lg shadow-md pb-4 animate-pulse">
                 <div class="w-40 h-3 bg-slate-500 rounded mb-2"></div>
@@ -172,12 +166,12 @@ onMounted(async () => {
                 :key="`${blog.id}-${i}`"
                 :href="`/blog/${blog.slug}`"
                 :style="`order: ${i > 0 ? i + 1 : i}`"
-                class="rounded-md cursor-pointer gap-1 decoration-none relative pb-1 transition-all md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-70 grid grid-cols-1 sm:grid-cols-8 text-center sm:text-left mb-5 hover:bg-slate-900 group p-2"
+                class="rounded-md cursor-pointer gap-1 decoration-none relative pb-1 transition-all md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-70 grid grid-cols-1 sm:grid-cols-8 text-left mb-5 hover:bg-slate-900 group p-2"
             >
                 <NuxtImg
                     v-if="blog.cover_img"
                     :src="blog.cover_img"
-                    class="rounded-lg w-150px mx-auto col-span-2"
+                    class="rounded-lg w-full mx-auto col-span-2"
                     width="300"
                     height="150"
                     format="webp"
@@ -189,15 +183,16 @@ onMounted(async () => {
                 <div
                     class="content-summary leading-5 col-span-6 text-slate-200"
                 >
-                    <div class="opacity-70 text-xs mb-1">
+                    <div class="opacity-70 text-xs sm:mb-1">
                         <span
                             class="icon--solar icon--solar--calendar-bold-duotone"
                         />
                         {{ $dayjs(blog.updated_at).format("DD MMM, YYYY") }}
                     </div>
-                    <h4 class="mb-2">{{ blog.title }}</h4>
+                    <h4 class="sm:mb-2">{{ blog.title }}</h4>
                     <p
                         class="line-clamp-6 font-light opacity-80 group-hover:opacity-100 text-sm"
+                        :class="{ 'line-clamp-3': blog.cover_img }"
                     >
                         {{ blog.summary }}
                     </p>
