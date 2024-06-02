@@ -59,11 +59,11 @@ When I’m not at the computer, I’m usually playing a guitar even though I'm n
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Best Tablet Devices for Work](https://jenuel.dev/blog/Best-Tablet-Devices-for-Work)
 - [Harnessing the Law of Polarity: Transforming Challenges into Opportunities](https://jenuel.dev/blog/Harnessing-the-Law-of-Polarity-Transforming-Challenges-into-Opportunities)
 - [Snapdragon X elite VS Apple M-series](https://jenuel.dev/blog/Snapdragon-X-elite-VS-Apple-M-series)
 - [JavaScript: The differences between var, let, and const](https://jenuel.dev/blog/JavaScript-The-differences-between-var-let-and-const)
 - [JavaScript: Tips and Tricks for Array](https://jenuel.dev/blog/JavaScript-Tips-and-Tricks-for-Array-)
-- [JavaScript: Ways To Manipulate String](https://jenuel.dev/blog/JavaScript-Ways-To-Manipulate-String)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
