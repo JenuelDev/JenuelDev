@@ -42,8 +42,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            siteUrl:
-                process.env.NUXT_PUBLIC_SITE_URL || "https://jenuel.dev",
+            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://jenuel.dev",
             isDevelopment: process.env.IS_DEVELOPMENT == "TRUE",
             emailJsServiceId: process.env.EMAILJS_SERVICE_ID,
             emailJsTemplateId: process.env.EMAILJS_TEMPLATE_ID,
