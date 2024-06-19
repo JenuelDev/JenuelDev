@@ -47,25 +47,30 @@ onMounted(() => {
 });
 </script>
 <template>
-    <HomeMobileMenu />
-    <div v-show="show" id="main-content" class="relative">
-        <HomePointer />
-        <div
-            class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
-        >
-            <div class="lg:flex lg:justify-between lg:gap-4">
-                <HomeHeader :visible="visibleItem" />
-                <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
-                    <HomeAbout ref="HomeAboutRef" id="about" />
-                    <HomeExperience ref="HomeExperienceRef" id="experience" />
-                    <HomeProjects ref="HomeProjectsRef" id="projects" />
-                    <HomeAchievements
-                        ref="HomeAchievementsRef"
-                        id="achievements"
-                    />
-                    <HomeFooter />
-                </main>
+    <NuxtLayout>
+        <HomeMobileMenu />
+        <div v-show="show" id="main-content" class="relative">
+            <HomePointer />
+            <div
+                class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
+            >
+                <div class="lg:flex lg:justify-between lg:gap-4">
+                    <HomeHeader :visible="visibleItem" />
+                    <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+                        <HomeAbout ref="HomeAboutRef" id="about" />
+                        <HomeExperience
+                            ref="HomeExperienceRef"
+                            id="experience"
+                        />
+                        <HomeProjects ref="HomeProjectsRef" id="projects" />
+                        <HomeAchievements
+                            ref="HomeAchievementsRef"
+                            id="achievements"
+                        />
+                        <HomeFooter />
+                    </main>
+                </div>
             </div>
         </div>
-    </div>
+    </NuxtLayout>
 </template>

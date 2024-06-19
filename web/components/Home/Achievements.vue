@@ -113,7 +113,7 @@ const projects: Array<{
                                     :aria-label="project.ariaLabel"
                                 >
                                     <span class="flex items-center gap-1">
-                                        <IconCSS
+                                        <Icon
                                             size="20"
                                             name="iconamoon:certificate-badge-duotone"
                                         />
