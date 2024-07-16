@@ -12,7 +12,7 @@ const { share } = useShareFunction();
                     title="Go back"
                     to="/blog"
                     class="h-[40px] w-[40px] bg-slate-900 hover:bg-slate-800 rounded-full flex items-center justify-center hover:text-[var(--primary)] p-3 relative group border-none hover:text-slate-100 cursor-pointer"
-                    @click="$router.back()"
+                    @click="$router.push('/blog')"
                 >
                     <Icon name="material-symbols:arrow-back"></Icon>
                 </NuxtLink>

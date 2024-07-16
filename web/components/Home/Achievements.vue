@@ -113,19 +113,15 @@ const projects: Array<{
                                     :aria-label="project.ariaLabel"
                                 >
                                     <span class="flex items-center gap-1">
-                                        <Icon
-                                            size="20"
-                                            name="iconamoon:certificate-badge-duotone"
-                                        />
-                                        <span class="truncate w-72">{{
-                                            project.name
-                                        }}</span>
-                                        <span class="inline-block">
+                                        <span>
+                                            <Icon
+                                                size="20"
+                                                name="iconamoon:certificate-badge-duotone" />
+                                            {{ project.name }}
                                             <Icon
                                                 class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
                                                 name="ic:baseline-arrow-outward"
-                                            />
-                                        </span>
+                                        /></span>
                                     </span>
                                 </a>
                                 <span class="text-sm">{{ project.from }}</span>

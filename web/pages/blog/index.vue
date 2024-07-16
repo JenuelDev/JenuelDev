@@ -127,7 +127,7 @@ onMounted(async () => {
         <div class="pt-0 sm:pt-10 pb-10">
             <div class="flex justify-between flex-row flex-wrap">
                 <div
-                    @click="$router.back()"
+                    @click="$router.push('/')"
                     class="hover:text-teal-300 pb-3 sm:pb-0 cursor-pointer"
                 >
                     <Icon name="ic:baseline-arrow-back" class="w-5 h-5" />
