@@ -1,0 +1,49 @@
+---
+import ProfileImage from "../../assets/images/profile.jpg";
+export const prerender = true;
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="w-full max-w-800px pt-20 mx-auto">
+    <div class="flex items-center sm:gap-10 gap-4 m-2">
+        <div class="sm:h-200px h-150px sm:w-200px w-150px relative group">
+            <div
+                class="rounded-full overflow-hidden flex items-center relative justify-center sm:h-200px h-150px border-5 border-slate-200 group-hover:border-slate-300 transition-all"
+            >
+                <Image
+                    src={ProfileImage}
+                    width={150}
+                    class="absolute scale-100 group-hover:scale-105 transition-all"
+                    alt="Jenuel"
+                    loading={"eager"}
+                />
+            </div>
+            <div
+                class="w-30px h-30px bg-slate-950 absolute rounded-full bottom-6px sm:right-6px right-0px group-hover:bg-slate-500 transition-all text-2xl flex items-center justify-center text-slate-50 group-hover:text-slate-950"
+            >
+                <Icon name="CarbonCode" />
+            </div>
+            <div
+                class="w-20px h-20px bg-slate-500 absolute rounded-full bottom-28px sm:right-0 right-[-7px] group-hover:bg-slate-950 transition-all"
+            >
+            </div>
+        </div>
+        <div class="text-align-left w-full">
+            <h3 class="md:text-3xl sm:text-2xl text-1xl">
+                hi! I'm <span class="font-bold">Jenuel</span> & I'm a
+            </h3>
+            <h1 class="font-800 tracking-tight md:text-5xl sm:text-4xl text-3xl group">
+                Software <span class="text-gray-500 underline">Developer</span>
+            </h1>
+            <p class="sm:mt-4 mt-1 sm:max-w-xs leading-normal mr-auto mb-2">
+                I build web apps that are engaging, accessible and scalable.
+            </p>
+            <button
+                class="bg-slate-950 text-white rounded-3xl px-4 py-2 flex items-center gap-1 hover:bg-slate-400 transition-all hover:text-slate-900"
+            >
+                <Icon name="CarbonConnect" /> Let's Connect
+            </button>
+        </div>
+    </div>
+</section>
