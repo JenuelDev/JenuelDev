@@ -1,0 +1,212 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import kcpLogo from "../../assets/images/companies/kcp.png";
+---
+
+<ol class="timeline w-full max-w-700px mx-auto border-l-2 border-gray-2 pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10">
+    <li class="timeline-item">
+        <span class="timeline-item-icon | faded-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                    fill="currentColor"
+                    d="M12.9 6.858l4.242 4.243L7.242 21H3v-4.243l9.9-9.9zm1.414-1.414l2.121-2.122a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414l-2.122 2.121-4.242-4.242z"
+                ></path>
+            </svg>
+        </span>
+        <div class="timeline-item-description">
+            <i class="avatar | small">
+                <img src="https://assets.codepen.io/285131/winking-girl.png" />
+            </i>
+            <span>
+                <a href="#">Luna Bonifacio</a> has changed <a href="#">2 attributes</a> on <time datetime="21-01-2021">
+                    Jan 21, 2021
+                </time>
+            </span>
+        </div>
+    </li>
+    <li class="timeline-item">
+        <span class="timeline-item-icon | faded-icon">
+            <Icon name="StreamlineProgrammingScriptHtmlFiveLanguageFiveCodeProgrammingHtml" />
+        </span>
+        <div class="timeline-item-wrapper">
+            <div class="timeline-item-description">
+                <span>
+                    started working in <a href="#">Ilearn Skills Development Academy</a> as a Designer Web Programmer
+                </span>
+            </div>
+            <div class="comment">
+                <p>
+                    my first experience using what I learned from school. And it was not good, so I learn to solo learn.
+                </p>
+            </div>
+        </div>
+    </li>
+    <li class="timeline-item">
+        <span class="timeline-item-icon | filled-icon">
+            <Icon name="Fa6SolidUserGraduate" />
+        </span>
+        <div class="timeline-item-wrapper">
+            <div class="timeline-item-description">
+                <span>
+                    graduated from <a href="https://kcp.edu.ph/">Kings College of the Philippines</a>
+                    on May 2019
+                </span>
+            </div>
+            <div class="comment">
+                <p>
+                    Majored in Web Technology, and had been creating projects related to web programming and actively
+                    participating in events, seminars, and competitions.😊
+                </p>
+            </div>
+        </div>
+    </li>
+</ol>
+
+<style lang="scss">
+    .timeline-item {
+        display: flex;
+        gap: 24px;
+        & + * {
+            margin-top: 24px;
+        }
+    }
+
+    .new-comment {
+        width: 100%;
+        input {
+            border: 1px solid var(--c-grey-200);
+            border-radius: 6px;
+            height: 48px;
+            padding: 0 16px;
+            width: 100%;
+            &::placeholder {
+                color: var(--c-grey-300);
+            }
+
+            &:focus {
+                border-color: var(--c-grey-300);
+                outline: 0;
+                box-shadow: 0 0 0 4px var(--c-grey-100);
+            }
+        }
+    }
+
+    .timeline-item-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: -52px;
+        flex-shrink: 0;
+        overflow: hidden;
+        box-shadow: 0 0 0 6px #fff;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &.faded-icon {
+            background-color: var(--c-grey-100);
+            color: var(--c-grey-400);
+        }
+
+        &.filled-icon {
+            background-color: var(--c-blue-500);
+            color: #fff;
+        }
+    }
+
+    .timeline-item-description {
+        display: flex;
+        padding-top: 6px;
+        gap: 8px;
+        color: var(--c-grey-400);
+
+        img {
+            flex-shrink: 0;
+        }
+        a {
+            color: var(--c-grey-500);
+            font-weight: 500;
+            text-decoration: none;
+            &:hover,
+            &:focus {
+                outline: 0;
+                color: var(--c-blue-500);
+            }
+        }
+    }
+
+    .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        &.small {
+            width: 28px;
+            height: 28px;
+        }
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .comment {
+        margin-top: 12px;
+        color: var(--c-grey-500);
+        border: 1px solid var(--c-grey-200);
+        box-shadow: 0 4px 4px 0 var(--c-grey-100);
+        border-radius: 6px;
+        padding: 16px;
+        font-size: 1rem;
+    }
+
+    .button {
+        border: 0;
+        padding: 0;
+        display: inline-flex;
+        vertical-align: middle;
+        margin-right: 4px;
+        margin-top: 12px;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        height: 32px;
+        padding: 0 8px;
+        background-color: var(--c-grey-100);
+        flex-shrink: 0;
+        cursor: pointer;
+        border-radius: 99em;
+
+        &:hover {
+            background-color: var(--c-grey-200);
+        }
+
+        &.square {
+            border-radius: 50%;
+            color: var(--c-grey-400);
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            &:hover {
+                background-color: var(--c-grey-200);
+                color: var(--c-grey-500);
+            }
+        }
+    }
+</style>
