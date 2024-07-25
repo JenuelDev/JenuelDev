@@ -2,6 +2,8 @@ import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 import icon from "astro-icon";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
     output: "server",
@@ -11,4 +13,5 @@ export default defineConfig({
         }),
         icon(),
     ],
+    adapter: netlify(),
 });
