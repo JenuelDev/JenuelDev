@@ -1,59 +1,82 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface ExperienceItem {
+    company?: string;
+    icon: string;
+    descriptions: string;
+    comment?: string;
+    iconColor?: "energy-icon" | "blue-icon" | "faded-icon";
+}
+
+const timeline: Array<ExperienceItem> = [
+    {
+        icon: "CarbonBatteryCharging",
+        descriptions: '"do good and good will come to you."',
+        iconColor: "energy-icon",
+    },
+    {
+        company: "VOCPhone",
+        icon: "CarbonRadioPushToTalk",
+        iconColor: "blue-icon",
+        descriptions:
+            'settled in <a href="https://vocphone.com/" class="text-[var(--c-grey-500)]"> <strong> VOCPhone </strong> </a> as a <span class="font-600"> 🧑‍💻 Senior Software Developer</span> on <span class="whitespace-nowrap">Nov 2021 - <span class="text-[var(--c-blue-500)] font-900">Present</span></span>',
+    },
+    {
+        icon: "CarbonVehicleInsights",
+        descriptions:
+            'went to <a href="https://www.revdojo.com/" class="text-[var(--c-grey-500)]"> <strong> Webinarinc </strong> </a> as a <span class="font-600"> 😊 Software Developer</span> on <span class="whitespace-nowrap">Mar 2021 - Nov 2021</span>',
+    },
+    {
+        icon: "CarbonChat",
+        descriptions:
+            'jumped to <a href="https://www.linkedin.com/company/utalk-tutorial-services/" class="text-[var(--c-grey-500)]"> <strong> UTalk </strong> </a> as a <span class="font-600"> 😁 Software Developer</span> on <span class="whitespace-nowrap">Aug 2019 - Apr 2021</span>',
+        comment: "focused working on a project related to learning management systems.",
+    },
+    {
+        icon: "CarbonThumbsUpFilled",
+        descriptions:
+            'moved to <a href="https://www.facebook.com/p/Dap-ayan-Food-Corporation-100057698281360/" class="text-[var(--c-grey-500)]"> <strong> Dap-ayan Eatery </strong> </a> as a <span class="font-600"> 🌍 Web Developer</span> on <span class="whitespace-nowrap">Aug 2018 - May 2019</span>',
+        comment: "starting to use tools that I've learned in a proper way.",
+    },
+    {
+        icon: "MaterialSymbolsFastfoodSharp",
+        descriptions:
+            'started working in <a href="https://www.facebook.com/ilearnsda/" class="text-[var(--c-grey-500)]"> <strong> Ilearn Skills Development Academy </strong> </a> as a 🎨 <span class="font-600"> Designer Web Programmer </span> on <span class="whitespace-nowrap"> Aug 2018 - Dec 2018 </span>',
+        comment:
+            "my first experience using what I learned from school. And I realize it's not enough, so I learned to solo learn.",
+    },
+    {
+        icon: "Fa6SolidUserGraduate",
+        iconColor: "blue-icon",
+        descriptions:
+            'graduated from <a href="https://kcp.edu.ph/" class="text-[var(--c-grey-500)]"> <strong>Kings College of the Philippines </strong> </a> on May 2019',
+        comment:
+            "Majored in Web Technology, and had been creating projects related to web programming and actively participating in events, seminars, and competitions.😊",
+    },
+];
 ---
 
-<ol class="timeline w-8/10 max-w-700px mx-auto border-l-2 border-gray-2 pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10">
-    <li class="timeline-item">
-        <span class="timeline-item-icon | faded-icon">
-            <Icon name="CarbonThumbsUpFilled" />
-        </span>
-        <div class="timeline-item-wrapper">
-            <div class="timeline-item-description">
-                <span>
-                    moved to <a href="#">Dap-ayan Eatery</a> as a <span> 🌍 Web Developer</span> on
-                    <span class="whitespace-nowrap">Aug 2018 - May 2019</span>
+<ol class="w-8/10 max-w-700px mx-auto border-l-2 border-gray-2 pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10">
+    {
+        timeline.map((item: ExperienceItem) => (
+            <li class="timeline-item">
+                <span class={`timeline-item-icon | ${item.iconColor ?? "faded-icon"}`}>
+                    <Icon name={item.icon} />
                 </span>
-            </div>
-            <div class="comment">
-                <p>starting to use tools that I've learned in a proper way.</p>
-            </div>
-        </div>
-    </li>
-    <li class="timeline-item">
-        <span class="timeline-item-icon | faded-icon"> <Icon name="CarbonShrinkScreenFilled" /> </span>
-        <div class="timeline-item-wrapper">
-            <div class="timeline-item-description">
-                <span>
-                    started working in <a href="#">Ilearn Skills Development Academy</a> as a 🎨 Designer Web Programmer
-                    on <span class="whitespace-nowrap">Aug 2018 - Dec 2018</span>
-                </span>
-            </div>
-            <div class="comment">
-                <p>
-                    my first experience using what I learned from school. And it was not good, so I learn to solo learn.
-                </p>
-            </div>
-        </div>
-    </li>
-    <li class="timeline-item">
-        <span class="timeline-item-icon | filled-icon">
-            <Icon name="Fa6SolidUserGraduate" />
-        </span>
-        <div class="timeline-item-wrapper">
-            <div class="timeline-item-description">
-                <span>
-                    graduated from <a href="https://kcp.edu.ph/">Kings College of the Philippines</a>
-                    on May 2019
-                </span>
-            </div>
-            <div class="comment">
-                <p>
-                    Majored in Web Technology, and had been creating projects related to web programming and actively
-                    participating in events, seminars, and competitions.😊
-                </p>
-            </div>
-        </div>
-    </li>
+                <div class="timeline-item-wrapper">
+                    <div class="timeline-item-description">
+                        <span class="sm:text-lg text-md" set:html={item.descriptions} />
+                    </div>
+                    {item.comment && (
+                        <div class="comment">
+                            <p class="sm:text-md text-sm" set:html={item.comment} />
+                        </div>
+                    )}
+                </div>
+            </li>
+        ))
+    }
 </ol>
 
 <style lang="scss">
@@ -62,26 +85,6 @@ import { Icon } from "astro-icon/components";
         gap: 24px;
         & + * {
             margin-top: 24px;
-        }
-    }
-
-    .new-comment {
-        width: 100%;
-        input {
-            border: 1px solid var(--c-grey-200);
-            border-radius: 6px;
-            height: 48px;
-            padding: 0 16px;
-            width: 100%;
-            &::placeholder {
-                color: var(--c-grey-300);
-            }
-
-            &:focus {
-                border-color: var(--c-grey-300);
-                outline: 0;
-                box-shadow: 0 0 0 4px var(--c-grey-100);
-            }
         }
     }
 
@@ -106,6 +109,16 @@ import { Icon } from "astro-icon/components";
             color: var(--c-grey-400);
         }
 
+        &.blue-icon {
+            background-color: var(--c-blue-500);
+            color: #fff;
+        }
+
+        &.energy-icon {
+            background-color: var(--c-energy-500);
+            color: #fff;
+        }
+
         &.filled-icon {
             background-color: var(--c-blue-500);
             color: #fff;
@@ -121,35 +134,17 @@ import { Icon } from "astro-icon/components";
         img {
             flex-shrink: 0;
         }
+
         a {
             color: var(--c-grey-500);
             font-weight: 500;
             text-decoration: none;
+
             &:hover,
             &:focus {
                 outline: 0;
                 color: var(--c-blue-500);
             }
-        }
-    }
-
-    .avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        overflow: hidden;
-        aspect-ratio: 1 / 1;
-        flex-shrink: 0;
-        width: 40px;
-        height: 40px;
-        &.small {
-            width: 28px;
-            height: 28px;
-        }
-
-        img {
-            object-fit: cover;
         }
     }
 
@@ -160,45 +155,5 @@ import { Icon } from "astro-icon/components";
         box-shadow: 0 4px 4px 0 var(--c-grey-100);
         border-radius: 6px;
         padding: 16px;
-        font-size: 1rem;
-    }
-
-    .button {
-        border: 0;
-        padding: 0;
-        display: inline-flex;
-        vertical-align: middle;
-        margin-right: 4px;
-        margin-top: 12px;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        height: 32px;
-        padding: 0 8px;
-        background-color: var(--c-grey-100);
-        flex-shrink: 0;
-        cursor: pointer;
-        border-radius: 99em;
-
-        &:hover {
-            background-color: var(--c-grey-200);
-        }
-
-        &.square {
-            border-radius: 50%;
-            color: var(--c-grey-400);
-            width: 32px;
-            height: 32px;
-            padding: 0;
-            svg {
-                width: 24px;
-                height: 24px;
-            }
-
-            &:hover {
-                background-color: var(--c-grey-200);
-                color: var(--c-grey-500);
-            }
-        }
     }
 </style>
