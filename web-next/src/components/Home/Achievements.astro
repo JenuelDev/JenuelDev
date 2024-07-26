@@ -1,0 +1,97 @@
+---
+const projects: Array<{
+    name: string;
+    from: string;
+    description: string;
+    url: string;
+    img?: string;
+    tech?: string[];
+    ariaLabel?: string;
+    shop?: undefined;
+}> = [
+    {
+        name: "Programming With Python 3.x",
+        from: "SimpleLearn",
+        description:
+            "We learned the fundamentals of Python programming. The course covered essential topics such as data types, control structures, functions, and modules, providing a comprehensive foundation for writing efficient and effective Python code.",
+        url: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxMTY5IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNDcxNDk1N18xNzAyNDc0ODI2LnBuZyIsInVzZXJuYW1lIjoiSmVudWVsIE9yYXMgR2FuYXdlZCJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F3381%2FProgramming%2520with%2520Python%25203.X%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1304760874632407396&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVryqJNDc0SQktdUsCAMaW0h8lAAAA",
+    },
+    {
+        name: "Foundational C# with Microsoft",
+        from: "freeCodeCamp",
+        description:
+            "We learned the core principles of C# programming. The course covered essential topics such as object-oriented programming, data structures, and error handling, providing a solid foundation for developing applications within the .NET framework.",
+        url: "https://www.freecodecamp.org/certification/brojenuel/foundational-c-sharp-with-microsoft",
+    },
+    {
+        name: "Learn Laravel VueJs from Scratch - Building a Testal Web App",
+        from: "Udemy",
+        description:
+            "We gained hands-on experience in developing a full-stack web application. The course covered essential topics in Laravel for backend development and Vue.js for creating dynamic front-end interfaces, focusing on building robust, testable, and maintainable applications.",
+        url: "https://www.udemy.com/certificate/UC-9ec97828-2ddb-41c2-9507-29fe60f097fb/",
+    },
+    {
+        name: "Bachelor of Science in Information Technology",
+        description:
+            "Majored in Web Technology, and had been creating projects related to web programming and actively participating in events, seminars, and competitions.",
+        from: "Kings College of The Philippines",
+        url: "https://media.licdn.com/dms/image/C562DAQHIquqpxZqo_A/profile-treasury-image-shrink_800_800/0/1626197488273?e=1716886800&v=beta&t=8LCsqAuECi7kOrYkrDPGQ3f6jYpHjpN329aDRJ0Z2d0",
+    },
+    {
+        name: "SQL",
+        description:
+            "Completed a course on SQL, where we learned to create, manage, and manipulate databases. The course covered essential topics such as writing queries, joining tables, and optimizing database performance, equipping us with the skills to effectively handle and analyze data.",
+        from: "SoloLearn",
+        url: "https://www.sololearn.com/Certificate/CT-ZLZGMW2R/pdf",
+    },
+    {
+        name: "JavaScript",
+        description:
+            "Completed a course on JavaScript, where we mastered the fundamentals of programming, including variables, functions, and event handling, as well as advanced concepts like asynchronous programming and DOM manipulation to build dynamic and interactive web applications.",
+        from: "SoloLearn",
+        url: "https://www.sololearn.com/Certificate/CT-LKXLDBLV/pdf",
+    },
+    {
+        name: " jQuery",
+        description:
+            "Completed a course on jQuery, where we learned how to simplify JavaScript programming, manipulate HTML documents, handle events, create animations, and develop dynamic web applications with ease.",
+        from: "SoloLearn",
+        url: "https://www.sololearn.com/Certificate/CT-RXV9P2W0/pdf",
+    },
+    {
+        name: "Smart Technopreneurship",
+        description:
+            "Successfully completed a course on Smart Technopreneurship, where we explored innovative business strategies, digital technologies, and entrepreneurial skills essential for thriving in today's tech-driven market.",
+        from: "Tesda",
+        url: "https://github.com/BroJenuel/BroJenuel/raw/master/certificates/SMARTtechno101_Certificate%20of%20Completion.pdf",
+    },
+    {
+        name: "Smart Android Apps Development For Beffiners",
+        description:
+            "Successfully completed a course on Smart Android Apps Development for Beginners, where we covered the fundamentals of Android programming, user interface design, and essential tools and techniques for creating functional and user-friendly mobile applications.",
+        from: "Tesda",
+        url: "https://github.com/BroJenuel/BroJenuel/raw/master/certificates/SMART%20Android%20Mobile%20Apps%20Development%20for%20Beginners_Certificate%20of%20Completion.pdf",
+    },
+];
+---
+
+<div class="w-full max-w-800px mx-auto sm:text-lg">
+    <h3 class="text-lg font-800 text-[var(--c-blue-500)]">Achievements</h3>
+    <div>
+        During my professional journey, I've embraced continuous learning as an essential part of growth. There are many
+        ways to learn, such as joining projects or taking courses. Through these experiences, I've been able to achieve
+        significant milestones.
+    </div>
+    <div class="flex gap-3 flex-wrap py-10">
+        {
+            projects.map((item) => (
+                <div class="p-4 border">
+                    <a href={item.url} target="_blank" class="text-lg font-600 hover:text-[var(--c-blue-500)]">
+                        {item.name}
+                    </a>
+                    <div class="text-md font-400">{item.from}</div>
+                </div>
+            ))
+        }
+    </div>
+</div>

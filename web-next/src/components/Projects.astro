@@ -1,6 +1,25 @@
-<div class="w-full max-w-800px mx-auto mb-10">
+---
+import { Image } from "astro:assets";
+import BelieversSword from "./../assets/images/projects/Believers-Sword.png";
+---
+
+<div class="w-full max-w-800px mx-auto mb-10 sm:text-lg">
+    <h3 class="text-lg font-800 text-[var(--c-blue-500)]">Personal Project</h3>
     <div>
-        Learning is a journey, not a destination. One way for me to learn and to continue the journey is to create your
-        my personal projects.
+        Learning is a journey, not a destination. One effective way to learn is by creating personal projects. I decided
+        it would be a fun challenge to design and build my own.
+    </div>
+    <div class="mt-5">
+        <Image src={BelieversSword} alt="Believers Sword" class="p-2" />
+        Introducing <a href="https://www.believersword.com/" class="font-bold hover:text-[var(--c-blue-500)]">
+            Believers Sword
+        </a> . This is a Bible Reading App for Believers like me. I created this project as a fun challenge and to create
+        something that I use. So, currently the focus of Believers Sword is be able to read the Bible. Just added some couple
+        of features, like bookmarks, text highlights, etc. If you want to check the source code, <a
+            href="https://github.com/Bible-Projects/believers-sword-next"
+            class="font-bold hover:text-[var(--c-blue-500)]"
+        >
+            its open source
+        </a> .
     </div>
 </div>
