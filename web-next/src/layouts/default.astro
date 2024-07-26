@@ -1,24 +1,60 @@
 ---
 import Header from "../components/Header.astro";
 
-interface Props {
-    title: string;
+interface ImageCustom {
+    url: string;
+    width: number;
+    height: number;
+    alt: string;
+    type: "image/jpeg";
 }
 
-const { title } = Astro.props;
+interface Props {
+    title: string;
+    description?: string;
+    url?: string;
+    images?: Array<ImageCustom | string> | any;
+}
+
+const {
+    title,
+    description,
+    url,
+    images,
+}: { title: string; description?: string; url?: string; images?: Array<ImageCustom | string> | any } = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+import { AstroSeo } from "@astrolib/seo";
+const DES = description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
+const URL = url ?? "https://jenuel.dev";
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+        <AstroSeo
+            title={title}
+            description={DES}
+            canonical="https://www.jenuel.dev/"
+            openGraph={{
+                url: URL,
+                title: title,
+                description: "Open Graph Description",
+                images: images ?? [],
+                site_name: "JenuelDev",
+            }}
+            twitter={{
+                handle: "@JenuelDev",
+                site: "JenuelDev",
+                cardType: "summary_large_image",
+            }}
+        />
+        <ViewTransitions />
     </head>
     <body>
         <Header />

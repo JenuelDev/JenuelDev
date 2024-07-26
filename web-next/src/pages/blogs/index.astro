@@ -1,0 +1,57 @@
+---
+import Layout from "./../../layouts/default.astro";
+import { supabase } from "../../lib/supabase";
+import { Image } from "astro:assets";
+import dayjs from "dayjs";
+
+const limit = 50;
+
+const { data, error } = await supabase
+    .from("blogs")
+    .select(`id, title, summary, slug, updated_at, cover_img, blog_meta(*), tags`)
+    .eq("is_active", 1)
+    .order("id", { ascending: false })
+    .limit(limit);
+
+if (error) {
+    console.log(error);
+}
+
+const blogs = data ?? [];
+---
+
+<Layout title="Blogs">
+    <section class="w-full max-w-800px mx-auto px-5 sm:text-lg">
+        <h1 class="text-3xl font-bold pt-10 pb-15">Blogs</h1>
+        <div class="flex flex-col gap-10">
+            {
+                blogs.map((blog, i) => (
+                    <a href={`/blogs/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
+                        {blog.cover_img && (
+                            <Image
+                                src={blog.cover_img}
+                                class="rounded-lg w-full mx-auto col-span-2 sm:max-w-300px"
+                                width="300"
+                                height="150"
+                                loading={i < 5 ? "eager" : "lazy"}
+                                alt={blog.title}
+                            />
+                        )}
+
+                        <div class="content-summary leading-5 col-span-6 ">
+                            <div class="opacity-70 text-xs sm:mb-1">
+                                {dayjs(blog.updated_at).format("DD MMM, YYYY")}
+                            </div>
+                            <h4 class="sm:mb-2 group-hover:text-[var(--c-blue-500)]">{blog.title}</h4>
+                            <p
+                                class={`line-clamp-6 opacity-80 group-hover:opacity-100 text-sm ${blog.cover_img && "line-clamp-3"}`}
+                            >
+                                {blog.summary}
+                            </p>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+</Layout>
