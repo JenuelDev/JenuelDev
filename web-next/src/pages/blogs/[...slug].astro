@@ -1,25 +1,19 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/default.astro";
-import HorizontalAd from "../../components/ads/HorizontalAd.astro";
 import { supabase } from "../../lib/supabase";
 import { Icon } from "astro-icon/components";
 import dayjs from "dayjs";
 import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
+import "./../../assets/code-highlight/atom-one-dark.css";
 const { slug } = Astro.params;
-const isDev = import.meta.env.DEV;
 
-const { data, error } = await supabase
-    .from("blogs")
-    .select(`*, user_profile(*)`)
-    .eq("is_active", 1)
-    .eq("slug", slug)
-    .single();
-
+const { data } = await supabase.from("blogs").select(`*, user_profile(*)`).eq("is_active", 1).eq("slug", slug).single();
+const url = Astro.url;
 const author = data ? data.user_profile : null;
 ---
 
-<Layout title="Blogs">
+<Layout title={data.title} images={[{ url: data.cover_img ?? `${url}/og.png` }]}>
     <section class="w-full max-w-800px mx-auto px-5 sm:text-lg">
         {
             data?.cover_img && (
@@ -247,8 +241,8 @@ const author = data ? data.user_profile : null;
         }
 
         pre {
-            @apply bg-slate-900;
-
+            background-color: #181818;
+            color: aliceblue;
             position: relative;
             padding: 10px;
             border-radius: 7px;

@@ -1,19 +1,27 @@
 import fs from "fs";
 import path from "path";
 import { ImageResponse } from "@vercel/og";
+import { supabase } from "../../../lib/supabase";
 
 interface Props {
     params: { slug: "The-Best-Vector-Database" };
 }
 
 export async function GET({ params }: Props) {
-    // const { post } = props;
     const slug = params.slug;
 
-    console.log(slug);
+    const { data } = await supabase
+        .from("blogs")
+        .select(`*, user_profile(*)`)
+        .eq("is_active", 1)
+        .eq("slug", slug)
+        .single();
+
+    const title = data.title;
+    const url = `jenuel.dev/blogs/${slug}`;
 
     // using custom font files
-    const InterFont = fs.readFileSync(path.resolve("./src/assets/fonts/inter/extras/ttf/Inter-Regular.ttf"));
+    const InterFont = fs.readFileSync(path.resolve("./src/assets/fonts/poppins/Poppins-Regular.ttf"));
 
     // Astro doesn't support tsx endpoints so usign React-element objects
     const html = {
@@ -23,76 +31,37 @@ export async function GET({ params }: Props) {
                 {
                     type: "div",
                     props: {
-                        // using tailwind
-                        tw: "w-[200px] h-[200px] flex rounded-3xl overflow-hidden",
-                        children: [
-                            {
-                                type: "img",
-                                props: {
-                                    src: "https://static.vecteezy.com/system/resources/previews/024/553/534/non_2x/lion-head-logo-mascot-wildlife-animal-illustration-generative-ai-png.png",
-                                },
-                            },
-                        ],
-                    },
-                },
-                {
-                    type: "div",
-                    props: {
-                        tw: "pl-10 shrink flex",
+                        tw: "flex items-start justify-start h-full",
                         children: [
                             {
                                 type: "div",
                                 props: {
-                                    style: {
-                                        fontSize: "48px",
-                                        fontFamily: "InterFont",
-                                        fontFeatureSettings: `'liga' 1, 'calt' 1`,
-                                    },
-                                    children: "This is a title",
-                                },
-                            },
-                        ],
-                    },
-                },
-                {
-                    type: "div",
-                    props: {
-                        tw: "absolute right-[40px] bottom-[40px] flex items-center",
-                        children: [
-                            {
-                                type: "div",
-                                props: {
-                                    tw: "text-blue-600 text-3xl",
-                                    style: {
-                                        fontFamily: "InterFont",
-                                    },
-                                    children: "Dzmitry Kozhukh",
-                                },
-                            },
-                            {
-                                type: "div",
-                                props: {
-                                    tw: "px-2 text-3xl",
-                                    style: {
-                                        fontSize: "30px",
-                                    },
-                                    children: "|",
-                                },
-                            },
-                            {
-                                type: "div",
-                                props: {
-                                    tw: "text-3xl",
-                                    children: "Blog",
+                                    tw: "flex flex-col justify-between w-full h-full",
+                                    children: [
+                                        {
+                                            type: "h1",
+                                            props: {
+                                                tw: "text-[60px] py-20 px-30 font-black text-left",
+                                                children: title,
+                                            },
+                                        },
+                                        {
+                                            type: "div",
+                                            props: {
+                                                tw: "text-2xl pb-10 px-30 font-bold mb-0",
+                                                children: "😎 " + url,
+                                            },
+                                        },
+                                    ],
                                 },
                             },
                         ],
                     },
                 },
             ],
-            tw: "w-full h-full flex items-center justify-center relative px-40",
+            tw: "h-full w-full flex items-start justify-start ",
             style: {
-                background: "#f7f8e8",
+                background: "#fff",
                 fontFamily: "InterFont",
             },
         },
