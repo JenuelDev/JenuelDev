@@ -5,27 +5,17 @@ import AboutMe from "../components/Home/AboutMe.astro";
 import Experience from "../components/Home/Experience.astro";
 import Projects from "../components/Projects.astro";
 import Achievements from "../components/Home/Achievements.astro";
+const title = "Jenuel Dev";
+const description = "Hi I am a software developer.I build web apps that are engaging, accessible and scalable.";
 ---
 
 <Layout
     title="Welcome to Astro."
+    description={description}
     images={[
         {
-            url: "https://www.example.ie/og-image-01.jpg",
-            width: 800,
-            height: 600,
-            alt: "Og Image Alt",
-            type: "image/jpeg",
+            url: `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`,
         },
-        {
-            url: "https://www.example.ie/og-image-02.jpg",
-            width: 900,
-            height: 800,
-            alt: "Og Image Alt Second",
-            type: "image/jpeg",
-        },
-        { url: "https://www.example.ie/og-image-03.jpg" },
-        { url: "https://www.example.ie/og-image-04.jpg" },
     ]}
 >
     <main>

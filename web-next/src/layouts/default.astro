@@ -34,9 +34,10 @@ const URL = url ?? "https://jenuel.dev";
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="google-adsense-account" content="ca-pub-2268807726840190" />
         <AstroSeo
             title={title}
             description={DES}
@@ -44,13 +45,13 @@ const URL = url ?? "https://jenuel.dev";
             openGraph={{
                 url: URL,
                 title: title,
-                description: "Open Graph Description",
+                description: DES,
                 images: images ?? [],
                 site_name: "JenuelDev",
             }}
             twitter={{
                 handle: "@JenuelDev",
-                site: "JenuelDev",
+                site: "@JenuelDev",
                 cardType: "summary_large_image",
             }}
         />

@@ -18,9 +18,20 @@ if (error) {
 }
 
 const blogs = data ?? [];
+const title = "Blogs - Jenuel Dev";
+const description = "I build web apps that are engaging, accessible and scalable - JenuelDev";
 ---
 
-<Layout title="Blogs">
+<Layout
+    title={title}
+    description={description}
+    url="https://jenuel.dev/blog"
+    images={[
+        {
+            url: `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`,
+        },
+    ]}
+>
     <section class="w-full max-w-800px mx-auto px-5 sm:text-lg">
         <h1 class="text-3xl font-bold pt-10 pb-15">Blogs</h1>
         <div class="flex flex-col gap-10">
