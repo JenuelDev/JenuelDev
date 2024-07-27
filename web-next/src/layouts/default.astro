@@ -20,7 +20,6 @@ interface Props {
 const { title, description, url, images, isBlog }: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
 import { AstroSeo } from "@astrolib/seo";
 const DES =
     description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
@@ -53,7 +52,6 @@ const isDev = import.meta.env.DEV;
                 cardType: "summary_large_image",
             }}
         />
-        <ViewTransitions />
         {
             isBlog && !isDev && (
                 <script
