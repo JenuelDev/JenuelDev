@@ -73,7 +73,7 @@ const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pa
                             </p>
                         </div>
                     </a>
-                    <div> {!isDev && 7%i === 0 && (
+                    <div> {!isDev && i%7 === 0 && (
                         <div set:html={adsToRender}></div>
                     )} </div>
                 ))
