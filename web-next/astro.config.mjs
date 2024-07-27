@@ -12,5 +12,7 @@ export default defineConfig({
         }),
         icon(),
     ],
-    adapter: netlify(),
+    adapter: netlify({
+        imageCDN: false,
+    }),
 });
