@@ -12,7 +12,9 @@ export default defineConfig({
         }),
         icon(),
     ],
-    adapter: vercel(),
+    adapter: vercel({
+        edgeMiddleware: true,
+    }),
     image: {
         remotePatterns: [
             {
