@@ -1,6 +1,6 @@
 ---
 import Header from "../components/Header.astro";
-
+import { ViewTransitions } from "astro:transitions";
 interface ImageCustom {
     url: string;
     width: number;
@@ -24,7 +24,6 @@ import { AstroSeo } from "@astrolib/seo";
 const DES =
     description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
 const URL = url ?? "https://jenuel.dev";
-const isDev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -35,6 +34,7 @@ const isDev = import.meta.env.DEV;
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />
         <meta name="generator" content={Astro.generator} />
         <meta name="google-adsense-account" content="ca-pub-2268807726840190" />
+        <ViewTransitions />
         <AstroSeo
             title={title}
             description={DES}
@@ -52,15 +52,6 @@ const isDev = import.meta.env.DEV;
                 cardType: "summary_large_image",
             }}
         />
-        {
-            isBlog && !isDev && (
-                <script
-                    async
-                    custom-element="amp-ad"
-                    src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
-                />
-            )
-        }
     </head>
     <body>
         <Header />
