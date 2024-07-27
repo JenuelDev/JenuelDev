@@ -13,7 +13,16 @@ const url = Astro.url;
 const author = data ? data.user_profile : null;
 ---
 
-<Layout title={data.title} images={[{ url: data.cover_img ?? `/og/${slug}/og.png` }]}>
+<Layout
+    title={data.title}
+    images={[
+        {
+            url:
+                data.cover_img ??
+                `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${data.title}&description=${data.summary}`,
+        },
+    ]}
+>
     <section class="w-full max-w-800px mx-auto px-5 sm:text-lg">
         {
             data?.cover_img && (
