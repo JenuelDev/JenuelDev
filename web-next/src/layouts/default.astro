@@ -14,20 +14,18 @@ interface Props {
     description?: string;
     url?: string;
     images?: Array<ImageCustom | string> | any;
+    isBlog?: boolean;
 }
 
-const {
-    title,
-    description,
-    url,
-    images,
-}: { title: string; description?: string; url?: string; images?: Array<ImageCustom | string> | any } = Astro.props;
+const { title, description, url, images, isBlog }: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import { AstroSeo } from "@astrolib/seo";
-const DES = description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
+const DES =
+    description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
 const URL = url ?? "https://jenuel.dev";
+const isDev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -56,6 +54,15 @@ const URL = url ?? "https://jenuel.dev";
             }}
         />
         <ViewTransitions />
+        {
+            isBlog && !isDev && (
+                <script
+                    async
+                    custom-element="amp-ad"
+                    src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
+                />
+            )
+        }
     </head>
     <body>
         <Header />

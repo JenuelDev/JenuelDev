@@ -50,9 +50,15 @@ const description = "I build web apps that are engaging, accessible and scalable
                         )}
 
                         <div class="content-summary leading-5 col-span-6 ">
-                            <div class="text-xs sm:mb-1">{dayjs(blog.updated_at).format("DD MMM, YYYY")}</div>
-                            <h4 class="sm:mb-2 group-hover:text-[var(--c-blue-500)]">{blog.title}</h4>
-                            <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"}`}>{blog.summary}</p>
+                            <div class="text-xs sm:mb-1">
+                                {dayjs(blog.updated_at).format("DD MMM, YYYY")}
+                            </div>
+                            <h4 class="sm:mb-2 group-hover:text-[var(--c-blue-500)]">
+                                {blog.title}
+                            </h4>
+                            <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"}`}>
+                                {blog.summary}
+                            </p>
                         </div>
                     </a>
                 ))

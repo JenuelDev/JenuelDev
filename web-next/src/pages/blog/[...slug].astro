@@ -30,6 +30,7 @@ const author = data ? data.user_profile : null;
                 `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${data.title}&description=${data.summary}`,
         },
     ]}
+    isBlog={true}
 >
     <section
         id="main-content"
@@ -161,9 +162,11 @@ const author = data ? data.user_profile : null;
             </span>
         </div>
 
-        <HorizontalAdBox />
+        <HorizontalAdBox adSlot="4295024492" />
+
         <div class="content-render mx-auto relative md:text-lg pt-5 px-1" set:html={data.content} />
-        <HorizontalAdBox />
+
+        <HorizontalAdBox adSlot="6269369578" />
 
         <div class="mt-2 mx-auto relative md:text-lg">
             <div class="pb-5">
