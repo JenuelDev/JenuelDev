@@ -34,13 +34,13 @@ const timeline: Array<ExperienceItem> = [
         comment: "focused working on a project related to learning management systems.",
     },
     {
-        icon: "CarbonThumbsUpFilled",
+        icon: "MaterialSymbolsFastfoodSharp",
         descriptions:
             'moved to <a href="https://www.facebook.com/p/Dap-ayan-Food-Corporation-100057698281360/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> Dap-ayan Eatery </strong> </a> as a <span class="font-600"> 🌍 Web Developer</span> on <span class="whitespace-nowrap">Aug 2018 - May 2019</span>',
         comment: "starting to use tools that I've learned in a proper way.",
     },
     {
-        icon: "MaterialSymbolsFastfoodSharp",
+        icon: "CarbonThumbsUpFilled",
         descriptions:
             'started working in <a href="https://www.facebook.com/ilearnsda/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> Ilearn Skills Development Academy </strong> </a> as a 🎨 <span class="font-600"> Designer Web Programmer </span> on <span class="whitespace-nowrap"> Aug 2018 - Dec 2018 </span>',
         comment:
@@ -57,7 +57,9 @@ const timeline: Array<ExperienceItem> = [
 ];
 ---
 
-<ol class="w-8/10 max-w-700px mx-auto border-l-2 border-gray-2 pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10">
+<ol
+    class="w-8/10 max-w-700px mx-auto border-l-2 border-gray-2 pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10"
+>
     {
         timeline.map((item: ExperienceItem) => (
             <li class="timeline-item">
