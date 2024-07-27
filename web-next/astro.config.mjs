@@ -12,5 +12,7 @@ export default defineConfig({
         }),
         icon(),
     ],
-    adapter: vercel(),
+    adapter: vercel({
+        imageCDN: false,
+    }),
 });
