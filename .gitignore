@@ -3,3 +3,5 @@ BroJenuelAdmin/.env
 .idea
 .vscode
 node_modules
+# Local Netlify folder
+.netlify

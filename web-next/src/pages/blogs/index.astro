@@ -30,9 +30,9 @@ const blogs = data ?? [];
                         {blog.cover_img && (
                             <Image
                                 src={blog.cover_img}
-                                class="rounded-lg w-full mx-auto col-span-2 sm:max-w-300px"
-                                width="300"
-                                height="150"
+                                class="rounded-lg w-full mx-auto col-span-2 sm:max-w-200px "
+                                width="200"
+                                height="100"
                                 loading={i < 5 ? "eager" : "lazy"}
                                 alt={blog.title}
                             />
