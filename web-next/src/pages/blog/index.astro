@@ -17,9 +17,21 @@ if (error) {
     console.log(error);
 }
 
+const isDev = import.meta.env.DEV;
 const blogs = data ?? [];
 const title = "Blogs - Jenuel Dev";
 const description = "I build web apps that are engaging, accessible and scalable - JenuelDev";
+const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268807726840190"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-gt-35+c9-4n-lq"
+     data-ad-client="ca-pub-2268807726840190"
+     data-ad-slot="2796186432"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>`;
 ---
 
 <Layout
@@ -61,8 +73,12 @@ const description = "I build web apps that are engaging, accessible and scalable
                             </p>
                         </div>
                     </a>
+                    <div> {!isDev && i%7 === 0 && (
+                        <div set:html={adsToRender}></div>
+                    )} </div>
                 ))
             }
+            
         </div>
     </section>
 </Layout>
