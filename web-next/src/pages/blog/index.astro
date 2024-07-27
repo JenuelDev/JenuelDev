@@ -26,7 +26,7 @@ const blogs = data ?? [];
         <div class="flex flex-col gap-10">
             {
                 blogs.map((blog, i) => (
-                    <a href={`/blogs/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
+                    <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
                         {blog.cover_img && (
                             <Image
                                 src={blog.cover_img}
