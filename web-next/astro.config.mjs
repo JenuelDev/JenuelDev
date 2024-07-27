@@ -13,6 +13,6 @@ export default defineConfig({
         icon(),
     ],
     adapter: netlify({
-        imageCDN: false,
+        edgeMiddleware: true,
     }),
 });
