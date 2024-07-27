@@ -7,8 +7,14 @@ import dayjs from "dayjs";
 import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
 import "./../../assets/code-highlight/atom-one-dark.css";
 const { slug } = Astro.params;
+const isDev = import.meta.env.DEV;
 
-const { data } = await supabase.from("blogs").select(`*, user_profile(*)`).eq("is_active", 1).eq("slug", slug).single();
+const { data } = await supabase
+    .from("blogs")
+    .select(`*, user_profile(*)`)
+    .eq("is_active", 1)
+    .eq("slug", slug)
+    .single();
 const url = Astro.url;
 const author = data ? data.user_profile : null;
 ---
@@ -16,6 +22,7 @@ const author = data ? data.user_profile : null;
 <Layout
     title={data.title}
     description={data.summary}
+    url={url.toString()}
     images={[
         {
             url:
@@ -24,7 +31,12 @@ const author = data ? data.user_profile : null;
         },
     ]}
 >
-    <section class="w-full max-w-800px mx-auto px-5 sm:text-lg">
+    <section
+        id="main-content"
+        class="w-full max-w-800px mx-auto px-5 sm:text-lg"
+        data-id={data.id}
+        data-is-dev={isDev ? "true" : "false"}
+    >
         {
             data?.cover_img && (
                 <Image
@@ -63,7 +75,9 @@ const author = data ? data.user_profile : null;
                             aria-label="authors website"
                         >
                             {author.username ? (
-                                <span class="text-size-20px hover:text-[var(--primary)]">{author.username}</span>
+                                <span class="text-size-20px hover:text-[var(--primary)]">
+                                    {author.username}
+                                </span>
                             ) : (
                                 <span class="text-size-20px hover:text-[var(--primary)]">
                                     {author.first_name}
@@ -151,26 +165,38 @@ const author = data ? data.user_profile : null;
         <div class="content-render mx-auto relative md:text-lg pt-5 px-1" set:html={data.content} />
         <HorizontalAdBox />
 
-        <div class="mt-2 content-render mx-auto relative md:text-lg">
+        <div class="mt-2 mx-auto relative md:text-lg">
             <div class="pb-5">
                 <hr />
             </div>
-            <p>
-                If you enjoy this article and would like to show your support, you can easily do so by buying me a
-                coffee. Your contribution is greatly appreciated!
+            <p class="mb-10">
+                If you enjoy this article and would like to show your support, you can easily do so
+                by buying me a coffee. Your contribution is greatly appreciated!
             </p>
             <a href="https://www.buymeacoffee.com/jenuel.dev" target="_blank">
                 <Image
                     alt="Jenuel Ganawed Buy me Coffee"
                     src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=jenuel.dev&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
-                    width={200}
-                    height={50}
+                    width={400}
+                    height={100}
                     loading={"eager"}
+                    class={"mx-auto"}
                 />
             </a>
         </div>
     </section>
 </Layout>
+<script>
+    setTimeout(async () => {
+        const MainContentElement = document.getElementById("main-content");
+        const id = MainContentElement?.getAttribute("data-id");
+        const isDev = MainContentElement?.getAttribute("data-is-dev");
+
+        if (isDev !== "true") {
+            fetch(`/increment-count?id=${id}`, { method: "GET" });
+        }
+    }, 5000);
+</script>
 <style>
     .content-render {
         img {
@@ -277,7 +303,8 @@ const author = data ? data.user_profile : null;
                 &:hover {
                     --gradient-from-color: #ff76e1;
                     --gradient-to-color: #8fd3f4;
-                    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(162, 247, 182, 0));
+                    --gradient-color-stops: var(--gradient-from-color),
+                        var(--gradient-to-color, rgba(162, 247, 182, 0));
                     background-image: linear-gradient(to right, var(--gradient-color-stops));
                     border-radius: 0.125rem;
                     font-size: 1.125rem;
@@ -290,7 +317,8 @@ const author = data ? data.user_profile : null;
             code {
                 --gradient-from-color: #a2f7b6;
                 --gradient-to-color: #8fd3f4;
-                --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(162, 247, 182, 0));
+                --gradient-color-stops: var(--gradient-from-color),
+                    var(--gradient-to-color, rgba(162, 247, 182, 0));
                 background-image: linear-gradient(to right, var(--gradient-color-stops));
 
                 @apply text-slate-950 px-1 text-lg rounded-md;
