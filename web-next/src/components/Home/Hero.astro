@@ -5,7 +5,9 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="w-full max-w-800px pt-10 mx-auto">
+<section
+    style="width: 100%; max-width: 800px; padding-top: 2.5rem; margin-left: auto; margin-right: auto;"
+>
     <div class="flex items-center sm:gap-10 gap-4 m-2">
         <div class="sm:h-200px h-150px sm:w-200px w-150px relative group">
             <div
@@ -33,22 +35,24 @@ import { Icon } from "astro-icon/components";
             <h3 class="md:text-3xl sm:text-2xl text-1xl">
                 hi! I'm <span class="font-bold">Jenuel</span>
             </h3>
-            <h1 class="font-800 tracking-tight md:text-5xl sm:text-4xl text-3xl group text-[var(--c-blue-500)]">
+            <h1
+                class="font-800 tracking-tight md:text-5xl sm:text-4xl text-3xl group text-[var(--c-blue-500)]"
+            >
                 Software <span class="underline">Developer</span>
             </h1>
             <p class="sm:mt-4 mt-1 sm:max-w-xs leading-normal mr-auto mb-2">
                 I build web apps that are engaging, accessible and scalable.
             </p>
-            <div class="flex gap-3">
+            <div class="flex gap-3 sm:flex-row flex-col">
                 <a
                     href="https://www.linkedin.com/in/jenuelganawed/"
-                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white rounded-3xl px-4 py-2 flex items-center gap-1 hover:bg-white transition-all hover:text-[var(--c-blue-500)]"
+                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white rounded-3xl px-4 py-2 flex items-center gap-1 hover:bg-white transition-all hover:text-[var(--c-blue-500)] max-w-200px"
                 >
                     <Icon name="CarbonConnect" /> Let's Connect
                 </a>
                 <a
                     href="/blog"
-                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] rounded-3xl px-4 py-2 flex items-center gap-1 bg-white transition-all text-[var(--c-blue-500)]"
+                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] rounded-3xl px-4 py-2 flex items-center gap-1 bg-white transition-all text-[var(--c-blue-500)] max-w-200px"
                 >
                     <Icon name="TablerArticleFilledFilled" /> Blog
                 </a>
