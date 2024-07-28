@@ -1,7 +1,6 @@
 @import "./fonts/inter/web/inter.css";
 
 :root {
-    font-family: Inter, sans-serif;
     font-feature-settings: "ss03", "cv02", "cv11";
     font-variation-settings: normal;
     --c-grey-100: #f4f6f8;
@@ -13,13 +12,10 @@
     --c-energy-500: #f9a826;
 }
 
-@supports (font-variation-settings: normal) {
-    :root {
-        font-family: InterVariable, sans-serif;
-    }
-}
-
 * {
     scroll-behavior: smooth;
+}
+
+html {
     font-family: Inter, sans-serif;
 }
