@@ -34,7 +34,7 @@ export async function GET(props: any) {
         .from("blogs")
         .select(`id, title, summary, slug, updated_at, cover_img, blog_meta(*), tags`)
         .eq("is_active", 1)
-        .order("id", { ascending: false })
+        .order("updated_at", { ascending: false })
         .limit(limit);
 
     const { data, error } = await clientQuery;
