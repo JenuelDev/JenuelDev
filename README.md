@@ -59,11 +59,11 @@ When I’m not at the computer, I’m usually playing a guitar even though I'm n
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Vue 3 Auto Routing By File Structure](https://jenuel.dev/blog/Vue-3-Auto-Routing-By-File-Structure)
 - [The Best Vector Database](https://jenuel.dev/blog/The-Best-Vector-Database)
 - [How to Be A Good Programmer: A Guide to Mastering the Craft](https://jenuel.dev/blog/How-to-Be-A-Good-Programmer-A-Guide-to-Mastering-the-Craft)
 - [Is Learning Dart for Flutter Worth It? A Comprehensive Guide](https://jenuel.dev/blog/Is-Learning-Dart-for-Flutter-Worth-It-A-Comprehensive-Guide)
 - [Introduction to Vue 3](https://jenuel.dev/blog/Introduction-to-Vue-3)
-- [The Marvel of JavaScript: Unleashing the Power of the Web](https://jenuel.dev/blog/The-Marvel-of-JavaScript-Unleashing-the-Power-of-the-Web)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
