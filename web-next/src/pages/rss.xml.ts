@@ -19,12 +19,13 @@ export async function GET(props: any) {
     let feedItem = [];
 
     for (const doc of data ?? []) {
-        feedItem.push({
-            title: doc.title ?? "-",
-            link: `https://jenuel.dev/blog/${doc.slug}`,
-            pubDate: doc.updated_at,
-            description: doc.summary,
-        });
+        if (doc.title && doc.slug && doc.updated_at && doc.summary)
+            feedItem.push({
+                title: doc.title ?? "-",
+                link: `https://jenuel.dev/blog/${doc.slug}`,
+                pubDate: doc.updated_at,
+                description: doc.summary,
+            });
     }
 
     return rss({
