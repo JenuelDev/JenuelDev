@@ -6,7 +6,7 @@
 
 Back in 2016, I decided to make a big change, switching from studying criminology to diving into the exciting world of Information Technology. That's when I discovered my passion for software development.
 
-Now, with over 6 years of experience as a software developer, I've had the chance to work in a constantly changing field, collaborating with other coding enthusiasts and contributing to some amazing projects.
+Now, with over 6+ years of experience as a software developer, I've had the chance to work in a constantly changing field, collaborating with other coding enthusiasts and contributing to some amazing projects.
 
 I'm all about the details, whether it's writing efficient code or perfecting a recipe. I believe that paying attention to the little things is key to building scalable, engaging, and accessible digital experiences.
 
