@@ -4,13 +4,13 @@
 
 ###  👔 About Me
 
-In 2016, I made a strategic shift from my studies in criminology to pursue a career in Information Technology, where I discovered the intricate and captivating field of software development.
+Back in 2016, I decided to make a big change, switching from studying criminology to diving into the exciting world of Information Technology. That's when I discovered my passion for software development.
 
-Fast-forward to today, with over 5 years of professional experience as a software developer, I have consistently engaged in the dynamic and ever-evolving landscape of software development, collaborating with fellow coding enthusiasts and contributing to some truly remarkable products.
+Now, with over 6 years of experience as a software developer, I've had the chance to work in a constantly changing field, collaborating with other coding enthusiasts and contributing to some amazing projects.
 
-I take pride in my attention to details, meticulously examining even the smallest elements that could potentially snowball into significant issues. Whether it's ensuring code efficiency or perfecting a recipe, I believe that thoroughness in the details is essential for overall success for building scalable, engaging, & accessible digital experience.
+I'm all about the details, whether it's writing efficient code or perfecting a recipe. I believe that paying attention to the little things is key to building scalable, engaging, and accessible digital experiences.
 
-When I’m not at the computer, I’m usually playing a guitar even though I'm not a pro in it, trying to read books, walking outside, having a home work out, eating a meal or playing a PUBG Mobile with friends.
+When I'm not coding, I like to mix things up. You might find me strumming my guitar (I'm no rockstar, but it's fun!), reading a good book, going for walks, doing home workouts, enjoying a good meal, playing PUBG Mobile or ML with friends, or just learning something new.
 
 ### 🛠 Languages And Tools
 
