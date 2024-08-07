@@ -6,12 +6,8 @@ const domain = "https://www.jenuel.dev";
 
 const pages = [
     {
-        url: domain + "/archive",
-        lastmod: "2024-04-18",
-    },
-    {
         url: domain + "/blog",
-        lastmod: "2023-04-17",
+        lastmod: "2024-08-07",
     },
 ];
 
