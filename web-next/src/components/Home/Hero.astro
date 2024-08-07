@@ -8,7 +8,7 @@ import { Icon } from "astro-icon/components";
 <section
     style="width: 100%; max-width: 800px; padding-top: 2.5rem; margin-left: auto; margin-right: auto;"
 >
-    <div class="flex items-center sm:gap-10 gap-4 m-2">
+    <div class="flex sm:flex-row flex-col items-center sm:gap-10 gap-4 m-2">
         <div class="sm:h-200px h-150px sm:w-200px w-150px relative group">
             <div
                 class="rounded-full overflow-hidden flex items-center relative justify-center sm:h-200px h-150px border-5 border-slate-200 group-hover:border-slate-300"
@@ -31,19 +31,19 @@ import { Icon } from "astro-icon/components";
             >
             </div>
         </div>
-        <div class="text-align-left w-full">
+        <div class="sm:text-align-left text-center w-full">
             <h3 class="md:text-3xl sm:text-2xl text-1xl">
                 hi! I'm <span class="font-bold">Jenuel</span>
             </h3>
             <h1
-                class="font-800 tracking-tight md:text-5xl sm:text-4xl text-2xl group text-[var(--c-blue-500)]"
+                class="font-800 tracking-tight md:text-5xl sm:text-4xl text-3xl group text-[var(--c-blue-500)]"
             >
                 Software <span class="underline">Developer</span>
             </h1>
             <p class="sm:mt-4 mt-1 sm:max-w-xs leading-normal mr-auto mb-2">
                 I build web apps that are engaging, accessible and scalable.
             </p>
-            <div class="flex sm:gap-3 gap-2 sm:flex-row flex-col">
+            <div class="flex sm:gap-3 gap-2 flex-row flex-wrap sm:justify-start justify-center">
                 <a
                     href="https://www.linkedin.com/in/jenuelganawed/"
                     class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white rounded-3xl sm:px-4 sm:py-2 px-2 py-1 flex items-center gap-1 hover:bg-white transition-all hover:text-[var(--c-blue-500)] max-w-200px sm:text-lg text-sm"
@@ -61,7 +61,7 @@ import { Icon } from "astro-icon/components";
                     class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] rounded-3xl sm:px-4 sm:py-2 px-2 py-1 flex items-center gap-1 bg-white transition-all text-[var(--c-blue-500)] max-w-200px sm:text-lg text-sm"
                     target="_blank"
                 >
-                    <Icon name="TablerArticleFilledFilled" /> Resume
+                    <Icon name="tabler:file-type-pdf" /> Resume
                 </a>
             </div>
         </div>

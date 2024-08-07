@@ -66,17 +66,17 @@ const timeline: Array<ExperienceItem> = [
 >
     {
         timeline.map((item: ExperienceItem) => (
-            <li class="timeline-item">
+            <li class="flex gap-5 mt-6">
                 <span class={`timeline-item-icon | ${item.iconColor ?? "faded-icon"}`}>
                     <Icon name={item.icon} />
                 </span>
                 <div class="timeline-item-wrapper">
-                    <div class="timeline-item-description">
+                    <div class="timeline-item-description flex pt-2 gap-2 text-[var(--c-grey-500)]">
                         <span class="sm:text-lg text-md" set:html={item.descriptions} />
                     </div>
                     {item.comment && (
-                        <div class="comment">
-                            <p class="sm:text-md text-sm" set:html={item.comment} />
+                        <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-md shadow-[var(--c-grey-100)] rounded-2 p-4">
+                            <p class="sm:text-md text-sm " set:html={item.comment} />
                         </div>
                     )}
                 </div>
@@ -86,14 +86,6 @@ const timeline: Array<ExperienceItem> = [
 </ol>
 
 <style>
-    .timeline-item {
-        display: flex;
-        gap: 24px;
-        & + * {
-            margin-top: 24px;
-        }
-    }
-
     .timeline-item-icon {
         display: flex;
         align-items: center;
@@ -132,15 +124,6 @@ const timeline: Array<ExperienceItem> = [
     }
 
     .timeline-item-description {
-        display: flex;
-        padding-top: 6px;
-        gap: 8px;
-        color: var(--c-grey-500);
-
-        img {
-            flex-shrink: 0;
-        }
-
         a {
             color: var(--c-grey-500);
             font-weight: 500;
@@ -152,14 +135,5 @@ const timeline: Array<ExperienceItem> = [
                 color: var(--c-blue-500);
             }
         }
-    }
-
-    .comment {
-        margin-top: 12px;
-        color: var(--c-grey-500);
-        border: 1px solid var(--c-grey-200);
-        box-shadow: 0 4px 4px 0 var(--c-grey-100);
-        border-radius: 6px;
-        padding: 16px;
     }
 </style>
