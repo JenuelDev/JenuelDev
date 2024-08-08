@@ -56,13 +56,12 @@ import { Icon } from "astro-icon/components";
                 >
                     <Icon name="TablerArticleFilledFilled" /> Blog
                 </a>
-                <a
-                    href="/Jenuel Ganawed - Resume.pdf"
-                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] rounded-3xl sm:px-4 sm:py-2 px-2 py-1 flex items-center gap-1 bg-white transition-all text-[var(--c-blue-500)] max-w-200px sm:text-lg text-sm"
-                    target="_blank"
+                <div
+                    onclick="window.open('/Jenuel Ganawed - Resume.pdf'); return false;"
+                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] rounded-3xl sm:px-4 sm:py-2 px-2 py-1 flex items-center gap-1 bg-white transition-all text-[var(--c-blue-500)] max-w-200px sm:text-lg text-sm cursor-pointer"
                 >
                     <Icon name="tabler:file-type-pdf" /> Resume
-                </a>
+                </div>
             </div>
         </div>
     </div>
