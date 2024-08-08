@@ -17,5 +17,15 @@ export async function GET(props: any) {
         return error.message;
     }
 
-    return new Response(JSON.stringify(data));
+    const headers = new Headers();
+    headers.append("Access-Control-Allow-Origin", "*");
+    headers.append("Access-Control-Allow-Methods", "GET");
+    headers.append(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+
+    return new Response(JSON.stringify(data), {
+        headers: headers,
+    });
 }
