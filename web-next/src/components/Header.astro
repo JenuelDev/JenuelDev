@@ -1,7 +1,26 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <nav
     class="sticky top-0 w-full max-w-800px mx-auto z-9999 bg-white bg-opacity-50 backdrop-blur-md p-3 flex items-center justify-between mx-3 text-center"
 >
     <a href="/" class="text-18px font-800">
         <span>Jenuel</span><span class="text-[var(--c-blue-500)]">Dev</span>
     </a>
+
+    <div>
+        <a
+            class="group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+            href="https://jenueldev.gumroad.com/"
+            target="_blank"
+        >
+            <span
+                class="block rounded-full bg-white px-5 py-1 text-sm font-medium group-hover:bg-transparent"
+            >
+                <Icon name="tabler:shopping-bag" class="inline text-lg" />
+                Shop
+            </span>
+        </a>
+    </div>
 </nav>
