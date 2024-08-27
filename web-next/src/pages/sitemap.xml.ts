@@ -33,7 +33,7 @@ export async function GET(props: any) {
         .order("updated_at", { ascending: false })
         .limit(limit);
 
-    const { data, error } = await clientQuery;
+    const { data } = await clientQuery;
 
     let feedItem = [];
 
