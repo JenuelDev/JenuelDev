@@ -52,7 +52,6 @@ const timeline: Array<ExperienceItem> = [
     },
     {
         icon: "Fa6SolidUserGraduate",
-        iconColor: "blue-icon",
         descriptions:
             'graduated from <a href="https://kcp.edu.ph/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong>Kings College of the Philippines </strong> </a> on May 2019',
         comment:
@@ -75,7 +74,7 @@ const timeline: Array<ExperienceItem> = [
                         <span class="sm:text-lg text-md" set:html={item.descriptions} />
                     </div>
                     {item.comment && (
-                        <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-md shadow-[var(--c-grey-100)] rounded-2 p-4">
+                        <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-sm hover:shadow-lg shadow-[var(--c-grey-100)] rounded-2 p-4 transition-all">
                             <p class="sm:text-md text-sm " set:html={item.comment} />
                         </div>
                     )}

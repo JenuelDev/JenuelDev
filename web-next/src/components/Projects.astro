@@ -1,39 +1,63 @@
 ---
 import { Image } from "astro:assets";
 import BelieversSword from "./../assets/images/projects/Believers-Sword.png";
+import { Icon } from "astro-icon/components";
+
+const projects = [
+    {
+        title: "Believers Sword",
+        coverImage: BelieversSword,
+        description: `Introducing <a
+                        href="https://www.believersword.com/"
+                        class="font-bold hover:text-[var(--c-blue-500)] underline"
+                    >
+                        Believers Sword
+                    </a>, a Bible reading app designed for believers like me. Its open source <a
+                        href="https://github.com/Bible-Projects/believers-sword-next"
+                        class="font-bold hover:text-[var(--c-blue-500)] underline"
+                    >
+                        it's available as open source.
+                    </a>`,
+        url: "https://believersword.jenuel.dev/",
+    },
+];
 ---
 
 <div class="w-full max-w-800px mx-auto mb-10 sm:text-lg px-5">
-    <div>
+    <div class="mb-7">
         <div class="sm:text-5xl text-3xl font-800 text-[var(--c-blue-500)] float-left pr-5">
             Personal Project
         </div>
         Learning is a journey, not a destination. One effective way to learn is by creating personal
         projects. I decided it would be a fun challenge to design and build my own.
     </div>
-    <div class="mt-5">
-        <Image
-            src={BelieversSword}
-            alt="Believers Sword"
-            class="p-2 w-full"
-            width={600}
-            height={300}
-            loading={"lazy"}
-        />
-        Introducing <a
-            href="https://www.believersword.com/"
-            class="font-bold hover:text-[var(--c-blue-500)] underline"
-        >
-            Believers Sword
-        </a>, a Bible reading app designed for believers like me. I created this project as a fun
-        challenge and to make something I personally use. Currently, Believers Sword focuses on
-        providing an easy and enjoyable way to read the Bible. I've also added features like
-        bookmarks and text highlights to enhance your reading experience. If you're interested in
-        the source code, <a
-            href="https://github.com/Bible-Projects/believers-sword-next"
-            class="font-bold hover:text-[var(--c-blue-500)] underline"
-        >
-            it's available as open source.
-        </a>
+    <div class="grid grid-cols-1 gap-5">
+        {
+            projects.map((project) => (
+                <div class="min-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href={project.url}>
+                        <Image
+                            src={project.coverImage}
+                            alt="Believers Sword"
+                            class="rounded-t-lg w-full"
+                            width={600}
+                            height={300}
+                            loading={"lazy"}
+                        />
+                    </a>
+                    <div class="p-5">
+                        <div>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {project.title}
+                            </h5>
+                            <p
+                                class="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                                set:html={project.description}
+                            />
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
     </div>
 </div>
