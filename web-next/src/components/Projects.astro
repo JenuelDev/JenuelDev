@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BelieversSword from "./../assets/images/projects/Believers-Sword.png";
+import FamTree from "./../assets/images/projects/FamTree.png";
 import { Icon } from "astro-icon/components";
 
 const projects = [
@@ -20,6 +21,13 @@ const projects = [
                     </a>`,
         url: "https://believersword.jenuel.dev/",
     },
+    {
+        title: "FamTree",
+        coverImage: FamTree,
+        description:
+            "FamTree is a sophisticated application designed for the meticulous management of familial connections.",
+        url: "https://famtree.jenuel.dev",
+    },
 ];
 ---
 
@@ -31,11 +39,11 @@ const projects = [
         Learning is a journey, not a destination. One effective way to learn is by creating personal
         projects. I decided it would be a fun challenge to design and build my own.
     </div>
-    <div class="grid grid-cols-1 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {
             projects.map((project) => (
-                <div class="min-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href={project.url}>
+                <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href={project.url} class="overflow-hidden h-200px inline-block">
                         <Image
                             src={project.coverImage}
                             alt="Believers Sword"
