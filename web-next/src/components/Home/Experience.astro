@@ -22,33 +22,34 @@ const timeline: Array<ExperienceItem> = [
         descriptions:
             'settled in <a href="https://vocphone.com/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> VOCPhone </strong> </a> as a <span class="font-600"> 🧑‍💻 Senior Software Developer</span> on <span class="whitespace-nowrap">Nov 2021 - <span class="text-[var(--c-blue-500)] font-900">Present</span></span>',
         comment:
-            "I’m involved in the design and development process, ensuring our programs align perfectly with user stories. Along the way, I’m enhancing my skills in technologies like Laravel, JavaScript, Vue.js (versions 2 and 3), TypeScript, SASS, C#, HTML, CSS, Python, and Node.js. I’m also diving into the world of AI. Sometimes the work is challenging, but it’s also very rewarding, and I love every part of it!",
+            "I am actively involved in the design and development process, ensuring that our programs function effectively and are fully aligned with user stories. Additionally, I continuously enhance my knowledge of the tools required to achieve objectives and solve problems efficiently.",
     },
     {
         icon: "CarbonVehicleInsights",
         descriptions:
             'went to <a href="https://www.revdojo.com/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> Webinarinc </strong> </a> as a <span class="font-600"> 😊 Software Developer</span> on <span class="whitespace-nowrap">Mar 2021 - Nov 2021</span>',
         comment:
-            "was able to learn new tools and technologies like twilio. Created web sites related to automotives.",
+            "I acquired expertise in new tools and technologies, such as Twilio, and developed websites for the automotive sector. Additionally, I contributed to the development of a Learning Management System (LMS) designed for sales agents.",
     },
     {
         icon: "CarbonChat",
         descriptions:
             'jumped to <a href="https://www.linkedin.com/company/utalk-tutorial-services/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> UTalk </strong> </a> as a <span class="font-600"> 😁 Software Developer</span> on <span class="whitespace-nowrap">Aug 2019 - Apr 2021</span>',
-        comment: "focused working on a project related to learning management systems.",
+        comment:
+            "I am involved in managing, enhancing, adding features to, and maintaining the existing admin site for a Learning Management System (LMS).",
     },
     {
         icon: "MaterialSymbolsFastfoodSharp",
         descriptions:
             'moved to <a href="https://www.facebook.com/p/Dap-ayan-Food-Corporation-100057698281360/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> Dap-ayan Eatery </strong> </a> as a <span class="font-600"> 🌍 Web Developer</span> on <span class="whitespace-nowrap">Aug 2018 - May 2019</span>',
-        comment: "starting to use tools that I've learned in a proper way.",
+        comment: "Created a website for a local restaurant to help on their business.",
     },
     {
         icon: "CarbonThumbsUpFilled",
         descriptions:
             'started working in <a href="https://www.facebook.com/ilearnsda/" class="text-[var(--c-grey-500)] hover:text-[var(--c-blue-500)]"> <strong> Ilearn Skills Development Academy </strong> </a> as a 🎨 <span class="font-600"> Designer Web Programmer </span> on <span class="whitespace-nowrap"> Aug 2018 - Dec 2018 </span>',
         comment:
-            "my first experience using what I learned from school. And I realize it's not enough, so I learned to solo learn.",
+            "We work as an intern responsible for designing and developing websites for clients. Other than that we I am involved in greating graphic designs, and editing videos.",
     },
     {
         icon: "Fa6SolidUserGraduate",
@@ -75,7 +76,7 @@ const timeline: Array<ExperienceItem> = [
                     </div>
                     {item.comment && (
                         <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-sm hover:shadow-lg shadow-[var(--c-grey-100)] rounded-2 p-4 transition-all">
-                            <p class="sm:text-md text-sm " set:html={item.comment} />
+                            <p class="sm:text-md text-md " set:html={item.comment} />
                         </div>
                     )}
                 </div>

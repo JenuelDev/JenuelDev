@@ -41,7 +41,7 @@ const projects = [
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {
             projects.map((project) => (
-                <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class=" bg-white border border-gray-200 rounded-lg shadow:sm dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition-all group">
                     <a href={project.url} class="overflow-hidden h-200px inline-block">
                         <Image
                             src={project.coverImage}
@@ -54,9 +54,11 @@ const projects = [
                     </a>
                     <div class="p-5">
                         <div>
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {project.title}
-                            </h5>
+                            <a href={project.url}>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:underline group-hover:text-[var(--c-blue-500)]">
+                                    {project.title}
+                                </h5>
+                            </a>
                             <p
                                 class="mb-3 font-normal text-gray-700 dark:text-gray-400"
                                 set:html={project.description}
