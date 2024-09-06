@@ -1,6 +1,12 @@
 // uno.config.ts
-import { defineConfig } from 'unocss'
+import { defineConfig } from "unocss";
 
 export default defineConfig({
-  // ...UnoCSS options
-})
+    extendTheme: (theme) => ({
+        ...theme,
+        breakpoints: {
+            ...theme.breakpoints,
+            xs: "330px",
+        },
+    }),
+});
