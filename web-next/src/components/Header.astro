@@ -4,13 +4,13 @@ import { Icon } from "astro-icon/components";
 
 <nav class="sticky top-0 w-full z-9999 bg-white bg-opacity-50 backdrop-blur-md p-3">
     <div class="flex items-center justify-between mx-auto text-center max-w-800px">
-        <a href="/" class="text-18px font-800">
-            <span>Jenuel</span><span class="text-[var(--c-blue-500)]">Dev</span>
+        <a href="/" class="text-18px">
+            <span>Jenuel</span><span class="font-800">Dev</span>
         </a>
 
         <div>
             <a
-                class="group inline-block rounded-full bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white hover:bg-white transition-all hover:text-[var(--c-blue-500)]"
+                class="group inline-block rounded-full bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white hover:bg-white transition-all hover:text-[var(--c-blue-500)] px-3"
                 href="https://jenueldev.gumroad.com/"
                 target="_blank"
                 title="Linkedin"
@@ -25,30 +25,22 @@ import { Icon } from "astro-icon/components";
             </a>
             <!-- Youtube Link -->
             <a
-                class="group inline-block rounded-full bg-[#FF0000] p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                class="group inline-block rounded-full bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white hover:bg-white transition-all hover:text-[var(--c-blue-500)] px-2"
                 href="https://youtube.com/@jenueldev"
                 target="_blank"
                 title="Youtube"
                 aria-label="Youtube"
             >
-                <span
-                    class="block rounded-full px-1 py-0.5 text-sm font-medium group-hover:bg-transparent text-white"
-                >
-                    <Icon name="tabler:brand-youtube-filled" class="inline text-lg" />
-                </span>
+                <Icon name="tabler:brand-youtube-filled" class="inline -mt-1" />
             </a>
             <a
-                class="group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                class="group inline-block rounded-full bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white hover:bg-white transition-all hover:text-[var(--c-blue-500)] px-2"
                 href="https://store.jenuel.dev"
                 target="_blank"
                 title="Store"
                 aria-label="Store"
             >
-                <span
-                    class="block rounded-full px-1 py-0.5 text-sm font-medium group-hover:bg-transparent text-white"
-                >
-                    <Icon name="tabler:building-store" class="inline text-lg" />
-                </span>
+                <Icon name="tabler:building-store" class="inline -mt-1" />
             </a>
         </div>
     </div>

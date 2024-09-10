@@ -75,7 +75,7 @@ const timeline: Array<ExperienceItem> = [
                         <span class="sm:text-lg text-md" set:html={item.descriptions} />
                     </div>
                     {item.comment && (
-                        <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-sm hover:shadow-lg shadow-[var(--c-grey-100)] rounded-2 p-4 transition-all">
+                        <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-sm hover:shadow-lg shadow-[var(--c-grey-100)] rounded-2 p-4 transition-all scale-100 hover:scale-105">
                             <p class="sm:text-md text-md " set:html={item.comment} />
                         </div>
                     )}
