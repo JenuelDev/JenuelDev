@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
+import LoadingIndicator from "astro-loading-indicator/component";
 interface ImageCustom {
     url: string;
     width: number;
@@ -35,6 +36,7 @@ const URL = url ?? "https://jenuel.dev";
         <meta name="generator" content={Astro.generator} />
         <meta name="google-adsense-account" content="ca-pub-2268807726840190" />
         <ViewTransitions />
+        <LoadingIndicator color="var(--c-blue-500)" height="5px" />
         <AstroSeo
             title={title}
             description={DES}
@@ -59,3 +61,8 @@ const URL = url ?? "https://jenuel.dev";
         <Footer />
     </body>
 </html>
+<style is:global>
+    :root .astro-loading-indicator {
+        z-index: 999999999999;
+    }
+</style>

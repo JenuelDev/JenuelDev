@@ -20,6 +20,7 @@
     "@vercel/og": "^0.6.2",
     "astro": "^4.15.2",
     "astro-icon": "^1.1.0",
+    "astro-loading-indicator": "^0.6.0",
     "dayjs": "^1.11.12",
     "sharp": "^0.33.4",
     "sitemap": "^8.0.0",

@@ -38,6 +38,9 @@ importers:
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
+      astro-loading-indicator:
+        specifier: ^0.6.0
+        version: 0.6.0(astro@4.15.2(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5))
       dayjs:
         specifier: ^1.11.12
         version: 1.11.12
@@ -1266,6 +1269,11 @@ packages:
 
   astro-icon@1.1.0:
     resolution: {integrity: sha512-Nksc09p7UuHeMcPNS9w1pKqRw3+wEmmh0A3FJW+FNXvqaeWI4RLvD1MCWErpY3Z5Cvad317rvLdik/Hg8GEk8Q==}
+
+  astro-loading-indicator@0.6.0:
+    resolution: {integrity: sha512-0/gJ94ygnZ+qnLeP+dapOwAmj74hRP6t4o784+W41TicCp3pPm3d+WoH7XHlSQlokghtVynD9RdFjRd0ZWs9bg==}
+    peerDependencies:
+      astro: ^4.0.0
 
   astro@4.15.2:
     resolution: {integrity: sha512-UlkQ/cWRLabOm6eVe6oRwjVAKd47N3+d1ktKpEZ5lqQKwq5uYrXQUu3n0ftsm6SJ+01x2LlPmjRe9OfKAbGpXA==}
@@ -4441,6 +4449,10 @@ snapshots:
       '@iconify/utils': 2.1.24
     transitivePeerDependencies:
       - supports-color
+
+  astro-loading-indicator@0.6.0(astro@4.15.2(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5)):
+    dependencies:
+      astro: 4.15.2(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5)
 
   astro@4.15.2(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5):
     dependencies:
