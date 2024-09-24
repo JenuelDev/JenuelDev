@@ -9,7 +9,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
         <a href="/" class="text-18px w-200px">
             <span>Jenuel</span><span class="font-800">Dev</span>
         </a>
-        <div class="gap-3 sm:flex hidden">
+        <div class="gap-3 flex">
             <a
                 href="/"
                 class={currentPath === ""
@@ -19,14 +19,6 @@ const currentPath = pathname.slice(1); // remove the first "/"
             >
                 Home
             </a>
-            <!-- <a
-                href="/about"
-                class={currentPath === "about"
-                    ? "bg-[var(--c-blue-500)] text-white px-2 rounded-md"
-                    : ""}
-            >
-                About
-            </a> -->
             <a
                 href="/blog"
                 class={currentPath === "blog"
