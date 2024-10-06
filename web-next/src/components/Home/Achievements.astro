@@ -152,7 +152,7 @@ const projects: Array<{
                     </div>
                     <div class="text-md font-400">
                         {item.logo && item.isLogoImage ? (
-                            <Image src={item.logo} alt={item.name} width={100} height={100} />
+                            <Image src={item.logo} alt={item.name} width={100} height={100} alt={item.name} />
                         ) : (
                             <span style={`font-family: ${item.logoFontFamily};`}>{item.logo}</span>
                         )}
