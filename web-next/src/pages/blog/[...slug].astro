@@ -6,7 +6,6 @@ import { Icon } from "astro-icon/components";
 import dayjs from "dayjs";
 import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
 import "./../../assets/code-highlight/atom-one-dark.css";
-import CommentSection from "../../components/disqus/CommentSection.astro";
 const { slug } = Astro.params;
 const isDev = import.meta.env.DEV;
 
@@ -186,7 +185,6 @@ const author = data ? data.user_profile : null;
                 />
             </a>
         </div>
-        {!isDev && <CommentSection slug={data.slug} />}
     </section>
 </Layout>
 <script>
