@@ -57,11 +57,11 @@ When I'm not coding, I like to mix things up. You might find me strumming my gui
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Why PHP is Gaining Popularity in 2024: The Unexpected Comeback of a Classic Language](https://jenuel.dev/blog/Why-PHP-is-Gaining-Popularity-in-2024-The-Unexpected-Comeback-of-a-Classic-Language)
 - [Understanding Package Managers: pnpm vs npm vs yarn](https://jenuel.dev/blog/Understanding-Package-Managers-pnpm-vs-npm-vs-yarn)
 - [Vue 3 Auto Routing By File Structure](https://jenuel.dev/blog/Vue-3-Auto-Routing-By-File-Structure)
 - [The Best Vector Database](https://jenuel.dev/blog/The-Best-Vector-Database)
 - [How to Be A Good Programmer: A Guide to Mastering the Craft](https://jenuel.dev/blog/How-to-Be-A-Good-Programmer-A-Guide-to-Mastering-the-Craft)
-- [Is Learning Dart for Flutter Worth It? A Comprehensive Guide](https://jenuel.dev/blog/Is-Learning-Dart-for-Flutter-Worth-It-A-Comprehensive-Guide)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
