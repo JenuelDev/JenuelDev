@@ -5,58 +5,87 @@ import { Icon } from "astro-icon/components";
 import JenuelDevImageProfileBrand from "./../../assets/images/JenuelDev.png";
 ---
 
-<section
-    style="width: 100%; max-width: 800px; padding-top: 2.5rem; margin-left: auto; margin-right: auto;"
->
-    <div class="flex sm:flex-row flex-col items-center sm:gap-10 gap-4 m-2">
-        <div class="h-200px w-200px relative group">
+<section class="h-100vh w-100% sm:text-lg flex flex-col md:min-h-780px min-h-600px">
+    <div class="flex flex-col items-center justify-center m-2 h-100% max-w-800px mx-auto">
+        <div class="flex items-center gap-3">
             <div
-                class="rounded-full overflow-hidden flex items-center relative justify-center w-200px h-200px border-5 border-slate-200 group-hover:border-slate-300 transition-all"
+                class="rounded-full overflow-hidden flex items-center relative justify-center w-80px h-80px border-2 border-slate-200 group-hover:border-slate-300 transition-all"
             >
                 <Image
                     src={JenuelDevImageProfileBrand}
                     width={200}
-                    class="absolute scale-110 group-hover:scale-115 transition-all"
+                    class="absolute scale-120 transition-all"
                     alt="Jenuel"
                     loading={"eager"}
                 />
             </div>
-            <div
-                class="w-30px h-30px bg-slate-950 absolute rounded-full bottom-6px right-5 group-hover:bg-slate-300 transition-all text-2xl flex items-center justify-center text-slate-50 group-hover:text-slate-950"
-            >
-                <Icon name="CarbonCode" />
-            </div>
-            <div
-                class="w-20px h-20px bg-slate-500 absolute rounded-full bottom-28px right-2 group-hover:bg-slate-950 transition-all"
-            >
-            </div>
-        </div>
-        <div class="sm:text-align-left text-center w-full">
-            <h3 class="md:text-3xl sm:text-2xl text-1xl">
-                hi! I'm <span class="font-bold">Jenuel</span>
+            <h3 class="text-2xl">
+                hello! I'm <span class="font-bold">Jenuel</span>
             </h3>
+        </div>
+        <div class="flex items-center gap-3">
             <h1
-                class="font-700 tracking-tight md:text-5xl sm:text-4xl text-3xl group text-[var(--c-blue-500)]"
+                class="font-700 tracking-tight lg:text-8xl md:text-6xl text-5xl group color-violet-5"
             >
-                Software <span class="underline">Developer</span>
+                DIGITAL
             </h1>
-            <p class="sm:mt-4 mt-1 sm:max-w-xs sm:text-lg text-md leading-normal mr-auto mb-2">
-                I build web apps that are engaging, accessible and scalable.
-            </p>
-            <div class="flex sm:gap-3 gap-2 flex-row flex-wrap sm:justify-start justify-center">
-                <a
-                    href="https://www.linkedin.com/in/jenuelganawed/"
-                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] text-white rounded-3xl sm:px-4 sm:py-2 px-2 py-1 flex items-center gap-1 hover:bg-white transition-all hover:text-[var(--c-blue-500)] max-w-200px sm:text-lg text-sm scale-100 hover:scale-105"
-                >
-                    <Icon name="CarbonConnect" /> Let's Connect
-                </a>
+            <div class="md:text-lg text-sm">// from Luzon,<br />Philippines</div>
+        </div>
+        <h1 class="font-700 tracking-tight lg:text-8xl md:text-6xl text-5xl color-amber-500">
+            SOFTWARE
+        </h1>
+        <h1
+            class="font-700 tracking-tight lg:text-8xl md:text-6xl text-5xl text-[var(--c-blue-500)]"
+        >
+            PROGRAMMER
+        </h1>
+        <h1 class="font-700 tracking-tight lg:text-8xl md:text-6xl text-5xl text-cyan-500">
+            / DEVELOPER
+        </h1>
+
+        <p
+            class="sm:mt-4 mt-1 max-w-lg lg:text-3xl md:text-3xl text-lg leading-normal text-center mx-auto mb-2 px-5"
+        >
+            I create web apps that are engaging, accessible and scalable.
+        </p>
+    </div>
+    <div class="border-t border-t-2 py-3 px-3 flex justify-between items-center">
+        <div class="md:text-lg text-sm">// Design, Code,<br />Engage</div>
+        <div class="flex gap-3">
+            <a
+                href="https://github.com/jenueldev"
+                target="_blank"
+                title="Linkedin"
+                aria-label="Linkedin"
+                class="w-50px h-50px rounded-full bg-slate-900 text-white flex items-center justify-center scale-100 hover:scale-110 transition-all"
+            >
+                <Icon name="tabler:brand-github-filled" size={25} />
+            </a>
+            <a
+                href="https://www.linkedin.com/in/jenuelganawed/"
+                target="_blank"
+                title="Linkedin"
+                aria-label="Linkedin"
+                class="w-50px h-50px rounded-full bg-slate-900 text-white flex items-center justify-center scale-100 hover:scale-110 transition-all"
+            >
+                <Icon name="brandico:linkedin-rect" size={25} />
+            </a>
+        </div>
+        <div>
+            <a
+                class="border border-2 md:pr-4 pr-0 rounded-full flex items-center gap-1"
+                href="mailto:me@Jenuel.Dev"
+                target="_blank"
+                title="Linkedin"
+                aria-label="Linkedin"
+            >
                 <div
-                    onclick="window.open('/Jenuel Ganawed - Resume.pdf'); return false;"
-                    class="bg-[var(--c-blue-500)] border-2 border-[var(--c-blue-500)] rounded-3xl sm:px-4 sm:py-2 px-2 py-1 flex items-center gap-1 bg-white transition-all text-[var(--c-blue-500)] max-w-200px sm:text-lg text-sm cursor-pointer scale-100 hover:scale-105"
+                    class="w-50px h-50px rounded-full bg-slate-900 text-white flex items-center justify-center scale-100 hover:scale-110 transition-all"
                 >
-                    <Icon name="tabler:file-type-pdf" /> Resume
+                    <Icon name="tabler:mail" />
                 </div>
-            </div>
+                <span class="md:block hidden">me@Jenuel.Dev</span>
+            </a>
         </div>
     </div>
 </section>
