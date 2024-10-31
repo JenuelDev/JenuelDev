@@ -2,108 +2,109 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="sm:text-lg text-md w-full max-w-800px mx-auto px-5 py-5">
-    <p class="mb-4 text-justify">
-        <div class="sm:text-5xl text-3xl font-800 text-[var(--c-blue-500)] float-left pr-5">
-            Aboout Me
+<section class="bg-[var(--slate2)] py-28 text-secondary">
+    <div class="sm:text-lg w-full max-w-800px mx-auto px-5">
+        <div class="mb-4 text-justify">
+            <div class="sm:text-5xl text-3xl font-800 float-left pr-5 text-default">Aboout Me</div>
+            Back in 2016, I decided to make a big change, switching from studying criminology to diving
+            into the exciting world of Information Technology. That's when I discovered my passion for
+            software development.
         </div>
-        Back in 2016, I decided to make a big change, switching from studying criminology to diving into
-        the exciting world of Information Technology. That's when I discovered my passion for software
-        development.
-    </p>
-    <p class="mb-4 indent-lg text-justify">
-        Now, with over <b>
-            {new Date().getFullYear() - 2018} years of experience as a software developer
-        </b>, I've had the chance to work in a constantly changing field, collaborating with other
-        coding enthusiasts and contributing to some amazing projects.
-    </p>
-    <p class="mb-4 indent-lg text-justify">
-        <strong>I'm all about the details</strong>, whether it's writing efficient code or
-        perfecting a recipe. I believe that paying attention to the little things is key to building
-        scalable, engaging, and accessible digital experiences.
-    </p>
-    <p class="mb-4 indent-lg text-justify">
-        When I'm not coding, I like to mix things up. You might find me strumming my guitar (I'm no
-        rockstar, but it's fun!), reading a good book, going for walks, doing home workouts,
-        enjoying a good meal, or learning something new.
-    </p>
+        <div class="mb-4 indent-lg text-justify">
+            Now, with over <b class="text-default">
+                {new Date().getFullYear() - 2018} years of experience as a software developer
+            </b>, I've had the chance to work in a constantly changing field, collaborating with
+            other coding enthusiasts and contributing to some amazing projects.
+        </div>
+        <div class="mb-4 indent-lg text-justify">
+            <strong class="text-default">I'm all about the details</strong>, whether it's writing efficient code or
+            perfecting a recipe. I believe that paying attention to the little things is key to
+            building scalable, engaging, and accessible digital experiences.
+        </div>
+        <div class="mb-4 indent-lg text-justify">
+            When I'm not coding, I like to mix things up. You might find me strumming my guitar (I'm
+            no rockstar, but it's fun!), reading a good book, going for walks, doing home workouts,
+            enjoying a good meal, or learning something new.
+        </div>
+    </div>
+    <div
+        class="flex gap-10 items-center flex-wrap py-10 justify-center max-w-900px mx-auto px-5 list-of-skills"
+    >
+        <div>
+            <Icon name="DeviconVuejs" size={50} />
+            VueJS
+        </div>
+        <div>
+            <Icon name="LogosAstroIcon" size={50} />
+            Astro
+        </div>
+        <div>
+            <Icon name="LogosLaravel" size={50} />
+            Laravel
+        </div>
+        <div>
+            <Icon name="LogosNuxtIcon" size={50} />
+            Nuxt
+        </div>
+        <div>
+            <Icon name="LogosMysql" size={50} />
+            MySQL
+        </div>
+        <div>
+            <Icon name="LogosVitejs" size={50} />
+            ViteJS
+        </div>
+        <div>
+            <Icon name="LogosPhp" size={50} />
+            PHP
+        </div>
+        <div>
+            <Icon name="LogosPython" size={50} />
+            Python
+        </div>
+        <div>
+            <Icon name="LogosTypescriptIcon" size={50} />
+            TypeScript
+        </div>
+        <div>
+            <Icon name="SkillIconsJavascript" size={50} />
+            JavaScript
+        </div>
+        <div>
+            <Icon name="SkillIconsHtml" size={50} />
+            HTML
+        </div>
+        <div>
+            <Icon name="SkillIconsCss" size={50} />
+            CSS
+        </div>
+        <div>
+            <Icon name="LogosNodejsIcon" size={50} />
+            NodeJS
+        </div>
+        <div>
+            <Icon name="DeviconReact" size={50} />
+            ReactJS
+        </div>
+        <div>
+            <Icon name="SkillIconsElectron" size={50} />
+            Electron
+        </div>
+        <div>
+            <Icon name="DeviconExpressWordmark" size={50} />
+            Express
+        </div>
+        <div>
+            <Icon name="LogosTailwindcssIcon" size={50} />
+            Tailwind
+        </div>
+        <div>
+            <Icon name="VscodeIconsFileTypeUnocss" size={50} />
+            UnoCSS
+        </div>
+    </div>
 </section>
-<div
-    class="flex gap-10 items-center flex-wrap py-10 justify-center max-w-900px mx-auto px-5 list-of-skills"
->
-    <div>
-        <Icon name="DeviconVuejs" size={50} />
-        VueJS
-    </div>
-    <div>
-        <Icon name="LogosAstroIcon" size={50} />
-        Astro
-    </div>
-    <div>
-        <Icon name="LogosLaravel" size={50} />
-        Laravel
-    </div>
-    <div>
-        <Icon name="LogosNuxtIcon" size={50} />
-        Nuxt
-    </div>
-    <div>
-        <Icon name="LogosMysql" size={50} />
-        MySQL
-    </div>
-    <div>
-        <Icon name="LogosVitejs" size={50} />
-        ViteJS
-    </div>
-    <div>
-        <Icon name="LogosPhp" size={50} />
-        PHP
-    </div>
-    <div>
-        <Icon name="LogosPython" size={50} />
-        Python
-    </div>
-    <div>
-        <Icon name="LogosTypescriptIcon" size={50} />
-        TypeScript
-    </div>
-    <div>
-        <Icon name="SkillIconsJavascript" size={50} />
-        JavaScript
-    </div>
-    <div>
-        <Icon name="SkillIconsHtml" size={50} />
-        HTML
-    </div>
-    <div>
-        <Icon name="SkillIconsCss" size={50} />
-        CSS
-    </div>
-    <div>
-        <Icon name="LogosNodejsIcon" size={50} />
-        NodeJS
-    </div>
-    <div>
-        <Icon name="DeviconReact" size={50} />
-        ReactJS
-    </div>
-    <div>
-        <Icon name="SkillIconsElectron" size={50} />
-        Electron
-    </div>
-    <div>
-        <Icon name="DeviconExpressWordmark" size={50} />
-        Express
-    </div>
-    <div>
-        <Icon name="LogosTailwindcssIcon" size={50} />
-        Tailwind
-    </div>
-    <div>
-        <Icon name="VscodeIconsFileTypeUnocss" size={50} />
-        UnoCSS
-    </div>
-</div>
+
 <style lang="scss">
     .list-of-skills {
         div {

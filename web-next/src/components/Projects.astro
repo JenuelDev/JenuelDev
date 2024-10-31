@@ -45,9 +45,11 @@ const projects = [
 ];
 ---
 
-<div class="w-full max-w-800px mx-auto mb-20 sm:text-lg px-5">
+<div class="w-full max-w-800px mx-auto mb-20 sm:text-lg px-5 text-secondary">
     <div class="mb-7">
-        <div class="sm:text-5xl text-3xl font-800 text-[var(--c-blue-500)] float-left pr-5">
+        <div
+            class="sm:text-5xl text-3xl font-800 text-[var(--c-blue-500)] float-left pr-5 text-default"
+        >
             Personal Project
         </div>
         Learning is a journey, not a destination. One effective way to learn is by creating personal
@@ -56,7 +58,7 @@ const projects = [
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {
             projects.map((project) => (
-                <div class=" bg-white border border-gray-200 rounded-lg shadow:sm dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition-all group scale-100 hover:scale-105 relative overflow-hidden flex flex-col">
+                <div class=" bg-[var(--slate2)] border border-[var(--slate6)] rounded-lg shadow:sm transition-all group scale-100 hover:scale-102 relative overflow-hidden flex flex-col">
                     <a
                         href={project.url}
                         class="overflow-hidden h-200px rounded-t-lg flex items-center justify-center"
@@ -65,7 +67,7 @@ const projects = [
                         <Image
                             src={project.coverImage}
                             alt={project.title}
-                            class="group-hover:scale-105 transition-all"
+                            class="group-hover:scale-103 transition-all"
                             loading={"lazy"}
                             inferSize={true}
                         />
@@ -73,14 +75,11 @@ const projects = [
                     <div class="p-5">
                         <div>
                             <a href={project.url}>
-                                <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:underline group-hover:text-[var(--c-blue-500)]">
+                                <div class="mb-2 text-2xl font-bold tracking-tight group-hover:underline text-default">
                                     {project.title}
                                 </div>
                             </a>
-                            <p
-                                class="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                                set:html={project.description}
-                            />
+                            <p class="mb-3 font-normal " set:html={project.description} />
                         </div>
                     </div>
                 </div>

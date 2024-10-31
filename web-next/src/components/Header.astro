@@ -4,13 +4,13 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav class="fixed top-0 w-full z-9999 bg-white bg-opacity-30 backdrop-blur-md p-3">
+<nav class="fixed top-0 w-full z-9999 bg-opacity-30 backdrop-blur-md p-3 border-b border-solid border-[var(--slate6)]">
     <div class="flex items-center justify-between mx-auto">
-        <a href="/" class="border border-2 px-4 py-2 rounded-full">
-            <span class="w-3 h-3 rounded-full bg-gray-800 inline-block mr-1"></span>
+        <a href="/" class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full">
+            <span class="w-3 h-3 rounded-full bg-white inline-block mr-1"></span>
             <span>Jenuel</span><span class="font-800">Dev</span>
         </a>
-        <div class="gap-5 md:flex hidden border border-2 px-4 py-2 rounded-full">
+        <div class="gap-5 md:flex hidden border border-2 border-[var(--slate6)] px-4 py-2 rounded-full">
             <a href="/" class="flex items-center gap-1 hover:underline">
                 <Icon name="tabler:smart-home" /> Home
             </a>
@@ -19,15 +19,15 @@ const currentPath = pathname.slice(1); // remove the first "/"
             </a>
         </div>
         <a
-            class="border border-2 px-4 py-2 rounded-full md:flex items-center gap-1 hidden"
-            href="https://jenueldev.gumroad.com/"
+            class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full md:flex items-center gap-1 hidden"
+            href="https://www.linkedin.com/in/jenuelganawed/"
             target="_blank"
             title="Linkedin"
             aria-label="Linkedin"
         >
             <Icon name="CarbonConnect" /> Lets Connect
         </a>
-        <div class="gap-5 md:hidden flex border border-2 px-4 py-2 rounded-full">
+        <div class="gap-5 md:hidden flex border border-2  px-4 py-2 rounded-full">
             <a href="/" class="flex items-center gap-1 hover:underline" aria-label="Home">
                 <Icon name="tabler:smart-home" size={25} />
             </a>

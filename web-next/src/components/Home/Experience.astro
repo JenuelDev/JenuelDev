@@ -62,7 +62,7 @@ const timeline: Array<ExperienceItem> = [
 ---
 
 <ol
-    class="w-8/10 max-w-700px mx-auto border-l-2 border-gray-2 pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10"
+    class="w-8/10 max-w-700px mx-auto border-l-2 border-[var(--slate4)] pt-8 pr-0 pb-8 pl-8 flex flex-col mb-10 text-secondary"
 >
     {
         timeline.map((item: ExperienceItem) => (
@@ -71,11 +71,11 @@ const timeline: Array<ExperienceItem> = [
                     <Icon name={item.icon} />
                 </span>
                 <div class="timeline-item-wrapper">
-                    <div class="timeline-item-description flex pt-2 gap-2 text-[var(--c-grey-500)]">
+                    <div class="timeline-item-description flex pt-2 gap-2 text-default">
                         <span class="sm:text-lg text-md" set:html={item.descriptions} />
                     </div>
                     {item.comment && (
-                        <div class="comment mt-3 text-[var(--c-grey-500)] border border-[var(--c-grey-200)] shadow-sm hover:shadow-lg shadow-[var(--c-grey-100)] rounded-2 p-4 transition-all scale-100 hover:scale-105">
+                        <div class="comment mt-3 text-[var(--c-grey-500)] border bg-[var(--slate2)] border-[var(--slate6)] rounded-2 p-4 transition-all scale-100 hover:scale-105">
                             <p class="sm:text-md text-md " set:html={item.comment} />
                         </div>
                     )}
@@ -96,15 +96,15 @@ const timeline: Array<ExperienceItem> = [
         margin-left: -52px;
         flex-shrink: 0;
         overflow: hidden;
-        box-shadow: 0 0 0 6px #fff;
+
         svg {
             width: 20px;
             height: 20px;
         }
 
         &.faded-icon {
-            background-color: var(--c-grey-100);
-            color: var(--c-grey-400);
+            background-color: var(--slate4);
+            color: var(--slate12);
         }
 
         &.blue-icon {
@@ -113,7 +113,7 @@ const timeline: Array<ExperienceItem> = [
         }
 
         &.energy-icon {
-            background-color: var(--c-energy-500);
+            background-color: var(--orange9);
             color: #fff;
         }
 
@@ -125,14 +125,14 @@ const timeline: Array<ExperienceItem> = [
 
     .timeline-item-description {
         a {
-            color: var(--c-grey-500);
+            color: var(--blue10);
             font-weight: 500;
             text-decoration: none;
 
             &:hover,
             &:focus {
                 outline: 0;
-                color: var(--c-blue-500);
+                color: var(--blue10);
             }
         }
     }
