@@ -34,7 +34,7 @@ const author = data ? data.user_profile : null;
 >
     <section
         id="main-content"
-        class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-15"
+        class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-20"
         data-id={data.id}
         data-is-dev={isDev ? "true" : "false"}
     >
@@ -51,7 +51,7 @@ const author = data ? data.user_profile : null;
             )
         }
         <h1 class="text-3xl font-bold pt-5">{data?.title}</h1>
-        <p class="m-0 mb-5">
+        <p class="m-0 mb-5 text-secondary">
             {data?.summary}
         </p>
         <div class="flex flex-wrap gap-3 mb-3">
@@ -164,7 +164,7 @@ const author = data ? data.user_profile : null;
 
         <HorizontalAdBox adSlot="4295024492" />
 
-        <div class="content-render mx-auto relative md:text-lg pt-5 px-1" set:html={data.content} />
+        <div class="content-render mx-auto relative md:text-lg pt-5 px-1 text-secondary" set:html={data.content} />
 
         <div class="mt-2 mx-auto relative md:text-lg">
             <div class="pb-5">
@@ -250,6 +250,7 @@ const author = data ? data.user_profile : null;
             margin-top: 30px;
             position: relative;
             font-weight: bold;
+            color: #fff;
 
             a {
                 position: relative;

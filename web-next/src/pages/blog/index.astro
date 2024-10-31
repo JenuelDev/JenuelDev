@@ -51,27 +51,29 @@ const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pa
                 blogs.map((blog, i) => (
                     <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
                         {blog.cover_img && (
-                            <Image
-                                src={blog.cover_img}
-                                class="rounded-lg w-full mx-auto col-span-2 sm:max-w-200px "
-                                width="200"
-                                height="100"
-                                loading={i < 5 ? "eager" : "lazy"}
-                                alt={blog.title}
-                            />
+                                <Image
+                                    src={blog.cover_img}
+                                    class="rounded-lg mx-auto col-span-2"
+                                    loading={i < 5 ? "eager" : "lazy"}
+                                    width={250}
+                                    inferSize={true}
+                                    alt={blog.title}
+                                />
                         )}
 
                         <div class="content-summary leading-5 col-span-6 ">
-                            <div class="text-xs sm:mb-1">
+                            <div class="text-xs sm:mb-1 text-secondary">
                                 {dayjs(blog.updated_at).format("DD MMM, YYYY")}
                             </div>
                             <h4 class="sm:mb-2 group-hover:text-[var(--c-blue-500)] text-2xl">
                                 {blog.title}
                             </h4>
-                            <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"}`}>
+                            <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"} text-secondary`}>
                                 {blog.summary}
                             </p>
                         </div>
+
+                        
                     </a>
                     <div> {!isDev && i%7 === 0 && (
                         <div set:html={adsToRender}></div>
