@@ -16,9 +16,10 @@ interface Props {
     url?: string;
     images?: Array<ImageCustom | string> | any;
     isBlog?: boolean;
+    canonical?: string | null | undefined;
 }
 
-const { title, description, url, images, isBlog }: Props = Astro.props;
+const { title, description, url, images, isBlog, canonical }: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
 import { AstroSeo } from "@astrolib/seo";
@@ -40,7 +41,7 @@ const URL = url ?? "https://jenuel.dev";
         <AstroSeo
             title={title}
             description={DES}
-            canonical="https://www.jenuel.dev/"
+            canonical={canonical ?? "https://www.jenuel.dev"}
             openGraph={{
                 url: URL,
                 title: title,

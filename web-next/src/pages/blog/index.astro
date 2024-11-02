@@ -38,42 +38,30 @@ const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pa
     title={title}
     description={description}
     url="https://jenuel.dev/blog"
+    canonical={"https://jenuel.dev/blog"}
     images={[
         {
             url: `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`,
         },
     ]}
 >
-    <section class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-10">
-        <h1 class="text-3xl font-bold pt-10 pb-15">Blogs</h1>
-        <div class="flex flex-col gap-10">
+    <section class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-15">
+        <h1 class="text-7xl font-bold pt-10 pb-15">Blogs</h1>
+        <div class="flex flex-col gap-5">
             {
                 blogs.map((blog, i) => (
                     <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
-                        {blog.cover_img && (
-                                <Image
-                                    src={blog.cover_img}
-                                    class="rounded-lg mx-auto col-span-2"
-                                    loading={i < 5 ? "eager" : "lazy"}
-                                    width={250}
-                                    inferSize={true}
-                                    alt={blog.title}
-                                />
-                        )}
-
                         <div class="content-summary leading-5 col-span-6 ">
                             <div class="text-xs sm:mb-1 text-secondary">
                                 {dayjs(blog.updated_at).format("DD MMM, YYYY")}
                             </div>
-                            <h4 class="sm:mb-2 group-hover:text-[var(--c-blue-500)] text-2xl">
+                            <div class="sm:mb-2 group-hover:text-[var(--c-blue-500)] text-2xl group-hover:underline underline-[var(--slate10)]">
                                 {blog.title}
-                            </h4>
+                            </div>
                             <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"} text-secondary`}>
                                 {blog.summary}
                             </p>
                         </div>
-
-                        
                     </a>
                     <div> {!isDev && i%7 === 0 && (
                         <div set:html={adsToRender}></div>
