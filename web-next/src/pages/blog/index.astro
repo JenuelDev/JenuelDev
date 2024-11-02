@@ -55,7 +55,7 @@ const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pa
                             <div class="text-xs sm:mb-1 text-secondary">
                                 {dayjs(blog.updated_at).format("DD MMM, YYYY")}
                             </div>
-                            <div class="sm:mb-2 group-hover:text-[var(--c-blue-500)] text-2xl group-hover:underline underline-[var(--slate10)]">
+                            <div class="sm:mb-2 text-2xl group-hover:underline underline-[var(--slate10)]">
                                 {blog.title}
                             </div>
                             <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"} text-secondary`}>
