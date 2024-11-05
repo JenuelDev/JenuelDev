@@ -39,11 +39,7 @@ const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pa
     description={description}
     url="https://jenuel.dev/blog"
     canonical={"https://jenuel.dev/blog"}
-    images={[
-        {
-            url: `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`,
-        },
-    ]}
+    image=`https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`
 >
     <section class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-15">
         <h1 class="text-7xl font-bold pt-10 pb-15">Blogs</h1>

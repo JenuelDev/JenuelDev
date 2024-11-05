@@ -14,18 +14,19 @@ interface Props {
     title: string;
     description?: string;
     url?: string;
-    images?: Array<ImageCustom | string> | any;
+    image?: string;
     isBlog?: boolean;
     canonical?: string | null | undefined;
 }
 
-const { title, description, url, images, isBlog, canonical }: Props = Astro.props;
+const { title, description, url, image, isBlog, canonical }: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
-import { AstroSeo } from "@astrolib/seo";
+import { SEO } from "astro-seo";
 const DES =
     description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
 const URL = url ?? "https://jenuel.dev";
+const defaultImage = 'https://i.imgur.com/2q9zwKJ.png';
 ---
 
 <!doctype html>
@@ -38,21 +39,30 @@ const URL = url ?? "https://jenuel.dev";
         <meta name="google-adsense-account" content="ca-pub-2268807726840190" />
         <ViewTransitions />
         <LoadingIndicator color="var(--c-blue-500)" height="5px" />
-        <AstroSeo
+        <SEO
             title={title}
             description={DES}
             canonical={canonical ?? "https://www.jenuel.dev"}
             openGraph={{
-                url: URL,
-                title: title,
-                description: DES,
-                images: images ?? [],
-                site_name: "JenuelDev",
+                basic: {
+                    title: title,
+                    url: URL,
+                    image: image ?? defaultImage,
+                    type: "website",
+                },
+                optional: {
+                    description: DES,
+                    siteName: "JenuelDev",
+                },
             }}
             twitter={{
-                handle: "@JenuelDev",
-                site: "@JenuelDev",
-                cardType: "summary_large_image",
+                title: title,
+                site: URL,
+                card: "summary_large_image",
+                creator: "@JenuelDev",
+                description: DES,
+                image: image ?? defaultImage,
+                imageAlt: "JenuelDev",
             }}
         />
     </head>

@@ -24,13 +24,8 @@ const author = data ? data.user_profile : null;
     description={data.summary}
     url={url.toString()}
     canonical={url.toString()}
-    images={[
-        {
-            url:
-                data.cover_img ??
-                `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${data.title}&description=${data.summary}`,
-        },
-    ]}
+    image={data.cover_img ??
+        `https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${data.title}&description=${data.summary}`}
     isBlog={true}
 >
     <section
@@ -165,7 +160,10 @@ const author = data ? data.user_profile : null;
 
         <HorizontalAdBox adSlot="4295024492" />
 
-        <div class="content-render mx-auto relative md:text-lg pt-5 px-1 text-secondary" set:html={data.content} />
+        <div
+            class="content-render mx-auto relative md:text-lg pt-5 px-1 text-secondary"
+            set:html={data.content}
+        />
 
         <div class="mt-2 mx-auto relative md:text-lg">
             <div class="pb-5">

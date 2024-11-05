@@ -41,6 +41,9 @@ importers:
       astro-loading-indicator:
         specifier: ^0.6.0
         version: 0.6.0(astro@4.16.6(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5))
+      astro-seo:
+        specifier: ^0.8.4
+        version: 0.8.4(typescript@5.4.5)
       dayjs:
         specifier: ^1.11.12
         version: 1.11.12
@@ -81,6 +84,12 @@ packages:
 
   '@antfu/utils@0.7.8':
     resolution: {integrity: sha512-rWQkqXRESdjXtc+7NRfK9lASQjpXJu1ayp7qi1d23zZorY+wBHVLHHoVcMsEnkqEBWTFqbztO7/QdJFzyEcLTg==}
+
+  '@astrojs/check@0.5.10':
+    resolution: {integrity: sha512-vliHXM9cu/viGeKiksUM4mXfO816ohWtawTl2ADPgTsd4nUMjFiyAl7xFZhF34yy4hq4qf7jvK1F2PlR3b5I5w==}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
 
   '@astrojs/check@0.9.4':
     resolution: {integrity: sha512-IOheHwCtpUfvogHHsvu0AbeRZEnjJg3MopdLddkJE70mULItS/Vh37BHcI00mcOJcH1vhD3odbpvWokpxam7xA==}
@@ -1197,6 +1206,9 @@ packages:
     resolution: {integrity: sha512-0/gJ94ygnZ+qnLeP+dapOwAmj74hRP6t4o784+W41TicCp3pPm3d+WoH7XHlSQlokghtVynD9RdFjRd0ZWs9bg==}
     peerDependencies:
       astro: ^4.0.0
+
+  astro-seo@0.8.4:
+    resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
   astro@4.16.6:
     resolution: {integrity: sha512-LMMbjr+4aN26MOyJzTdjM+Y+srpAIkx7IX9IcdF3eHQLGr8PgkioZp+VQExRfioDIyA2HY6ottVg3QccTzJqYA==}
@@ -3105,6 +3117,18 @@ snapshots:
 
   '@antfu/utils@0.7.8': {}
 
+  '@astrojs/check@0.5.10(typescript@5.4.5)':
+    dependencies:
+      '@astrojs/language-server': 2.15.0(typescript@5.4.5)
+      chokidar: 3.6.0
+      fast-glob: 3.3.2
+      kleur: 4.1.5
+      typescript: 5.4.5
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - prettier
+      - prettier-plugin-astro
+
   '@astrojs/check@0.9.4(typescript@5.4.5)':
     dependencies:
       '@astrojs/language-server': 2.15.0(typescript@5.4.5)
@@ -4458,6 +4482,14 @@ snapshots:
   astro-loading-indicator@0.6.0(astro@4.16.6(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5)):
     dependencies:
       astro: 4.16.6(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5)
+
+  astro-seo@0.8.4(typescript@5.4.5):
+    dependencies:
+      '@astrojs/check': 0.5.10(typescript@5.4.5)
+    transitivePeerDependencies:
+      - prettier
+      - prettier-plugin-astro
+      - typescript
 
   astro@4.16.6(@types/node@20.14.11)(rollup@4.21.0)(sass@1.77.8)(typescript@5.4.5):
     dependencies:
