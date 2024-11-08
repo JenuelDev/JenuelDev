@@ -57,11 +57,11 @@ When I'm not coding, I like to mix things up. You might find me strumming my gui
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [How to Start a Project No Matter What](https://jenuel.dev/blog/How-to-Start-a-Project-No-Matter-What)
 - [Should You Continue Learn Your Stack or Learn New Tools](https://jenuel.dev/blog/Should-You-Continue-Learn-Your-Stack-or-Learn-New-Tools)
 - [The 3 Laws of Writing Readable Code: A Guide to Clean Programming](https://jenuel.dev/blog/The-3-Laws-of-Writing-Readable-Code-A-Guide-to-Clean-Programming)
 - [Think Like a Problem Solver, Not the Best Programmer](https://jenuel.dev/blog/Think-Like-a-Problem-Solver-Not-the-Best-Programmer)
 - [Understanding Errors is a Super Power](https://jenuel.dev/blog/Understanding-Errors-is-a-Super-Power)
-- [Why PHP is Gaining Popularity in 2024: The Unexpected Comeback of a Classic Language](https://jenuel.dev/blog/Why-PHP-is-Gaining-Popularity-in-2024-The-Unexpected-Comeback-of-a-Classic-Language)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
