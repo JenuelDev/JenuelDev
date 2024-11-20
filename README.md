@@ -1,14 +1,5 @@
 <a href="https://app.daily.dev/jenueldev"><img src="https://api.daily.dev/devcards/v2/JJtZr4Sjm.png?type=wide&r=0dl" width="652" alt="Jenuel Oras Ganawed's Dev Card"/></a>
 
-###  👔 About Me
-
-Back in 2016, I decided to make a big change, switching from studying criminology to diving into the exciting world of Information Technology. That's when I discovered my passion for software development.
-
-Now, with over 6+ years of experience as a software developer, I've had the chance to work in a constantly changing field, collaborating with other coding enthusiasts and contributing to some amazing projects.
-
-I'm all about the details, whether it's writing efficient code or perfecting a recipe. I believe that paying attention to the little things is key to building scalable, engaging, and accessible digital experiences.
-
-When I'm not coding, I like to mix things up. You might find me strumming my guitar (I'm no rockstar, but it's fun!), reading a good book, going for walks, doing home workouts, enjoying a good meal, playing PUBG Mobile or ML with friends, or just learning something new.
 
 ### 🛠 Languages And Tools
 
@@ -43,16 +34,9 @@ When I'm not coding, I like to mix things up. You might find me strumming my gui
 
 ### 🔗 Connect With Me
 
-[![BroJenuel Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/broJenuel)
-[![BroJenuel Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/brojenuelofficial)
-[![BroJenuel Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/brojenuel)
-[![BroJenuel Dev.To](https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white)](https://dev.to/brojenuel)
-[![BroJenuel Me](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://brojenuel.com)
-[![BroJenuel WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/639503255547)
-[![jenuelganawed@outlook.com](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jenuelganawed936@gmail.com?subject=[Lets%20Connect!]%20Source%20Han%20Sans)
+[![JenuelDev](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://jenuel.dev)
 [![BroJenuel Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/brojenuel/)
 [![BroJenuel Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jenuelganawed/)
-[![BroJenuel TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@brojenuel)
 
 ### 🚨 Latest Blog posts
 
