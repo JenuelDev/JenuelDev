@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import dayjs from "dayjs";
 const projects: Array<{
     name: string;
     from: string;
@@ -52,7 +53,7 @@ const projects: Array<{
     },
     {
         name: "Responsive Web Design",
-        description: "",
+        description: "Learned the fundamentals of responsive web design and created simple responsive web pages to practice the concepts.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -60,7 +61,7 @@ const projects: Array<{
     },
     {
         name: "CSS",
-        description: "",
+        description: "Completed a course on CSS, where we learned the fundamentals of Cascading Style Sheets and created simple CSS programs to practice the concepts.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -68,7 +69,7 @@ const projects: Array<{
     },
     {
         name: "Java",
-        description: "",
+        description: "Completed a course on Java, where we learned the fundamentals of object-oriented programming and created simple Java programs to practice the concepts.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -76,7 +77,7 @@ const projects: Array<{
     },
     {
         name: "PHP",
-        description: "",
+        description: "Completed a course on PHP, where we learned to develop dynamic and secure websites. The course covered essential topics such as database connectivity, security features, and creating dynamic web pages.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -131,7 +132,7 @@ const projects: Array<{
 ---
 
 <div class="w-full max-w-800px mx-auto sm:text-lg px-5">
-    <div>
+    <div class="mb-5">
         <div class="sm:text-5xl text-3xl font-800 text-[var(--c-blue-500)] float-left pr-5">
             Achievements
         </div>
@@ -139,29 +140,17 @@ const projects: Array<{
         There are many ways to learn, such as joining projects or taking courses. Through these experiences,
         I've been able to achieve significant milestones.
     </div>
-    <div class="flex gap-3 flex-wrap py-10 justify-center">
+    <div class="flex flex-col gap-5">
         {
             projects.map((item) => (
-                <a
-                    href={item.url}
-                    target="_blank"
-                    class="p-4 border flex flex-col justify-center items-center max-w-340px text-center group  transition-all rounded-md scale-100 hover:scale-103 bg-white text-[var(--slate1)] opacity-50 hover:opacity-100"
-                >
-                    <div class="text-lg font-600 group-hover:text-[var(--c-blue-500)]">
-                        {item.name}
-                    </div>
-                    <div class="text-md font-400">
-                        {item.logo && item.isLogoImage ? (
-                            <Image
-                                src={item.logo}
-                                alt={item.name}
-                                width={100}
-                                height={100}
-                                alt={`${item.from} Image`}
-                            />
-                        ) : (
-                            <span style={`font-family: ${item.logoFontFamily};`}>{item.logo}</span>
-                        )}
+                <a href={`${item.url}`} class="flex sm:flex-row flex-col gap-5 group" target="_blank">
+                    <div class="content-summary leading-5 col-span-6 ">
+                        <div class="text-lg group-hover:underline underline-[var(--slate10)]">
+                            {item.name} <span class="text-secondary"> - {item.from}</span>
+                        </div>
+                        <p class={`line-clamp-6 text-sm text-secondary`}>
+                            {item.description}
+                        </p>
                     </div>
                 </a>
             ))
