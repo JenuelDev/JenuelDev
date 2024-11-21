@@ -4,7 +4,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav class="fixed top-0 w-full z-9999 bg-opacity-30 backdrop-blur-md p-3 border-b border-solid border-[var(--slate6)]">
+<nav class="fixed top-0 w-full z-9999 bg-[var(--slate1-soft)] backdrop-blur-lg p-3 border-b border-solid border-[var(--slate6)]">
     <div class="flex items-center justify-between mx-auto">
         <a href="/" class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full">
             <span class="w-3 h-3 rounded-full bg-white inline-block mr-1"></span>
