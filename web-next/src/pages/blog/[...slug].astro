@@ -259,6 +259,13 @@ const author = data ? data.user_profile : null;
                     text-decoration: underline;
                 }
             }
+
+            code {
+                background-color: #202631;
+                padding: 0 5px;
+                border-radius: 5px;
+                color: aliceblue;
+            }
         }
 
         h2 {
@@ -310,13 +317,10 @@ const author = data ? data.user_profile : null;
             }
 
             code {
-                --gradient-from-color: #a2f7b6;
-                --gradient-to-color: #8fd3f4;
-                --gradient-color-stops: var(--gradient-from-color),
-                    var(--gradient-to-color, rgba(162, 247, 182, 0));
-                background-image: linear-gradient(to right, var(--gradient-color-stops));
-
-                @apply text-slate-950 px-1 text-lg rounded-md;
+                background-color: #202631;
+                padding: 0 5px;
+                border-radius: 5px;
+                color: aliceblue;
             }
         }
 
