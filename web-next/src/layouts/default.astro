@@ -1,6 +1,5 @@
 ---
 import Header from "../components/Header.astro";
-import { ViewTransitions } from "astro:transitions";
 import LoadingIndicator from "astro-loading-indicator/component";
 interface ImageCustom {
     url: string;
@@ -27,6 +26,7 @@ const DES =
     description ?? "I build web apps that are engaging, accessible and scalable - JenuelDev";
 const URL = url ?? "https://jenuel.dev";
 const defaultImage = 'https://i.imgur.com/2q9zwKJ.png';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -37,7 +37,7 @@ const defaultImage = 'https://i.imgur.com/2q9zwKJ.png';
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />
         <meta name="generator" content={Astro.generator} />
         <meta name="google-adsense-account" content="ca-pub-2268807726840190" />
-        <ViewTransitions />
+        <ClientRouter />
         <LoadingIndicator color="var(--c-blue-500)" height="5px" />
         <SEO
             title={title}
@@ -67,7 +67,7 @@ const defaultImage = 'https://i.imgur.com/2q9zwKJ.png';
         />
     </head>
     <body>
-        <Header />
+        <Header transition:persist />
         <slot />
         <Footer />
     </body>

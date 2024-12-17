@@ -35,8 +35,6 @@ export async function GET(props: any) {
 
     const { data } = await clientQuery;
 
-    let feedItem = [];
-
     for (const blog of data ?? []) {
         sitemap.write({
             url: `${domain}/blog/${blog.slug}`,
