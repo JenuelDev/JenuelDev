@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import LoadingIndicator from "astro-loading-indicator/component";
+import Analytics from '@vercel/analytics/astro'
 interface ImageCustom {
     url: string;
     width: number;
@@ -70,6 +71,7 @@ import { ClientRouter } from 'astro:transitions';
         <Header transition:persist />
         <slot />
         <Footer />
+        <Analytics />
     </body>
 </html>
 <style is:global>
