@@ -41,11 +41,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [How to Develop the Right Mindset as a Programmer](https://jenuel.dev/blog/How-to-Develop-the-Right-Mindset-as-a-Programmer)
 - [Lunacy: A tool you need when you need it](https://jenuel.dev/blog/Lunacy-A-tool-you-need-when-you-need-it)
 - [Mastering PHP 8.4: New Multibyte String Functions Made Easy](https://jenuel.dev/blog/Mastering-PHP-8-4-New-Multibyte-String-Functions-Made-Easy)
 - [Event Handling in Vue 3: A Comprehensive Guide](https://jenuel.dev/blog/Event-Handling-in-Vue-3-A-Comprehensive-Guide)
 - [How to Start a Project No Matter What](https://jenuel.dev/blog/How-to-Start-a-Project-No-Matter-What)
-- [Should You Continue Learn Your Stack or Learn New Tools](https://jenuel.dev/blog/Should-You-Continue-Learn-Your-Stack-or-Learn-New-Tools)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
