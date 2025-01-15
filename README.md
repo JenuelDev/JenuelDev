@@ -41,11 +41,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Animation Library You Can Use for your Web Apps](https://jenuel.dev/blog/Animation-Library-You-Can-Use-for-your-Web-Apps)
+- [What Is Better: Flutter or React Native to Learn in 2025](https://jenuel.dev/blog/What-Is-Better-Flutter-or-React-Native-to-Learn-in-2025)
 - [How to Develop the Right Mindset as a Programmer](https://jenuel.dev/blog/How-to-Develop-the-Right-Mindset-as-a-Programmer)
 - [Lunacy: A tool you need when you need it](https://jenuel.dev/blog/Lunacy-A-tool-you-need-when-you-need-it)
 - [Mastering PHP 8.4: New Multibyte String Functions Made Easy](https://jenuel.dev/blog/Mastering-PHP-8-4-New-Multibyte-String-Functions-Made-Easy)
-- [Event Handling in Vue 3: A Comprehensive Guide](https://jenuel.dev/blog/Event-Handling-in-Vue-3-A-Comprehensive-Guide)
-- [How to Start a Project No Matter What](https://jenuel.dev/blog/How-to-Start-a-Project-No-Matter-What)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
