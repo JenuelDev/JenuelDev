@@ -41,11 +41,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Nuxt: Deprecated Punycode Fix](https://jenuel.dev/blog/Nuxt-Deprecated-Punycode-Fix)
 - [How to Code Clean: Best Practices for Writing Maintainable and Efficient Code](https://jenuel.dev/blog/How-to-Code-Clean-Best-Practices-for-Writing-Maintainable-and-Efficient-Code)
 - [Animation Library You Can Use for your Web Apps](https://jenuel.dev/blog/Animation-Library-You-Can-Use-for-your-Web-Apps)
 - [What Is Better: Flutter or React Native to Learn in 2025](https://jenuel.dev/blog/What-Is-Better-Flutter-or-React-Native-to-Learn-in-2025)
 - [How to Develop the Right Mindset as a Programmer](https://jenuel.dev/blog/How-to-Develop-the-Right-Mindset-as-a-Programmer)
-- [Lunacy: A tool you need when you need it](https://jenuel.dev/blog/Lunacy-A-tool-you-need-when-you-need-it)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
