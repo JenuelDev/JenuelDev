@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Laravel Cloud to Save the Day: A Game-Changer for Laravel Developers](https://jenuel.dev/blog/Laravel-Cloud-to-Save-the-Day-A-Game-Changer-for-Laravel-Developers)
 - [Limiting Docker RAM Usage on Windows](https://jenuel.dev/blog/Limiting-Docker-RAM-Usage-on-Windows)
 - [JavaScript Functions Developers Should Know](https://jenuel.dev/blog/JavaScript-Functions-Developers-Should-Know)
 - [Deepseek: Start Using It on your machine Offline](https://jenuel.dev/blog/Deepseek-Start-Using-It-on-your-machine-Offline)
 - [Nuxt: Deprecated Punycode Fix](https://jenuel.dev/blog/Nuxt-Deprecated-Punycode-Fix)
-- [How to Code Clean: Best Practices for Writing Maintainable and Efficient Code](https://jenuel.dev/blog/How-to-Code-Clean-Best-Practices-for-Writing-Maintainable-and-Efficient-Code)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
