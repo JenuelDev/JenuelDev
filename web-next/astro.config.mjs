@@ -3,6 +3,8 @@ import UnoCSS from "unocss/astro";
 import icon from "astro-icon";
 import vercel from "@astrojs/vercel";
 
+import vue from "@astrojs/vue";
+
 // https://astro.build/config
 export default defineConfig({
     output: "server",
@@ -11,6 +13,7 @@ export default defineConfig({
             injectReset: true,
         }),
         icon(),
+        vue()
     ],
     adapter: vercel({
         edgeMiddleware: true,
