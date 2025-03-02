@@ -58,7 +58,7 @@ const projects = [
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {
             projects.map((project) => (
-                <div class=" bg-[var(--slate2)] border border-[var(--slate6)] rounded-lg shadow:sm transition-all group scale-100 hover:scale-102 relative overflow-hidden flex flex-col">
+                <div class=" bg-[var(--slate2)] border border-2 border-[var(--slate6)] rounded-md hover:border-[var(--slate8)] hover:bg-[var(--slate2)] rounded-lg shadow:sm transition-all group scale-100 hover:scale-102 relative overflow-hidden flex flex-col">
                     <a
                         href={project.url}
                         class="overflow-hidden h-200px rounded-t-lg flex items-center justify-center"
@@ -67,7 +67,7 @@ const projects = [
                         <Image
                             src={project.coverImage}
                             alt={project.title}
-                            class="group-hover:scale-103 transition-all"
+                            class="group-hover:scale-110 transition-all"
                             loading={"lazy"}
                             inferSize={true}
                         />
@@ -79,7 +79,7 @@ const projects = [
                                     {project.title}
                                 </div>
                             </a>
-                            <p class="mb-3 font-normal " set:html={project.description} />
+                            <p class="font-300" set:html={project.description} />
                         </div>
                     </div>
                 </div>

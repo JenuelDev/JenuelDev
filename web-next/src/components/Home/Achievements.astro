@@ -51,7 +51,8 @@ const projects: Array<{
     },
     {
         name: "Responsive Web Design",
-        description: "Learned the fundamentals of responsive web design and created simple responsive web pages to practice the concepts.",
+        description:
+            "Learned the fundamentals of responsive web design and created simple responsive web pages to practice the concepts.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -59,7 +60,8 @@ const projects: Array<{
     },
     {
         name: "CSS",
-        description: "Completed a course on CSS, where we learned the fundamentals of Cascading Style Sheets and created simple CSS programs to practice the concepts.",
+        description:
+            "Completed a course on CSS, where we learned the fundamentals of Cascading Style Sheets and created simple CSS programs to practice the concepts.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -67,7 +69,8 @@ const projects: Array<{
     },
     {
         name: "Java",
-        description: "Completed a course on Java, where we learned the fundamentals of object-oriented programming and created simple Java programs to practice the concepts.",
+        description:
+            "Completed a course on Java, where we learned the fundamentals of object-oriented programming and created simple Java programs to practice the concepts.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -75,7 +78,8 @@ const projects: Array<{
     },
     {
         name: "PHP",
-        description: "Completed a course on PHP, where we learned to develop dynamic and secure websites. The course covered essential topics such as database connectivity, security features, and creating dynamic web pages.",
+        description:
+            "Completed a course on PHP, where we learned to develop dynamic and secure websites. The course covered essential topics such as database connectivity, security features, and creating dynamic web pages.",
         from: "SoloLearn",
         isLogoImage: true,
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
@@ -134,21 +138,25 @@ const projects: Array<{
         <div class="sm:text-5xl text-3xl font-800 text-[var(--c-blue-500)] float-left pr-5">
             Achievements
         </div>
-        During my professional journey, I've embraced continuous learning as an essential part of growth.
-        There are many ways to learn, such as joining projects or taking courses. Through these experiences,
-        I've been able to achieve significant milestones.
+        <span class="font-300">
+            During my professional journey, I've embraced continuous learning as an essential part
+            of growth. There are many ways to learn, such as joining projects or taking courses.
+            Through these experiences, I've been able to achieve significant milestones.
+        </span>
     </div>
     <div class="flex flex-col gap-5">
         {
             projects.map((item) => (
-                <a href={`${item.url}`} class="flex sm:flex-row flex-col gap-5 group" target="_blank">
+                <a
+                    href={`${item.url}`}
+                    class="flex sm:flex-row flex-col gap-5 group p-3 border border-2 border-[var(--slate6)] px-4 py-2 rounded-md hover:border-[var(--slate8)] hover:bg-[var(--slate2)] transition-all"
+                    target="_blank"
+                >
                     <div class="content-summary leading-5 col-span-6 ">
-                        <div class="text-lg group-hover:underline underline-[var(--slate10)]">
+                        <div class="text-lg">
                             {item.name} <span class="text-secondary"> - {item.from}</span>
                         </div>
-                        <p class={`line-clamp-6 text-sm text-secondary`}>
-                            {item.description}
-                        </p>
+                        <p class={`line-clamp-6 text-sm text-secondary font-300`}>{item.description}</p>
                     </div>
                 </a>
             ))

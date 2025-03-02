@@ -72,11 +72,11 @@ const timeline: Array<ExperienceItem> = [
                 </span>
                 <div class="timeline-item-wrapper">
                     <div class="timeline-item-description flex pt-2 gap-2 text-default">
-                        <span class="sm:text-lg text-md" set:html={item.descriptions} />
+                        <span class="sm:text-lg font-300" set:html={item.descriptions} />
                     </div>
                     {item.comment && (
                         <div class="comment mt-3 text-[var(--c-grey-500)] border bg-[var(--slate2)] border-[var(--slate6)] rounded-2 p-4 transition-all scale-100 hover:scale-105">
-                            <p class="sm:text-md text-md " set:html={item.comment} />
+                            <p class="" set:html={item.comment} />
                         </div>
                     )}
                 </div>
@@ -108,7 +108,7 @@ const timeline: Array<ExperienceItem> = [
         }
 
         &.blue-icon {
-            background-color: #3278C6;
+            background-color: #3278c6;
             color: #fff;
         }
 
