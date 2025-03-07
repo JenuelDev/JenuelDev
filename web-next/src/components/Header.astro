@@ -3,22 +3,37 @@ import { Icon } from "astro-icon/components";
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<nav class="fixed top-0 w-full z-9999 bg-[var(--slate1-soft)] backdrop-blur-lg p-3 border-b border-solid border-[var(--slate6)]">
+<nav
+    class="fixed top-0 w-full z-9999 bg-[var(--slate1-soft)] backdrop-blur-lg p-3 border-b border-solid border-[var(--slate6)]"
+>
     <div class="flex items-center justify-between mx-auto">
-        <a href="/" class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full">
+        <a
+            href="/"
+            class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full hover:border-[var(--slate8)] hover:bg-[var(--slate2)] transition-all"
+        >
             <span class="w-3 h-3 rounded-full bg-white inline-block mr-1"></span>
             <span>Jenuel</span><span class="font-800">Dev</span>
         </a>
-        <div class="gap-5 md:flex hidden border border-2 border-[var(--slate6)] px-4 py-2 rounded-full">
-            <a href="/" class="flex items-center gap-1 hover:underline">
+        <div
+            class="gap-3 md:flex hidden border border-2 border-[var(--slate6)] px-4 py-2 rounded-full"
+        >
+            <a
+                href="/"
+                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
+                class:list={pathname === "/" ? "bg-white/10" : ""}
+            >
                 <Icon name="tabler:smart-home" /> Home
             </a>
-            <a href="/blog" class="flex items-center gap-1 hover:underline">
+            <a
+                href="/blog"
+                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
+                class:list={pathname === "/blog" ? "bg-white/10" : ""}
+            >
                 <Icon name="tabler:article" class="inline text-lg" /> Blog
             </a>
         </div>
         <a
-            class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full md:flex items-center gap-1 hidden"
+            class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full md:flex items-center gap-1 hidden hover:border-[var(--slate8)] hover:bg-[var(--slate2)] transition-all"
             href="https://www.linkedin.com/in/jenuelganawed/"
             target="_blank"
             title="Linkedin"
@@ -26,7 +41,9 @@ const pathname = new URL(Astro.request.url).pathname;
         >
             <Icon name="CarbonConnect" /> Lets Connect
         </a>
-        <div class="gap-5 md:hidden flex border border-2  px-4 py-2 rounded-full border-[var(--slate6)]">
+        <div
+            class="gap-5 md:hidden flex border border-2 px-4 py-2 rounded-full border-[var(--slate6)]"
+        >
             <a href="/" class="flex items-center gap-1 hover:underline" aria-label="Home">
                 <Icon name="tabler:smart-home" size={25} />
             </a>
