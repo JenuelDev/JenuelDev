@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import AboutMeSection from './../../components/AboutMe/ABoutMeSection.vue';
 import TechnicalSkills from './../../components/AboutMe/TechnicalSkills.vue';
 import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';

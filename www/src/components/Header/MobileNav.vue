@@ -1,17 +1,18 @@
-<script setup>
-import ThemeChanger from './../themeChanger/themeChanger';
-import { Home20Filled, Briefcase20Filled, Code20Filled, Mail20Filled, WebAsset24Filled } from '@vicons/fluent';
-import { Icon } from '@vicons/utils';
-import { socialMediaLinks } from './../../constant/social-network';
+<script setup lang="ts">
+import ThemeChanger from './../themeChanger/themeChanger.vue';
+import { Icon } from '@iconify/vue';
+import { socialMediaLinks } from '../../constant/social-network';
 import { computed } from 'vue';
+import { useStore } from '@/stores/store';
 
+const store = useStore();
 const SocialNetwork = computed(() => socialMediaLinks);
 </script>
 <template>
     <div class="nav-mobile">
-        <div class="nav-front" :class="{ 'show-nav': $store.state.navShow }">
+        <div class="nav-front" :class="{ 'show-nav': store.navShow }">
             <div class="close-button">
-                <Icon name="x" :size="30" @click="$store.state.navShow = false" />
+                <Icon icon="material-symbols:cancel" :size="30" @click="store.navShow = false" />
             </div>
             <ul>
                 <li>
@@ -19,84 +20,58 @@ const SocialNetwork = computed(() => socialMediaLinks);
                         <ThemeChanger />
                     </div>
                 </li>
-                <li
-                    v-scrollanimation
-                    style="transition-delay: 100ms"
-                    @click="
-                        $router.push({ name: 'AboutMe' });
-                        $store.state.navShow = false;
-                    "
-                >
+                <li v-scrollanimation style="transition-delay: 100ms" @click="
+                    $router.push({ name: 'AboutMe' });
+                store.navShow = false;
+                ">
                     <div :class="{ active: $route.name == 'AboutMe' }">
-                        <Icon size="20">
-                            <Home20Filled />
-                        </Icon>
+                        <Icon size="20" icon="tabler:home-filled" />
                         Home
                     </div>
                 </li>
-                <li
-                    v-scrollanimation
-                    style="transition-delay: 250ms"
-                    @click="
-                        $router.push({ name: 'Experience' });
-                        $store.state.navShow = false;
-                    "
-                >
+                <li v-scrollanimation style="transition-delay: 250ms" @click="
+                    $router.push({ name: 'Experience' });
+                store.navShow = false;
+                ">
                     <div :class="{ active: $route.name == 'Experience' }">
-                        <Icon size="20">
-                            <Briefcase20Filled />
-                        </Icon>
+                        <Icon size="20" icon="tabler:briefcase-2-filled" />
                         Experience
                     </div>
                 </li>
-                <li
-                    v-scrollanimation
-                    style="transition-delay: 400ms"
-                    @click="
-                        $router.push({ name: 'Project' });
-                        $store.state.navShow = false;
-                    "
-                >
+                <li v-scrollanimation style="transition-delay: 400ms" @click="
+                    $router.push({ name: 'Project' });
+                store.navShow = false;
+                ">
                     <div :class="{ active: $route.name == 'Project' }">
-                        <Icon size="20">
-                            <Code20Filled />
-                        </Icon>
+                        <Icon size="20" icon="tabler:terminal-2" />
                         Projects
                     </div>
                 </li>
-                <li
-                    v-scrollanimation
-                    style="transition-delay: 550ms"
-                    @click="
-                        $router.push({ name: 'Contact' });
-                        $store.state.navShow = false;
-                    "
-                >
+                <li v-scrollanimation style="transition-delay: 550ms" @click="
+                    $router.push({ name: 'Contact' });
+                store.navShow = false;
+                ">
                     <div :class="{ active: $route.name == 'Contact' }">
-                        <Icon size="20">
-                            <Mail20Filled />
-                        </Icon>
+                        <Icon size="20" icon="tabler:mail" />
                         Contact Me
                     </div>
                 </li>
                 <li v-scrollanimation style="transition-delay: 650ms">
                     <a rel="external" href="https://dev.to/BroJenuel" hreflang="es-es">
-                        <Icon size="20">
-                            <WebAsset24Filled />
-                        </Icon>
+                        <Icon size="20" icon="tabler:brand-blogger" />
                         Blog
                     </a>
                 </li>
                 <li>
                     <ul class="social-medias-in-nav">
                         <li v-for="social in SocialNetwork" :key="social.link">
-                            <Icon :name="social.icon" :size="30" />
+                            <Icon :icon="social.icon" :size="30" />
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="nav-back" :class="{ 'show-nav': $store.state.navShow }" @click="$store.state.navShow = false"></div>
+        <div class="nav-back" :class="{ 'show-nav': store.navShow }" @click="store.navShow = false"></div>
     </div>
 </template>
 
@@ -157,11 +132,16 @@ const SocialNetwork = computed(() => socialMediaLinks);
                     align-items: center;
                     gap: 7px;
                     padding: 10px;
-                    user-select: none; /* supported by Chrome and Opera */
-                    -webkit-user-select: none; /* Safari */
-                    -khtml-user-select: none; /* Konqueror HTML */
-                    -moz-user-select: none; /* Firefox */
-                    -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none;
+                    /* supported by Chrome and Opera */
+                    -webkit-user-select: none;
+                    /* Safari */
+                    -khtml-user-select: none;
+                    /* Konqueror HTML */
+                    -moz-user-select: none;
+                    /* Firefox */
+                    -ms-user-select: none;
+                    /* Internet Explorer/Edge */
 
                     &.active {
                         color: var(--primary);
@@ -179,6 +159,7 @@ const SocialNetwork = computed(() => socialMediaLinks);
             visibility: hidden;
         }
     }
+
     .nav-back {
         background-color: rgba(0, 0, 0, 0.4);
         height: 0%;

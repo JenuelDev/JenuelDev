@@ -1,8 +1,13 @@
-<script setup>
-import { Icon } from '@vicons/utils';
-import { Facebook, Youtube, LinkedinIn, Github, Twitter, Dev } from '@vicons/fa';
+<script setup lang="ts">
+import { Icon } from '@iconify/vue';
 
-function openSite(site) {
+
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * Opens a website in a new tab.
+ * @param {string} site - The site to open.
+ */
+/******  b45e9c25-5616-4d20-90d4-9eee1c29e7db  *******/function openSite(site: string) {
     window.open(site, '_blank');
 }
 </script>
@@ -14,7 +19,7 @@ function openSite(site) {
                 <li>
                     <div @click="openSite('https://www.facebook.com/ganawed/')" class="a-link">
                         <div class="text-size-40px">
-                            <Icon><Facebook /></Icon>
+                            <Icon icon="tabler:brand-facebook-filled" />
                         </div>
                         <span class="icon-title">Facebook</span>
                     </div>
@@ -22,7 +27,7 @@ function openSite(site) {
                 <li>
                     <div @click="openSite('https://www.youtube.com/channel/UCNANDtTF63UTRcYioVsSCdA')" class="a-link">
                         <div class="text-size-40px">
-                            <Icon><Youtube /></Icon>
+                            <Icon icon="tabler:brand-youtube-filled" />
                         </div>
                         <span class="icon-title">Youtube</span>
                     </div>
@@ -30,7 +35,7 @@ function openSite(site) {
                 <li>
                     <div @click="openSite('https://www.linkedin.com/in/jenuelganawed/')" class="a-link">
                         <div class="text-size-40px">
-                            <Icon><LinkedinIn /></Icon>
+                            <Icon icon="tabler:brand-linkedin-filled" />
                         </div>
                         <span class="icon-title">LinkedIn</span>
                     </div>
@@ -38,7 +43,7 @@ function openSite(site) {
                 <li>
                     <div @click="openSite('https://github.com/BroJenuel')" class="a-link">
                         <div class="text-size-40px">
-                            <Icon><Github /></Icon>
+                            <Icon icon="tabler:brand-github-filled" />
                         </div>
                         <span class="icon-title">GitHub</span>
                     </div>
@@ -46,7 +51,7 @@ function openSite(site) {
                 <li>
                     <div @click="openSite('https://twitter.com/broJenuel')" class="a-link">
                         <div class="text-size-40px">
-                            <Icon><Twitter /></Icon>
+                            <Icon icon="tabler:brand-twitter-filled" />
                         </div>
                         <span class="icon-title">Twitter</span>
                     </div>
@@ -54,7 +59,7 @@ function openSite(site) {
                 <li>
                     <div @click="openSite('https://dev.to/brojenuel')" class="a-link">
                         <div class="text-size-40px">
-                            <Icon><Dev /></Icon>
+                            <Icon icon="tabler:link" />
                         </div>
                         <span class="icon-title">Dev.to</span>
                     </div>

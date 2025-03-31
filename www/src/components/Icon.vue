@@ -1,12 +1,12 @@
-<script>
+<script setup lang="ts">
 import { h } from 'vue';
-import { Icon } from '@vicons/utils';
+import { Icon } from "@iconify/vue";
 
-export default {
-    props: ['icon', 'size'],
-    setup(props) {
-        // return the render function
-        return () => h(Icon, { size: props.size ? props.size : 20, class: 'highlight-hover' }, () => h(props.icon));
-    },
-};
+defineProps<{
+    icon: string;
+    size?: number | string;
+}>()
 </script>
+<template>
+    <Icon :icon="icon" :size="size ?? 20" />
+</template>

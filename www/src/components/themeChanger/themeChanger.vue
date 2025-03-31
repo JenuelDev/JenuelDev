@@ -1,9 +1,38 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { themes } from './Themes';
+
+let theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'greenLight';
+document.documentElement.setAttribute('theme', theme as string);
+
+const open = ref(false);
+const selectedTheme = ref(theme);
+
+const clickOutSide = () => (el: any) => {
+    if (el) {
+        open.value = false;
+    } else {
+        open.value = true;
+    }
+};
+
+const close = () => {
+    open.value = false;
+};
+
+const changeTheme = (theme: any) => {
+    localStorage.setItem('theme', theme.name);
+    selectedTheme.value = theme.name;
+    document.documentElement.setAttribute('theme', theme.name);
+};
+</script>
 <template>
     <div class="theme-dropdown" :class="{ 'open-dropdown': open }" v-click-outside="clickOutSide()">
         <div class="color-selector" @mouseover="open = true"></div>
         <div class="theme-dropdown-content" @mouseover="open = true" @mouseout="open = false">
             <div class="theme-dropdown-content-wrapper">
-                <div v-for="theme in themes" class="color-theme-choices" :class="{ active: selectedTheme == theme.name }" :key="theme.name" @click="changeTheme(theme)">
+                <div v-for="theme in themes" class="color-theme-choices"
+                    :class="{ active: selectedTheme == theme.name }" :key="theme.name" @click="changeTheme(theme)">
                     <div class="color-selector-pallette">
                         <div class="color-selections" :style="`background-color: ${theme.color1};`"></div>
                         <div class="color-selections" :style="`background-color: ${theme.color2};`"></div>
@@ -15,47 +44,8 @@
         </div>
     </div>
 </template>
-<script>
-import { ref } from 'vue';
-import { themes } from './Themes';
-export default {
-    setup() {
-        let theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'greenLight';
-        document.documentElement.setAttribute('theme', theme);
 
-        const open = ref(false);
-        const selectedTheme = ref(theme);
-
-        const clickOutSide = () => (el) => {
-            if (el) {
-                open.value = false;
-            } else {
-                open.value = true;
-            }
-        };
-
-        const close = () => {
-            open.value = false;
-        };
-
-        const changeTheme = (theme) => {
-            localStorage.setItem('theme', theme.name);
-            selectedTheme.value = theme.name;
-            document.documentElement.setAttribute('theme', theme.name);
-        };
-
-        return {
-            clickOutSide,
-            open,
-            themes,
-            close,
-            changeTheme,
-            selectedTheme,
-        };
-    },
-};
-</script>
-<style lang="postcss">
+<style lang="scss">
 .theme-dropdown {
     @apply cursor-pointer relative;
 
@@ -116,6 +106,7 @@ export default {
         .color-selector {
             border: 3px solid #fff;
         }
+
         .theme-dropdown-content {
             transform: translateY(0px);
             opacity: 1;

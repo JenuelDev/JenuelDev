@@ -1,5 +1,3 @@
-import { ExternalLinkSquareAlt, Github } from '@vicons/fa';
-
 export default {
     works: [
         {
@@ -10,12 +8,12 @@ export default {
             links: [
                 {
                     link: 'https://github.com/Bible-Projects/believers-sword-app',
-                    icon: Github,
+                    icon: null,
                     tooltip: 'Open in Github',
                 },
                 {
                     link: 'https://believers-sword.brojenuel.com/',
-                    icon: ExternalLinkSquareAlt,
+                    icon: null,
                     tooltip: 'Open Link',
                 },
             ],
@@ -30,12 +28,12 @@ export default {
             links: [
                 {
                     link: 'https://github.com/BroJenuel-Youtube/laravel-mongodb',
-                    icon: Github,
+                    icon: null,
                     tooltip: 'Open in Github',
                 },
                 {
                     link: 'https://laravel-mongo-docs.ml',
-                    icon: ExternalLinkSquareAlt,
+                    icon: null,
                     tooltip: 'Open Link',
                 },
             ],
@@ -50,7 +48,7 @@ export default {
             links: [
                 {
                     link: 'https://kateawisan.ml',
-                    icon: ExternalLinkSquareAlt,
+                    icon: null,
                     tooltip: 'Open Link',
                 },
             ],
@@ -65,12 +63,12 @@ export default {
             links: [
                 {
                     link: 'https://github.com/BroJenuel-Youtube/get-gifs',
-                    icon: Github,
+                    icon: null,
                     tooltip: 'Open in Github',
                 },
                 {
                     link: 'https://www.getgifs.ml/',
-                    icon: ExternalLinkSquareAlt,
+                    icon: null,
                     tooltip: 'Open Link',
                 },
             ],
@@ -85,12 +83,12 @@ export default {
             links: [
                 {
                     link: 'https://github.com/BroJenuel/jenuel-portfolio-v2',
-                    icon: Github,
+                    icon: null,
                     tooltip: 'Open In Github',
                 },
                 {
                     link: 'https://BroJenuel.com',
-                    icon: ExternalLinkSquareAlt,
+                    icon: null,
                     tooltip: 'Open Link',
                 },
             ],
@@ -98,4 +96,4 @@ export default {
             img: 'https://i.imgur.com/ygEsq4Kl.png',
         },
     ],
-};
+} as any;

@@ -1,17 +1,11 @@
-<script setup>
-import ThemeChanger from './../themeChanger/themeChanger';
-import { Home20Filled, Briefcase20Filled, Code20Filled, Mail20Filled, WebAsset24Filled, Navigation20Regular } from '@vicons/fluent';
-import Facebook from '@vicons/fa/Facebook';
-import LinkedinIn from '@vicons/fa/LinkedinIn';
-import Youtube from '@vicons/fa/Youtube';
-import Github from '@vicons/fa/Github';
-import Twitter from '@vicons/fa/Twitter';
-import Dev from '@vicons/fa/Dev';
-import { Icon } from '@vicons/utils';
+<script setup lang="ts">
+import ThemeChanger from './../themeChanger/themeChanger.vue';
 import { onBeforeMount, onMounted, ref } from 'vue';
-import Document16Regular from '@vicons/fluent/Document16Regular';
 import { RouterLink } from 'vue-router';
+import { Icon } from "@iconify/vue"
+import { useStore } from '@/stores/store';
 
+const store = useStore();
 const scroll = ref(0);
 const width = ref(0);
 const showNavbar = ref(true);
@@ -48,7 +42,7 @@ onBeforeMount(() => {
     window.removeEventListener('scroll', onScroll);
 });
 
-function openSite(site) {
+function openSite(site: string) {
     window.open(site, '_blank');
 }
 </script>
@@ -63,55 +57,40 @@ function openSite(site) {
                 <div class="nav-o">
                     <RouterLink v-scrollanimation style="transition-delay: 100ms" to="/">
                         <div class="flex items-center" :class="{ active: $route.name == 'AboutMe' }">
-                            <Icon size="20">
-                                <Home20Filled />
-                            </Icon>
+                            <Icon icon="tabler:home-filled" size="20" />
                             <span class="text-size-14px font-500"> Home </span>
                         </div>
                     </RouterLink>
                     <RouterLink v-scrollanimation style="transition-delay: 250ms" to="/experience">
                         <div class="flex items-center" :class="{ active: $route.name == 'Experience' }">
-                            <Icon size="20">
-                                <Briefcase20Filled />
-                            </Icon>
+                            <Icon icon="tabler:briefcase-2-filled" size="20" />
                             <span class="text-size-14px font-500"> Experience </span>
                         </div>
                     </RouterLink>
                     <RouterLink v-scrollanimation style="transition-delay: 400ms" to="/project">
                         <div :class="{ active: $route.name == 'Project' }">
-                            <Icon size="20">
-                                <Code20Filled />
-                            </Icon>
+                            <Icon icon="tabler:terminal-2" size="20" />
                             <span class="text-size-14px font-500"> Projects </span>
                         </div>
                     </RouterLink>
                     <RouterLink v-scrollanimation style="transition-delay: 550ms" to="/contact">
                         <div :class="{ active: $route.name == 'Contact' }">
-                            <Icon size="20">
-                                <Mail20Filled />
-                            </Icon>
+                            <Icon icon="tabler:mail" size="20" />
                             <span class="text-size-14px font-500"> Contact Me </span>
                         </div>
                     </RouterLink>
                     <div v-scrollanimation style="transition-delay: 650ms">
-                        <a class="text-size-14px font-500" rel="external" href="https://blog.brojenuel.com" hreflang="es-es">
-                            <Icon size="20">
-                                <WebAsset24Filled />
-                            </Icon>
+                        <a class="text-size-14px font-500" rel="external" href="https://blog.brojenuel.com"
+                            hreflang="es-es">
+                            <Icon icon="tabler:brand-blogger" size="20" />
                             Blog
                         </a>
                     </div>
                     <div v-scrollanimation style="transition-delay: 650ms">
-                        <a
-                            class="text-size-14px font-500"
-                            rel="external"
+                        <a class="text-size-14px font-500" rel="external"
                             href="https://drive.google.com/file/d/1CEMto0ubGMVBJNCLq-QQN8-aFsYUo2Dd/view?usp=sharing"
-                            hreflang="es-es"
-                            target="_blank"
-                        >
-                            <Icon size="20">
-                                <Document16Regular />
-                            </Icon>
+                            hreflang="es-es" target="_blank">
+                            <Icon icon="tabler:file-download" size="20" />
                             Resume
                         </a>
                     </div>
@@ -125,51 +104,50 @@ function openSite(site) {
                     <li>
                         <div @click="openSite('https://www.facebook.com/ganawed/')" class="a-link">
                             <div class="text-size-25px">
-                                <Icon size="37"><Facebook /></Icon>
+                                <Icon size="37" icon="mdi:facebook-box" />
                             </div>
                         </div>
                     </li>
                     <li>
-                        <div @click="openSite('https://www.youtube.com/channel/UCNANDtTF63UTRcYioVsSCdA')" class="a-link">
+                        <div @click="openSite('https://www.youtube.com/channel/UCNANDtTF63UTRcYioVsSCdA')"
+                            class="a-link">
                             <div class="text-size-25px">
-                                <Icon size="37"><Youtube /></Icon>
+                                <Icon icon="tabler:brand-youtube-filled" size="37" />
                             </div>
                         </div>
                     </li>
                     <li>
                         <div @click="openSite('https://www.linkedin.com/in/jenuelganawed/')" class="a-link">
                             <div class="text-size-25px">
-                                <Icon size="37"><LinkedinIn /></Icon>
+                                <Icon size="37" icon="tabler:brand-linkedin-filled" />
                             </div>
                         </div>
                     </li>
                     <li>
                         <div @click="openSite('https://github.com/BroJenuel')" class="a-link">
                             <div class="text-size-25px">
-                                <Icon size="37"><Github /></Icon>
+                                <Icon size="37" icon="tabler:brand-github-filled" />
                             </div>
                         </div>
                     </li>
                     <li>
                         <div @click="openSite('https://twitter.com/broJenuel')" class="a-link">
                             <div class="text-size-25px">
-                                <Icon size="37"><Twitter /></Icon>
+                                <Icon size="37" icon="tabler:brand-twitter-filled" />
                             </div>
                         </div>
                     </li>
                     <li>
                         <div @click="openSite('https://dev.to/brojenuel')" class="a-link">
                             <div class="text-size-25px">
-                                <Icon size="37"><Dev /></Icon>
+                                <Icon size="37" icon="bx:bxl-dev-to" />
                             </div>
                         </div>
                     </li>
                 </ol>
             </div>
             <div class="show-mobile-nav-but mt-[10px]">
-                <Icon size="40" @click="$store.state.navShow = true" style="margin-right: 20px">
-                    <Navigation20Regular />
-                </Icon>
+                <Icon size="40" @click="store.navShow = true" style="margin-right: 20px" icon="tabler:menu-2" />
             </div>
         </nav>
     </div>

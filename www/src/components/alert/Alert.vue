@@ -4,32 +4,25 @@
         <p class="text-[var(--background)] md:text-size-20px text-size-18px" v-html="description"></p>
     </div>
 </template>
-<script>
-export default {
-    props: {
-        show: { type: Boolean, default: false },
-        type: {
-            type: String,
-            default: 'success',
-            validator(value) {
-                return ['success', 'error'].includes(value);
-            },
-        },
-        title: { type: String },
-        description: { type: String },
-    },
-    setup() {
-        let types = {
-            success: 'show-success',
-            error: 'show-error',
-        };
-        return {
-            setType: (type) => {
-                return type ? types[type] : 'show-success';
-            },
-        };
-    },
+<script setup lang="ts">
+
+const props = defineProps<{
+    show: boolean;
+    type: string;
+    title: string;
+    description: string;
+}>();
+
+
+
+const types = {
+    success: 'show-success',
+    error: 'show-error',
 };
+
+const setType = (type: string) => {
+    return type ? types[type as keyof typeof types] : 'show-success';
+}
 </script>
 <style lang="scss">
 .alert-component {

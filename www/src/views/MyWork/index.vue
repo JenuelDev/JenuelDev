@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import CodeChallenge from './../CodeChallenge/index.vue';
 import Project from './work-page';
-import { onMounted } from '@vue/runtime-core';
-import IconLink from '../../components/Icon.vue';
 import { useStore } from '@/stores/store';
+import { onMounted } from 'vue';
+import { Icon } from "@iconify/vue"
 
 const store = useStore();
 onMounted(() => {
@@ -11,7 +11,7 @@ onMounted(() => {
 });
 
 const works = Project;
-function openSite(site) {
+function openSite(site: string) {
     window.open(site, '_blank');
 }
 </script>
@@ -42,7 +42,7 @@ function openSite(site) {
                             <div v-for="link in work.links" class="work-links-toggle customTooltip"
                                 :gloss="link.tooltip" :key="link.name" aria-label="GitHUB Link"
                                 @click="openSite(link.link)">
-                                <IconLink :icon="link.icon" />
+                                <Icon :icon="link.icon" />
                             </div>
                         </div>
                     </div>
