@@ -27,6 +27,26 @@ export const mySkills = [
                 text: 'TypeScript',
                 des: `Its actually like javascript but focuses more on types, this was created to be useful on IDEs like VS Code, and also help lower type errors in the future, specially as the project grows. <a href="https://www.typescriptlang.org/">To Know More Click Here</a>`,
             },
+            {
+                icon: 'vscode-icons:file-type-vite',
+                text: 'Vite',
+                des: '<a href="https://vitejs.dev/" target="_blank">Vite</a> is a frontend build tool that provides an extremely fast development experience for modern web applications. It is designed as an alternative to traditional bundlers like Webpack, offering faster hot module replacement (HMR) and optimized builds.'
+            },
+            {
+                icon: 'skill-icons:astro',
+                text: 'Astro',
+                des: '<a href="https://astro.build/" target="_blank">Astro</a> is a modern frontend framework designed for building fast, content-focused websites. It follows a "Islands Architecture", meaning it delivers mostly static HTML by default and hydrates only the interactive parts as needed.'
+            },
+            {
+                icon: 'vscode-icons:file-type-reactjs',
+                text: 'ReactJs',
+                des: `<a href="https://react.dev/" target="_blank">React.Js</a>is a JavaScript library for building interactive user interfaces (UIs). It was created by Facebook (now Meta) and is widely used for building modern web applications.`
+            },
+            {
+                icon: 'mdi:electron-framework',
+                text: 'Electron',
+                des: '<a href="https://www.electronjs.org/" target="_blank">Electron</a> is a framework that allows you to build desktop applications using web technologies like HTML, CSS, and JavaScript. It is developed by GitHub and is used by apps like VS Code, Discord, Slack, and WhatsApp Desktop.'
+            }
         ],
     },
     {
@@ -56,6 +76,11 @@ export const mySkills = [
                 text: 'html5',
                 des: `HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and last major HTML version that is a World Wide Web Consortium recommendation. The current specification is known as the HTML Living Standard.`,
             },
+            {
+                icon: 'material-icon-theme:unocss',
+                text: 'UnoCss',
+                des: `<a href="https://unocss.dev/" target="_blank">UnoCSS</a> is an on-demand, atomic CSS engine that generates styles dynamically. It's lightweight, fast, and highly customizable, making it a great alternative to frameworks like Tailwind CSS but with even more flexibility.`
+            }
         ],
     },
     {
@@ -77,6 +102,24 @@ export const mySkills = [
                 des: "<a href='https://laravel.com/' target='_blank' alt='Go to Laravel'>Laravel</a> is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony. Laravel <a href='https://lumen.laravel.com/' target='_blank' alt='Go to lumen'>Lumen</a> is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax.",
             },
         ],
+    },
+    {
+        icon: "solar:database-bold-duotone",
+        tech: "Database",
+        des: "I have experience with SQL databases like MySQL, PostgreSQL, and MongoDB. I also have experience with NoSQL databases like Redis, Memcached, and CouchDB.",
+        yearStarted: 2017,
+        tools: [
+            {
+                icon: 'skill-icons:mysql-light',
+                text: 'MySQL',
+                des: `<a href="https://www.mysql.com/" target="_blank">MySQL</a> is a relational database management system (RDBMS) that stores and manages structured data using SQL (Structured Query Language). It is widely used in web applications, enterprise systems, and data-driven applications.`
+            },
+            {
+                icon: 'skill-icons:postgresql-light',
+                text: 'PostgreSQL',
+                des: `<a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a> (also called Postgres) is a powerful, open-source relational database management system (RDBMS) known for scalability, extensibility, and ACID compliance. It’s widely used in enterprise applications, web services, and data-intensive projects.`
+            }
+        ]
     },
     {
         icon: 'vscode-icons:file-type-ruby',

@@ -41,9 +41,14 @@ function changeTab(index: string | number) {
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
                 My work experience
             </h2>
-            <p
-                class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed">
-                This are companies that I have worked for. I have learned and enjoyed working on this companies.
+            <p class="md:text-size-24px text-size-20px md:px-10px md:leading-relaxed leading-relaxed relative">
+                As a developer, working is more than just writing code—it’s about continuous learning, problem-solving,
+                and making a meaningful impact. It involves growing your skills, collaborating with others, and
+                contributing to projects that can shape the way people interact with technology. Beyond just technical
+                expertise, it’s about creativity, innovation, and leaving a lasting mark on the world through your work.
+                <SvgDecoration
+                    classNames="absolute md:visible invisible right-5 -bottom-29 transform rotate-[90deg] fill-[var(--primary)] opacity-50"
+                    :type="1" />
             </p>
             <div class="container">
                 <div>
@@ -80,9 +85,7 @@ function changeTab(index: string | number) {
                     </ul>
                 </div>
             </div>
-            <SvgDecoration
-                classNames="absolute md:visible invisible right-[0px] top-[70px] transform fill-[var(--primary)] opacity-50"
-                :type="1" />
+
         </div>
     </section>
 </template>

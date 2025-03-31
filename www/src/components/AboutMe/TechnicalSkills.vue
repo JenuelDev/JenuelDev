@@ -89,8 +89,8 @@ const closeDialog = () => {
                         {{ mySkill.des }}
                     </div>
                 </div>
-                <div class="text-size-14px flex items-center gap-5px">
-                    <div class="hover:bg-dark-900 p-5px rounded-md cursor-pointer flex items-center gap-5px text-size-20px max-w-40px overflow-hidden hover:max-w-200px duration-300 truncate"
+                <div class="text-size-14px flex items-center gap-5px flex-wrap">
+                    <div class=" p-5px rounded-md cursor-pointer flex items-center gap-5px text-size-20px duration-100 truncate scale-100 hover:scale-103"
                         v-for="tool in mySkill.tools" :key="tool.text" @click="openDialog(tool)">
                         <Icon class="skill-icon min-w-30px text-3xl" :icon="tool.icon"></Icon>
                         <span class="ml-10px">{{ tool.text }}</span>
