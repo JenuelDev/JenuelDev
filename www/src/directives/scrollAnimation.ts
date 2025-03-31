@@ -24,14 +24,14 @@ const animatedScrollObserverViewFull = new IntersectionObserver(
 );
 
 export const animationViewFull = {
-  beforeMount(el) {
+  beforeMount(el: any) {
     el.classList.add("a-view-before-enter");
     animatedScrollObserverViewFull.observe(el);
   },
 };
 
 export default {
-  beforeMount(el) {
+  beforeMount(el: any) {
     el.classList.add("a-before-enter");
     animatedScrollObserver.observe(el);
   },

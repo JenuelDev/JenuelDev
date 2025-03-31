@@ -12,13 +12,13 @@ const yearCount = () => {
             <div class="about-me-text">
                 <div class="about-me-text-info text-right max-w-500px">
                     <div>
-                        <h3 class="lg:text-size-36px text-size-30px font-500">Software Developer</h3>
-                        <h1
-                            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px">
-                            Hi there, I’m Jenuel</h1>
-                        <h2
-                            class="text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--lightestSlate)] tracking-tight">
-                            I create apps and websites</h2>
+                        <h3 class="md:text-3xl text-2xl font-500"> Hi! I’m Jenuel, and I'm a</h3>
+                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] tracking-tight">
+                            Software Developer
+                        </h1>
+                        <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] tracking-tight">
+                            I create web apps that are engaging, accessible and scalable.
+                        </h2>
                     </div>
                     <div class="mt-30px flex lg:justify-end justify-center flex-wrap gap-20px items-center">
                         <div>

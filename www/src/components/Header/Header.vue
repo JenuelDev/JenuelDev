@@ -42,9 +42,7 @@ onBeforeMount(() => {
     window.removeEventListener('scroll', onScroll);
 });
 
-function openSite(site: string) {
-    window.open(site, '_blank');
-}
+
 </script>
 
 <template>
@@ -101,55 +99,9 @@ function openSite(site: string) {
                     <ThemeChanger />
                 </div>
             </div>
-            <div class="nav-mobile">
-                <ol>
-                    <li>
-                        <div @click="openSite('https://www.facebook.com/ganawed/')" class="a-link">
-                            <div class="text-size-25px">
-                                <Icon size="37" icon="mdi:facebook-box" />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div @click="openSite('https://www.youtube.com/channel/UCNANDtTF63UTRcYioVsSCdA')"
-                            class="a-link">
-                            <div class="text-size-25px">
-                                <Icon icon="tabler:brand-youtube-filled" size="37" />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div @click="openSite('https://www.linkedin.com/in/jenuelganawed/')" class="a-link">
-                            <div class="text-size-25px">
-                                <Icon size="37" icon="tabler:brand-linkedin-filled" />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div @click="openSite('https://github.com/BroJenuel')" class="a-link">
-                            <div class="text-size-25px">
-                                <Icon size="37" icon="tabler:brand-github-filled" />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div @click="openSite('https://twitter.com/broJenuel')" class="a-link">
-                            <div class="text-size-25px">
-                                <Icon size="37" icon="tabler:brand-twitter-filled" />
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div @click="openSite('https://dev.to/brojenuel')" class="a-link">
-                            <div class="text-size-25px">
-                                <Icon size="37" icon="bx:bxl-dev-to" />
-                            </div>
-                        </div>
-                    </li>
-                </ol>
-            </div>
+
             <div class="show-mobile-nav-but mt-[10px]">
-                <Icon size="40" @click="store.navShow = true" style="margin-right: 20px" icon="tabler:menu-2" />
+                <Icon class="text-3xl" @click="store.navShow = true" style="margin-right: 20px" icon="tabler:menu-2" />
             </div>
         </nav>
     </div>

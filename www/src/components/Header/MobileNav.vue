@@ -7,12 +7,16 @@ import { useStore } from '@/stores/store';
 
 const store = useStore();
 const SocialNetwork = computed(() => socialMediaLinks);
+
+function openSite(site: string) {
+    window.open(site, '_blank');
+}
 </script>
 <template>
     <div class="nav-mobile">
         <div class="nav-front" :class="{ 'show-nav': store.navShow }">
             <div class="close-button">
-                <Icon icon="material-symbols:cancel" :size="30" @click="store.navShow = false" />
+                <Icon icon="material-symbols:cancel" @click="store.navShow = false" />
             </div>
             <ul>
                 <li>
@@ -62,14 +66,53 @@ const SocialNetwork = computed(() => socialMediaLinks);
                         Blog
                     </a>
                 </li>
-                <li>
-                    <ul class="social-medias-in-nav">
-                        <li v-for="social in SocialNetwork" :key="social.link">
-                            <Icon :icon="social.icon" :size="30" />
-                        </li>
-                    </ul>
-                </li>
             </ul>
+
+            <div class="px-6">
+                <p>Social Links:</p>
+                <ol class="flex gap-3 flex-wrap">
+                    <li>
+                        <Icon class="text-5xl" icon="mdi:facebook-box"
+                            @click="openSite('https://www.facebook.com/ganawed/')" />
+                    </li>
+                    <li>
+                        <div @click="openSite('https://www.youtube.com/channel/UCNANDtTF63UTRcYioVsSCdA')"
+                            class="a-link">
+                            <div class="text-size-25px">
+                                <Icon icon="tabler:brand-youtube-filled" size="37" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div @click="openSite('https://www.linkedin.com/in/jenuelganawed/')" class="a-link">
+                            <div class="text-size-25px">
+                                <Icon size="37" icon="tabler:brand-linkedin-filled" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div @click="openSite('https://github.com/BroJenuel')" class="a-link">
+                            <div class="text-size-25px">
+                                <Icon size="37" icon="tabler:brand-github-filled" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div @click="openSite('https://twitter.com/broJenuel')" class="a-link">
+                            <div class="text-size-25px">
+                                <Icon size="37" icon="tabler:brand-twitter-filled" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div @click="openSite('https://dev.to/brojenuel')" class="a-link">
+                            <div class="text-size-25px">
+                                <Icon size="37" icon="bx:bxl-dev-to" />
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
         <div class="nav-back" :class="{ 'show-nav': store.navShow }" @click="store.navShow = false"></div>
     </div>

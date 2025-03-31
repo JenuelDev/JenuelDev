@@ -1,29 +1,40 @@
 
-export const socialMediaLinks = [{
-    icon: `<i class='bx bxl-facebook' ></i>`,
-    title: "Facebook",
-    link: 'https://www.facebook.com/ganawed/',
-},
-{
-    icon: `<i class='bx bxl-youtube' ></i>`,
-    title: "Youtube",
-    link: 'https://www.youtube.com/channel/UCNANDtTF63UTRcYioVsSCdA'
-},
-{
-    icon: `<i class='bx bxl-linkedin' ></i>`,
-    title: "LinkedIn",
-    link: 'https://www.linkedin.com/in/jenuelganawed/'
-},
-{
-    icon: `<i class='bx bxl-github' ></i>`,
-    title: "GitHub",
-    link: 'https://github.com/BroJenuel'
-},
-{
-    icon: `<i class='bx bxl-twitter' ></i>`,
-    title: "Twitter",
-    link: 'https://twitter.com/broJenuel'
-}
+export const socialMediaLinks = [
+    {
+        icon: `tabler:brand-facebook-filled`,
+        title: "Facebook",
+        link: 'https://www.facebook.com/Jenuel.Dev/',
+    },
+    {
+        icon: `tabler:brand-youtube-filled`,
+        title: "Youtube",
+        link: 'https://www.youtube.com/@JenuelDev'
+    },
+    {
+        icon: `tabler:brand-linkedin-filled`,
+        title: "LinkedIn",
+        link: 'https://www.linkedin.com/in/jenuelganawed/'
+    },
+    {
+        icon: `tabler:brand-github-filled`,
+        title: "GitHub",
+        link: 'https://github.com/JenuelDev'
+    },
+    {
+        icon: `tabler:brand-twitter-filled`,
+        title: "Twitter",
+        link: 'https://twitter.com/JenuelDev'
+    },
+    {
+        icon: `tabler:brand-twitter-filled`,
+        title: "Twitter",
+        link: 'https://twitter.com/JenuelDev'
+    },
+    {
+        icon: 'bx:bxl-dev-to',
+        title: "Dev.To",
+        link: "https://dev.to/jenueldev"
+    }
 ];
 
-export const email = "jenuelganawed936@gmail.com";
+export const email = "me@Jenuel.Dev";
