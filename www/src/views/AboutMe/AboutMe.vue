@@ -42,6 +42,7 @@ import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
                 color: var(--primary);
             }
         }
+
         p {
             margin: 0;
         }

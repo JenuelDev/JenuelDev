@@ -1,15 +1,13 @@
 <script setup>
 import CodeChallenge from './../CodeChallenge/index.vue';
-// import { Icon } from '@vicons/utils';
 import Project from './work-page';
-import { useStore } from 'vuex';
 import { onMounted } from '@vue/runtime-core';
-// import { h } from 'vue';
 import IconLink from '../../components/Icon.vue';
+import { useStore } from '@/stores/store';
 
 const store = useStore();
 onMounted(() => {
-    store.state.workShow = true;
+    store.workShow = true;
 });
 
 const works = Project;
@@ -19,9 +17,12 @@ function openSite(site) {
 </script>
 <template>
     <section v-scrollanimation class="my-work lg:pt-130px pt-0 mx-auto max-w-[1000px]">
-        <h2 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">Projects I made</h2>
+        <h2
+            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
+            Projects I made</h2>
         <p class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-normal">
-            Showing are personal projects that I made during my spare/free time. I don't add projects from my Work/Jobs, only if allowed.
+            Showing are personal projects that I made during my spare/free time. I don't add projects from my Work/Jobs,
+            only if allowed.
         </p>
         <div style="margin-top: 20px">
             <template v-for="(work, i) in works.works" :key="i">
@@ -38,14 +39,9 @@ function openSite(site) {
                             </li>
                         </ul>
                         <div class="work-links" :class="i % 2 == 0 ? '' : 'work-links-right'">
-                            <div
-                                v-for="link in work.links"
-                                class="work-links-toggle customTooltip"
-                                :gloss="link.tooltip"
-                                :key="link.name"
-                                aria-label="GitHUB Link"
-                                @click="openSite(link.link)"
-                            >
+                            <div v-for="link in work.links" class="work-links-toggle customTooltip"
+                                :gloss="link.tooltip" :key="link.name" aria-label="GitHUB Link"
+                                @click="openSite(link.link)">
                                 <IconLink :icon="link.icon" />
                             </div>
                         </div>
@@ -65,7 +61,7 @@ function openSite(site) {
     <CodeChallenge />
 </template>
 
-<style lang="postcss">
+<style lang="scss">
 .my-work {
     &.a-before-enter {
         opacity: 0;
@@ -155,6 +151,7 @@ function openSite(site) {
                 margin-top: 10px;
                 margin-left: -10px;
                 color: var(--lightestSlate);
+
                 .work-links-toggle {
                     padding: 10px;
                     cursor: pointer;
@@ -162,6 +159,7 @@ function openSite(site) {
                     .highlight-hover {
                         color: var(--slate) !important;
                     }
+
                     &:hover {
                         .highlight-hover {
                             color: var(--primary) !important;
@@ -173,6 +171,7 @@ function openSite(site) {
             .work-links-right {
                 justify-content: flex-end !important;
             }
+
             .work-links-left {
                 justify-content: flex-start !important;
             }
@@ -180,6 +179,7 @@ function openSite(site) {
 
         .work-info-image {
             transition: var(--transition);
+
             .work-info-image-link {
                 width: 100%;
                 background-color: var(--image-cover);
@@ -209,10 +209,12 @@ function openSite(site) {
                     border-radius: var(--border-radius);
                     mix-blend-mode: multiply;
                     filter: grayscale(100%) contrast(1) brightness(90%);
+
                     .front-filter {
                         width: 100%;
                         padding-bottom: 62.2857%;
                     }
+
                     img {
                         position: absolute;
                         top: 0px;
@@ -226,6 +228,7 @@ function openSite(site) {
 
                 &:hover {
                     background-color: rgba(0, 0, 0, 0);
+
                     .image-wrapping {
                         filter: grayscale(0%) contrast(1) brightness(90%);
                     }
@@ -238,27 +241,32 @@ function openSite(site) {
 @media only screen and (max-width: 768px) {
     .my-work {
         @apply p-0;
+
         .work-info {
             display: grid;
             gap: 10px;
             grid-template-columns: repeat(12, 1fr);
             -webkit-box-align: center;
             align-items: center;
+
             .left-content {
                 grid-column: 1 / -1;
                 padding: 40px 40px 30px;
                 z-index: 5;
             }
+
             .right-image {
                 grid-column: 1 / -1;
                 height: 100%;
                 opacity: 0.25;
             }
+
             .right-content {
                 grid-column: 1 / -1;
                 padding: 40px 40px 30px;
                 z-index: 5;
             }
+
             .left-image {
                 grid-column: 1 / -1;
                 height: 100%;
