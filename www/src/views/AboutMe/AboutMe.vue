@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import Experience from '@/components/AboutMe/Experience.vue';
 import AboutMeSection from './../../components/AboutMe/ABoutMeSection.vue';
 import TechnicalSkills from './../../components/AboutMe/TechnicalSkills.vue';
 import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
+import Projects from '@/components/AboutMe/Projects.vue';
 </script>
 <template>
     <AboutMeSection />
     <TechnicalSkills />
+    <Projects />
+    <Experience />
     <WhatIconOffer />
 </template>
 <style lang="scss">

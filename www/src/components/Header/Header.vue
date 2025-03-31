@@ -49,9 +49,10 @@ onBeforeMount(() => {
     <div class="header" :class="{ 'navbar--hidden': !showNavbar && scroll > 100, 'nav-min': scroll > 50 }">
         <nav>
             <div class="logo-image">
-                <h2 class="sm:ml-[50px] ml-[10px] font-700 text-[var(--primary)] text-size-[2.5rem] -mt-[6px]">
-                    JG
-                </h2>
+                <div
+                    class="sm:ml-[50px] ml-[10px] w-40px h-40px rounded-full bg-[var(--primary)] flex items-center justify-center">
+                    <div class="bg-[var(--lightBackground)] w-20px h-20px rounded-full "></div>
+                </div>
             </div>
             <div class="navs">
                 <div class="nav-o">
@@ -61,18 +62,18 @@ onBeforeMount(() => {
                             <span class="text-size-14px font-500"> Home </span>
                         </div>
                     </RouterLink>
-                    <RouterLink v-scrollanimation style="transition-delay: 250ms" to="/experience">
+                    <a v-scrollanimation style="transition-delay: 250ms" href="#experience">
                         <div class="flex items-center" :class="{ active: $route.name == 'Experience' }">
                             <Icon icon="tabler:briefcase-2-filled" size="20" />
                             <span class="text-size-14px font-500"> Experience </span>
                         </div>
-                    </RouterLink>
-                    <RouterLink v-scrollanimation style="transition-delay: 400ms" to="/project">
+                    </a>
+                    <a v-scrollanimation style="transition-delay: 400ms" href="#projects">
                         <div class="flex items-center" :class="{ active: $route.name == 'Project' }">
                             <Icon icon="tabler:terminal-2" size="20" />
                             <span class="text-size-14px font-500"> Projects </span>
                         </div>
-                    </RouterLink>
+                    </a>
                     <RouterLink v-scrollanimation style="transition-delay: 550ms" to="/contact">
                         <div class="flex items-center" :class="{ active: $route.name == 'Contact' }">
                             <Icon icon="tabler:mail" size="20" />

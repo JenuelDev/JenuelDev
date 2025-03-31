@@ -58,14 +58,24 @@ const yearCount = () => {
         <div
             class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] pt-100px md:leading-relaxed leading-relaxed relative">
             <p class="mb-30px">
-                My name is Jenuel Ganawed or call me BroJenuel. I’m a developer with a full-stack background and a keen
-                eye for good design. I love to make complex things
-                simple and joy to use. Currently, I focus on building web apps with VueJs(v2)(v3) and Laravel.
+                Back in 2016, I decided to make a big change, switching from studying criminology to diving into the
+                exciting world of Information Technology. That's when I discovered my passion for software development.
             </p>
             <p class="mb-30px">
-                Over the past {{ yearCount() }} years, I’ve gained experience across some aspects of the application
-                lifecycle, including frontend, backend, and dev-ops.
-                It allows me to take full ownership of a project from design to implementation and deployment.
+                Now, with over <strong>{{ yearCount() }} years of experience as a software developer</strong>, I've had
+                the chance to
+                work in a constantly changing field, collaborating with other coding enthusiasts and contributing to
+                some amazing projects.
+            </p>
+            <p class="mb-30px">
+                <strong>I'm all about the details</strong>, whether it's writing efficient code or perfecting a recipe.
+                I believe that paying attention to the little things is key to building scalable, engaging, and
+                accessible digital experiences.
+            </p>
+            <p class="mb-30px">
+                When I'm not coding, I like to mix things up. You might find me strumming my guitar (I'm no rockstar,
+                but it's fun!), reading a good book, going for walks, doing home workouts, enjoying a good meal, or
+                learning something new.
             </p>
             <SvgDecoration
                 classNames="absolute lg:-right-30 -right-20 top-90 md:block hidden z-20 fill-[var(--primary)] opacity-50"

@@ -1,15 +1,19 @@
-@use './root.scss' as *;
-@use './styles/themes.scss' as *;
-@use './styles/timeline.scss' as *;
+@use "./root.scss" as *;
+@use "./styles/themes.scss" as *;
+@use "./styles/timeline.scss" as *;
 
-@use './styles/ProfilePicture.scss' as *;
+@use "./styles/ProfilePicture.scss" as *;
 
-@use './styles/body.scss' as *;
-@use './styles/scrollbar.scss' as *;
-@use './styles/header.scss' as *;
-@use './../components/GradientBorder/style.scss' as *;
-@use './../components/social-media-links/style.scss' as *;
+@use "./styles/body.scss" as *;
+@use "./styles/scrollbar.scss" as *;
+@use "./styles/header.scss" as *;
+@use "./../components/GradientBorder/style.scss" as *;
+@use "./../components/social-media-links/style.scss" as *;
 
-@use './../views/AboutMe/style.scss' as *;
-@use './../components/Footer/Footer.scss' as *;
-@use './styles/tool-tip.scss' as *;
+@use "./../views/AboutMe/style.scss" as *;
+@use "./../components/Footer/Footer.scss" as *;
+@use "./styles/tool-tip.scss" as *;
+
+html {
+    scroll-behavior: smooth;
+}

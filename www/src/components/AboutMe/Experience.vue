@@ -1,5 +1,41 @@
+<script setup lang="ts">
+import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
+import Experience from '@/constant/experiences/index';
+import { ref, onUnmounted, onMounted } from 'vue';
+
+const experiences = Experience as any;
+const tabKey = 'expTabKey';
+const tab = ref(0);
+const width = ref(500);
+
+const widthHandler = () => {
+    width.value = window.innerWidth;
+};
+
+onMounted(() => {
+    // @ts-ignore
+    window.addEventListener('resize', widthHandler());
+
+    widthHandler();
+    let tabindex = localStorage.getItem(tabKey);
+    if (tabindex) {
+        tab.value = parseInt(tabindex);
+    }
+});
+
+onUnmounted(() => {
+    // @ts-ignore
+    window.removeEventListener('resize', widthHandler());
+});
+
+
+function changeTab(index: string | number) {
+    localStorage.setItem(tabKey, index as string);
+    tab.value = index as number;
+}
+</script>
 <template>
-    <section v-scrollanimation class="my-work-experience lg:mt-130px mx-auto">
+    <section id="experience" v-scrollanimation class="my-work-experience lg:mt-130px mx-auto pt-20">
         <div class="relative">
             <h2
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px">
@@ -36,7 +72,8 @@
                                 </div>
                                 <div>
                                     <p class="md:text-size-20px text-size-18px md:leading-normal leading-snug"
-                                        v-html="exp.des"></p>
+                                        v-html="exp.des">
+                                    </p>
                                 </div>
                             </div>
                         </li>
@@ -49,42 +86,7 @@
         </div>
     </section>
 </template>
-<script setup lang="ts">
-import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
-import Experience from './experiences/index';
-import { ref, onUnmounted, onMounted } from 'vue';
 
-const experiences = Experience as any;
-const tabKey = 'expTabKey';
-const tab = ref(0);
-const width = ref(500);
-
-const widthHandler = () => {
-    width.value = window.innerWidth;
-};
-
-onMounted(() => {
-    // @ts-ignore
-    window.addEventListener('resize', widthHandler());
-
-    widthHandler();
-    let tabindex = localStorage.getItem(tabKey);
-    if (tabindex) {
-        tab.value = parseInt(tabindex);
-    }
-});
-
-onUnmounted(() => {
-    // @ts-ignore
-    window.removeEventListener('resize', widthHandler());
-});
-
-
-function changeTab(index: string | number) {
-    localStorage.setItem(tabKey, index as string);
-    tab.value = index as number;
-}
-</script>
 <style lang="scss">
 .my-work-experience {
     --tab-height: 50px;
