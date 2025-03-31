@@ -62,18 +62,22 @@ onBeforeMount(() => {
                             <span class="text-size-14px font-500"> Home </span>
                         </div>
                     </RouterLink>
-                    <a v-scrollanimation style="transition-delay: 250ms" href="#experience">
+                    <RouterLink v-scrollanimation style="transition-delay: 250ms"
+                        :to="{ path: '/', hash: '#experience' }">
                         <div class="flex items-center" :class="{ active: $route.name == 'Experience' }">
                             <Icon icon="tabler:briefcase-2-filled" size="20" />
                             <span class="text-size-14px font-500"> Experience </span>
                         </div>
-                    </a>
-                    <a v-scrollanimation style="transition-delay: 400ms" href="#projects">
+                    </RouterLink>
+                    <RouterLink v-scrollanimation style="transition-delay: 400ms" :to="{
+                        path: '/',
+                        hash: '#projects'
+                    }">
                         <div class="flex items-center" :class="{ active: $route.name == 'Project' }">
                             <Icon icon="tabler:terminal-2" size="20" />
                             <span class="text-size-14px font-500"> Projects </span>
                         </div>
-                    </a>
+                    </RouterLink>
                     <RouterLink v-scrollanimation style="transition-delay: 550ms" to="/contact">
                         <div class="flex items-center" :class="{ active: $route.name == 'Contact' }">
                             <Icon icon="tabler:mail" size="20" />

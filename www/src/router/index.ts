@@ -26,6 +26,12 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
+
+    // If the url has a #sub-section scroll to there
+    if (to.hash) {
+      return { el: to.hash, top: 20 };
+    }
+
     if (!savedPosition) {
       return { left: 0, top: 0 };
     } else {
