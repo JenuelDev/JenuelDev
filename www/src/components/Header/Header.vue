@@ -4,6 +4,7 @@ import { onBeforeMount, onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { Icon } from "@iconify/vue"
 import { useStore } from '@/stores/store';
+import headerLinks from '@/constant/header-links';
 
 const store = useStore();
 const scroll = ref(0);
@@ -56,49 +57,24 @@ onBeforeMount(() => {
             </div>
             <div class="navs">
                 <div class="nav-o">
-                    <RouterLink v-scrollanimation style="transition-delay: 100ms" to="/">
-                        <div class="flex items-center" :class="{ active: $route.name == 'AboutMe' }">
-                            <Icon icon="tabler:home-filled" size="20" />
-                            <span class="text-size-14px font-500"> Home </span>
+                    <template v-for="(headerLink, index) in headerLinks">
+                        <div v-if="!headerLink.external" v-scrollanimation
+                            :style="`transition-delay: ${(index + 1) * 100}ms`">
+                            <RouterLink :to="headerLink.to">
+                                <div class="flex items-center" :class="{ active: $route.name == headerLink.routeName }">
+                                    <Icon :icon="headerLink.icon" />
+                                    <span class="text-size-14px font-500"> {{ headerLink.label }} </span>
+                                </div>
+                            </RouterLink>
                         </div>
-                    </RouterLink>
-                    <RouterLink v-scrollanimation style="transition-delay: 250ms"
-                        :to="{ path: '/', hash: '#experience' }">
-                        <div class="flex items-center" :class="{ active: $route.name == 'Experience' }">
-                            <Icon icon="tabler:briefcase-2-filled" size="20" />
-                            <span class="text-size-14px font-500"> Experience </span>
+                        <div v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`">
+                            <a class="text-size-14px font-500 flex items-center" rel="external"
+                                :href="headerLink.to as string" hreflang="es-es" target="_blank">
+                                <Icon icon="tabler:file-download" size="20" />
+                                {{ headerLink.label }}
+                            </a>
                         </div>
-                    </RouterLink>
-                    <RouterLink v-scrollanimation style="transition-delay: 400ms" :to="{
-                        path: '/',
-                        hash: '#projects'
-                    }">
-                        <div class="flex items-center" :class="{ active: $route.name == 'Project' }">
-                            <Icon icon="tabler:terminal-2" size="20" />
-                            <span class="text-size-14px font-500"> Projects </span>
-                        </div>
-                    </RouterLink>
-                    <RouterLink v-scrollanimation style="transition-delay: 550ms" to="/contact">
-                        <div class="flex items-center" :class="{ active: $route.name == 'Contact' }">
-                            <Icon icon="tabler:mail" size="20" />
-                            <span class="text-size-14px font-500"> Contact Me </span>
-                        </div>
-                    </RouterLink>
-                    <div v-scrollanimation style="transition-delay: 650ms">
-                        <a class="text-size-14px font-500 flex items-center" rel="external"
-                            href="https://blog.brojenuel.com" hreflang="es-es">
-                            <Icon icon="tabler:brand-blogger" size="20" />
-                            Blog
-                        </a>
-                    </div>
-                    <div v-scrollanimation style="transition-delay: 650ms">
-                        <a class="text-size-14px font-500 flex items-center" rel="external"
-                            href="https://drive.google.com/file/d/1CEMto0ubGMVBJNCLq-QQN8-aFsYUo2Dd/view?usp=sharing"
-                            hreflang="es-es" target="_blank">
-                            <Icon icon="tabler:file-download" size="20" />
-                            Resume
-                        </a>
-                    </div>
+                    </template>
                 </div>
                 <div v-scrollanimation style="transition-delay: 700ms">
                     <ThemeChanger />

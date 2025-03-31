@@ -22,7 +22,7 @@ function openSite(site: string) {
                         <div class="code-item-inner">
                             <header>
                                 <div class="item-top">
-                                    <div class="text-[var(--primary)] text-7xl">
+                                    <div class="text-[var(--primary)] sm:text-7xl text-5xl">
                                         <Icon icon="material-symbols:folder-open" />
                                     </div>
                                     <div class="item-links">
@@ -33,9 +33,10 @@ function openSite(site: string) {
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="md:text-size-24px text-size-22 font-700 mt-20px text-[var(--primary)]">{{
-                                        code.title }}</h3>
-                                    <div class="md:text-size-20px text-size-18 md:leading-snug leading-tight mt-10px"
+                                    <h3 class="sm:text-2xl text-xl font-700 mt-20px text-[var(--primary)]">
+                                        {{ code.title }}
+                                    </h3>
+                                    <div class="md:text-xl text-lg md:leading-snug leading-tight mt-10px"
                                         v-html="code.des"></div>
                                 </div>
                             </header>

@@ -24,7 +24,7 @@ onBeforeMount(() => {
     }
   }
   console.log(
-    '%cHey! Whats Up! %c \n Like to dig into the meaty bits of the website?\nThanks for looking! Hit me up on twitter@BroJenuel, instagram@BroJenuel!',
+    '%cHey! Whats Up!%c\nLike to dig into the meaty bits of the website? Thanks for Visiting!',
     'padding:10px;' +
     'border-radius: 10px;' +
     'color:#64ffda;' +
@@ -34,7 +34,7 @@ onBeforeMount(() => {
     'font-size:48px;' +
     'background:#0a192f;',
 
-    'padding: 10px; ' + 'border-radius:10px; ' + 'color:#ccd6f6; ' + "font-family:'Ubuntu'; " + 'font-weight:100; ' + 'font-size:24px; ' + 'background:#0a192f;'
+    'padding: 10px; ' + 'border-radius:10px; ' + 'color:#ccd6f6; ' + "font-family:'Ubuntu'; " + 'font-weight:100; ' + 'font-size:18px; ' + 'background:#0a192f;'
   );
 })
 </script>

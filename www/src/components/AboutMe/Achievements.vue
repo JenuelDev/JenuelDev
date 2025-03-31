@@ -2,7 +2,7 @@
 import Achievements from '@/constant/achievements';
 </script>
 <template>
-    <section id="experience" v-scrollanimation class="mx-auto w-full max-w-1000px pt-10">
+    <section id="achievements" v-scrollanimation class="mx-auto w-full max-w-1000px pt-10">
         <div class="relative">
             <h2
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px">
