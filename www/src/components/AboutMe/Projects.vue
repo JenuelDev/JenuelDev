@@ -135,10 +135,16 @@ function openSite(site: string) {
             }
 
             .info-tech-list {
-                @apply flex relative z-10 mt-25px mb-10px list-none;
+                display: flex;
+                position: relative;
+                z-index: 10;
+                margin-top: 25px;
+                margin-bottom: 10px;
+                list-style-type: none;
 
                 li {
-                    @apply whitespace-nowrap mr-15px;
+                    white-space: nowrap;
+                    margin-right: 15px;
                 }
             }
 
@@ -182,7 +188,7 @@ function openSite(site: string) {
             transition: var(--transition);
 
             .work-info-image-link {
-                width: 100%;
+                width: 90%;
                 background-color: var(--image-cover);
                 border-radius: var(--border-radius);
                 vertical-align: middle;
@@ -241,7 +247,7 @@ function openSite(site: string) {
 
 @media only screen and (max-width: 768px) {
     .my-work {
-        @apply p-0;
+        padding: 0;
 
         .work-info {
             display: grid;

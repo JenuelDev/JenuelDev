@@ -4,12 +4,15 @@ import AboutMeSection from './../../components/AboutMe/ABoutMeSection.vue';
 import TechnicalSkills from './../../components/AboutMe/TechnicalSkills.vue';
 import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
 import Projects from '@/components/AboutMe/Projects.vue';
+import Achievements from '@/components/AboutMe/Achievements.vue';
+
 </script>
 <template>
     <AboutMeSection />
     <TechnicalSkills />
     <Projects />
     <Experience />
+    <Achievements />
     <WhatIconOffer />
 </template>
 <style lang="scss">

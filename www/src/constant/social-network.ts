@@ -1,10 +1,10 @@
 
 export const socialMediaLinks = [
-    {
-        icon: `tabler:brand-facebook-filled`,
-        title: "Facebook",
-        link: 'https://www.facebook.com/Jenuel.Dev/',
-    },
+    // {
+    //     icon: `tabler:brand-facebook-filled`,
+    //     title: "Facebook",
+    //     link: 'https://www.facebook.com/Jenuel.Dev/',
+    // },
     {
         icon: `tabler:brand-youtube-filled`,
         title: "Youtube",
@@ -20,11 +20,11 @@ export const socialMediaLinks = [
         title: "GitHub",
         link: 'https://github.com/JenuelDev'
     },
-    {
-        icon: `tabler:brand-twitter-filled`,
-        title: "Twitter",
-        link: 'https://twitter.com/JenuelDev'
-    },
+    // {
+    //     icon: `tabler:brand-twitter-filled`,
+    //     title: "Twitter",
+    //     link: 'https://twitter.com/JenuelDev'
+    // },
     {
         icon: 'bx:bxl-dev-to',
         title: "Dev.To",

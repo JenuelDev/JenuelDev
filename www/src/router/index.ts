@@ -8,21 +8,25 @@ const router = createRouter({
       path: '/',
       name: 'AboutMe',
       component: AboutMe,
-    },
-    {
-      path: '/project',
-      name: 'Project',
-      component: () => import('@/views/MyWork/index.vue'),
+      meta: {
+        title: "About Me - JenuelDev"
+      }
     },
     {
       path: '/contact',
       name: 'Contact',
       component: () => import('@/views/ContactMe/index.vue'),
+      meta: {
+        title: "Contacts - JenuelDev"
+      }
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'PageNotFound',
       component: () => import('@/views/PageNotFound/index.vue'),
+      meta: {
+        title: "Page Not Found - JenuelDev"
+      }
     },
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -37,6 +41,16 @@ const router = createRouter({
     } else {
       return savedPosition;
     }
+  }
+})
+
+router.beforeEach((to, from) => {
+  const titleFromParams = to.params?.pageTitle
+
+  if (titleFromParams) {
+    document.title = `${titleFromParams} - ${document.title}`
+  } else {
+    document.title = to.meta?.title as string ?? 'JenuelDev'
   }
 })
 

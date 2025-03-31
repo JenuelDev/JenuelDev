@@ -10,8 +10,9 @@ function openSite(site: string) {
     <section v-scrollanimation class="code-challenge">
         <h2
             class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
-            others projects</h2>
-        <p class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-normal">
+            others
+        </h2>
+        <p class="md:text-size-24px text-size-20px md:px-10px w-[100%] md:leading-relaxed leading-normal">
             {{ CodeChallenge.des }}
         </p>
         <div class="code-grid">
@@ -21,19 +22,13 @@ function openSite(site: string) {
                         <div class="code-item-inner">
                             <header>
                                 <div class="item-top">
-                                    <div class="text-[var(--primary)] text-size-52px">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="50"
-                                            viewBox="0 -57 511.99973 511" width="50" class="fill-[var(--primary)]">
-                                            <path
-                                                d="m506.039062 180.988281c-7.78125-12.546875-21.53125-20.046875-36.78125-20.046875h-339.5625c-16.832031 0-32.140624 9.488282-39.011718 24.179688l-89.8125 188.308594c3.390625 13.789062 16.269531 24.089843 31.609375 24.089843h361.269531c15.445312 0 29.5625-8.734375 36.460938-22.554687l77.628906-155.59375c6.128906-12.3125 5.449218-26.660156-1.800782-38.382813zm0 0" />
-                                            <path
-                                                d="m72.402344 156.15625c6.863281-14.6875 22.175781-24.179688 39.011718-24.179688h319.753907v-40.898437c0-16.859375-14.222657-30.578125-31.703125-30.578125h-186.445313c-.273437 0-.460937-.070312-.53125-.121094l-33.371093-46.660156c-5.910157-8.277344-15.671876-13.21875-26.101563-13.21875h-121.304687c-17.488282 0-31.710938 13.71875-31.710938 30.578125v276.875zm0 0" />
-                                        </svg>
+                                    <div class="text-[var(--primary)] text-7xl">
+                                        <Icon icon="material-symbols:folder-open" />
                                     </div>
                                     <div class="item-links">
                                         <div class="item-links-toggle customTooltip" :gloss="link.tooltip"
                                             v-for="link in code.links" :key="link.link" @click="openSite(link.link)">
-                                            <Icon :icon="link.icon" :size="30" />
+                                            <Icon :icon="link.icon" class="text-3xl" />
                                         </div>
                                     </div>
                                 </div>

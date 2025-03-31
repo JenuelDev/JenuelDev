@@ -2,7 +2,7 @@ export default {
     works: [
         {
             overline: 'Desktop Application',
-            title: 'Believers Sword App',
+            title: 'Believers Sword',
             des: "Focus on what matters instead of fighting with your mind. Whether you're new to this app or a seasoned user, Believers Sword App is a simple application that helps you study bible with extra features.",
             techs: ['electron', 'electron.builder', 'Vue3', 'windiCss'],
             links: [
@@ -12,17 +12,17 @@ export default {
                     tooltip: 'Open in Github',
                 },
                 {
-                    link: 'https://believers-sword.brojenuel.com/',
+                    link: 'https://believersword.com/',
                     icon: null,
                     tooltip: 'Open Link',
                 },
             ],
-            imageLink: 'https://believers-sword.brojenuel.com/',
+            imageLink: 'https://believersword.com/',
             img: 'https://i.imgur.com/FhlGhQMl.png',
         },
         {
             overline: 'Documentation Project',
-            title: 'Laravel MongoDB Docs',
+            title: 'Lara MongoDB Docs',
             des: 'Documentation about laravel with mongodb, this package adds functionalities to the Eloquent model and Query builder for MongoDB, using the original Laravel API. This library extends the original Laravel classes, so it uses exactly the same methods.',
             techs: ['vuepress', 'vue'],
             links: [

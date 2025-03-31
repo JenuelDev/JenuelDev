@@ -35,10 +35,10 @@ function changeTab(index: string | number) {
 }
 </script>
 <template>
-    <section id="experience" v-scrollanimation class="my-work-experience lg:mt-130px mx-auto pt-20">
+    <section id="experience" v-scrollanimation class="my-work-experience mx-auto pt-10">
         <div class="relative">
             <h2
-                class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px">
+                class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
                 My work experience
             </h2>
             <p
@@ -50,16 +50,16 @@ function changeTab(index: string | number) {
                     <ul class="timeline">
                         <li class="timeline-event" v-for="(exp, index) in experiences" :key="exp.company + index">
                             <label class="timeline-event-icon"></label>
-                            <div class="timeline-event-copy">
+                            <div class="timeline-event-copy p-2 relative -top-5 left-16 w-8/10">
                                 <p class="timeline-event-thumbnail" v-html="exp.workStart + ' - ' + exp.workUntil"></p>
                                 <h3
                                     class="lg:text-size-30px md:text-size-28px text-size-26px font-700 items-center gap-7px">
                                     <span>{{ exp.position }}</span>
                                     <span class="text-[var(--primary)] opacity-70 hover:opacity-100 duration-100">
                                         @
-                                        <a :href="exp.url" target="_blank" rel="noopener">
+                                        <span rel="noopener">
                                             {{ exp.company }}
-                                        </a>
+                                        </span>
                                     </span>
                                 </h3>
                                 <div class="mt-20px mb-26px">

@@ -13,11 +13,11 @@ const yearCount = () => {
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
-                        <h3 class="md:text-3xl text-2xl font-500"> Hi! I’m Jenuel, and I'm a</h3>
-                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] tracking-tight">
+                        <h3 class="md:text-3xl text-2xl font-500 mb-2"> Hi! I’m Jenuel, and I'm a</h3>
+                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">
                             Software Developer
                         </h1>
-                        <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] tracking-tight">
+                        <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] mb-2">
                             I create web apps that are engaging, accessible and scalable.
                         </h2>
                     </div>
@@ -25,7 +25,7 @@ const yearCount = () => {
                         <div>
                             <router-link to="/contact"
                                 class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 flex items-center gap-5px">
-                                <Icon icon="tabler:mail" size="20" />
+                                <Icon icon="tabler:mail" class="text-2xl" />
                                 <span> Get In Touch </span>
                             </router-link>
                         </div>
@@ -33,7 +33,7 @@ const yearCount = () => {
                             <a href="https://drive.google.com/file/d/1CEMto0ubGMVBJNCLq-QQN8-aFsYUo2Dd/view?usp=sharing"
                                 target="_blank"
                                 class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 cursor-pointer whitespace-nowrap flex items-center gap-5px">
-                                <Icon icon="tabler:file-type-doc" size="20" />
+                                <Icon icon="tabler:file-type-doc" class="text-2xl" />
                                 <span> Resume </span>
                             </a>
                         </div>
@@ -56,7 +56,7 @@ const yearCount = () => {
                 :type="2" />
         </div>
         <div
-            class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] pt-100px md:leading-relaxed leading-relaxed relative">
+            class="md:text-2xl text-xl md:px-10px w-[100%] max-w-[770px] pt-100px md:leading-relaxed leading-relaxed relative">
             <p class="mb-30px">
                 Back in 2016, I decided to make a big change, switching from studying criminology to diving into the
                 exciting world of Information Technology. That's when I discovered my passion for software development.

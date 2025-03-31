@@ -33,12 +33,6 @@
     }
 
     .timeline-event-copy {
-        padding: 2em 2em;
-        position: relative;
-        top: -1.875em;
-        left: 4em;
-        width: 80%;
-
         p:not(.timeline-event-thumbnail) {
             padding-bottom: 1.2em;
         }
@@ -69,7 +63,6 @@
         transition: 0.3s;
         background-color: var(--lightBackground);
         display: inline-block;
-        margin-bottom: 1.2em;
         padding: 0.25em 1em 0.2em 1em;
         border-radius: 2px;
 

@@ -1,6 +1,6 @@
 import challenges from './challenges';
 
 export default {
-    des: 'This projects are for learning Purposes Only. You can check and see how I made them, you might learn from it too.',
+    des: 'Beyond my primary projects, I’ve worked on various other applications and experiments—ranging from web tools and utilities to creative side projects. This section highlights some of these endeavors, showcasing my versatility, problem-solving skills, and passion for building useful and innovative solutions.',
     challenges: challenges,
 };

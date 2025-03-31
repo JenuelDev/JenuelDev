@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
-import { skillList, mySkills } from './TechnicalSkills';
+import { skillList, mySkills } from '../../constant/TechnicalSkills';
 import { reactive, ref } from 'vue';
 const dialog = ref(false);
 const dialogContent = reactive({
@@ -76,13 +76,14 @@ const closeDialog = () => {
             I am continuously learning to keep up with the latest technologies and be able to pick the best tech for the
             job.
         </p>
-        <div class="technical-skills-wrapper mt-30px flex flex-wrap gap-0px sm:gap-40px px-5">
+        <div class="technical-skills-wrapper mt-30px flex flex-wrap  sm:gap-10 gap-0 sm:px-5">
             <div class="flex flex-col justify-between" v-for="mySkill in mySkills" :key="mySkill.tech">
                 <div>
                     <div class="flex items-center">
                         <Icon :icon="mySkill.icon" class="text-2xl" />
                         <h3 class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</h3>
-                        <span class="technical-skill-year">{{ mySkill.yearStarted }}</span>
+                        <span class="technical-skill-year md:text-size-20px text-size-18px opacity-60">{{
+                            mySkill.yearStarted }}</span>
                     </div>
                     <div class="md:text-size-20px text-size-18px md:leading-normal leading-normal py-[1rem]">
                         {{ mySkill.des }}
@@ -102,8 +103,6 @@ const closeDialog = () => {
 
 <style lang="scss">
 .technical-skill-year {
-    @apply md:text-size-20px text-size-18px opacity-60;
-
     &::before {
         content: '\2022';
         color: #a0aec0;
@@ -115,7 +114,8 @@ const closeDialog = () => {
 
 .technical-skills-wrapper {
     &>* {
-        @apply py-15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
         flex: 1 1 300px;
     }
 }
