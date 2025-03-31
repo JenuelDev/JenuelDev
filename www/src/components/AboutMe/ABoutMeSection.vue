@@ -7,10 +7,11 @@ const yearCount = () => {
 };
 </script>
 <template>
-    <section v-scrollanimation class="about-me mx-auto mb-100px">
-        <div class="about-me-inner flex flex-row items-center gap-[50px] relative">
-            <div class="about-me-text">
-                <div class="about-me-text-info text-right max-w-500px">
+    <section v-scrollanimation
+        class="mx-auto mb-100px flex flex-col items-center max-w-[900px] visible opacity-100 z-10 px-10px lg:mt-130px">
+        <div class="flex lg:flex-row flex-col items-center gap-[50px] relative">
+            <div class="lg:order-1 order-2">
+                <div class="lg:text-right text-center max-w-500px">
                     <div>
                         <h3 class="md:text-3xl text-2xl font-500"> Hi! I’m Jenuel, and I'm a</h3>
                         <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] tracking-tight">
@@ -39,10 +40,9 @@ const yearCount = () => {
                     </div>
                 </div>
             </div>
-            <div class="about-me-photo z-50">
-                <div class="wrapper">
-                    <div class="photo" style="position: relative; overflow: hidden">
-                        <div class="photo-front"></div>
+            <div class="lg:order-2 order-1 z-50 relative">
+                <div class="overflow-hidden rounded-lg">
+                    <div style="position: relative; overflow: hidden">
                         <img class="max-w-300px w-[100%] w-[300px] profile-picture-style" loading="lazy" width="300px"
                             src="./../../assets/images/profileImage.webp" alt="Jenuel Ganawed - Profile Picture" />
                     </div>
@@ -68,7 +68,7 @@ const yearCount = () => {
                 It allows me to take full ownership of a project from design to implementation and deployment.
             </p>
             <SvgDecoration
-                classNames="absolute right-[-150px] top-90 md:block hidden z-20 fill-[var(--primary)] opacity-50"
+                classNames="absolute lg:-right-30 -right-20 top-90 md:block hidden z-20 fill-[var(--primary)] opacity-50"
                 :type="3" />
         </div>
     </section>
@@ -76,42 +76,15 @@ const yearCount = () => {
 
 <style lang="scss">
 .about-me {
-    @apply flex flex-col items-center max-w-[900px] visible opacity-100 z-10 px-10px lg:mt-130px;
-
     &.a-before-enter {
-        @apply opacity-0 transform translate-y-[20px] duration-[0.3s] ease-in;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.3s ease-in;
     }
 
     &.a-enter {
-        @apply opacity-100 transform translate-y-0;
-    }
-
-    .about-me-photo {
-        position: relative;
-
-        .wrapper {
-            @apply overflow-hidden rounded-lg;
-        }
-    }
-}
-
-@media only screen and (max-width: 856px) {
-    .about-me {
-        .about-me-text-info {
-            @apply text-center;
-        }
-
-        .about-me-inner {
-            @apply flex flex-col gap-[50px];
-
-            .about-me-photo {
-                @apply order-1 self-center;
-            }
-
-            .about-me-text {
-                @apply order-2 self-center;
-            }
-        }
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 </style>

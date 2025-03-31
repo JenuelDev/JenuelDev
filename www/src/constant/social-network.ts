@@ -26,11 +26,6 @@ export const socialMediaLinks = [
         link: 'https://twitter.com/JenuelDev'
     },
     {
-        icon: `tabler:brand-twitter-filled`,
-        title: "Twitter",
-        link: 'https://twitter.com/JenuelDev'
-    },
-    {
         icon: 'bx:bxl-dev-to',
         title: "Dev.To",
         link: "https://dev.to/jenueldev"

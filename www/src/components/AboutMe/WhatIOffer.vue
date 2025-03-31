@@ -11,7 +11,7 @@ const services = [
         icon: 'tabler:server-bolt',
         title: 'Back-End Development',
         description:
-            'Developing the server side responsible for storing and organizing data of an application and everything that communicates between the database and the browser/application.',
+            'Developing the server side responsible for storing and organizing data of an application and everything that communicates between the database and the client.',
     },
     {
         icon: 'tabler:manual-gearbox-filled',

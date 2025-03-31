@@ -31,7 +31,7 @@ const changeTheme = (theme: any) => {
         <div class="color-selector" @mouseover="open = true"></div>
         <div class="theme-dropdown-content" @mouseover="open = true" @mouseout="open = false">
             <div class="theme-dropdown-content-wrapper">
-                <div v-for="theme in themes" class="color-theme-choices"
+                <div v-for="theme in themes" class="color-theme-choices w-full"
                     :class="{ active: selectedTheme == theme.name }" :key="theme.name" @click="changeTheme(theme)">
                     <div class="color-selector-pallette">
                         <div class="color-selections" :style="`background-color: ${theme.color1};`"></div>
