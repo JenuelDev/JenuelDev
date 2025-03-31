@@ -13,21 +13,21 @@ const pathname = new URL(Astro.request.url).pathname;
         >
             <span class="w-3 h-3 rounded-full bg-white inline-block mr-1"></span>
             <span>Jenuel</span><span class="font-800">Dev</span>
+            <span>Blogs</span>
         </a>
         <div
             class="gap-1 md:flex hidden border border-2 border-[var(--slate6)] px-1 py-1 rounded-full"
         >
             <a
-                href="/"
+                href="https://www.jenuel.dev"
                 class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
-                class:list={pathname === "/" ? "bg-white/10" : ""}
             >
                 <Icon name="tabler:smart-home" /> Home
             </a>
             <a
-                href="/blog"
+                href="/"
                 class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
-                class:list={pathname === "/blog" ? "bg-white/10" : ""}
+                class:list={pathname === "/" ? "bg-white/10" : ""}
             >
                 <Icon name="tabler:article" class="inline text-lg" /> Blog
             </a>

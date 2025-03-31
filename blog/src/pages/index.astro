@@ -1,13 +1,38 @@
 ---
 import Layout from "../layouts/default.astro";
 import Hero from "../components/Home/Hero.astro";
-import AboutMe from "../components/Home/AboutMe.astro";
-import Experience from "../components/Home/Experience.astro";
-import Projects from "../components/Projects.astro";
-import Achievements from "../components/Home/Achievements.astro";
+import { supabase } from "../lib/supabase";
+import dayjs from "dayjs";
 const title = "Jenuel Dev";
 const description =
     "Jenuel Ganawed - Software Developer specializing in creating engaging, accessible, and scalable web applications. Delivering innovative solutions for businesses and individuals.";
+
+    const limit = 50;
+
+const { data, error } = await supabase
+    .from("blogs")
+    .select(`id, title, summary, slug, updated_at, cover_img, blog_meta(*), tags`)
+    .eq("is_active", 1)
+    .order("id", { ascending: false })
+    .limit(limit);
+
+if (error) {
+    console.log(error);
+}
+
+const isDev = import.meta.env.DEV;
+const blogs = data ?? [];
+const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268807726840190"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-gt-35+c9-4n-lq"
+     data-ad-client="ca-pub-2268807726840190"
+     data-ad-slot="2796186432"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>`;
 ---
 
 <Layout
@@ -17,9 +42,28 @@ const description =
 >
     <main>
         <Hero />
-        <AboutMe />
-        <Experience />
-        <Projects />
-        <Achievements />
+        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto">
+            {
+                blogs.map((blog, i) => (
+                    <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
+                        <div class="content-summary leading-5 col-span-6 ">
+                            <div class="text-xs sm:mb-1 text-secondary">
+                                {dayjs(blog.updated_at).format("DD MMM, YYYY")}
+                            </div>
+                            <div class="sm:mb-2 text-2xl group-hover:underline underline-[var(--slate10)]">
+                                {blog.title}
+                            </div>
+                            <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"} text-secondary`}>
+                                {blog.summary}
+                            </p>
+                        </div>
+                    </a>
+                    <div> {!isDev && i%7 === 0 && (
+                        <div set:html={adsToRender}></div>
+                    )} </div>
+                ))
+            }
+            
+        </div>
     </main>
 </Layout>
