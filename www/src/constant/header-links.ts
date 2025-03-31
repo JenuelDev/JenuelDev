@@ -39,7 +39,7 @@ export default [
     },
     {
         routeName: null,
-        to: 'https://blog.brojenuel.com',
+        to: 'https://blog.jenuel.dev',
         label: 'Blog',
         icon: 'tabler:brand-blogger',
         external: true
