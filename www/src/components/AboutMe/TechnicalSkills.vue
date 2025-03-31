@@ -68,16 +68,18 @@ const closeDialog = () => {
         </li>
     </ul>
     <section class="flex flex-col w-[100%] max-w-[1000px] visible opacity-100 z-10 px-10px mx-auto">
-        <h1
+        <h1 v-scrollanimation
             class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px">
             Technical skill set
         </h1>
-        <p class="md:text-size-24px text-size-20px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed">
+        <p v-scrollanimation
+            class="md:text-size-24px text-size-20px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed">
             I am continuously learning to keep up with the latest technologies and be able to pick the best tech for the
             job.
         </p>
         <div class="technical-skills-wrapper mt-30px flex flex-wrap  sm:gap-10 gap-0 sm:px-5">
-            <div class="flex flex-col justify-between" v-for="mySkill in mySkills" :key="mySkill.tech">
+            <div v-scrollanimation class="flex flex-col justify-between" v-for="mySkill in mySkills"
+                :key="mySkill.tech">
                 <div>
                     <div class="flex items-center">
                         <Icon :icon="mySkill.icon" class="text-2xl" />

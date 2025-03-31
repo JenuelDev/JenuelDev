@@ -14,8 +14,8 @@ import Achievements from '@/constant/achievements';
                 able to achieve significant milestones.
             </p>
             <div class="flex gap-20px flex-wrap">
-                <a v-for="(achievement, i) in Achievements" :href="achievement.url" v-scrollview
-                    :style="`transition-delay: ${i * 200}ms;`">
+                <a v-scrollanimation v-for="(achievement, i) in Achievements" :href="achievement.url"
+                    class="transition-delay-200">
                     <div
                         class="card-item bg-[var(--lightBackground)] shadow-sm duration-200 h-[100%] p-5 scale-100 hover:scale-103">
                         <h3 class="item-title md:text-size-24px text-size-20px font-700">

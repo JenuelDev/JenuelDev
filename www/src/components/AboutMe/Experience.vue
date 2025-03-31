@@ -37,11 +37,12 @@ function changeTab(index: string | number) {
 <template>
     <section id="experience" v-scrollanimation class="my-work-experience mx-auto pt-10">
         <div class="relative">
-            <h2
+            <h2 v-scrollanimation
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
                 My work experience
             </h2>
-            <p class="md:text-size-24px text-size-20px md:px-10px md:leading-relaxed leading-relaxed relative">
+            <p v-scrollanimation
+                class="md:text-size-24px text-size-20px md:px-10px md:leading-relaxed leading-relaxed relative">
                 As a developer, working is more than just writing code—it’s about continuous learning, problem-solving,
                 and making a meaningful impact. It involves growing your skills, collaborating with others, and
                 contributing to projects that can shape the way people interact with technology. Beyond just technical
@@ -53,7 +54,8 @@ function changeTab(index: string | number) {
             <div class="container">
                 <div>
                     <ul class="timeline">
-                        <li class="timeline-event" v-for="(exp, index) in experiences" :key="exp.company + index">
+                        <li v-scrollanimation class="timeline-event transition-delay-300"
+                            v-for="(exp, index) in experiences" :key="exp.company + index">
                             <label class="timeline-event-icon"></label>
                             <div class="timeline-event-copy p-2 relative -top-5 left-16 w-8/10">
                                 <p class="timeline-event-thumbnail" v-html="exp.workStart + ' - ' + exp.workUntil"></p>

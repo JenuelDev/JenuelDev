@@ -25,10 +25,10 @@ const services = [
 <template>
     <section class="flex flex-col w-[100%] max-w-[1200px] visible opacity-100 z-10 px-10px mt-100px mx-auto">
         <div class="text-center mb-40px">
-            <h1
+            <h1 v-scrollanimation
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-800 text-[var(--primary)] tracking-tight mt-10px mb-15px">
                 What I can offer</h1>
-            <p
+            <p v-scrollanimation
                 class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-normal mx-auto">
                 If you hire me, here are the things that I can do to help solve some of your company's problems, and
                 help to reduce issues. I will also create and
@@ -37,7 +37,7 @@ const services = [
         </div>
 
         <div class="flex gap-20px flex-wrap">
-            <div class="services-item" v-scrollview v-for="(service, i) in services" :key="service.title"
+            <div v-scrollanimation class="services-item" v-for="(service, i) in services" :key="service.title"
                 :style="`transition-delay: ${i * 200}ms;`">
                 <div class="card-item bg-[var(--lightBackground)] shadow-sm duration-200 h-[100%]">
                     <div class="flex flex-col p-20px justify-center items-center gap-10px">
@@ -51,7 +51,7 @@ const services = [
                 </div>
             </div>
         </div>
-        <div class="mt-30px text-center mb-50px">
+        <div v-scrollanimation class="mt-30px text-center mb-50px">
             <div>
                 <router-link to="/contact"
                     class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100">
