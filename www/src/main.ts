@@ -1,11 +1,14 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
 import scrollAnimation, { animationViewFull } from './directives/scrollAnimation'
+
+import './assets/main.scss'
+
+import '@unocss/reset/tailwind.css'
+import 'virtual:uno.css'
 
 const app = createApp(App)
 

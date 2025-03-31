@@ -51,7 +51,9 @@ function openSite(site: string) {
     <div class="header" :class="{ 'navbar--hidden': !showNavbar && scroll > 100, 'nav-min': scroll > 50 }">
         <nav>
             <div class="logo-image">
-                <h2 class="sm:ml-[50px] ml-10px font-700 text-[var(--primary)] text-size-2.5rem -mt-6px">JG</h2>
+                <h2 class="sm:ml-[50px] ml-[10px] font-700 text-[var(--primary)] text-size-[2.5rem] -mt-[6px]">
+                    JG
+                </h2>
             </div>
             <div class="navs">
                 <div class="nav-o">
@@ -68,26 +70,26 @@ function openSite(site: string) {
                         </div>
                     </RouterLink>
                     <RouterLink v-scrollanimation style="transition-delay: 400ms" to="/project">
-                        <div :class="{ active: $route.name == 'Project' }">
+                        <div class="flex items-center" :class="{ active: $route.name == 'Project' }">
                             <Icon icon="tabler:terminal-2" size="20" />
                             <span class="text-size-14px font-500"> Projects </span>
                         </div>
                     </RouterLink>
                     <RouterLink v-scrollanimation style="transition-delay: 550ms" to="/contact">
-                        <div :class="{ active: $route.name == 'Contact' }">
+                        <div class="flex items-center" :class="{ active: $route.name == 'Contact' }">
                             <Icon icon="tabler:mail" size="20" />
                             <span class="text-size-14px font-500"> Contact Me </span>
                         </div>
                     </RouterLink>
                     <div v-scrollanimation style="transition-delay: 650ms">
-                        <a class="text-size-14px font-500" rel="external" href="https://blog.brojenuel.com"
-                            hreflang="es-es">
+                        <a class="text-size-14px font-500 flex items-center" rel="external"
+                            href="https://blog.brojenuel.com" hreflang="es-es">
                             <Icon icon="tabler:brand-blogger" size="20" />
                             Blog
                         </a>
                     </div>
                     <div v-scrollanimation style="transition-delay: 650ms">
-                        <a class="text-size-14px font-500" rel="external"
+                        <a class="text-size-14px font-500 flex items-center" rel="external"
                             href="https://drive.google.com/file/d/1CEMto0ubGMVBJNCLq-QQN8-aFsYUo2Dd/view?usp=sharing"
                             hreflang="es-es" target="_blank">
                             <Icon icon="tabler:file-download" size="20" />

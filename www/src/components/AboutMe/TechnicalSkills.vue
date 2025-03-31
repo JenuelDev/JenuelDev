@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 import { skillList, mySkills } from './TechnicalSkills';
-import RenderIcon from './../../components/Icon.vue';
 import { reactive, ref } from 'vue';
 const dialog = ref(false);
 const dialogContent = reactive({
@@ -40,9 +39,10 @@ const closeDialog = () => {
             <transition name="modal">
                 <div class="box" v-show="dialog">
                     <div>
-                        <Icon @click="closeDialog()" class="x-close-button" icon="tabler:eye-closed" />
-                        <h1 class="flex flex-col items-center">
-                            <div class="skill-icon w-50px" v-html="dialogContent.icon"></div>
+                        <Icon @click="closeDialog()" class="x-close-button text-3xl"
+                            icon="material-symbols:close-rounded" />
+                        <h1 class="flex items-center">
+                            <Icon class="skill-icon text-3xl" :icon="dialogContent.icon"></Icon>
                             <div>
                                 {{ dialogContent.title }}
                             </div>
@@ -70,7 +70,8 @@ const closeDialog = () => {
     <section class="flex flex-col w-[100%] max-w-[900px] visible opacity-100 z-10 px-10px mx-auto">
         <h1
             class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px">
-            Technical skill set</h1>
+            Technical skill set
+        </h1>
         <p
             class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed">
             I am continuously learning to keep up with the latest technologies and be able to pick the best tech for the
@@ -80,7 +81,7 @@ const closeDialog = () => {
             <div class="flex flex-col justify-between" v-for="mySkill in mySkills" :key="mySkill.tech">
                 <div>
                     <div class="flex items-center">
-                        <RenderIcon :icon="mySkill.icon" :size="30" />
+                        <Icon :icon="mySkill.icon" class="text-2xl" />
                         <h3 class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</h3>
                         <span class="technical-skill-year">{{ mySkill.yearStarted }}</span>
                     </div>
@@ -91,7 +92,7 @@ const closeDialog = () => {
                 <div class="text-size-14px flex items-center gap-5px">
                     <div class="hover:bg-dark-900 p-5px rounded-md cursor-pointer flex items-center gap-5px text-size-20px max-w-40px overflow-hidden hover:max-w-200px duration-300 truncate"
                         v-for="tool in mySkill.tools" :key="tool.text" @click="openDialog(tool)">
-                        <div class="skill-icon min-w-30px" v-html="tool.icon"></div>
+                        <Icon class="skill-icon min-w-30px text-3xl" :icon="tool.icon"></Icon>
                         <span class="ml-10px">{{ tool.text }}</span>
                     </div>
                 </div>
@@ -100,7 +101,7 @@ const closeDialog = () => {
     </section>
 </template>
 
-<style lang="postcss">
+<style lang="scss">
 .technical-skill-year {
     @apply md:text-size-20px text-size-18px opacity-60;
 

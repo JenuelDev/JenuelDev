@@ -2,7 +2,7 @@ export const skillList = [];
 
 export const mySkills = [
     {
-        icon: 'tabler:brand-javascript',
+        icon: 'skill-icons:javascript',
         tech: 'JavaScript',
         des: 'It’s my main language and I know most of it. I focus on building single-page apps with attention to code quality and best practices.',
         yearStarted: 2017,
