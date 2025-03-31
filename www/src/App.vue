@@ -24,7 +24,7 @@ onBeforeMount(() => {
     }
   }
   console.log(
-    '%cHey! Whats Up! \n%cLike to dig into the meaty bits of the website?\nThanks for looking! Hit me up on twitter@BroJenuel, instagram@BroJenuel!',
+    '%cHey! Whats Up! %c \n Like to dig into the meaty bits of the website?\nThanks for looking! Hit me up on twitter@BroJenuel, instagram@BroJenuel!',
     'padding:10px;' +
     'border-radius: 10px;' +
     'color:#64ffda;' +

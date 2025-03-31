@@ -48,7 +48,7 @@ function openSite(site: string) {
                             <footer class="mt-30px">
                                 <ul class="flex gap-10px flex-wrap">
                                     <li class="flex items-center gap-5px" v-for="tech in code.techs" :key="tech.name">
-                                        <IconLink :icon="tech.icon" />
+                                        <Icon :icon="tech.icon" />
                                         {{ tech.name }}
                                     </li>
                                 </ul>
