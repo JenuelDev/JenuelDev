@@ -9,7 +9,7 @@ export default {
             tooltip: 'Open in Github'
         },
         {
-            link: "https://versionone.jenuelganawed.com",
+            link: "https://jenuelganawed-v1.netlify.app",
             icon: 'tabler:external-link',
             tooltip: 'Open Link'
         }

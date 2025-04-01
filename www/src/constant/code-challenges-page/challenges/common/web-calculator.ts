@@ -8,7 +8,7 @@ export default {
             tooltip: 'Open In Github'
         },
         {
-            link: "https://calculator.jenuelganawed.com",
+            link: "https://calculator.jenuel.dev",
             icon: 'tabler:external-link',
             tooltip: 'Open Link'
         }

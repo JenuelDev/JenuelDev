@@ -8,7 +8,7 @@ export default {
             tooltip: 'Open in Github'
         },
         {
-            link: "https://text-to-speach.jenuelganawed.com",
+            link: "jenuelganawed-texttospeach.netlify.app",
             icon: 'tabler:external-link',
             tooltip: 'Open Link'
         }

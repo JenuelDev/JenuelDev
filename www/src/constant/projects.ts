@@ -32,12 +32,12 @@ export default {
                     tooltip: 'Open in Github',
                 },
                 {
-                    link: 'https://laravel-mongo-docs.ml',
+                    link: 'https://laravel-mongodb.jenuel.dev/',
                     icon: null,
                     tooltip: 'Open Link',
                 },
             ],
-            imageLink: 'https://laravel-mongo-docs.ml',
+            imageLink: 'https://laravel-mongodb.jenuel.dev/',
             img: 'https://i.imgur.com/XUQZQLCl.png',
         },
         {
@@ -47,12 +47,12 @@ export default {
             techs: ['vue', 'javascript'],
             links: [
                 {
-                    link: 'https://kateawisan.ml',
+                    link: 'https://kateawisan.netlify.app/',
                     icon: null,
                     tooltip: 'Open Link',
                 },
             ],
-            imageLink: 'https://kateawisan.ml',
+            imageLink: 'https://kateawisan.netlify.app/',
             img: 'https://i.imgur.com/v4uiq8Al.png',
         },
         {
@@ -67,12 +67,12 @@ export default {
                     tooltip: 'Open in Github',
                 },
                 {
-                    link: 'https://www.getgifs.ml/',
+                    link: 'https://gif-find.netlify.app/',
                     icon: null,
                     tooltip: 'Open Link',
                 },
             ],
-            imageLink: 'https://www.getgifs.ml/',
+            imageLink: 'https://gif-find.netlify.app/',
             img: 'https://i.imgur.com/W2LuAFXl.png',
         },
         {
@@ -87,12 +87,12 @@ export default {
                     tooltip: 'Open In Github',
                 },
                 {
-                    link: 'https://BroJenuel.com',
+                    link: 'https://Jenuel.dev',
                     icon: null,
                     tooltip: 'Open Link',
                 },
             ],
-            imageLink: 'https://BroJenuel.com',
+            imageLink: 'https://Jenuel.dev',
             img: 'https://i.imgur.com/ygEsq4Kl.png',
         },
     ],
