@@ -118,6 +118,11 @@ export const mySkills = [
                 icon: 'skill-icons:postgresql-light',
                 text: 'PostgreSQL',
                 des: `<a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a> (also called Postgres) is a powerful, open-source relational database management system (RDBMS) known for scalability, extensibility, and ACID compliance. It’s widely used in enterprise applications, web services, and data-intensive projects.`
+            },
+            {
+                icon: 'skill-icons:mongodb',
+                text: 'MongoDB',
+                des: `MongoDB is a NoSQL database that stores data in a flexible, JSON-like format called BSON (Binary JSON). Unlike traditional relational databases (SQL), MongoDB is schema-less, meaning you don't need to define a strict structure for your data.`
             }
         ]
     },
