@@ -3,7 +3,7 @@ import SvgDecoration from './../SvgDecoration/SvgDecoration.vue';
 import { Icon } from '@iconify/vue';
 
 const yearCount = () => {
-    return new Date().getFullYear() - 2017;
+    return new Date().getFullYear() - 2018;
 };
 </script>
 <template>
