@@ -23,11 +23,11 @@ const yearCount = () => {
                     </div>
                     <div class="mt-30px flex lg:justify-end justify-center flex-wrap gap-20px items-center">
                         <div>
-                            <router-link to="/contact"
+                            <a href="https://www.linkedin.com/in/jenuelganawed/" target="_blank"
                                 class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 flex items-center gap-5px">
-                                <Icon icon="tabler:mail" class="text-2xl" />
+                                <Icon icon="tabler:brand-linkedin-filled" class="text-2xl" />
                                 <span> Get In Touch </span>
-                            </router-link>
+                            </a>
                         </div>
                         <div>
                             <a href="/Jenuel Ganawed - Resume.pdf" target="_blank"
