@@ -30,8 +30,7 @@ const yearCount = () => {
                             </router-link>
                         </div>
                         <div>
-                            <a href="https://drive.google.com/file/d/1CEMto0ubGMVBJNCLq-QQN8-aFsYUo2Dd/view?usp=sharing"
-                                target="_blank"
+                            <a href="/Jenuel Ganawed - Resume.pdf" target="_blank"
                                 class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 cursor-pointer whitespace-nowrap flex items-center gap-5px">
                                 <Icon icon="tabler:file-type-doc" class="text-2xl" />
                                 <span> Resume </span>

@@ -43,13 +43,6 @@ export default [
         label: 'Blog',
         icon: 'tabler:brand-blogger',
         external: true
-    },
-    {
-        routeName: null,
-        to: 'https://drive.google.com/file/d/1CEMto0ubGMVBJNCLq-QQN8-aFsYUo2Dd/view?usp=sharing',
-        label: 'Resume',
-        icon: 'tabler:file-download',
-        external: true
     }
 ] as Array<{
     external: boolean;

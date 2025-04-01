@@ -4,6 +4,7 @@ import { Icon } from '@iconify/vue';
 import { socialMediaLinks } from '../../constant/social-network';
 import { computed } from 'vue';
 import { useStore } from '@/stores/store';
+import headerLinks from '@/constant/header-links';
 
 const store = useStore();
 const SocialNetwork = computed(() => socialMediaLinks);
@@ -22,51 +23,27 @@ function openSite(site: string) {
                 <li class="pt-5">
                     <ThemeChanger />
                 </li>
-                <li v-scrollanimation style="transition-delay: 100ms" @click="
-                    $router.push({ name: 'AboutMe' });
-                store.navShow = false;
-                ">
-                    <div :class="{ active: $route.name == 'AboutMe' }">
-                        <Icon size="20" icon="tabler:home-filled" />
-                        Home
-                    </div>
-                </li>
-                <li v-scrollanimation style="transition-delay: 250ms" @click="
-                    $router.push({ name: 'Experience' });
-                store.navShow = false;
-                ">
-                    <div :class="{ active: $route.name == 'Experience' }">
-                        <Icon size="20" icon="tabler:briefcase-2-filled" />
-                        Experience
-                    </div>
-                </li>
-                <li v-scrollanimation style="transition-delay: 400ms" @click="
-                    $router.push({ name: 'Project' });
-                store.navShow = false;
-                ">
-                    <div :class="{ active: $route.name == 'Project' }">
-                        <Icon size="20" icon="tabler:terminal-2" />
-                        Projects
-                    </div>
-                </li>
-                <li v-scrollanimation style="transition-delay: 550ms" @click="
-                    $router.push({ name: 'Contact' });
-                store.navShow = false;
-                ">
-                    <div :class="{ active: $route.name == 'Contact' }">
-                        <Icon size="20" icon="tabler:mail" />
-                        Contact Me
-                    </div>
-                </li>
-                <li v-scrollanimation style="transition-delay: 650ms">
-                    <a rel="external" href="https://dev.to/BroJenuel" hreflang="es-es">
-                        <Icon size="20" icon="tabler:brand-blogger" />
-                        Blog
-                    </a>
-                </li>
+                <template v-for="(headerLink, index) in headerLinks">
+                    <li v-if="!headerLink.external" v-scrollanimation
+                        :style="`transition-delay: ${((index + 1) * 100)}ms`" @click="
+                            $router.push({ name: headerLink.routeName as any });
+                        store.navShow = false;
+                        ">
+                        <div :class="{ active: $route.name == headerLink.routeName }">
+                            <Icon size="20" :icon="headerLink.icon" />
+                            {{ headerLink.label }}
+                        </div>
+                    </li>
+                    <li v-else v-scrollanimation :style="`transition-delay: ${((index + 1) * 100)}ms`">
+                        <a rel="external" :href="headerLink.to as string" hreflang="es-es">
+                            <Icon size="20" :icon="headerLink.icon" />
+                            {{ headerLink.label }}
+                        </a>
+                    </li>
+                </template>
             </ul>
 
-            <div class="px-6 mt-7">
+            <div class="px-6 mt-7 mb-7">
                 <p class="mb-5">Social Links:</p>
                 <ol class="flex gap-3 flex-wrap">
                     <li v-for="socialLink in SocialNetwork">
