@@ -16,7 +16,7 @@ function openSite(site: string) {
                         <div class="text-size-40px">
                             <Icon :icon="socialLink.icon" />
                         </div>
-                        <span class="icon-title">Facebook</span>
+                        <span class="icon-title">{{ socialLink.title }}</span>
                     </div>
                 </li>
             </ul>
