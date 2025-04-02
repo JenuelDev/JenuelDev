@@ -8,8 +8,7 @@ const yearCount = () => {
 </script>
 <template>
     <section class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
-        <div v-scrollanimation class="flex lg:flex-row flex-col items-center gap-50px relative"
-            style="transition-delay: 100ms;">
+        <div v-scrollanimation class="flex lg:flex-row flex-col items-center gap-50px relative">
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
@@ -56,7 +55,7 @@ const yearCount = () => {
         </div>
         <div v-scrollanimation
             class="md:text-2xl text-xl md:px-10px w-[100%] max-w-[770px] pt-100px md:leading-relaxed leading-relaxed relative"
-            style="transition-delay: 500ms;">
+            style="transition-delay: 100ms;">
             <p class="mb-30px">
                 Back in 2016, I decided to make a big change, switching from studying criminology to diving into the
                 exciting world of Information Technology. That's when I discovered my passion for software development.
