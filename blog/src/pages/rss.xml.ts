@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 
 export async function GET(props: any) {
     const supabase = createClient(import.meta.env.SUPABASE_URL, import.meta.env.SUPABASE_KEY);
-    const site = props.site ?? "https://jenuel.dev";
+    const site = props.site ?? "https://blog.jenuel.dev";
 
     let limit = props.url.searchParams.get("limit") ?? 5000;
 
@@ -22,7 +22,7 @@ export async function GET(props: any) {
         if (doc.title && doc.slug && doc.updated_at && doc.summary)
             feedItem.push({
                 title: doc.title ?? "-",
-                link: `https://jenuel.dev/blog/${doc.slug}`,
+                link: `https://blog.jenuel.dev/blog/${doc.slug}`,
                 pubDate: doc.updated_at,
                 description: doc.summary,
             });
