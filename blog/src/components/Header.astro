@@ -19,17 +19,25 @@ const pathname = new URL(Astro.request.url).pathname;
             class="gap-1 md:flex hidden border border-2 border-[var(--slate6)] px-1 py-1 rounded-full"
         >
             <a
-                href="https://www.jenuel.dev"
-                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
-            >
-                <Icon name="tabler:smart-home" /> Home
-            </a>
-            <a
                 href="/"
                 class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
                 class:list={pathname === "/" ? "bg-white/10" : ""}
             >
-                <Icon name="tabler:article" class="inline text-lg" /> Blog
+                <Icon name="tabler:article" class="inline text-lg" /> Home
+            </a>
+            <a
+                href="/finance"
+                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
+                class:list={pathname === "/finance" ? "bg-white/10" : ""}
+            >
+                <Icon name="tabler:report-money" class="inline text-lg" /> Finance
+            </a>
+            <a
+                href="/programming"
+                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
+                class:list={pathname === "/programming" ? "bg-white/10" : ""}
+            >
+                <Icon name="tabler:code" class="inline text-lg" /> Programming
             </a>
         </div>
         <a

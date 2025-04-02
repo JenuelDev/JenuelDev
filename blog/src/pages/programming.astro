@@ -1,0 +1,111 @@
+---
+export const prerender = true;
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import JenuelDevImageProfileBrand from "../assets/images/JenuelDev.png";
+import Layout from "../layouts/default.astro";
+import { supabase } from "../lib/supabase";
+import dayjs from "dayjs";
+const title = "Programming blog for developers";
+const description =
+    "learn how to become a good programmer.";
+
+    const limit = 50;
+
+const { data, error } = await supabase
+    .from("blogs")
+    .select(`id, title, summary, slug, updated_at, cover_img, blog_meta(*), tags`)
+    .eq("is_active", 1)
+    .ilike("keywords_str", '%programming%')
+    .order("id", { ascending: false })
+    .limit(limit);
+
+if (error) {
+    console.log(error);
+}
+
+const isDev = import.meta.env.DEV;
+const blogs = data ?? [];
+const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268807726840190"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-gt-35+c9-4n-lq"
+     data-ad-client="ca-pub-2268807726840190"
+     data-ad-slot="2796186432"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>`;
+---
+
+<Layout
+    title={title}
+    description={description}
+>
+    <main>
+        <section class="w-100% sm:text-lg flex flex-col pt-5 my-10 mt-20">
+            <div class="flex flex-col gap-5 items-center justify-center h-100% max-w-800px mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
+                >
+                    <div class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
+                    <span class="text-gray-300 text-xs sm:text-sm font-medium">
+                        Learn how to program
+                    </span>
+                </div>
+        
+                <div class="flex items-center gap-3">
+                    <h1
+                        class="tracking-tight md:text-5xl sm:text-4xl text-2xl group flex pb-3 pt-1.5 px-2 bg-[var(--red3)] text-[var(--red10)] rounded-md"
+                    >
+                        <Icon name="tabler:device-desktop-question" class="mr-1" />
+                        solve
+                    </h1>
+                    <h1
+                        class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--orange3)] text-[var(--orange10)] rounded-md relative"
+                    >        
+                        <Icon name="tabler:heart-rate-monitor" class="mr-1" />
+                        problem
+                    </h1>
+                    <h1
+                        class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--green3)] text-[var(--green10)] rounded-md relative"
+                    >
+                        <Icon name="tabler:ease-in-out-control-points" class="mr-1" />
+                        in
+                    </h1>
+                    <h1
+                        class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--blue3)] text-[var(--blue10)] rounded-md"
+                    >
+                        <Icon name="tabler:air-conditioning" class="mr-1" />
+                        coding
+                    </h1>
+                </div>
+            </div>
+        </section>
+        
+        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto">
+            {
+                blogs.map((blog, i) => (
+                    <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
+                        <div class="content-summary leading-5 col-span-6 ">
+                            <div class="text-xs sm:mb-1 text-secondary">
+                                {dayjs(blog.updated_at).format("DD MMM, YYYY")}
+                            </div>
+                            <div class="sm:mb-2 text-2xl group-hover:underline underline-[var(--slate10)]">
+                                {blog.title}
+                            </div>
+                            <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"} text-secondary`}>
+                                {blog.summary}
+                            </p>
+                        </div>
+                    </a>
+                    <div> {!isDev && i%7 === 0 && (
+                        <div set:html={adsToRender}></div>
+                    )} </div>
+                ))
+            }
+            
+        </div>
+    </main>
+</Layout>
