@@ -16,4 +16,4 @@ jobs:
       - name: Pull in dev.to posts
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://jenuel.dev/rss.xml?limit=5"
+          feed_list: "https://blog.jenuel.dev/rss.xml?limit=5"
