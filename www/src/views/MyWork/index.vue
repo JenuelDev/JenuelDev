@@ -40,8 +40,7 @@ function openSite(site: string) {
                         </ul>
                         <div class="work-links" :class="i % 2 == 0 ? '' : 'work-links-right'">
                             <div v-for="link in work.links" class="work-links-toggle customTooltip"
-                                :gloss="link.tooltip" :key="link.name" aria-label="GitHUB Link"
-                                @click="openSite(link.link)">
+                                :gloss="link.tooltip" :key="link.name" @click="openSite(link.link)">
                                 <Icon :icon="link.icon" />
                             </div>
                         </div>
