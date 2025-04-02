@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://jenuel.dev/sitemap.xml
