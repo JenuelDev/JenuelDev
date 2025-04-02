@@ -44,7 +44,7 @@ const services = [
                         <div class="text-size-52px">
                             <Icon :icon="service.icon" :size="50" />
                         </div>
-                        <h3 class="item-title md:text-size-24px text-size-20px font-700">{{ service.title }}</h3>
+                        <div class="item-title md:text-size-24px text-size-20px font-700">{{ service.title }}</div>
                         <div class="item-des md:text-size-20px text-size-18px md:leading-normal leading-snug text-center"
                             v-html="service.description"></div>
                     </div>
