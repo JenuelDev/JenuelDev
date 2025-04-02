@@ -83,7 +83,7 @@ const closeDialog = () => {
                 <div>
                     <div class="flex items-center">
                         <Icon :icon="mySkill.icon" class="text-2xl" />
-                        <h3 class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</h3>
+                        <div class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</div>
                         <span class="technical-skill-year md:text-size-20px text-size-18px opacity-60">{{
                             mySkill.yearStarted }}</span>
                     </div>
