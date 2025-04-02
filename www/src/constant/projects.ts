@@ -93,7 +93,7 @@ export default {
                 },
             ],
             imageLink: 'https://Jenuel.dev',
-            img: 'https://i.imgur.com/ygEsq4Kl.png',
+            img: 'https://i.imgur.com/xVqZw8e.png',
         },
     ],
 } as any;
