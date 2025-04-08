@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue"
+import { computed } from "vue";
+
+
+const isUrlABlogUrl = computed(() => {
+    const url = window.location.href;
+    return url.includes("blog");
+});
+const urlPathName = window.location.pathname;
 </script>
 <template>
     <div v-scrollanimation class="min-h-100vh md:mt-30 mt-10 max-w-1200px mx-auto">
         <div class="text-center">
-            <div class="flex items-center justify-center mb-10 gap-3">
+            <div class="flex items-center justify-center mb-6 gap-3 flex-wrap">
                 <div class="text-2xl text-xl ">
-                    <span class="text-[var(--primary)] font-bold">Oops 🤔</span>, Page Not Found.
+                    <span class="text-[var(--primary)] font-bold">Oops 😢</span>, Page Not Found.
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
                     <a href="https://www.linkedin.com/in/jenuelganawed/" target="_blank"
                         class="bg-[var(--primary)] px-5px py-2px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 flex items-center gap-5px">
                         <Icon icon="tabler:brand-linkedin-filled" class="text-xl" />
@@ -20,6 +28,10 @@ import { Icon } from "@iconify/vue"
                         <span> Home </span>
                     </RouterLink>
                 </div>
+            </div>
+            <div v-if="isUrlABlogUrl" class="mb-10 text-xl">
+                🤔 Did you mean this <a :href="`https://blog.jenuel.dev${urlPathName}`" class="text-[var(--primary)]"
+                    title="Blog - Jenuel Dev">{{ `https://blog.jenuel.dev${urlPathName}` }}</a>
             </div>
             <h1 class="md:text-5xl text-3xl font-semibold mb-6">
                 Programming
