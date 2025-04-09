@@ -34,7 +34,7 @@ const closeDialog = () => {
 </script>
 
 <template>
-    <div class="modal-window">
+    <div id="technical-skills" class="modal-window pt-20">
         <div class="modal-window-content">
             <transition name="modal">
                 <div class="box" v-show="dialog">

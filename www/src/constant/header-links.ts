@@ -7,6 +7,16 @@ export default [
         external: false
     },
     {
+        routeName: 'TechnicalSkills',
+        to: {
+            path: '/',
+            hash: '#technical-skills'
+        },
+        label: 'Techs',
+        icon: 'tabler:device-desktop-code',
+        external: false
+    },
+    {
         routeName: 'Project',
         to: {
             path: '/',
