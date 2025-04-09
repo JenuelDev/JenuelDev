@@ -5,7 +5,7 @@ function openSite(site: string) {
 </script>
 <template>
     <div v-scrollanimation class="my-footer text-size-20px">
-        <div class="footer-toggle-link" @click="openSite('https://github.com/BroJenuel/BroJenuelPortfolio')">
+        <div class="footer-toggle-link" @click="openSite('https://github.com/JenuelDev')">
             <div class="copy-right">
                 {{ new Date().getFullYear() }}
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24"
