@@ -1,22 +1,30 @@
 <script setup lang="ts">
-import ThemeChanger from './../themeChanger/themeChanger.vue';
-import { Icon } from '@iconify/vue';
-import { socialMediaLinks } from '../../constant/social-network';
-import { computed } from 'vue';
-import { useStore } from '@/stores/store';
-import headerLinks from '@/constant/header-links';
+import ThemeChanger from "./../themeChanger/themeChanger.vue";
+import { Icon } from "@iconify/vue";
+import { socialMediaLinks } from "../../constant/social-network";
+import { computed } from "vue";
+import { useStore } from "@/stores/store";
+import headerLinks from "@/constant/header-links";
+import { useRouter } from "vue-router";
 
 const store = useStore();
 const SocialNetwork = computed(() => socialMediaLinks);
+const router = useRouter();
 
 function openSite(site: string) {
-    window.open(site, '_blank');
+    window.open(site, "_blank");
 }
 </script>
 <template>
     <div class="nav-mobile">
         <div class="nav-front" :class="{ 'show-nav': store.navShow }">
-            <div class="close-button z-999" @click="store.navShow = false; console.log('asdf')">
+            <div
+                class="close-button z-999"
+                @click="
+                    store.navShow = false;
+                    console.log('asdf');
+                "
+            >
                 <Icon class="text-5xl" icon="material-symbols:cancel" />
             </div>
             <ul>
@@ -24,17 +32,25 @@ function openSite(site: string) {
                     <ThemeChanger />
                 </li>
                 <template v-for="(headerLink, index) in headerLinks">
-                    <li v-if="!headerLink.external" v-scrollanimation
-                        :style="`transition-delay: ${((index + 1) * 100)}ms`" @click="
-                            $router.push({ name: headerLink.routeName as any });
-                        store.navShow = false;
-                        ">
-                        <div :class="{ active: $route.name == headerLink.routeName }">
+                    <li
+                        v-if="!headerLink.external"
+                        v-scrollanimation
+                        :style="`transition-delay: ${(index + 1) * 100}ms`"
+                        @click.stop="
+                            router.push(headerLink.to);
+                            store.navShow = false;
+                        "
+                    >
+                        <div
+                            :class="{
+                                active: $route.name == headerLink.routeName,
+                            }"
+                        >
                             <Icon size="20" :icon="headerLink.icon" />
                             {{ headerLink.label }}
                         </div>
                     </li>
-                    <li v-else v-scrollanimation :style="`transition-delay: ${((index + 1) * 100)}ms`">
+                    <li v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`">
                         <a rel="external" :href="headerLink.to as string" hreflang="es-es">
                             <Icon size="20" :icon="headerLink.icon" />
                             {{ headerLink.label }}
@@ -169,15 +185,6 @@ function openSite(site: string) {
             ul.social-medias-in-nav {
                 visibility: visible;
             }
-        }
-    }
-}
-
-@media only screen and (max-width: 375px) {
-    .nav-mobile {
-        .nav-front {
-            width: 100%;
-            margin-right: -385px;
         }
     }
 }
