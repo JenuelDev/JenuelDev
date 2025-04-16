@@ -21,6 +21,26 @@ export default {
             img: 'https://i.imgur.com/FhlGhQMl.png',
         },
         {
+            overline: 'Web Application',
+            title: 'Fam Tree',
+            des: "Fam Tree is a simple application that helps you create a family tree. Whether you're new to this app or a seasoned user, Fam Tree is a simple application that helps you create a family tree.",
+            techs: ['vue3', 'javascript', 'firebase', 'unocss'],
+            links: [
+                {
+                    link: 'https://github.com/JenuelDev/my-family-tree',
+                    icon: null,
+                    tooltip: 'Open in Github',
+                },
+                {
+                    link: 'https://famtree.jenuel.dev/',
+                    icon: null,
+                    tooltip: 'Open Link',
+                },
+            ],
+            imageLink: 'https://famtree.jenuel.dev/',
+            img: 'https://i.imgur.com/icyfsRQ.png',
+        },
+        {
             overline: 'Documentation Project',
             title: 'Lara MongoDB Docs',
             des: 'Documentation about laravel with mongodb, this package adds functionalities to the Eloquent model and Query builder for MongoDB, using the original Laravel API. This library extends the original Laravel classes, so it uses exactly the same methods.',

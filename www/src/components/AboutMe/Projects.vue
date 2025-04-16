@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import CodeChallenge from '@/components/CodeChallenges.vue';
-import Project from '@/constant/projects';
-import { useStore } from '@/stores/store';
-import { onMounted } from 'vue';
-import { Icon } from "@iconify/vue"
+import CodeChallenge from "@/components/CodeChallenges.vue";
+import Project from "@/constant/projects";
+import { useStore } from "@/stores/store";
+import { onMounted } from "vue";
+import { Icon } from "@iconify/vue";
 
 const store = useStore();
 onMounted(() => {
@@ -12,13 +12,14 @@ onMounted(() => {
 
 const works = Project;
 function openSite(site: string) {
-    window.open(site, '_blank');
+    window.open(site, "_blank");
 }
 </script>
 <template>
     <section id="projects" v-scrollanimation class="my-work lg:pt-130px pt-0 mx-auto max-w-[1000px] px-10px">
         <h2
-            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px ">
+            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px"
+        >
             Personal Project
         </h2>
         <p class="md:text-size-24px text-size-20px md:leading-relaxed leading-normal">
@@ -27,7 +28,7 @@ function openSite(site: string) {
         </p>
         <div style="margin-top: 20px">
             <template v-for="(work, i) in works.works" :key="i">
-                <div v-scrollview class="work-info" :style="'transition-delay:' + 100 + 'ms'">
+                <div v-scrollanimation class="work-info mx-0 md:my-30 my-1" style="transition-delay: 500ms">
                     <div class="work-info-details" :class="i % 2 == 0 ? 'left-content' : 'right-content'">
                         <p class="text-[var(--primary)] font-200">{{ work.overline }}</p>
                         <h3 class="md:text-size-28px text-size-25px mb-25px font-600">{{ work.title }}</h3>
@@ -40,8 +41,13 @@ function openSite(site: string) {
                             </li>
                         </ul>
                         <div class="work-links" :class="i % 2 == 0 ? '' : 'work-links-right'">
-                            <div v-for="link in work.links" class="work-links-toggle customTooltip"
-                                :gloss="link.tooltip" :key="link.name" @click="openSite(link.link)">
+                            <div
+                                v-for="link in work.links"
+                                class="work-links-toggle customTooltip"
+                                :gloss="link.tooltip"
+                                :key="link.name"
+                                @click="openSite(link.link)"
+                            >
                                 <Icon :icon="link.icon" />
                             </div>
                         </div>
@@ -77,20 +83,19 @@ function openSite(site: string) {
     .work-info {
         visibility: visible;
         opacity: 1;
-        margin: 50px 0px;
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(12, 1fr);
         -webkit-box-align: center;
         align-items: center;
 
-        &.a-view-before-enter {
+        &.a-before-enter {
             opacity: 0;
             transform: translateY(20px);
             transition: 0.2s ease-in-out 400ms;
         }
 
-        &.a-view-enter {
+        &.a-enter {
             opacity: 1;
             transform: translateY(0);
         }
@@ -195,7 +200,7 @@ function openSite(site: string) {
                 transition: 0.25s !important;
 
                 &::before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     width: 100%;
                     height: 100%;
