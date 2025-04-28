@@ -12,6 +12,14 @@ const projects: Array<{
     logoFontFamily?: string;
 }> = [
         {
+            name: "Introduction To Python",
+            from: "SoloLearn",
+            isLogoImage: true,
+            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
+            description: "This course covered the basic concepts of Python, as well as build real-life projects and solve different coding challenges.",
+            url: "https://www.sololearn.com/certificates/CC-BYG4YO41"
+        },
+        {
             name: "Programming With Python 3.x",
             from: "SimpleLearn",
             isLogoImage: true,
