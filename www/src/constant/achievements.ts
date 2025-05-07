@@ -35,7 +35,7 @@ const projects: Array<{
             logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/FreeCodeCamp_logo.svg",
             description:
                 "We learned the core principles of C# programming. The course covered essential topics such as object-oriented programming, data structures, and error handling, providing a solid foundation for developing applications within the .NET framework.",
-            url: "https://www.freecodecamp.org/certification/brojenuel/foundational-c-sharp-with-microsoft",
+            url: "https://www.freecodecamp.org/certification/jenueldev/foundational-c-sharp-with-microsoft",
         },
         {
             name: "Learn Laravel VueJs from Scratch - Building a Tesla Web App",

@@ -9,7 +9,7 @@ import worldTimeReact from './common/world-time-react';
 const otherCodeChallenges: CODE_CHALLENGES = [
     {
         title: 'I Love Vue (VueSchool)',
-        des: '<p>This is a simple landing page for the VueSchool I Love Vue project.</p>',
+        des: '<p>This is a simple landing page for the VueSchool I Love Vue.</p>',
         links: [
             {
                 link: 'https://github.com/JenuelDev/i-love-vue',
