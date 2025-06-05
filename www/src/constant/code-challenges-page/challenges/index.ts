@@ -8,6 +8,32 @@ import worldTimeReact from './common/world-time-react';
 
 const otherCodeChallenges: CODE_CHALLENGES = [
     {
+        title: 'Facebook Clone',
+        des: 'Cloning facebook style. This is not intended to be used for phishing or other illegal activities. This is solely for educational purposes only.',
+        links: [
+            {
+                link: 'https://github.com/JenuelDev/facebook-clone',
+                icon: 'tabler:brand-github-filled',
+                tooltip: 'Open In Github',
+            },
+            {
+                link: 'https://teal-kelpie-a96265.netlify.app/',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            }
+        ],
+        techs: [
+            {
+                name: 'WindiCSS',
+                icon: 'material-icon-theme:windicss',
+            },
+            {
+                name: 'VueJS',
+                icon: 'ri:vuejs-fill',
+            },
+        ],
+    },
+    {
         title: 'I Love Vue (VueSchool)',
         des: '<p>This is a simple landing page for the VueSchool I Love Vue.</p>',
         links: [
@@ -29,7 +55,7 @@ const otherCodeChallenges: CODE_CHALLENGES = [
             },
             {
                 name: 'tailwindcss',
-                icon: 'teenyicons:nodejs-solid',
+                icon: 'devicon:tailwindcss',
             },
             {
                 name: 'VueJS',
