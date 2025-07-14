@@ -21,6 +21,14 @@ const router = createRouter({
       }
     },
     {
+      path: "/piso-wifi",
+      name: 'Piso Wifi',
+      component: () => import('@/views/PisoWifi.vue'),
+      meta: {
+        title: "Piso WiFi - JenuelDev"
+      }
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'PageNotFound',
       component: () => import('@/views/PageNotFound/index.vue'),
