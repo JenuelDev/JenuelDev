@@ -4,6 +4,7 @@ import icon from "astro-icon";
 import vercel from "@astrojs/vercel";
 
 import vue from "@astrojs/vue";
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +16,7 @@ export default defineConfig({
         icon(),
         vue()
     ],
-    adapter: vercel({
+    adapter: netlify({
         edgeMiddleware: true,
     }),
     image: {
