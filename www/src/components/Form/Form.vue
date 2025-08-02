@@ -115,50 +115,30 @@ async function sendEmail() {
             <div class="flex sm:flex-row flex-col text-left items-center gap-5 mb-5">
                 <div class="flex-1 w-full">
                     <label>Name</label><br />
-                    <input
-                        v-model="form.name"
-                        type="text"
-                        placeholder="ex. Jenuel Dev"
-                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full"
-                    />
+                    <input v-model="form.name" type="text" placeholder="ex. Jenuel Dev"
+                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full" />
                 </div>
                 <div class="flex-1 w-full">
                     <label>Email</label><br />
-                    <input
-                        v-model="form.email"
-                        type="email"
-                        placeholder="ex. me@jenuel.dev"
-                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full"
-                    />
+                    <input v-model="form.email" type="email" placeholder="ex. me@jenuel.dev"
+                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full" />
                 </div>
             </div>
             <div class="text-left mb-5">
                 <label>Subject</label>
-                <input
-                    v-model="form.subject"
-                    type="text"
-                    placeholder="What is this message about?"
-                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full"
-                />
+                <input v-model="form.subject" type="text" placeholder="What is this message about?"
+                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full" />
             </div>
             <div class="text-left">
                 <label>Message</label><br />
-                <textarea
-                    v-model="form.message"
-                    name="msg"
-                    placeholder="Let us know what’s on your mind."
-                    rows="8"
-                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full"
-                ></textarea>
+                <textarea v-model="form.message" name="msg" placeholder="Let us know what’s on your mind." rows="8"
+                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full"></textarea>
             </div>
             <div class="mt-10px">
-                <button
-                    type="button"
+                <button type="button"
                     class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 w-[100%]"
-                    :class="{ 'opacity-50 hover:opacity-50 cursor-not-allowed': sending }"
-                    @click="sendEmail()"
-                    :disabled="sending"
-                >
+                    :class="{ 'opacity-50 hover:opacity-50 cursor-not-allowed': sending }" @click="sendEmail()"
+                    :disabled="sending">
                     <p style="margin: 0">{{ sending ? "Sending..." : "Send" }}</p>
                 </button>
             </div>

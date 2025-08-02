@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
-import { socialMediaLinks as socials } from '../../constant/social-network';
 import Form from './../../components/Form';
 
 </script>
