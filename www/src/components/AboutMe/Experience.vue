@@ -77,11 +77,6 @@ function changeTab(index: string | number) {
                                         {{ exp.certificate.label }}
                                     </a>
                                 </div>
-                                <div>
-                                    <p class="md:text-size-20px text-size-18px md:leading-normal leading-snug"
-                                        v-html="exp.des">
-                                    </p>
-                                </div>
                             </div>
                         </li>
                     </ul>
