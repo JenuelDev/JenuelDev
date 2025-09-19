@@ -78,7 +78,7 @@ const otherCodeChallenges: CODE_CHALLENGES = [
                 tooltip: 'Open In Github',
             },
             {
-                link: 'https://random-select.brojenuel.com',
+                link: 'https://random-select.jenuel.dev',
                 icon: 'tabler:external-link',
                 tooltip: 'Open Link',
             },
