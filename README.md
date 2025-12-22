@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Self Improvement: Be the Main Character of Your Life](https://blog.jenuel.dev/blog/Self-Improvement-Be-the-Main-Character-of-Your-Life)
 - [The Hidden Cost of Free AI: Don’t Let AI Replace Your Thinking](https://blog.jenuel.dev/blog/The-Hidden-Cost-of-Free-AI-Don-t-Let-AI-Replace-Your-Thinking)
 - [How to Detect If a User Is Using a VPN with JavaScript](https://blog.jenuel.dev/blog/How-to-Detect-If-a-User-Is-Using-a-VPN-with-JavaScript)
 - [The Rise of AI: A Turning Point for All of Us](https://blog.jenuel.dev/blog/The-Rise-of-AI-A-Turning-Point-for-All-of-Us)
 - [Lighten Your Mental Load by Creating Tests](https://blog.jenuel.dev/blog/Lighten-Your-Mental-Load-by-Creating-Tests)
-- [Laravel Cloud to Save the Day: A Game-Changer for Laravel Developers](https://blog.jenuel.dev/blog/Laravel-Cloud-to-Save-the-Day-A-Game-Changer-for-Laravel-Developers)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
