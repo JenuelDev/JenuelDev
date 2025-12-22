@@ -13,10 +13,10 @@ const yearCount = () => {
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
-                        <h3 class="md:text-3xl text-2xl font-500 mb-2">Hi! I’m Jenuel, and I'm a</h3>
+                        <h3 class="md:text-3xl text-2xl font-500 mb-2">Hi! I’m Jenuel, & I'm a</h3>
                         <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">Software Developer</h1>
                         <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] mb-2">
-                            I create web apps that are engaging, accessible and scalable.
+                            I build accessible web apps.
                         </h2>
                     </div>
                     <div class="mt-30px flex lg:justify-end justify-center flex-wrap gap-20px items-center">

@@ -52,7 +52,7 @@ export const mySkills = [
     {
         icon: 'skill-icons:html',
         tech: 'HTML/CSS',
-        des: 'I write semantic markup with accessibility in mind. I keep my CSS manageable and also slowly following BEM conventions/rules.',
+        des: 'I write semantic markup with accessibility in mind. I keep my CSS manageable and following BEM conventions/rules. I am slowly using utility-first CSS frameworks to speed up my workflow.',
         yearStarted: 2016,
         tools: [
             {
@@ -86,7 +86,7 @@ export const mySkills = [
     {
         icon: 'skill-icons:php-dark',
         tech: 'PHP',
-        des: 'Technology I used for Backend Development. PHP is the first ever language I learned for building backend functionalities. After that I started focusing on using PHP frameworks to build faster server-side rendering websites and API calls.',
+        des: 'For backend development, I primarily work with PHP, which was the first language I used to build server-side functionality. Over time, I shifted to using PHP frameworks to improve development efficiency, enabling faster server-side rendering and API development.',
         yearStarted: 2017,
         tools: [
             {
@@ -106,7 +106,7 @@ export const mySkills = [
     {
         icon: "solar:database-bold-duotone",
         tech: "Database",
-        des: "I have experience with SQL databases like MySQL, PostgreSQL, and MongoDB. I also have experience with NoSQL databases like Redis, Memcached, and CouchDB.",
+        des: "I have experience managing both SQL and NoSQL databases. This includes relational systems like MySQL and PostgreSQL, as well as NoSQL solutions such as MongoDB and Redis. I also work with managed database platforms and backend services like Firebase and Supabase.",
         yearStarted: 2017,
         tools: [
             {
@@ -142,7 +142,7 @@ export const mySkills = [
     {
         icon: 'hugeicons:web-design-01',
         tech: 'UI Design',
-        des: 'As a developer that also works with frontend development. I started to learn and gain experience for UX designing because everything I built, I want it to be User Friendly. Figma is really a great tool for creating designs, and is what I use.',
+        des: 'While I’m not a full-time designer, I specialize in turning design concepts into functional experiences. I’ve developed UX design skills alongside frontend development because I want every product I build to be intuitive and user-friendly.',
         yearStarted: 2021,
         tools: [
             {
