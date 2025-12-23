@@ -23,24 +23,26 @@ function openSite(site: string) {
             Personal Project
         </h2>
         <p class="md:text-size-24px text-size-20px md:leading-relaxed leading-normal">
-            Learning is a journey, not a destination. One effective way to learn is by creating personal projects. I
-            decided it would be a fun challenge to design and build my own.
+            Learning is a journey, not a destination. One of the most effective ways to grow is by building personal
+            projects. I decided to challenge myself by designing and developing my own. These “hobby” projects matter to
+            me because they push me to keep learning, stay up to date, and sharpen my skills. In reality, they are far
+            more than just hobbies., they are a vital part of my growth as a developer.
         </p>
         <div style="margin-top: 20px">
             <template v-for="(work, i) in works.works" :key="i">
                 <div v-scrollanimation class="work-info mx-0 md:my-30 my-1" style="transition-delay: 500ms">
-                    <div class="work-info-details" :class="i % 2 == 0 ? 'left-content' : 'right-content'">
+                    <div class="work-info-details" :class="(i as number) % 2 == 0 ? 'left-content' : 'right-content'">
                         <p class="text-[var(--primary)] font-200">{{ work.overline }}</p>
                         <h3 class="md:text-size-28px text-size-25px mb-25px font-600">{{ work.title }}</h3>
                         <div class="info-des-container">
                             <p class="" v-html="work.des"></p>
                         </div>
-                        <ul class="info-tech-list" :class="i % 2 == 0 ? '' : 'work-links-right'">
+                        <ul class="info-tech-list" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
                             <li v-for="tech in work.techs" :key="tech">
                                 {{ tech }}
                             </li>
                         </ul>
-                        <div class="work-links" :class="i % 2 == 0 ? '' : 'work-links-right'">
+                        <div class="work-links" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
                             <div
                                 v-for="link in work.links"
                                 class="work-links-toggle customTooltip"
@@ -52,7 +54,7 @@ function openSite(site: string) {
                             </div>
                         </div>
                     </div>
-                    <div class="work-info-image" :class="i % 2 == 0 ? 'right-image' : 'left-image'">
+                    <div class="work-info-image" :class="(i as number) % 2 == 0 ? 'right-image' : 'left-image'">
                         <div class="work-info-image-link" @click="openSite(work.imageLink)">
                             <div class="image-wrapping">
                                 <div class="front-filter"></div>
