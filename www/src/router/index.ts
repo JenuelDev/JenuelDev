@@ -29,6 +29,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/privacy',
+      name: 'Privacy',
+      component: () => import('@/views/Privacy.vue'),
+      meta: {
+        title: "Privacy Policy - JenuelDev"
+      }
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'PageNotFound',
       component: () => import('@/views/PageNotFound/index.vue'),

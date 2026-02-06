@@ -1,99 +1,99 @@
 <template>
-  <div class="privacy-policy">
+  <div class="text-lg max-w-1200px mx-auto px-5 md:mt-30">
 
-    <h1>PRIVACY POLICY</h1>
-    <p class="subtitle">Last updated: February 02, 2026</p>
+    <h1 class="text-3xl font-bold mb-4">PRIVACY POLICY</h1>
+    <p class="subtitle text-gray-500 mb-6">Last updated: February 02, 2026</p>
 
-    <p>
+    <p class="mb-4">
       This Privacy Notice for <strong>JenuelDev</strong> ("we," "us," or "our") describes how and why we might access,
       collect, store, use, and/or share ("process") your personal information when you use our services ("Services"),
       including when you:
     </p>
 
-    <ul>
-      <li>
+    <ul class="list-disc pl-6 mb-6">
+      <li class="mb-2">
         Visit our website at
-        <a href="http://www.Jenuel.Dev" target="_blank">http://www.Jenuel.Dev</a>
+        <a href="http://www.Jenuel.Dev" target="_blank" class="text-blue-500 underline">http://www.Jenuel.Dev</a>
         or any website of ours that links to this Privacy Notice.
       </li>
-      <li>
+      <li class="mb-2">
         Download and use our mobile application (JenuelDev), our Facebook application (JenuelDev),
         or any other application of ours that links to this Privacy Notice.
       </li>
-      <li>
+      <li class="mb-2">
         Engage with us in other related ways, including any marketing or events.
       </li>
     </ul>
 
-    <p>
+    <p class="mb-6">
       <strong>Questions or concerns?</strong>
       Reading this Privacy Notice will help you understand your privacy rights and choices.
       If you do not agree with our policies and practices, please do not use our Services.
       If you still have any questions, contact us at
-      <a href="mailto:me@jenuel.dev">me@jenuel.dev</a>.
+      <a href="mailto:me@jenuel.dev" class="text-blue-500 underline">me@jenuel.dev</a>.
     </p>
 
-    <hr />
+    <hr class="border-gray-300 my-6" />
 
-    <h2>SUMMARY OF KEY POINTS</h2>
+    <h2 class="text-2xl font-semibold mb-4 mt-10">SUMMARY OF KEY POINTS</h2>
 
-    <p>
+    <p class="mb-4">
       This summary provides key points from our Privacy Notice. You can find more details in the
       full policy below.
     </p>
 
-    <h3>What personal information do we process?</h3>
-    <p>
+    <h3 class="text-xl font-medium mb-2 mt-8">What personal information do we process?</h3>
+    <p class="mb-4">
       We may process personal information depending on how you interact with our Services.
-      <a href="#personalinfo">Learn more</a>.
+      <a href="#personalinfo" class="text-blue-500 underline">Learn more</a>.
     </p>
 
-    <h3>Do we process sensitive personal information?</h3>
-    <p>No. We do not process sensitive personal information.</p>
+    <h3 class="text-xl font-medium mb-2 mt-8">Do we process sensitive personal information?</h3>
+    <p class="mb-4">No. We do not process sensitive personal information.</p>
 
-    <h3>Do we collect information from third parties?</h3>
-    <p>No.</p>
+    <h3 class="text-xl font-medium mb-2 mt-8">Do we collect information from third parties?</h3>
+    <p class="mb-4">No.</p>
 
-    <h3>How do we process your information?</h3>
-    <p>
+    <h3 class="text-xl font-medium mb-2 mt-8">How do we process your information?</h3>
+    <p class="mb-4">
       We process your information to provide, improve, and administer our Services, communicate with you,
       for security and fraud prevention, and to comply with law.
-      <a href="#infouse">Learn more</a>.
+      <a href="#infouse" class="text-blue-500 underline">Learn more</a>.
     </p>
 
-    <h3>How do we keep your information safe?</h3>
-    <p>
+    <h3 class="text-xl font-medium mb-2 mt-8">How do we keep your information safe?</h3>
+    <p class="mb-4">
       We use technical and organizational measures to protect your data, but no system is 100% secure.
-      <a href="#infosafe">Learn more</a>.
+      <a href="#infosafe" class="text-blue-500 underline">Learn more</a>.
     </p>
 
-    <h3>What are your rights?</h3>
-    <p>
+    <h3 class="text-xl font-medium mb-2 mt-8">What are your rights?</h3>
+    <p class="mb-6">
       Depending on your location, you may have rights regarding your personal data.
-      <a href="#privacyrights">Learn more</a>.
+      <a href="#privacyrights" class="text-blue-500 underline">Learn more</a>.
     </p>
 
-    <hr />
+    <hr class="border-gray-300 my-6" />
 
-    <h2 id="toc">TABLE OF CONTENTS</h2>
-    <ol>
-      <li><a href="#infocollect">What Information Do We Collect?</a></li>
-      <li><a href="#infouse">How Do We Process Your Information?</a></li>
-      <li><a href="#legalbases">What Legal Bases Do We Rely On?</a></li>
-      <li><a href="#whoshare">When and With Whom Do We Share Your Information?</a></li>
-      <li><a href="#sociallogins">How Do We Handle Social Logins?</a></li>
-      <li><a href="#inforetain">How Long Do We Keep Your Information?</a></li>
-      <li><a href="#infosafe">How Do We Keep Your Information Safe?</a></li>
-      <li><a href="#infominors">Do We Collect Information From Minors?</a></li>
-      <li><a href="#privacyrights">What Are Your Privacy Rights?</a></li>
-      <li><a href="#DNT">Do-Not-Track Controls</a></li>
-      <li><a href="#uslaws">US Privacy Rights</a></li>
-      <li><a href="#policyupdates">Updates to This Policy</a></li>
-      <li><a href="#contact">How to Contact Us</a></li>
-      <li><a href="#request">How to Review, Update, or Delete Your Data</a></li>
+    <h2 id="toc" class="text-2xl font-semibold mb-4 mt-10">TABLE OF CONTENTS</h2>
+    <ol class="list-decimal pl-6 mb-6">
+      <li class="mb-2"><a href="#infocollect" class="text-blue-500 underline">What Information Do We Collect?</a></li>
+      <li class="mb-2"><a href="#infouse" class="text-blue-500 underline">How Do We Process Your Information?</a></li>
+      <li class="mb-2"><a href="#legalbases" class="text-blue-500 underline">What Legal Bases Do We Rely On?</a></li>
+      <li class="mb-2"><a href="#whoshare" class="text-blue-500 underline">When and With Whom Do We Share Your Information?</a></li>
+      <li class="mb-2"><a href="#sociallogins" class="text-blue-500 underline">How Do We Handle Social Logins?</a></li>
+      <li class="mb-2"><a href="#inforetain" class="text-blue-500 underline">How Long Do We Keep Your Information?</a></li>
+      <li class="mb-2"><a href="#infosafe" class="text-blue-500 underline">How Do We Keep Your Information Safe?</a></li>
+      <li class="mb-2"><a href="#infominors" class="text-blue-500 underline">Do We Collect Information From Minors?</a></li>
+      <li class="mb-2"><a href="#privacyrights" class="text-blue-500 underline">What Are Your Privacy Rights?</a></li>
+      <li class="mb-2"><a href="#DNT" class="text-blue-500 underline">Do-Not-Track Controls</a></li>
+      <li class="mb-2"><a href="#uslaws" class="text-blue-500 underline">US Privacy Rights</a></li>
+      <li class="mb-2"><a href="#policyupdates" class="text-blue-500 underline">Updates to This Policy</a></li>
+      <li class="mb-2"><a href="#contact" class="text-blue-500 underline">How to Contact Us</a></li>
+      <li class="mb-2"><a href="#request" class="text-blue-500 underline">How to Review, Update, or Delete Your Data</a></li>
     </ol>
 
-    <hr />
+    <hr class="border-gray-300 my-6" />
 
     <h2 id="infocollect">1. WHAT INFORMATION DO WE COLLECT?</h2>
 
