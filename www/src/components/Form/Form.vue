@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+const emit = defineEmits(["send-error"] as const);
 import Alert from "./../alert/Alert.vue";
 import emailjs from "@emailjs/browser";
 
@@ -92,7 +93,14 @@ async function sendEmail() {
                     showError.value = false;
                     sending.value = false;
 
-                    if (error.response.status == 500) {
+                    // emit an event so parent can show a modal with the error
+                    try {
+                        emit("send-error", error);
+                    } catch (e) {
+                        // ignore if emit isn't available for some reason
+                    }
+
+                    if (error.response && error.response.status == 500) {
                         alertSet({
                             title: "Oops! Email Does not Exist! 😢😭📧",
                             description:

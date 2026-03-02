@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ThemeChanger from './../themeChanger/themeChanger.vue';
-import { onBeforeMount, onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { Icon } from "@iconify/vue"
 import { useStore } from '@/stores/store';
@@ -39,8 +39,10 @@ onMounted(() => {
     window.addEventListener('scroll', onScroll);
 });
 
-onBeforeMount(() => {
+onUnmounted(() => {
     window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('resize', handleWidth);
 });
 
 
@@ -59,7 +61,7 @@ onBeforeMount(() => {
                 <div class="nav-o">
                     <template v-for="(headerLink, index) in headerLinks">
                         <div v-if="!headerLink.external" v-scrollanimation
-                            :style="`transition-delay: ${(index + 1) * 100}ms`">
+                            :style="`transition-delay: ${(index + 1) * 100}ms`" :key="headerLink.routeName ?? headerLink.to ?? index">
                             <RouterLink :to="headerLink.to">
                                 <div class="flex items-center" :class="{ active: $route.name == headerLink.routeName }">
                                     <Icon :icon="headerLink.icon" />
@@ -67,9 +69,9 @@ onBeforeMount(() => {
                                 </div>
                             </RouterLink>
                         </div>
-                        <div v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`">
+                        <div v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`" :key="headerLink.to ?? headerLink.label ?? index">
                             <a class="text-size-14px font-500 flex items-center" rel="external"
-                                :href="headerLink.to as string" hreflang="es-es" target="_blank">
+                                :href="headerLink.to" hreflang="es-es" target="_blank">
                                 <Icon icon="tabler:file-download" size="20" />
                                 {{ headerLink.label }}
                             </a>

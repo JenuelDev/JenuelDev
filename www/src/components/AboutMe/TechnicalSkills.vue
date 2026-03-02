@@ -61,7 +61,7 @@ const closeDialog = () => {
     </div>
     <ul v-show="false">
         <li
-            v-for="(skill, i) in skillList as any"
+            v-for="(skill, i) in skillList"
             v-scrollanimation
             :key="skill.text"
             @click="openDialog(skill)"

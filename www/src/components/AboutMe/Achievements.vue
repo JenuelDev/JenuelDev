@@ -15,7 +15,7 @@ import Achievements from '@/constant/achievements';
             </p>
             <div class="flex gap-20px flex-wrap">
                 <a v-scrollanimation v-for="(achievement, i) in Achievements" :href="achievement.url"
-                    class="transition-delay-200">
+                    :key="achievement.name" class="transition-delay-200">
                     <div
                         class="card-item bg-[var(--lightBackground)] shadow-sm duration-200 h-[100%] p-5 scale-100 hover:scale-103">
                         <div class="item-title md:text-size-24px text-size-20px font-700">

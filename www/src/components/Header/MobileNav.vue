@@ -40,6 +40,7 @@ function openSite(site: string) {
                             router.push(headerLink.to);
                             store.navShow = false;
                         "
+                        :key="headerLink.routeName ?? headerLink.to ?? index"
                     >
                         <div
                             :class="{
@@ -50,8 +51,8 @@ function openSite(site: string) {
                             {{ headerLink.label }}
                         </div>
                     </li>
-                    <li v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`">
-                        <a rel="external" :href="headerLink.to as string" hreflang="es-es">
+                    <li v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`" :key="headerLink.to ?? headerLink.label ?? index">
+                        <a rel="external" :href="headerLink.to" hreflang="es-es">
                             <Icon size="20" :icon="headerLink.icon" />
                             {{ headerLink.label }}
                         </a>
@@ -62,7 +63,7 @@ function openSite(site: string) {
             <div class="px-6 mt-7 mb-7">
                 <p class="mb-5">Social Links:</p>
                 <ol class="flex gap-3 flex-wrap">
-                    <li v-for="socialLink in SocialNetwork">
+                    <li v-for="socialLink in SocialNetwork" :key="socialLink.link">
                         <Icon class="text-4xl" :icon="socialLink.icon" @click="openSite(socialLink.link)" />
                     </li>
                 </ol>
