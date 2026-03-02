@@ -168,4 +168,11 @@ export const mySkills: MySkill[] = [
             },
         ],
     },
+    {
+        icon: 'mdi:robot',
+        tech: 'Artificial Intelligence',
+        des: 'Solid foundational knowledge of AI concepts with practical experience leveraging AI tools to increase productivity, automate routine tasks, and assist in code and content workflows while following ethical best practices.',
+        yearStarted: 2023,
+        tools: [],
+    },
 ];
