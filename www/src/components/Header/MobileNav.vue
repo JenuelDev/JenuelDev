@@ -40,7 +40,7 @@ function openSite(site: string) {
                             router.push(headerLink.to);
                             store.navShow = false;
                         "
-                        :key="headerLink.routeName ?? headerLink.to ?? index"
+                        :key="headerLink.routeName ?? headerLink.label ?? index"
                     >
                         <div
                             :class="{
@@ -51,8 +51,13 @@ function openSite(site: string) {
                             {{ headerLink.label }}
                         </div>
                     </li>
-                    <li v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`" :key="headerLink.to ?? headerLink.label ?? index">
-                        <a rel="external" :href="headerLink.to" hreflang="es-es">
+                    <li
+                        v-else
+                        v-scrollanimation
+                        :style="`transition-delay: ${(index + 1) * 100}ms`"
+                        :key="headerLink.label ?? index"
+                    >
+                        <a rel="external" :href="headerLink.to as string" hreflang="es-es">
                             <Icon size="20" :icon="headerLink.icon" />
                             {{ headerLink.label }}
                         </a>

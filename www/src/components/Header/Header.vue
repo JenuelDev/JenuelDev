@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import ThemeChanger from './../themeChanger/themeChanger.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
-import { Icon } from "@iconify/vue"
-import { useStore } from '@/stores/store';
-import headerLinks from '@/constant/header-links';
+import ThemeChanger from "./../themeChanger/themeChanger.vue";
+import { onMounted, onUnmounted, ref } from "vue";
+import { RouterLink } from "vue-router";
+import { Icon } from "@iconify/vue";
+import { useStore } from "@/stores/store";
+import headerLinks from "@/constant/header-links";
 
 const store = useStore();
 const scroll = ref(0);
@@ -34,18 +34,16 @@ function onScroll() {
 }
 
 onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleWidth);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleWidth);
+    window.addEventListener("scroll", onScroll);
 });
 
 onUnmounted(() => {
-    window.removeEventListener('scroll', onScroll);
-    window.removeEventListener('scroll', handleScroll);
-    window.removeEventListener('resize', handleWidth);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleWidth);
 });
-
-
 </script>
 
 <template>
@@ -53,15 +51,20 @@ onUnmounted(() => {
         <nav>
             <div class="logo-image">
                 <div
-                    class="sm:ml-[50px] ml-[10px] w-40px h-40px rounded-full bg-[var(--primary)] flex items-center justify-center">
-                    <div class="bg-[var(--lightBackground)] w-20px h-20px rounded-full "></div>
+                    class="sm:ml-[50px] ml-[10px] w-40px h-40px rounded-full bg-[var(--primary)] flex items-center justify-center"
+                >
+                    <div class="bg-[var(--lightBackground)] w-20px h-20px rounded-full"></div>
                 </div>
             </div>
             <div class="navs">
                 <div class="nav-o">
                     <template v-for="(headerLink, index) in headerLinks">
-                        <div v-if="!headerLink.external" v-scrollanimation
-                            :style="`transition-delay: ${(index + 1) * 100}ms`" :key="headerLink.routeName ?? headerLink.to ?? index">
+                        <div
+                            v-if="!headerLink.external"
+                            v-scrollanimation
+                            :style="`transition-delay: ${(index + 1) * 100}ms`"
+                            :key="headerLink.routeName ?? headerLink.label ?? index"
+                        >
                             <RouterLink :to="headerLink.to">
                                 <div class="flex items-center" :class="{ active: $route.name == headerLink.routeName }">
                                     <Icon :icon="headerLink.icon" />
@@ -69,9 +72,19 @@ onUnmounted(() => {
                                 </div>
                             </RouterLink>
                         </div>
-                        <div v-else v-scrollanimation :style="`transition-delay: ${(index + 1) * 100}ms`" :key="headerLink.to ?? headerLink.label ?? index">
-                            <a class="text-size-14px font-500 flex items-center" rel="external"
-                                :href="headerLink.to" hreflang="es-es" target="_blank">
+                        <div
+                            v-else
+                            v-scrollanimation
+                            :style="`transition-delay: ${(index + 1) * 100}ms`"
+                            :key="headerLink.label ?? index"
+                        >
+                            <a
+                                class="text-size-14px font-500 flex items-center"
+                                rel="external"
+                                :href="headerLink.to as string"
+                                hreflang="es-es"
+                                target="_blank"
+                            >
                                 <Icon icon="tabler:file-download" size="20" />
                                 {{ headerLink.label }}
                             </a>

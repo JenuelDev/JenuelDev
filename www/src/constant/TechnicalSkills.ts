@@ -1,6 +1,22 @@
-export const skillList = [];
+export type Skill = {
+    icon: string;
+    text: string;
+    des?: string;
+    svg?: boolean;
+    teny?: boolean;
+};
 
-export const mySkills = [
+export type MySkill = {
+    icon: string;
+    tech: string;
+    des: string;
+    yearStarted: number;
+    tools: Skill[];
+};
+
+export const skillList: Skill[] = [];
+
+export const mySkills: MySkill[] = [
     {
         icon: 'skill-icons:javascript',
         tech: 'JavaScript',
