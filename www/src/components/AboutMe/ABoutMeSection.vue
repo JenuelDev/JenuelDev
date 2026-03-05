@@ -72,23 +72,22 @@ const yearCount = () => {
             style="transition-delay: 100ms"
         >
             <p class="mb-30px">
-                Back in 2016, I decided to make a big change, switching from studying criminology to diving into the
-                exciting world of Information Technology. That's when I discovered my passion for software development.
+                In 2016, I made a pivotal career shift from criminology to Information Technology. That transition
+                introduced me to software development and set the direction for the work I do today.
             </p>
             <p class="mb-30px">
-                Now, with over <strong>{{ yearCount() }} years of experience as a software developer</strong>, I've had
-                the chance to work in a constantly changing field, collaborating with other coding enthusiasts and
-                contributing to some amazing projects.
+                With over <strong>{{ yearCount() }} years of experience as a software developer</strong>, I have grown
+                in fast-paced environments, collaborated with talented engineers, and contributed to impactful
+                projects.
             </p>
             <p class="mb-30px">
-                <strong>I'm all about the details</strong>, whether it's writing efficient code or perfecting a recipe.
-                I believe that paying attention to the little things is key to building scalable, engaging, and
-                accessible digital experiences.
+                <strong>Attention to detail is a core principle</strong>, from writing efficient code to refining user
+                interactions. This mindset helps deliver digital experiences that are scalable, engaging, and
+                accessible.
             </p>
             <p class="mb-30px">
-                When I'm not coding, I like to mix things up. You might find me strumming my guitar (I'm no rockstar,
-                but it's fun!), reading a good book, going for walks, doing home workouts, enjoying a good meal, or
-                learning something new.
+                Outside of coding, I enjoy playing guitar, reading, walking, home workouts, good food, and continuous
+                learning.
             </p>
             <SvgDecoration
                 classNames="absolute lg:-right-30 -right-20 top-90 md:block hidden z-20 fill-[var(--primary)] opacity-50"

@@ -84,8 +84,8 @@ const closeDialog = () => {
             v-scrollanimation
             class="md:text-size-24px text-size-20px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed"
         >
-            I am continuously learning to keep up with the latest technologies and be able to pick the best tech for the
-            job.
+            Continuous learning is a core focus to stay current with emerging technologies and select the best tools
+            for each project.
         </p>
         <div class="technical-skills-wrapper mt-30px flex flex-wrap sm:gap-10 gap-0 sm:px-5">
             <div
