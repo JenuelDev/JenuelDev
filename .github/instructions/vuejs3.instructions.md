@@ -15,6 +15,18 @@ Instructions for building high-quality VueJS 3 applications with the Composition
 - Pinia for application state management
 - Official Vue style guide and best practices
 
+## Repository-Specific Rules (JenuelDev)
+- `www/` is the primary Vue 3 SPA in this monorepo
+- Use UnoCSS, not Tailwind, and follow `www/uno.config.ts`
+- Use `<script setup lang="ts">` for new and updated components
+- Keep styles component-scoped when appropriate (`<style scoped>`)
+- Use Pinia composition-style stores in `www/src/stores/`
+- Keep route `meta.title` updated in `www/src/router/index.ts`
+- Organize components by feature folders under `www/src/components/`
+- Keep content-heavy page data in `www/src/constant/`
+- Prefer lazy-loaded route components for route entries
+- Use `@/` aliases consistently for imports in `www/src/`
+
 ## Development Standards
 
 ### Architecture
