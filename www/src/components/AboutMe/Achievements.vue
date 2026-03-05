@@ -261,16 +261,19 @@ onUnmounted(() => {
     width: max-content;
     display: flex;
     will-change: transform;
+    margin-top: 20px;
 }
 
 .achievements-loop-group {
     display: flex;
     gap: 16px;
+    padding-right: 16px;
 }
 
 .achievement-link {
     text-decoration: none;
     color: inherit;
+    cursor: grab;
 }
 
 .achievement-card {
@@ -329,6 +332,7 @@ onUnmounted(() => {
     }
     .achievements-loop-group {
         gap: 12px;
+        padding-right: 12px;
     }
 }
 
