@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Achievements from '@/constant/achievements';
 import { onMounted, onUnmounted, ref } from 'vue';
+import { Icon } from '@iconify/vue';
 
 interface AchievementItem {
     name: string;
@@ -201,11 +202,11 @@ onUnmounted(() => {
                                     :href="achievement.url"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="mt-auto inline-flex items-center gap-6px w-fit rounded-md border border-[var(--primary)] px-12px py-7px text-size-14px font-600 text-[var(--primary)] no-underline hover:bg-[var(--primary)] hover:text-[var(--background)] transition-colors"
+                                    class="mt-auto inline-flex items-center gap-6px w-fit text-size-14px font-600 text-[var(--primary)] no-underline hover:text-[var(--primary)]/90 transition-colors"
                                     @click.stop
                                 >
-                                    <i class="bx bx-link-external"></i>
-                                    View
+                                    <span>View </span>
+                                    <Icon icon="mdi:open-in-new" />
                                 </a>
                             </div>
                         </article>
@@ -232,11 +233,11 @@ onUnmounted(() => {
                                     :href="achievement.url"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="mt-auto inline-flex items-center gap-6px w-fit rounded-md border border-[var(--primary)] px-12px py-7px text-size-14px font-600 text-[var(--primary)] no-underline hover:bg-[var(--primary)] hover:text-[var(--background)] transition-colors"
+                                    class="mt-auto flex items-center gap-6px  text-size-14px font-600 text-[var(--primary)] no-underline hover:text-[var(--primary)]/90 transition-colors"
                                     @click.stop
                                 >
-                                    <i class="bx bx-link-external"></i>
-                                    View
+                                    <span>View </span>
+                                    <Icon icon="mdi:open-in-new" />
                                 </a>
                             </div>
                         </article>

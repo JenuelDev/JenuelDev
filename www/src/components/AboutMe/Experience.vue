@@ -112,8 +112,8 @@ const techIconMap: Record<string, string> = {
                                 target="_blank"
                                 :href="exp.certificate.link"
                             >
-                                <i class="bx bx-certification"></i>
-                                {{ exp.certificate.label }}
+                                <span>{{ exp.certificate.label }} </span>
+                                <Icon icon="mdi:open-in-new" />
                             </a>
                         </div>
 
@@ -279,17 +279,18 @@ const techIconMap: Record<string, string> = {
 .certificate-link {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    border: 1px solid var(--primary);
-    border-radius: 10px;
-    padding: 8px 14px;
+    gap: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    font-weight: 500;
     text-decoration: none;
     color: var(--primary);
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-        background: var(--primary);
-        color: var(--background);
+        color: color-mix(in srgb, var(--primary) 90%, #ffffff);
+        transform: translateX(1px);
     }
 }
 
