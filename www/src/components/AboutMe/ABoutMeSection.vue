@@ -54,8 +54,8 @@ const yearCount = () => {
                             decoding="async"
                             width="300px"
                             height="300px"
-                            src="/profile_image-768.webp"
-                            srcset="/profile_image-480.webp 480w, /profile_image-768.webp 768w, /profile_image.webp 1024w"
+                            src="/profile_image-640.webp"
+                            srcset="/profile_image-480.webp 480w, /profile_image-640.webp 640w, /profile_image-768.webp 768w, /profile_image.webp 1024w"
                             sizes="(max-width: 768px) 280px, 300px"
                             alt="Jenuel Ganawed - Profile Picture"
                         />
