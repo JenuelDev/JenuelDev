@@ -78,7 +78,7 @@ const closeDialog = () => {
             v-scrollanimation
             class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
         >
-            Technical skill set
+            skills
         </h1>
         <p
             v-scrollanimation

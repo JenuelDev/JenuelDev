@@ -26,7 +26,7 @@ const experiences = Experience as ExperienceItem[];
                 v-scrollanimation
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px"
             >
-                My work experience
+                work experience
                 <SvgDecoration
                     classNames="absolute md:visible invisible right-5 -bottom-9 transform rotate-[90deg] fill-[var(--primary)] opacity-50"
                     :type="1" />
