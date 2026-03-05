@@ -64,7 +64,7 @@ function openSite(site: string) {
             </div>
             <q class="text-center">Programming isn't about what you know; it's about what you can figure out.</q>
             <p class="m-0 mt-8px text-center text-size-16px">
-                I created this website from the ground up using Vue technology.
+                This website was created from the ground up using Vue technology.
             </p>
         </div>
     </div>
