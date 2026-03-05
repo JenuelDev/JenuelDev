@@ -9,7 +9,7 @@ const yearCount = () => {
 </script>
 <template>
     <section class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
-        <div v-scrollanimation class="flex lg:flex-row flex-col items-center gap-50px relative">
+        <div class="flex lg:flex-row flex-col items-center gap-50px relative">
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
@@ -49,9 +49,12 @@ const yearCount = () => {
                     <div style="position: relative; overflow: hidden">
                         <img
                             class="max-w-300px w-[100%] w-[300px] profile-picture-style"
-                            loading="lazy"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
                             width="300px"
-                            src="./../../assets/images/profile_image.webp"
+                            height="300px"
+                            src="/profile_image.webp"
                             alt="Jenuel Ganawed - Profile Picture"
                         />
                     </div>
