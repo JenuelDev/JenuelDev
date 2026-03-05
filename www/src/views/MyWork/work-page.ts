@@ -18,7 +18,7 @@ export default {
                 },
             ],
             imageLink: 'https://believers-sword.brojenuel.com/',
-            img: 'https://i.imgur.com/FhlGhQMl.png',
+            img: '/images/projects/believers-sword.webp',
         },
         {
             overline: 'Documentation Project',
