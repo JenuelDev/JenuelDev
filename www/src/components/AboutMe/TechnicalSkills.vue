@@ -98,7 +98,7 @@ const closeDialog = () => {
                     <div class="flex items-center">
                         <Icon :icon="mySkill.icon" class="text-2xl" />
                         <div class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</div>
-                        <span class="technical-skill-year md:text-size-20px text-size-18px opacity-60">{{
+                        <span class="technical-skill-year md:text-size-20px text-size-18px opacity-70">{{
                             mySkill.yearStarted
                         }}</span>
                     </div>
