@@ -78,14 +78,14 @@ const closeDialog = () => {
             v-scrollanimation
             class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
         >
-            Technical skill set
+            skills
         </h1>
         <p
             v-scrollanimation
             class="md:text-size-24px text-size-20px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed"
         >
-            I am continuously learning to keep up with the latest technologies and be able to pick the best tech for the
-            job.
+            Continuous learning is a core focus to stay current with emerging technologies and select the best tools
+            for each project.
         </p>
         <div class="technical-skills-wrapper mt-30px flex flex-wrap sm:gap-10 gap-0 sm:px-5">
             <div
@@ -98,7 +98,7 @@ const closeDialog = () => {
                     <div class="flex items-center">
                         <Icon :icon="mySkill.icon" class="text-2xl" />
                         <div class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</div>
-                        <span class="technical-skill-year md:text-size-20px text-size-18px opacity-60">{{
+                        <span class="technical-skill-year md:text-size-20px text-size-18px opacity-70">{{
                             mySkill.yearStarted
                         }}</span>
                     </div>

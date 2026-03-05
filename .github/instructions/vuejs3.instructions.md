@@ -18,6 +18,7 @@ Instructions for building high-quality VueJS 3 applications with the Composition
 ## Repository-Specific Rules (JenuelDev)
 - `www/` is the primary Vue 3 SPA in this monorepo
 - Use UnoCSS, not Tailwind, and follow `www/uno.config.ts`
+- In `www/`, always prefer UnoCSS utility classes for styling; use scoped SCSS only when UnoCSS cannot practically cover the requirement
 - Use `<script setup lang="ts">` for new and updated components
 - Keep styles component-scoped when appropriate (`<style scoped>`)
 - Use Pinia composition-style stores in `www/src/stores/`

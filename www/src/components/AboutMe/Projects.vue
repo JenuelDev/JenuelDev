@@ -20,7 +20,7 @@ function openSite(site: string) {
         <h2
             class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px"
         >
-            Personal Project
+            projects
         </h2>
         <p class="md:text-size-24px text-size-20px md:leading-relaxed leading-normal">
             Learning is a journey, not a destination. One of the most effective ways to grow is by building personal

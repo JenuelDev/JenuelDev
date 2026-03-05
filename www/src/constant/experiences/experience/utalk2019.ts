@@ -6,8 +6,8 @@ export default {
         "Utalk",
     workStart: "August 2019",
     workUntil: "April 2021",
-    des: 
-        "I am involved in managing, enhancing, adding features to, and maintaining the existing admin site for a Learning Management System (LMS).",
+    des:
+        'Managed, enhanced, and maintained the existing admin platform for a Learning Management System (LMS), while delivering new features to improve usability and operational efficiency.',
     url: "https://www.facebook.com/utalkphilippines",
     certificate: {
         link:

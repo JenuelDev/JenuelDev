@@ -5,19 +5,19 @@ const services = [
         icon: 'tabler:device-ipad-horizontal-star',
         title: 'Front-End Development',
         description:
-            'Converting data/designs to a graphical interface, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that data.',
+            'Transforms product requirements and design systems into responsive, accessible interfaces using modern web technologies.',
     },
     {
         icon: 'tabler:server-bolt',
         title: 'Back-End Development',
         description:
-            'Developing the server side responsible for storing and organizing data of an application and everything that communicates between the database and the client.',
+            'Builds reliable server-side systems that handle business logic, data processing, and communication between databases and client applications.',
     },
     {
         icon: 'tabler:manual-gearbox-filled',
         title: 'Website Management',
         description:
-            'Manage all of the activities included in the process of posting and maintaining a website on the World Wide Web. These include maintenance, Website optimization, SEO friendly, etc.',
+            'Manages website operations end-to-end, including maintenance, performance optimization, SEO readiness, and continuous improvements.',
     },
 ];
 </script>
@@ -30,23 +30,23 @@ const services = [
                 What I can offer</h1>
             <p v-scrollanimation
                 class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-normal mx-auto">
-                If you hire me, here are the things that I can do to help solve some of your company's problems, and
-                help to reduce issues. I will also create and
-                maintain web apps.
+                Here are the core services that support product quality, reduce technical risks, and help teams ship
+                maintainable web applications with confidence.
             </p>
         </div>
 
         <div class="flex gap-20px flex-wrap">
-            <div v-scrollanimation class="services-item" v-for="(service, i) in services" :key="service.title"
+            <div v-scrollanimation class="flex-1 basis-300px" v-for="(service, i) in services" :key="service.title"
                 :style="`transition-delay: ${i * 200}ms;`">
-                <div class="card-item bg-[var(--lightBackground)] shadow-sm duration-200 h-[100%]">
+                <div class="card-item bg-[var(--lightBackground)] shadow-sm duration-200 h-[100%] border border-[var(--slate)]/20 hover:border-[var(--primary)]/35">
                     <div class="flex flex-col p-20px justify-center items-center gap-10px">
-                        <div class="text-size-52px">
+                        <div class="text-size-52px text-[var(--primary)] opacity-85">
                             <Icon :icon="service.icon" :size="50" />
                         </div>
                         <div class="item-title md:text-size-24px text-size-20px font-700">{{ service.title }}</div>
-                        <div class="item-des md:text-size-20px text-size-18px md:leading-normal leading-snug text-center"
-                            v-html="service.description"></div>
+                        <div class="item-des md:text-size-20px text-size-18px md:leading-normal leading-snug text-center">
+                            {{ service.description }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,9 +61,3 @@ const services = [
         </div>
     </section>
 </template>
-
-<style lang="scss">
-.services-item {
-    flex: 1 1 300px;
-}
-</style>

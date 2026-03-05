@@ -42,7 +42,7 @@ onBeforeMount(() => {
   <MobileNav />
   <Header />
   <SocialMediaLinks />
-  <main>
+  <main class="mb-20">
     <RouterView />
   </main>
   <Footer />

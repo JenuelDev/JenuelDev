@@ -42,6 +42,7 @@ src/
 
 #### Styling Details
 - **UnoCSS over Tailwind**: Utilities are more compact; check `uno.config.ts` for custom rules
+- **Inside `www/`, default to UnoCSS utilities for all new styling work**: only use scoped SCSS when UnoCSS cannot reasonably express the requirement
 - **Scoped SCSS**: Use `<style scoped>` in `.vue` files; SCSS variables defined in `assets/main.scss`
 - **Theme System**: CSS variables for theming (e.g., colors, spacing) applied globally
 

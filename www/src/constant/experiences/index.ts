@@ -8,7 +8,7 @@ const vocphone = {
     company: 'Vocphone',
     workStart: 'Nov. 2021',
     workUntil: '<span class="present-work">Present</span>',
-    des: "I am actively involved in the design and development process, ensuring that our programs function effectively and are fully aligned with user stories. Additionally, I continuously enhance my knowledge of the tools required to achieve objectives and solve problems efficiently.",
+    des: 'Leads the design and development of software solutions, ensuring each release aligns with user stories and business goals. Continuously strengthens the technical toolkit to solve complex problems efficiently and deliver reliable results.',
     url: 'https://www.vocphone.com/',
 };
 
@@ -18,7 +18,7 @@ const webinarinc = {
     company: 'Webinarinc',
     workStart: 'Mar. 2021',
     workUntil: 'Nov. 2021',
-    des: 'I acquired expertise in new tools and technologies, such as Twilio, and developed websites for the automotive sector. Additionally, I contributed to the development of a Learning Management System (LMS) designed for sales agents.',
+    des: 'Expanded expertise with new technologies such as Twilio and developed websites for the automotive industry. Also contributed to building a Learning Management System (LMS) tailored for sales agents.',
     url: 'https://webinarinc.com/',
 };
 
@@ -28,7 +28,7 @@ const kcp = {
     company: 'KCP',
     workStart: 'Aug. 2016',
     workUntil: 'April 2019',
-    des: `Majored in Web Technology, and had been creating projects related to web programming and actively participating in events, seminars, and competitions.😊`,
+    des: 'Majored in Web Technology and built both academic and practical projects focused on web development. Actively participated in events, seminars, and competitions to strengthen technical and collaborative skills.',
     url: 'https://webinarinc.com/',
     certificate: {
         link: 'https://drive.google.com/file/d/1p7I8t2maRU5vXJYjdE2-Cw1SiJJOVyYd/view?usp=sharing',

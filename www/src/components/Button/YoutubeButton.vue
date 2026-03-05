@@ -6,6 +6,9 @@ import { Icon } from "@iconify/vue";
         <a
             href="https://www.youtube.com/@JenuelDev"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit JenuelDev YouTube channel"
+            title="Visit JenuelDev YouTube channel"
             class="bg-[var(--primary)] px-10px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 cursor-pointer whitespace-nowrap flex items-center gap-5px shadow-sm z-100 absolute top-0 left-0 !group-hover:bg-red-5 transition-all"
         >
             <Icon icon="tabler:brand-youtube-filled" class="text-2xl !group-hover:text-dark-6 transition-all" />

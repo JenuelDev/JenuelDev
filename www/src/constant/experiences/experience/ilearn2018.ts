@@ -4,7 +4,7 @@ export default {
     company: 'iLearn',
     workStart: 'September. 2018',
     workUntil: 'Dec. 2018',
-    des: "We work as an intern responsible for designing and developing websites for clients. Other than that we I am involved in greating graphic designs, and editing videos.",
+    des: 'As an intern, was responsible for designing and developing client websites. Also contributed to creating graphic designs and editing video content to support broader digital campaigns.',
     url: "http://www.ilearnsda.com",
     certificate: {
         link:
