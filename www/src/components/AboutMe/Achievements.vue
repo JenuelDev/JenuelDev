@@ -191,7 +191,7 @@ onUnmounted(() => {
                         </a>
                     </div>
 
-                    <div class="achievements-loop-group" aria-hidden="true">
+                    <div class="achievements-loop-group">
                     <a
                         v-for="(achievement, i) in achievements"
                         :key="`b-${achievement.name}-${i}`"
