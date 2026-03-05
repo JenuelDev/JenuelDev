@@ -81,6 +81,12 @@ function onPointerDown(event: PointerEvent) {
     const wrapper = loopWrapperRef.value;
     if (!wrapper) return;
 
+    const target = event.target as HTMLElement | null;
+    if (target?.closest('a, button')) {
+        hasDragged = false;
+        return;
+    }
+
     pointerDown = true;
     hasDragged = false;
     isDragging.value = true;
@@ -111,6 +117,8 @@ function onPointerUp(event: PointerEvent) {
 
     pointerDown = false;
     isDragging.value = false;
+    // Reset drag flag after release so subsequent normal clicks are not blocked.
+    hasDragged = false;
 }
 
 function onClickCapture(event: MouseEvent) {
@@ -159,8 +167,8 @@ onUnmounted(() => {
             </p>
             <div
                 ref="loopWrapperRef"
-                class="achievements-loop-wrapper"
-                :class="{ 'is-dragging': isDragging }"
+                class="mt-22px overflow-hidden relative cursor-grab touch-pan-y [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]"
+                :class="{ 'cursor-grabbing select-none': isDragging }"
                 aria-label="Sliding achievements list"
                 @pointerdown="onPointerDown"
                 @pointermove="onPointerMove"
@@ -168,50 +176,71 @@ onUnmounted(() => {
                 @pointercancel="onPointerUp"
                 @click.capture="onClickCapture"
             >
-                <div ref="loopTrackRef" class="achievements-loop-track">
-                    <div ref="firstGroupRef" class="achievements-loop-group">
-                        <a
+                <div class="absolute left-0 top-0 bottom-0 w-36px pointer-events-none z-1 bg-gradient-to-r from-[var(--background)] to-transparent"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-36px pointer-events-none z-1 bg-gradient-to-l from-[var(--background)] to-transparent"></div>
+
+                <div ref="loopTrackRef" class="w-max flex will-change-transform mt-20px">
+                    <div ref="firstGroupRef" class="flex gap-16px pr-16px md:gap-12px md:pr-12px">
+                        <article
                             v-for="(achievement, i) in achievements"
                             :key="`a-${achievement.name}-${i}`"
-                            :href="achievement.url"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="achievement-link"
+                            class="cursor-grab"
                             @dragstart.prevent
                         >
-                            <article class="achievement-card">
-                                <p class="achievement-source">{{ achievement.from }}</p>
-                                <div class="item-title md:text-size-24px text-size-20px font-700">
+                            <div
+                                class="w-[min(80vw,310px)] md:w-[clamp(260px,36vw,360px)] min-h-205px md:min-h-225px rounded-18px border border-[var(--slate)]/20 p-18px bg-[var(--lightBackground)]/92 shadow-sm hover:shadow-md transition-all duration-220 hover:-translate-y-3px hover:border-[var(--primary)]/45 flex flex-col"
+                            >
+                                <span class="inline-flex w-fit m-0 mb-12px px-10px py-4px rounded-full text-size-12px font-600 [letter-spacing:0.02em] text-[var(--primary)] bg-gray-1 bg-opacity-10">{{ achievement.from }}</span>
+                                <div class="mb-10px md:text-size-24px text-size-20px font-700">
                                     {{ achievement.name }}
                                 </div>
-                                <div class="item-des md:text-lg md:leading-normal leading-snug">
+                                <div class="m-0 mb-14px md:text-lg md:leading-normal leading-snug">
                                     {{ achievement.description }}
                                 </div>
-                            </article>
-                        </a>
-                    </div>
-
-                    <div class="achievements-loop-group">
-                    <a
-                        v-for="(achievement, i) in achievements"
-                        :key="`b-${achievement.name}-${i}`"
-                        :href="achievement.url"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="achievement-link"
-                        @dragstart.prevent
-                    >
-                        <article class="achievement-card">
-                            <p class="achievement-source">{{ achievement.from }}</p>
-                            <div class="item-title md:text-size-24px text-size-20px font-700">
-                                {{ achievement.name }}
-                            </div>
-                            <div class="item-des md:text-lg md:leading-normal leading-snug">
-                                {{ achievement.description }}
+                                <a
+                                    :href="achievement.url"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="mt-auto inline-flex items-center gap-6px w-fit rounded-md border border-[var(--primary)] px-12px py-7px text-size-14px font-600 text-[var(--primary)] no-underline hover:bg-[var(--primary)] hover:text-[var(--background)] transition-colors"
+                                    @click.stop
+                                >
+                                    <i class="bx bx-link-external"></i>
+                                    View
+                                </a>
                             </div>
                         </article>
-                    </a>
-                </div>
+                    </div>
+
+                    <div class="flex gap-16px pr-16px md:gap-12px md:pr-12px">
+                        <article
+                            v-for="(achievement, i) in achievements"
+                            :key="`b-${achievement.name}-${i}`"
+                            class="cursor-grab"
+                            @dragstart.prevent
+                        >
+                            <div
+                                class="w-[min(80vw,310px)] md:w-[clamp(260px,36vw,360px)] min-h-205px md:min-h-225px rounded-18px border border-[var(--slate)]/20 p-18px bg-[var(--lightBackground)]/92 shadow-sm hover:shadow-md transition-all duration-220 hover:-translate-y-3px hover:border-[var(--primary)]/45 flex flex-col"
+                            >
+                                <span class="inline-flex w-fit m-0 mb-12px px-10px py-4px rounded-full text-size-12px font-600 [letter-spacing:0.02em] text-[var(--primary)] bg-gray-1 bg-opacity-10">{{ achievement.from }}</span>
+                                <div class="mb-10px md:text-size-24px text-size-20px font-700">
+                                    {{ achievement.name }}
+                                </div>
+                                <div class="m-0 mb-14px md:text-lg md:leading-normal leading-snug">
+                                    {{ achievement.description }}
+                                </div>
+                                <a
+                                    :href="achievement.url"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="mt-auto inline-flex items-center gap-6px w-fit rounded-md border border-[var(--primary)] px-12px py-7px text-size-14px font-600 text-[var(--primary)] no-underline hover:bg-[var(--primary)] hover:text-[var(--background)] transition-colors"
+                                    @click.stop
+                                >
+                                    <i class="bx bx-link-external"></i>
+                                    View
+                                </a>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
             <div class="sr-only" aria-live="polite">
@@ -220,120 +249,3 @@ onUnmounted(() => {
         </div>
     </section>
 </template>
-
-<style lang="scss" scoped>
-.achievements-loop-wrapper {
-    margin-top: 22px;
-    overflow: hidden;
-    position: relative;
-    mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
-    cursor: grab;
-    touch-action: pan-y;
-
-    &.is-dragging {
-        cursor: grabbing;
-        user-select: none;
-    }
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 36px;
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    &::before {
-        left: 0;
-        background: linear-gradient(90deg, var(--background), transparent);
-    }
-
-    &::after {
-        right: 0;
-        background: linear-gradient(270deg, var(--background), transparent);
-    }
-}
-
-.achievements-loop-track {
-    width: max-content;
-    display: flex;
-    will-change: transform;
-    margin-top: 20px;
-}
-
-.achievements-loop-group {
-    display: flex;
-    gap: 16px;
-    padding-right: 16px;
-}
-
-.achievement-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: grab;
-}
-
-.achievement-card {
-    width: clamp(260px, 36vw, 360px);
-    min-height: 225px;
-    border-radius: 18px;
-    border: 1px solid color-mix(in srgb, var(--slate) 20%, transparent);
-    padding: 18px;
-    background:
-        radial-gradient(circle at 0 0, color-mix(in srgb, var(--primary) 12%, transparent), transparent 50%),
-        color-mix(in srgb, var(--lightBackground) 92%, transparent);
-    box-shadow: 0 8px 24px -20px color-mix(in srgb, var(--primary) 60%, transparent);
-    transition: transform 0.22s ease, border-color 0.22s ease;
-
-    &:hover {
-        transform: translateY(-3px);
-        border-color: color-mix(in srgb, var(--primary) 45%, var(--slate));
-    }
-}
-
-.achievement-source {
-    display: inline-flex;
-    margin: 0 0 12px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--primary);
-    background: color-mix(in srgb, var(--primary) 12%, var(--lightBackground));
-}
-
-.item-title {
-    margin-bottom: 10px;
-}
-
-.item-des {
-    margin: 0;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-@media (max-width: 767px) {
-    .achievement-card {
-        width: min(80vw, 310px);
-        min-height: 205px;
-    }
-    .achievements-loop-group {
-        gap: 12px;
-        padding-right: 12px;
-    }
-}
-
-</style>
