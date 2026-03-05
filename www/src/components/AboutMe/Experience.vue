@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
+import { Icon } from '@iconify/vue';
 import Experience from '@/constant/experiences/index';
 
 interface ExperienceCertificate {
@@ -12,12 +13,34 @@ interface ExperienceItem {
     company: string;
     workStart: string;
     workUntil: string;
-    des: string;
+    des: string | string[];
     url?: string;
     certificate?: ExperienceCertificate;
+    technologies?: string[];
 }
 
 const experiences = Experience as ExperienceItem[];
+
+const techIconMap: Record<string, string> = {
+    Laravel: 'material-icon-theme:laravel',
+    'Vue.js (2 & 3)': 'material-icon-theme:vue',
+    'Vue.js': 'material-icon-theme:vue',
+    TypeScript: 'vscode-icons:file-type-typescript-official',
+    'SASS / CSS3': 'skill-icons:sass',
+    CSS3: 'skill-icons:css',
+    HTML5: 'skill-icons:html',
+    'Node.js': 'material-icon-theme:nodejs',
+    Python: 'skill-icons:python-dark',
+    'C#': 'mdi:language-csharp',
+    MySQL: 'skill-icons:mysql-light',
+    JavaScript: 'skill-icons:javascript',
+    PHP: 'skill-icons:php-dark',
+    'Twilio API': 'logos:twilio-icon',
+    jQuery: 'logos:jquery',
+    Photoshop: 'logos:adobe-photoshop',
+    Illustrator: 'logos:adobe-illustrator',
+    'Video editing tools': 'mdi:video',
+};
 </script>
 <template>
     <section id="experience" v-scrollanimation class="my-work-experience mx-auto pt-10">
@@ -66,7 +89,20 @@ const experiences = Experience as ExperienceItem[];
                         <p v-else class="experience-company text-decoration-none">
                             {{ exp.company }}
                         </p>
-                        <p class="experience-description md:text-size-20px text-size-18px leading-relaxed">
+                        <div
+                            v-if="Array.isArray(exp.des)"
+                            class="experience-description md:text-size-20px text-size-18px leading-relaxed"
+                        >
+                            <ul class="experience-description-list">
+                                <li v-for="(item, itemIndex) in exp.des" :key="itemIndex">
+                                    {{ item }}
+                                </li>
+                            </ul>
+                        </div>
+                        <p
+                            v-else
+                            class="experience-description md:text-size-20px text-size-18px leading-relaxed"
+                        >
                             {{ exp.des }}
                         </p>
                         <div v-if="exp.certificate" class="experience-actions">
@@ -76,9 +112,22 @@ const experiences = Experience as ExperienceItem[];
                                 target="_blank"
                                 :href="exp.certificate.link"
                             >
-                                <i class="bx bx-certification"></i>
-                                {{ exp.certificate.label }}
+                                <span>{{ exp.certificate.label }} </span>
+                                <Icon icon="mdi:open-in-new" />
                             </a>
+                        </div>
+
+                        <div
+                            v-if="exp.technologies && exp.technologies.length"
+                            class="experience-technologies mt-5 flex flex-wrap items-center gap-3 md:gap-4"
+                        >
+                            <Icon
+                                v-for="tech in exp.technologies"
+                                :key="tech"
+                                class="experience-technologies-icon text-3xl"
+                                :icon="techIconMap[tech] || 'mdi:code-tags'"
+                                :title="tech"
+                            />
                         </div>
                     </article>
                 </li>
@@ -194,24 +243,54 @@ const experiences = Experience as ExperienceItem[];
     margin: 0;
 }
 
+.experience-description-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+    display: grid;
+    row-gap: 6px;
+}
+
 .experience-actions {
     margin-top: 16px;
+}
+
+.experience-technologies {
+    margin-top: 18px;
+}
+
+.experience-technologies-list {
+    padding: 0;
+    margin: 0;
+}
+
+.experience-technologies-pill {
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+}
+
+.experience-technologies-icon {
+    min-width: 32px;
+    margin-right: 4px;
 }
 
 .certificate-link {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    border: 1px solid var(--primary);
-    border-radius: 10px;
-    padding: 8px 14px;
+    gap: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    font-weight: 500;
     text-decoration: none;
     color: var(--primary);
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-        background: var(--primary);
-        color: var(--background);
+        color: color-mix(in srgb, var(--primary) 90%, #ffffff);
+        transform: translateX(1px);
     }
 }
 
