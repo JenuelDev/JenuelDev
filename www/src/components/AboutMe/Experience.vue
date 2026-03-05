@@ -1,97 +1,95 @@
 <script setup lang="ts">
 import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
 import Experience from '@/constant/experiences/index';
-import { ref, onUnmounted, onMounted } from 'vue';
 
-const experiences = Experience as any;
-const tabKey = 'expTabKey';
-const tab = ref(0);
-const width = ref(500);
-
-const widthHandler = () => {
-    width.value = window.innerWidth;
-};
-
-onMounted(() => {
-    // @ts-ignore
-    window.addEventListener('resize', widthHandler());
-
-    widthHandler();
-    let tabindex = localStorage.getItem(tabKey);
-    if (tabindex) {
-        tab.value = parseInt(tabindex);
-    }
-});
-
-onUnmounted(() => {
-    // @ts-ignore
-    window.removeEventListener('resize', widthHandler());
-});
-
-
-function changeTab(index: string | number) {
-    localStorage.setItem(tabKey, index as string);
-    tab.value = index as number;
+interface ExperienceCertificate {
+    link: string;
+    label: string;
 }
+
+interface ExperienceItem {
+    position: string;
+    company: string;
+    workStart: string;
+    workUntil: string;
+    des: string;
+    url?: string;
+    certificate?: ExperienceCertificate;
+}
+
+const experiences = Experience as ExperienceItem[];
 </script>
 <template>
     <section id="experience" v-scrollanimation class="my-work-experience mx-auto pt-10">
-        <div class="relative">
-            <h2 v-scrollanimation
-                class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
+        <div class="experience-shell relative">
+            <h2
+                v-scrollanimation
+                class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px"
+            >
                 My work experience
+                <SvgDecoration
+                    classNames="absolute md:visible invisible right-5 -bottom-9 transform rotate-[90deg] fill-[var(--primary)] opacity-50"
+                    :type="1" />
             </h2>
-            <p v-scrollanimation
-                class="md:text-size-24px text-size-20px md:px-10px md:leading-relaxed leading-relaxed relative">
+            <p
+                v-scrollanimation
+                class="md:text-size-24px text-size-20px md:px-10px md:leading-relaxed leading-relaxed relative mb-10"
+            >
                 As a developer, working is more than just writing code—it’s about continuous learning, problem-solving,
                 and making a meaningful impact. It involves growing your skills, collaborating with others, and
                 contributing to projects that can shape the way people interact with technology. Beyond just technical
                 expertise, it’s about creativity, innovation, and leaving a lasting mark on the world through your work.
-                <SvgDecoration
-                    classNames="absolute md:visible invisible right-5 -bottom-29 transform rotate-[90deg] fill-[var(--primary)] opacity-50"
-                    :type="1" />
+                
             </p>
-            <div class="container">
-                <div>
-                    <ul class="timeline">
-                        <li v-scrollanimation class="timeline-event transition-delay-300"
-                            v-for="(exp, index) in experiences" :key="exp.company + index">
-                            <label class="timeline-event-icon"></label>
-                            <div class="timeline-event-copy p-2 relative -top-5 left-16 w-8/10">
-                                <p class="timeline-event-thumbnail" v-html="exp.workStart + ' - ' + exp.workUntil"></p>
-                                <h3
-                                    class="lg:text-size-30px md:text-size-28px text-size-26px font-700 items-center gap-7px">
-                                    <span>{{ exp.position }}</span>
-                                    <span class="text-[var(--primary)] opacity-70 hover:opacity-100 duration-100">
-                                        @
-                                        <span rel="noopener">
-                                            {{ exp.company }}
-                                        </span>
-                                    </span>
-                                </h3>
-                                <div class="mt-20px mb-26px">
-                                    <a class="border border-[var(--primary)] rounded-md px-15px py-5px text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--background)] duration-300"
-                                        v-if="exp.certificate" rel="external" target="_blank"
-                                        :href="exp.certificate.link" hreflang="es-es">
-                                        <i class="bx bx-certification"></i>
-                                        {{ exp.certificate.label }}
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="modern-timeline mt-10 md:mt-14">
+                <li
+                    v-for="(exp, index) in experiences"
+                    :key="`${exp.company}-${index}`"
+                    v-scrollanimation
+                    class="experience-row"
+                >
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <article class="experience-card">
+                        <p class="experience-period" v-html="`${exp.workStart} - ${exp.workUntil}`"></p>
+                        <h3 class="experience-role lg:text-size-30px md:text-size-28px text-size-24px font-700">
+                            {{ exp.position }}
+                        </h3>
+                        <a
+                            v-if="exp.url"
+                            :href="exp.url"
+                            target="_blank"
+                            rel="noopener noreferrer external"
+                            class="experience-company"
+                        >
+                            {{ exp.company }}
+                        </a>
+                        <p v-else class="experience-company text-decoration-none">
+                            {{ exp.company }}
+                        </p>
+                        <p class="experience-description md:text-size-20px text-size-18px leading-relaxed">
+                            {{ exp.des }}
+                        </p>
+                        <div v-if="exp.certificate" class="experience-actions">
+                            <a
+                                class="certificate-link"
+                                rel="external noopener"
+                                target="_blank"
+                                :href="exp.certificate.link"
+                            >
+                                <i class="bx bx-certification"></i>
+                                {{ exp.certificate.label }}
+                            </a>
+                        </div>
+                    </article>
+                </li>
+            </ul>
 
         </div>
     </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .my-work-experience {
-    --tab-height: 50px;
-    --tab-width: 120px;
-
     max-width: 1000px;
     display: flex;
     flex-direction: column;
@@ -107,5 +105,139 @@ function changeTab(index: string | number) {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.experience-shell {
+    position: relative;
+}
+
+.modern-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 17px;
+        width: 2px;
+        background: linear-gradient(180deg, var(--primary), transparent);
+        opacity: 0.5;
+    }
+}
+
+.experience-row {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    margin-top: 18px;
+    margin-left: 10px;
+    border-radius: 999px;
+    background: var(--primary);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.experience-card {
+    border: 1px solid color-mix(in srgb, var(--slate) 25%, transparent);
+    border-radius: 18px;
+    padding: 20px 20px 22px;
+    background:
+        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--primary) 14%, transparent), transparent 48%),
+        color-mix(in srgb, var(--lightBackground) 92%, transparent);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--primary) 45%, var(--slate));
+        box-shadow: 0 14px 30px -20px color-mix(in srgb, var(--primary) 70%, transparent);
+    }
+}
+
+.experience-period {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    background: color-mix(in srgb, var(--primary) 14%, var(--lightBackground));
+}
+
+.experience-role {
+    margin-bottom: 8px;
+}
+
+.experience-company {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    opacity: 0.85;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.experience-description {
+    margin: 0;
+}
+
+.experience-actions {
+    margin-top: 16px;
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: var(--primary);
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+        background: var(--primary);
+        color: var(--background);
+    }
+}
+
+@media (max-width: 767px) {
+    .modern-timeline::before {
+        left: 14px;
+    }
+
+    .experience-row {
+        grid-template-columns: 30px 1fr;
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+
+    .timeline-dot {
+        margin-left: 6px;
+        margin-top: 14px;
+    }
+
+    .experience-card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+}
+
+:deep(.present-work) {
+    font-weight: 700;
 }
 </style>
