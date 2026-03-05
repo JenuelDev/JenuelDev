@@ -18,7 +18,7 @@ export default {
                 },
             ],
             imageLink: 'https://believersword.com/',
-            img: 'https://i.imgur.com/FhlGhQMl.png',
+            img: '/images/projects/believers-sword.webp',
         },
         {
             overline: 'Web Application',
