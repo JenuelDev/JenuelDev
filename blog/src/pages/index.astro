@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/default.astro";
 import Hero from "../components/Home/Hero.astro";
+import Layout from "../layouts/default.astro";
 import { supabase } from "../lib/supabase";
 import dayjs from "dayjs";
 const title = "Jenuel Dev";
@@ -42,7 +42,7 @@ const adsToRender = `<script async src="https://pagead2.googlesyndication.com/pa
 >
     <main>
         <Hero />
-        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5">
+        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-20">
             {
                 blogs.map((blog, i) => (
                     <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
