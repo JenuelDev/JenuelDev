@@ -32,8 +32,31 @@ function openSite(site: string) {
                     <ThemeChanger />
                 </li>
                 <template v-for="(headerLink, index) in headerLinks">
+                    <!-- If link has children, render them directly -->
+                    <template v-if="headerLink.children && headerLink.children.length > 0">
+                        <li
+                            v-for="(childLink, childIndex) in headerLink.children"
+                            v-scrollanimation
+                            :style="`transition-delay: ${(index + 1 + childIndex) * 100}ms`"
+                            @click.stop="
+                                router.push(childLink.to);
+                                store.navShow = false;
+                            "
+                            :key="childLink.routeName ?? childLink.label ?? childIndex"
+                        >
+                            <div
+                                :class="{
+                                    active: $route.name == childLink.routeName,
+                                }"
+                            >
+                                <Icon size="20" :icon="childLink.icon" />
+                                {{ childLink.label }}
+                            </div>
+                        </li>
+                    </template>
+                    <!-- Regular internal link -->
                     <li
-                        v-if="!headerLink.external"
+                        v-else-if="!headerLink.external"
                         v-scrollanimation
                         :style="`transition-delay: ${(index + 1) * 100}ms`"
                         @click.stop="
@@ -51,6 +74,7 @@ function openSite(site: string) {
                             {{ headerLink.label }}
                         </div>
                     </li>
+                    <!-- Regular external link -->
                     <li
                         v-else
                         v-scrollanimation
