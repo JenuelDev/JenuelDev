@@ -1,44 +1,188 @@
 ---
 import { Icon } from "astro-icon/components";
+import ThemeToggle from "./ThemeToggle.astro";
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<nav
-    class="fixed top-0 w-full z-9999 bg-[var(--slate1-soft)] backdrop-blur-lg p-3 border-b border-solid border-[var(--slate6)]"
->
-    <div class="flex items-center justify-between mx-auto">
-        <a
-            href="/"
-            class="border border-2 border-[var(--slate6)] px-4 py-2 rounded-full hover:border-[var(--slate8)] hover:bg-[var(--slate2)] transition-all"
-        >
-            <span class="w-3 h-3 rounded-full bg-white inline-block mr-1"></span>
-            <span>Jenuel</span><span class="font-800">Dev</span>
-            <span>Blogs</span>
+<nav class="nav-header">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo">
+            <span class="nav-logo-dot"></span>
+            <span class="nav-logo-text">Jenuel</span><span class="nav-logo-bold">Dev</span>
+            <span class="nav-logo-suffix">Blogs</span>
         </a>
-        <div
-            class="gap-1 md:flex hidden border border-2 border-[var(--slate6)] px-1 py-1 rounded-full"
-        >
+
+        <!-- Navigation Links - Centered -->
+        <div class="nav-links">
             <a
                 href="/"
-                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
-                class:list={pathname === "/" ? "bg-white/10" : ""}
+                class:list={["nav-link", { "nav-link-active": pathname === "/" }]}
             >
-                <Icon name="tabler:article" class="inline text-lg" /> Home
+                <Icon name="tabler:article" /> Home
             </a>
             <a
                 href="/finance"
-                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
-                class:list={pathname === "/finance" ? "bg-white/10" : ""}
+                class:list={["nav-link", { "nav-link-active": pathname === "/finance" }]}
             >
-                <Icon name="tabler:report-money" class="inline text-lg" /> Finance
+                <Icon name="tabler:report-money" /> Finance
             </a>
             <a
                 href="/programming"
-                class="flex items-center gap-1 px-3 py-1 rounded-full hover:bg-white/15"
-                class:list={pathname === "/programming" ? "bg-white/10" : ""}
+                class:list={["nav-link", { "nav-link-active": pathname === "/programming" }]}
             >
-                <Icon name="tabler:code" class="inline text-lg" /> Programming
+                <Icon name="tabler:code" /> Programming
             </a>
+        </div>
+
+        <!-- Right side: Theme Toggle -->
+        <div class="nav-actions">
+            <ThemeToggle />
         </div>
     </div>
 </nav>
+
+<style>
+    .nav-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: var(--slate1-soft);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--slate6);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Light mode: subtler borders */
+    :root:not(.dark) .nav-header {
+        border-bottom-color: var(--slate4);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+    }
+
+    /* Logo */
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--slate6);
+        border-radius: 9999px;
+        text-decoration: none;
+        color: var(--slate12);
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+        justify-self: start;
+        height: 42px;
+        box-sizing: border-box;
+    }
+
+    /* Light mode: lighter borders */
+    :root:not(.dark) .nav-logo {
+        border-color: var(--slate4);
+    }
+
+    :root:not(.dark) .nav-logo:hover {
+        border-color: var(--slate6);
+    }
+
+    .nav-logo:hover {
+        border-color: var(--slate8);
+        background: var(--slate2);
+    }
+
+    .nav-logo-dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background: var(--orange9);
+        margin-right: 0.25rem;
+    }
+
+    .nav-logo-text {
+        color: var(--slate12);
+    }
+
+    .nav-logo-bold {
+        font-weight: 800;
+        color: var(--slate12);
+    }
+
+    .nav-logo-suffix {
+        color: var(--slate11);
+        margin-left: 0.25rem;
+    }
+
+    /* Navigation Links - Centered */
+    .nav-links {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border: 2px solid var(--slate6);
+        border-radius: 9999px;
+        background: var(--slate2);
+        height: 42px;
+        box-sizing: border-box;
+    }
+
+    /* Light mode: lighter borders */
+    :root:not(.dark) .nav-links {
+        border-color: var(--slate4);
+    }
+
+    @media (min-width: 768px) {
+        .nav-links {
+            display: flex;
+        }
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        color: var(--slate11);
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+        height: 34px;
+        box-sizing: border-box;
+    }
+
+    .nav-link:hover {
+        color: var(--slate12);
+        background: var(--slate3);
+    }
+
+    .nav-link-active {
+        color: var(--slate12);
+        background: var(--slate4);
+    }
+
+    .nav-link svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    /* Actions (Theme Toggle) */
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+</style>

@@ -4,9 +4,78 @@
     font-feature-settings: "ss03", "cv02", "cv11";
     font-variation-settings: normal;
 
-    // dark theme
+    /* Light theme (default) */
+    --slate1: #f8fafc;
+    --slate1-soft: rgba(248, 250, 252, 0.85);
+    --slate2: #f1f5f9;
+    --slate3: #e2e8f0;
+    --slate4: #cbd5e1;
+    --slate5: #94a3b8;
+    --slate6: #64748b;
+    --slate7: #475569;
+    --slate8: #334155;
+    --slate9: #1e293b;
+    --slate10: #0f172a;
+    --slate11: #0a0e1a;
+    --slate12: #18181b;
+
+    --orange1: #fff7ed;
+    --orange2: #ffedd5;
+    --orange3: #fed7aa;
+    --orange4: #fdba74;
+    --orange5: #fb923c;
+    --orange6: #f97316;
+    --orange7: #ea580c;
+    --orange8: #c2410c;
+    --orange9: #f76808;
+    --orange10: #ff802b;
+    --orange11: #ff8b3e;
+    --orange12: #7c2d12;
+
+    --blue1: #eff6ff;
+    --blue2: #dbeafe;
+    --blue3: #bfdbfe;
+    --blue4: #93c5fd;
+    --blue5: #60a5fa;
+    --blue6: #3b82f6;
+    --blue7: #2563eb;
+    --blue8: #1d4ed8;
+    --blue9: #0091ff;
+    --blue10: #369eff;
+    --blue11: #52a9ff;
+    --blue12: #1e3a8a;
+
+    --red1: #fef2f2;
+    --red2: #fee2e2;
+    --red3: #fecaca;
+    --red4: #fca5a5;
+    --red5: #f87171;
+    --red6: #ef4444;
+    --red7: #dc2626;
+    --red8: #b91c1c;
+    --red9: #e5484d;
+    --red10: #f2555a;
+    --red11: #ff6369;
+    --red12: #7f1d1d;
+
+    --green1: #f0fdf4;
+    --green2: #dcfce7;
+    --green3: #bbf7d0;
+    --green4: #86efac;
+    --green5: #4ade80;
+    --green6: #22c55e;
+    --green7: #16a34a;
+    --green8: #15803d;
+    --green9: #30a46c;
+    --green10: #3cb179;
+    --green11: #4cc38a;
+    --green12: #14532d;
+}
+
+/* Dark theme - applied when .dark class is on html */
+:root.dark {
     --slate1: #151718;
-    --slate1-soft: rgba(21, 23, 24, 0.5);
+    --slate1-soft: rgba(21, 23, 24, 0.85);
     --slate2: #1a1d1e;
     --slate3: #202425;
     --slate4: #26292b;
@@ -75,12 +144,13 @@
 html {
     font-family: Inter, sans-serif;
     background-color: var(--slate1);
-    color: #FFFFFF;
+    color: var(--slate12);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 
 .text-default {
-    color: #FFFFFF;
+    color: var(--slate12);
 }
 
 .text-secondary {

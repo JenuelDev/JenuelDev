@@ -1,8 +1,6 @@
 ---
 export const prerender = true;
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import JenuelDevImageProfileBrand from "../../assets/images/JenuelDev.png";
 ---
 
 <section class="w-100% sm:text-lg flex flex-col pt-5 my-10 mt-20">
@@ -11,9 +9,7 @@ import JenuelDevImageProfileBrand from "../../assets/images/JenuelDev.png";
             class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
         >
             <div class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
-            <span class="text-gray-300 text-xs sm:text-sm font-medium">
-                Welcome to my Blog
-            </span>
+            <span class="text-gray-300 text-xs sm:text-sm font-medium"> Welcome to my Blog </span>
         </div>
 
         <div class="flex items-center gap-3">
@@ -23,7 +19,7 @@ import JenuelDevImageProfileBrand from "../../assets/images/JenuelDev.png";
                 <Icon name="tabler:device-laptop" class="mr-1" />
                 digital
             </h1>
-            <div class="md:text-lg text-sm text-secondary">// from Luzon,<br />Philippines</div>
+            <div class="md:text-lg text-sm text-secondary">clean, <br />maintainable code</div>
         </div>
         <div class="flex flex-wrap gap-3 items-center justify-center">
             <h1
@@ -59,28 +55,9 @@ import JenuelDevImageProfileBrand from "../../assets/images/JenuelDev.png";
             </h1>
         </div>
         <div class="flex flex-wrap gap-3 items-center justify-center">
-            <div class="flex items-center gap-2">
-                <div
-                    class="rounded-full overflow-hidden flex items-center relative justify-center w-60px h-60px border-2 border-slate-200 group-hover:border-slate-300 transition-all"
-                >
-                    <Image
-                        src={JenuelDevImageProfileBrand}
-                        width={150}
-                        class="absolute scale-120 hover:scale-125 transition-all"
-                        alt="Jenuel"
-                        loading={"eager"}
-                    />
-                </div>
-                <h3 class="leading-4">
-                    <span class="font-200">hi! i'm</span>
-                    <br />
-                    <span
-                        class="sm:text-3xl text-2xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
-                    >
-                        Jenuel
-                    </span>
-                </h3>
-            </div>
+            <developer class="md:text-lg text-sm text-secondary text-right">
+                building delightful <br /> developer experiences
+            </developer>
             <h1
                 class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--blue3)] text-[var(--blue10)] rounded-md"
             >
@@ -88,9 +65,5 @@ import JenuelDevImageProfileBrand from "../../assets/images/JenuelDev.png";
                 developer
             </h1>
         </div>
-
-        <p class="max-w-600px md:text-2xl text-lg text-center mx-auto mb-2 px-5 text-secondary">
-            I create web apps that are engaging, accessible and scalable.
-        </p>
     </div>
 </section>

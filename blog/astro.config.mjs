@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 import icon from "astro-icon";
-import vercel from "@astrojs/vercel";
 
 import vue from "@astrojs/vue";
 import netlify from '@astrojs/netlify';

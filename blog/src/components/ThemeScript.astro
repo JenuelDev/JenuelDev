@@ -1,0 +1,20 @@
+---
+// ThemeScript.astro - Inline script that runs immediately to prevent theme flash
+// This must be placed in the <head> of your layout
+---
+<script is:inline>
+  (function() {
+    const theme = (() => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      return 'light'; // Default to light
+    })();
+    
+    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  })();
+</script>
