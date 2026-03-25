@@ -8,7 +8,7 @@ const yearCount = () => {
 };
 </script>
 <template>
-    <section class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
+    <section id="about-me" class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
         <div class="flex lg:flex-row flex-col items-center gap-50px relative">
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
@@ -55,7 +55,12 @@ const yearCount = () => {
                             width="300px"
                             height="300px"
                             src="/profile_image-640.webp"
-                            srcset="/profile_image-480.webp 480w, /profile_image-640.webp 640w, /profile_image-768.webp 768w, /profile_image.webp 1024w"
+                            srcset="
+                                /profile_image-480.webp  480w,
+                                /profile_image-640.webp  640w,
+                                /profile_image-768.webp  768w,
+                                /profile_image.webp     1024w
+                            "
                             sizes="(max-width: 768px) 280px, 300px"
                             alt="Jenuel Ganawed - Profile Picture"
                         />
@@ -82,8 +87,7 @@ const yearCount = () => {
             </p>
             <p class="mb-30px">
                 With over <strong>{{ yearCount() }} years of experience as a software developer</strong>, I have grown
-                in fast-paced environments, collaborated with talented engineers, and contributed to impactful
-                projects.
+                in fast-paced environments, collaborated with talented engineers, and contributed to impactful projects.
             </p>
             <p class="mb-30px">
                 <strong>Attention to detail is a core principle</strong>, from writing efficient code to refining user
