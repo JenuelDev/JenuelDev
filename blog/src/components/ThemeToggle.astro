@@ -1,0 +1,196 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="theme-toggle">
+  <button
+    id="theme-toggle-btn"
+    class="theme-toggle-btn"
+    aria-label="Toggle theme"
+    title="Toggle theme"
+  >
+    <Icon name="tabler:sun" class="theme-icon-light" />
+    <Icon name="tabler:moon" class="theme-icon-dark" />
+  </button>
+  
+  <div class="theme-dropdown" id="theme-dropdown">
+    <button class="theme-option" data-theme="light">
+      <Icon name="tabler:sun" />
+      <span>Light</span>
+    </button>
+    <button class="theme-option" data-theme="dark">
+      <Icon name="tabler:moon" />
+      <span>Dark</span>
+    </button>
+    <button class="theme-option" data-theme="system">
+      <Icon name="tabler:device-desktop" />
+      <span>System</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle-btn');
+    const dropdown = document.getElementById('theme-dropdown');
+    const options = document.querySelectorAll('.theme-option');
+    
+    // Remove existing listeners to prevent duplicates
+    if (btn) {
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode?.replaceChild(newBtn, btn);
+      
+      // Toggle dropdown
+      newBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown?.classList.toggle('open');
+      });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      dropdown?.classList.remove('open');
+    });
+    
+    // Handle theme selection
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.dataset.theme || 'light';
+        localStorage.setItem('theme', theme);
+        applyTheme(theme);
+        dropdown?.classList.remove('open');
+      });
+    });
+  }
+  
+  // Get current theme
+  function getTheme() {
+    return localStorage.getItem('theme') || 'light';
+  }
+  
+  // Apply theme
+  function applyTheme(theme) {
+    const isDark = theme === 'dark' || 
+      (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Update active state
+    document.querySelectorAll('.theme-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.theme === theme);
+    });
+  }
+  
+  // Initialize on first load
+  initThemeToggle();
+  applyTheme(getTheme());
+  
+  // Re-initialize after Astro page transitions
+  document.addEventListener('astro:page-load', () => {
+    initThemeToggle();
+    applyTheme(getTheme());
+  });
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (getTheme() === 'system') {
+      applyTheme('system');
+    }
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    position: relative;
+  }
+  
+  .theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    border: 2px solid var(--slate6);
+    background: var(--slate2);
+    color: var(--slate12);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  
+  .theme-toggle-btn:hover {
+    background: var(--slate3);
+    border-color: var(--slate7);
+  }
+  
+  .theme-toggle-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  /* Show/hide icons based on current theme */
+  :root:not(.dark) .theme-icon-dark {
+    display: none;
+  }
+  
+  :root.dark .theme-icon-light {
+    display: none;
+  }
+  
+  .theme-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 140px;
+    background: var(--slate2);
+    border: 1px solid var(--slate6);
+    border-radius: 0.75rem;
+    padding: 0.375rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: all 0.2s ease;
+    z-index: 100;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .theme-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: transparent;
+    color: var(--slate12);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  
+  .theme-option:hover {
+    background: var(--slate3);
+  }
+  
+  .theme-option.active {
+    background: var(--slate4);
+  }
+  
+  .theme-option svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import ThemeScript from "../components/ThemeScript.astro";
 import LoadingIndicator from "astro-loading-indicator/component";
 import Analytics from '@vercel/analytics/astro'
 interface ImageCustom {
@@ -33,6 +34,9 @@ import { ClientRouter } from 'astro:transitions';
 <!doctype html>
 <html lang="en">
     <head>
+        <!-- Theme script must be first to prevent flash -->
+        <ThemeScript />
+        
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />

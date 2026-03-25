@@ -256,7 +256,7 @@ const author = data ? data.user_profile : null;
             margin-top: 30px;
             position: relative;
             font-weight: bold;
-            color: #fff;
+            color: var(--slate12);
 
             a {
                 position: relative;
@@ -268,10 +268,10 @@ const author = data ? data.user_profile : null;
             }
 
             code {
-                background-color: #202631;
+                background-color: var(--slate3);
                 padding: 0 5px;
                 border-radius: 5px;
-                color: aliceblue;
+                color: var(--slate12);
             }
         }
 
@@ -292,14 +292,20 @@ const author = data ? data.user_profile : null;
         }
 
         pre {
-            background-color: #202631;
-            color: aliceblue;
+            background-color: var(--slate3);
+            color: var(--slate12);
             position: relative;
             padding: 20px;
             border-radius: 10px;
             overflow-x: auto;
             transition: all 0.25s;
             margin-bottom: 30px;
+        }
+
+        /* Keep code blocks dark in light mode */
+        :root:not(.dark) pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
         }
 
         p {
@@ -324,14 +330,14 @@ const author = data ? data.user_profile : null;
             }
 
             code {
-                background-color: #202631;
+                background-color: var(--slate3);
                 padding: 0 5px;
                 border-radius: 5px;
-                color: aliceblue;
+                color: var(--slate12);
             }
 
             strong {
-                color: #d9d9d9;
+                color: var(--slate12);
             }
         }
 
