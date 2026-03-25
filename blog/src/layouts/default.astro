@@ -3,13 +3,6 @@ import Header from "../components/Header.astro";
 import ThemeScript from "../components/ThemeScript.astro";
 import LoadingIndicator from "astro-loading-indicator/component";
 import Analytics from '@vercel/analytics/astro'
-interface ImageCustom {
-    url: string;
-    width: number;
-    height: number;
-    alt: string;
-    type: "image/jpeg";
-}
 
 interface Props {
     title: string;
@@ -20,7 +13,7 @@ interface Props {
     canonical?: string | null | undefined;
 }
 
-const { title, description, url, image, isBlog, canonical }: Props = Astro.props;
+const { title, description, url, image, canonical }: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
