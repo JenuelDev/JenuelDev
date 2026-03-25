@@ -24,15 +24,14 @@ const { adSlot } = Astro.props;
     // Re-initialize ads after Astro View Transitions
     document.addEventListener('astro:page-load', () => {
         if (window.adsbygoogle) {
-            const adElements = document.querySelectorAll('ins.adsbygoogle');
-            adElements.forEach((ad) => {
-                // Only push if not already initialized (check for data-ad-status)
-                if (!ad.getAttribute('data-ad-status') || ad.getAttribute('data-ad-status') === 'unfilled') {
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.log('AdSense push error:', e);
-                    }
+            // Only target ads that haven't been processed yet
+            // AdSense adds data-adsbygoogle-status="done" when an ad is loaded
+            const newAdElements = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status="done"])');
+            newAdElements.forEach(() => {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    // Silently ignore errors for already-initialized ads
                 }
             });
         }
