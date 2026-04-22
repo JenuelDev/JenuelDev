@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell *)",
+      "Read(//d/Projects/Personal/JenuelDev/www/.claude//**)",
+      "Read(//d/Projects/Personal/JenuelDev/www/.claude/**)",
+      "Bash(powershell.exe *)",
+      "Bash(whoami *)",
+      "Bash(systeminfo)",
+      "Bash(tasklist *)",
+      "Bash(wmic os *)",
+      "Bash('\"$SoundPath')"
+    ]
+  }
+}
