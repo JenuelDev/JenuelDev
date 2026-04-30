@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [I Built a Custom Status Line for Claude Code — And It Changes Everything](https://blog.jenuel.dev/blog/I-Built-a-Custom-Status-Line-for-Claude-Code-And-It-Changes-Everything)
 - [Automate Your Workflow with Hermess: Your Personal AI Assistant](https://blog.jenuel.dev/blog/Automate-Your-Workflow-with-Hermess-Your-Personal-AI-Assistant)
 - [Why Every Developer Needs a Full 8 Hours of Sleep 😴](https://blog.jenuel.dev/blog/Why-Every-Developer-Needs-a-Full-8-Hours-of-Sleep-)
 - [Why Most Side Projects Fail &lpar;and How to Actually Ship One&rpar;](https://blog.jenuel.dev/blog/Why-Most-Side-Projects-Fail-and-How-to-Actually-Ship-One-)
 - [AI Didn&#39;t Replace Developers. It Just Hugely Upgraded the Job Description.](https://blog.jenuel.dev/blog/AI-Didn-t-Replace-Developers-It-Just-Hugely-Upgraded-the-Job-Description-)
-- [Code First, Understand Later: The Truth About “Vibe Coding”](https://blog.jenuel.dev/blog/Code-First-Understand-Later-The-Truth-About-Vibe-Coding-)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
