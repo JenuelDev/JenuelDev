@@ -69,8 +69,44 @@ import { ClientRouter } from 'astro:transitions';
         <slot />
         <Footer />
         <Analytics />
+        <div id="bmc-persist" transition:persist></div>
     </body>
 </html>
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const isOnBlogPost = !!document.getElementById("main-content");
+        const container = document.getElementById("bmc-persist");
+        if (!container) return;
+
+        const btn = document.getElementById("bmc-wbtn");
+        if (btn) {
+            if (btn.parentElement !== container) container.appendChild(btn);
+            container.style.display = isOnBlogPost ? "" : "none";
+        } else if (isOnBlogPost) {
+            const script = document.createElement("script");
+            script.setAttribute("data-name", "BMC-Widget");
+            script.setAttribute("data-cfasync", "false");
+            script.setAttribute("data-id", "jenuel.dev");
+            script.setAttribute("data-description", "Support me on Buy me a coffee!");
+            script.setAttribute("data-message", "");
+            script.setAttribute("data-color", "#FF813F");
+            script.setAttribute("data-position", "Right");
+            script.setAttribute("data-x_margin", "18");
+            script.setAttribute("data-y_margin", "18");
+            script.src = "https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js";
+            document.body.appendChild(script);
+
+            const obs = new MutationObserver(() => {
+                const newBtn = document.getElementById("bmc-wbtn");
+                if (newBtn) {
+                    container.appendChild(newBtn);
+                    obs.disconnect();
+                }
+            });
+            obs.observe(document.body, { childList: true });
+        }
+    });
+</script>
 <style is:global>
     :root .astro-loading-indicator {
         z-index: 999999999999;
