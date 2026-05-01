@@ -2,7 +2,6 @@
 import Header from "../components/Header.astro";
 import ThemeScript from "../components/ThemeScript.astro";
 import LoadingIndicator from "astro-loading-indicator/component";
-import Analytics from '@vercel/analytics/astro'
 
 interface Props {
     title: string;
@@ -68,8 +67,7 @@ import { ClientRouter } from 'astro:transitions';
         <Header transition:persist />
         <slot />
         <Footer />
-        <Analytics />
-        <div id="bmc-persist" transition:persist></div>
+<div id="bmc-persist" transition:persist></div>
     </body>
 </html>
 <script>
