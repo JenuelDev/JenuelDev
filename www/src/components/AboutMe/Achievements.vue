@@ -188,25 +188,26 @@ onUnmounted(() => {
                             class="cursor-grab"
                             @dragstart.prevent
                         >
-                            <div
-                                class="w-[min(80vw,310px)] md:w-[clamp(260px,36vw,360px)] min-h-205px md:min-h-225px rounded-18px border border-[var(--slate)]/20 p-18px bg-[var(--lightBackground)]/92 shadow-sm hover:shadow-md transition-all duration-220 hover:-translate-y-3px hover:border-[var(--primary)]/45 flex flex-col"
-                            >
-                                <span class="inline-flex w-fit m-0 mb-12px px-10px py-4px rounded-full text-size-12px font-600 [letter-spacing:0.02em] text-[var(--primary)] bg-gray-1 bg-opacity-10">{{ achievement.from }}</span>
-                                <div class="mb-10px md:text-size-24px text-size-20px font-700">
+                            <div class="achievement-card">
+                                <div class="achievement-dots" aria-hidden="true"></div>
+                                <div class="achievement-card-top">
+                                    <span class="achievement-provider">{{ achievement.from }}</span>
+                                </div>
+                                <div class="achievement-title md:text-size-22px text-size-20px font-800">
                                     {{ achievement.name }}
                                 </div>
-                                <div class="m-0 mb-14px md:text-lg md:leading-normal leading-snug">
+                                <div class="achievement-description md:text-size-16px text-size-15px leading-6">
                                     {{ achievement.description }}
                                 </div>
                                 <a
                                     :href="achievement.url"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="mt-auto inline-flex items-center gap-6px w-fit text-size-14px font-600 text-[var(--primary)] no-underline hover:text-[var(--primary)]/90 transition-colors"
+                                    class="achievement-link"
                                     @click.stop
                                 >
-                                    <span>View </span>
-                                    <Icon icon="mdi:open-in-new" />
+                                    <span>View Certificate</span>
+                                    <Icon icon="mdi:open-in-new" class="text-size-17px" />
                                 </a>
                             </div>
                         </article>
@@ -219,25 +220,26 @@ onUnmounted(() => {
                             class="cursor-grab"
                             @dragstart.prevent
                         >
-                            <div
-                                class="w-[min(80vw,310px)] md:w-[clamp(260px,36vw,360px)] min-h-205px md:min-h-225px rounded-18px border border-[var(--slate)]/20 p-18px bg-[var(--lightBackground)]/92 shadow-sm hover:shadow-md transition-all duration-220 hover:-translate-y-3px hover:border-[var(--primary)]/45 flex flex-col"
-                            >
-                                <span class="inline-flex w-fit m-0 mb-12px px-10px py-4px rounded-full text-size-12px font-600 [letter-spacing:0.02em] text-[var(--primary)] bg-gray-1 bg-opacity-10">{{ achievement.from }}</span>
-                                <div class="mb-10px md:text-size-24px text-size-20px font-700">
+                            <div class="achievement-card">
+                                <div class="achievement-dots" aria-hidden="true"></div>
+                                <div class="achievement-card-top">
+                                    <span class="achievement-provider">{{ achievement.from }}</span>
+                                </div>
+                                <div class="achievement-title md:text-size-22px text-size-20px font-800">
                                     {{ achievement.name }}
                                 </div>
-                                <div class="m-0 mb-14px md:text-lg md:leading-normal leading-snug">
+                                <div class="achievement-description md:text-size-16px text-size-15px leading-6">
                                     {{ achievement.description }}
                                 </div>
                                 <a
                                     :href="achievement.url"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="mt-auto flex items-center gap-6px  text-size-14px font-600 text-[var(--primary)] no-underline hover:text-[var(--primary)]/90 transition-colors"
+                                    class="achievement-link"
                                     @click.stop
                                 >
-                                    <span>View </span>
-                                    <Icon icon="mdi:open-in-new" />
+                                    <span>View Certificate</span>
+                                    <Icon icon="mdi:open-in-new" class="text-size-17px" />
                                 </a>
                             </div>
                         </article>
@@ -250,3 +252,131 @@ onUnmounted(() => {
         </div>
     </section>
 </template>
+
+<style scoped lang="scss">
+.achievement-card {
+    position: relative;
+    display: flex;
+    width: min(82vw, 330px);
+    min-height: 272px;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--primary) 34%, transparent);
+    border-radius: 10px;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 34%),
+        radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 42%),
+        color-mix(in srgb, var(--background) 92%, #001e2e);
+    box-shadow:
+        inset 0 0 24px color-mix(in srgb, var(--primary) 7%, transparent),
+        0 20px 55px -38px color-mix(in srgb, var(--primary) 55%, transparent);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: color-mix(in srgb, var(--primary) 62%, transparent);
+        box-shadow:
+            inset 0 0 32px color-mix(in srgb, var(--primary) 11%, transparent),
+            0 22px 60px -34px color-mix(in srgb, var(--primary) 75%, transparent);
+    }
+}
+
+.achievement-dots {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 66px;
+    height: 46px;
+    background-image: radial-gradient(circle, color-mix(in srgb, var(--primary) 68%, transparent) 1.4px, transparent 1.4px);
+    background-size: 16px 16px;
+    opacity: 0.32;
+}
+
+.achievement-card-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.achievement-provider {
+    max-width: 180px;
+    padding: 5px 10px;
+    border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+    border-radius: 999px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: color-mix(in srgb, var(--primary) 7%, transparent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.achievement-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+    color: color-mix(in srgb, var(--lightestSlate) 96%, #ffffff);
+    line-height: 1.18;
+}
+
+.achievement-title::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin-top: 12px;
+    background: var(--primary);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 58%, transparent);
+}
+
+.achievement-description {
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    margin: 0 0 18px;
+    overflow: hidden;
+    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.achievement-link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: fit-content;
+    min-width: 164px;
+    margin-top: auto;
+    padding: 10px 14px;
+    border: 1px solid color-mix(in srgb, var(--primary) 46%, transparent);
+    border-radius: 6px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        background: color-mix(in srgb, var(--primary) 8%, transparent);
+        box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 22%, transparent);
+    }
+}
+
+@media (min-width: 768px) {
+    .achievement-card {
+        width: clamp(285px, 34vw, 365px);
+        min-height: 292px;
+        padding: 22px;
+    }
+}
+</style>

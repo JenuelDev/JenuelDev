@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
 import { Icon } from '@iconify/vue';
 import Experience from '@/constant/experiences/index';
 
@@ -21,26 +20,11 @@ interface ExperienceItem {
 
 const experiences = Experience as ExperienceItem[];
 
-const techIconMap: Record<string, string> = {
-    Laravel: 'material-icon-theme:laravel',
-    'Vue.js (2 & 3)': 'material-icon-theme:vue',
-    'Vue.js': 'material-icon-theme:vue',
-    TypeScript: 'vscode-icons:file-type-typescript-official',
-    'SASS / CSS3': 'skill-icons:sass',
-    CSS3: 'skill-icons:css',
-    HTML5: 'skill-icons:html',
-    'Node.js': 'material-icon-theme:nodejs',
-    Python: 'skill-icons:python-dark',
-    'C#': 'mdi:language-csharp',
-    MySQL: 'skill-icons:mysql-light',
-    JavaScript: 'skill-icons:javascript',
-    PHP: 'skill-icons:php-dark',
-    'Twilio API': 'logos:twilio-icon',
-    jQuery: 'logos:jquery',
-    Photoshop: 'logos:adobe-photoshop',
-    Illustrator: 'logos:adobe-illustrator',
-    'Video editing tools': 'mdi:video',
-};
+const timelineIconMap = ['tabler:briefcase', 'tabler:code', 'tabler:rocket', 'tabler:layers', 'tabler:star'];
+
+function getDescriptionPoints(description: string | string[]) {
+    return Array.isArray(description) ? description.slice(0, 3) : [description];
+}
 </script>
 <template>
     <section id="experience" v-scrollanimation class="my-work-experience mx-auto pt-10">
@@ -50,84 +34,59 @@ const techIconMap: Record<string, string> = {
                 class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px"
             >
                 work experience
-                <SvgDecoration
-                    classNames="absolute md:visible invisible right-5 -bottom-9 transform rotate-[90deg] fill-[var(--primary)] opacity-50"
-                    :type="1" />
             </h2>
             <p
                 v-scrollanimation
-                class="md:text-size-24px text-size-20px md:px-10px md:leading-relaxed leading-relaxed relative mb-10"
+                class="md:text-size-24px text-size-20px md:px-10px w-full max-w-900px md:leading-relaxed leading-normal relative mb-10"
             >
-                As a developer, working is more than just writing code—it’s about continuous learning, problem-solving,
-                and making a meaningful impact. It involves growing your skills, collaborating with others, and
-                contributing to projects that can shape the way people interact with technology. Beyond just technical
-                expertise, it’s about creativity, innovation, and leaving a lasting mark on the world through your work.
-                
+                A summary of my professional journey and the impact I've created through the roles I've held.
             </p>
-            <ul class="modern-timeline mt-10 md:mt-14">
+
+            <ul class="modern-timeline mt-10 md:mt-12 px-0">
                 <li
                     v-for="(exp, index) in experiences"
                     :key="`${exp.company}-${index}`"
                     v-scrollanimation
                     class="experience-row"
                 >
-                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-dot" aria-hidden="true">
+                        <Icon class="timeline-dot-icon" :icon="timelineIconMap[index % timelineIconMap.length]" />
+                    </span>
                     <article class="experience-card">
-                        <p class="experience-period" v-html="`${exp.workStart} - ${exp.workUntil}`"></p>
-                        <h3 class="experience-role lg:text-size-30px md:text-size-28px text-size-24px font-700">
-                            {{ exp.position }}
-                        </h3>
-                        <a
-                            v-if="exp.url"
-                            :href="exp.url"
-                            target="_blank"
-                            rel="noopener noreferrer external"
-                            class="experience-company"
-                        >
-                            {{ exp.company }}
-                        </a>
-                        <p v-else class="experience-company text-decoration-none">
-                            {{ exp.company }}
-                        </p>
-                        <div
-                            v-if="Array.isArray(exp.des)"
-                            class="experience-description md:text-size-20px text-size-18px leading-relaxed"
-                        >
-                            <ul class="experience-description-list">
-                                <li v-for="(item, itemIndex) in exp.des" :key="itemIndex">
-                                    {{ item }}
-                                </li>
-                            </ul>
+                        <div class="experience-logo-tile" aria-hidden="true">
+                            <Icon :icon="timelineIconMap[index % timelineIconMap.length]" />
                         </div>
-                        <p
-                            v-else
-                            class="experience-description md:text-size-20px text-size-18px leading-relaxed"
-                        >
-                            {{ exp.des }}
-                        </p>
-                        <div v-if="exp.certificate" class="experience-actions">
-                            <a
-                                class="certificate-link"
-                                rel="external noopener"
-                                target="_blank"
-                                :href="exp.certificate.link"
-                            >
-                                <span>{{ exp.certificate.label }} </span>
-                                <Icon icon="mdi:open-in-new" />
-                            </a>
-                        </div>
-
-                        <div
-                            v-if="exp.technologies && exp.technologies.length"
-                            class="experience-technologies mt-5 flex flex-wrap items-center gap-3 md:gap-4"
-                        >
-                            <Icon
-                                v-for="tech in exp.technologies"
-                                :key="tech"
-                                class="experience-technologies-icon text-3xl"
-                                :icon="techIconMap[tech] || 'mdi:code-tags'"
-                                :title="tech"
-                            />
+                        <div class="experience-content">
+                            <div class="experience-card-top">
+                                <div class="experience-card-body">
+                                    <h3 class="experience-role lg:text-size-21px md:text-size-20px text-size-19px font-800">
+                                        {{ exp.position }}
+                                    </h3>
+                                    <a
+                                        v-if="exp.url"
+                                        :href="exp.url"
+                                        target="_blank"
+                                        rel="noopener noreferrer external"
+                                        class="experience-company"
+                                    >
+                                        {{ exp.company }}
+                                    </a>
+                                    <p v-else class="experience-company text-decoration-none">
+                                        {{ exp.company }}
+                                    </p>
+                                </div>
+                                <p class="experience-period">
+                                    <Icon icon="tabler:calendar" />
+                                    <span v-html="`${exp.workStart} - ${exp.workUntil}`"></span>
+                                </p>
+                            </div>
+                            <div class="experience-description md:text-size-15px text-size-14px leading-6">
+                                <ul class="experience-description-list">
+                                    <li v-for="(item, itemIndex) in getDescriptionPoints(exp.des)" :key="itemIndex">
+                                        {{ item }}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </article>
                 </li>
@@ -139,10 +98,11 @@ const techIconMap: Record<string, string> = {
 
 <style lang="scss" scoped>
 .my-work-experience {
-    max-width: 1000px;
+    max-width: 1160px;
     display: flex;
     flex-direction: column;
     min-height: 50vh;
+    padding-inline: 14px;
 
     &.a-before-enter {
         opacity: 0;
@@ -162,157 +122,271 @@ const techIconMap: Record<string, string> = {
 
 .modern-timeline {
     list-style: none;
-    margin: 0;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 0;
     position: relative;
+    --timeline-dot-size: 42px;
+    --timeline-dot-left: 4px;
+    --timeline-dot-top: 24px;
+    --timeline-center: calc(var(--timeline-dot-left) + (var(--timeline-dot-size) / 2));
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 4px;
-        bottom: 4px;
-        left: 17px;
-        width: 2px;
-        background: linear-gradient(180deg, var(--primary), transparent);
-        opacity: 0.5;
-    }
 }
 
 .experience-row {
+    position: relative;
     display: grid;
-    grid-template-columns: 36px 1fr;
-    gap: 18px;
-    margin-bottom: 24px;
+    grid-template-columns: 52px 1fr;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 22px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: var(--timeline-center);
+        top: 50%;
+        width: 2px;
+        height: calc(100% + 22px);
+        transform: translateX(-50%);
+        background: color-mix(in srgb, var(--primary) 62%, transparent);
+        opacity: 0.76;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+
+        &::after {
+            display: none;
+        }
+    }
 }
 
 .timeline-dot {
-    width: 14px;
-    height: 14px;
-    margin-top: 18px;
-    margin-left: 10px;
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: var(--timeline-dot-size);
+    height: var(--timeline-dot-size);
+    margin-top: 0;
+    margin-left: var(--timeline-dot-left);
     border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--primary) 70%, transparent);
     background: var(--primary);
-    box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 20%, transparent);
+    color: var(--background);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.timeline-dot-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+}
+
+:deep(.timeline-dot-icon) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: block;
+    transform: translate(-50%, -50%);
+
+    svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
 }
 
 .experience-card {
-    border: 1px solid color-mix(in srgb, var(--slate) 25%, transparent);
-    border-radius: 18px;
-    padding: 20px 20px 22px;
-    background:
-        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--primary) 14%, transparent), transparent 48%),
-        color-mix(in srgb, var(--lightBackground) 92%, transparent);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    border-radius: 8px;
+    padding: 18px 22px;
+    background: color-mix(in srgb, var(--background) 92%, #001e2e);
+    transition: transform 0.25s ease, border-color 0.25s ease;
 
     &:hover {
-        transform: translateY(-2px);
-        border-color: color-mix(in srgb, var(--primary) 45%, var(--slate));
-        box-shadow: 0 14px 30px -20px color-mix(in srgb, var(--primary) 70%, transparent);
+        transform: translateY(-4px);
+        border-color: color-mix(in srgb, var(--primary) 42%, transparent);
+        box-shadow: none;
     }
+}
+
+.experience-logo-tile,
+.experience-card-body,
+.experience-description {
+    position: relative;
+    z-index: 1;
+}
+
+.experience-logo-tile {
+    display: grid;
+    width: 72px;
+    height: 72px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--background) 84%, #001c2a);
+    color: var(--primary);
+
+    svg {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+.experience-content {
+    position: relative;
+    z-index: 1;
+}
+
+.experience-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 12px;
 }
 
 .experience-period {
     display: inline-flex;
     align-items: center;
-    padding: 4px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-    font-size: 14px;
-    background: color-mix(in srgb, var(--primary) 14%, var(--lightBackground));
+    gap: 8px;
+    margin: 2px 0 0;
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 .experience-role {
-    margin-bottom: 8px;
+    margin: 0 0 3px;
+    color: var(--primary);
+    letter-spacing: 0;
+    line-height: 1.15;
 }
 
 .experience-company {
     display: inline-block;
-    margin-bottom: 14px;
-    font-weight: 600;
-    color: var(--primary);
-    opacity: 0.85;
+    margin-bottom: 0;
+    color: color-mix(in srgb, var(--lightestSlate) 92%, transparent);
+    font-size: 16px;
+    font-weight: 500;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
 
     &:hover {
-        opacity: 1;
+        color: color-mix(in srgb, var(--primary) 88%, #ffffff);
     }
 }
 
 .experience-description {
     margin: 0;
+    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
 }
 
 .experience-description-list {
     margin: 0;
-    padding-left: 1.25rem;
-    list-style: disc;
+    padding-left: 0;
+    list-style: none;
     display: grid;
-    row-gap: 6px;
-}
+    row-gap: 3px;
 
-.experience-actions {
-    margin-top: 16px;
-}
+    li {
+        position: relative;
+        padding-left: 16px;
 
-.experience-technologies {
-    margin-top: 18px;
-}
-
-.experience-technologies-list {
-    padding: 0;
-    margin: 0;
-}
-
-.experience-technologies-pill {
-    padding: 0;
-    border-radius: 0;
-    border: none;
-    background: transparent;
-}
-
-.experience-technologies-icon {
-    min-width: 32px;
-    margin-right: 4px;
-}
-
-.certificate-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--primary);
-    transition: color 0.2s ease, transform 0.2s ease;
-
-    &:hover {
-        color: color-mix(in srgb, var(--primary) 90%, #ffffff);
-        transform: translateX(1px);
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.72em;
+            width: 4px;
+            height: 4px;
+            border-radius: 999px;
+            background: var(--primary);
+        }
     }
 }
 
 @media (max-width: 767px) {
-    .modern-timeline::before {
-        left: 14px;
+    .modern-timeline {
+        --timeline-dot-size: 30px;
+        --timeline-dot-left: 2px;
+        --timeline-dot-top: 14px;
     }
 
     .experience-row {
-        grid-template-columns: 30px 1fr;
+        grid-template-columns: 36px 1fr;
         gap: 14px;
         margin-bottom: 18px;
+
+        &::after {
+            height: calc(100% + 18px);
+        }
     }
 
     .timeline-dot {
-        margin-left: 6px;
-        margin-top: 14px;
+        width: 30px;
+        height: 30px;
+        margin-left: 2px;
+        margin-top: 0;
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    :deep(.timeline-dot-icon),
+    :deep(.timeline-dot-icon svg) {
+        width: 17px;
+        height: 17px;
     }
 
     .experience-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
         padding: 16px;
         border-radius: 14px;
+    }
+
+    .experience-logo-tile {
+        width: 56px;
+        height: 56px;
+
+        svg {
+            width: 27px;
+            height: 27px;
+        }
+    }
+
+    .experience-card-top {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .experience-role {
+        letter-spacing: 0.04em;
+    }
+
+    .experience-period,
+    .experience-company {
+        font-size: 14px;
     }
 }
 
