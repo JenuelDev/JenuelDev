@@ -61,17 +61,13 @@ const services = [
 }
 
 .offer-grid {
-    display: grid;
+    @apply grid gap-32px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 32px;
 }
 
 .offer-card {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
+    @apply relative h-full overflow-hidden rounded-10px;
     border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
-    border-radius: 10px;
     background:
         radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 35%),
         radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 40%),
@@ -91,36 +87,22 @@ const services = [
 }
 
 .offer-dots {
-    position: absolute;
-    top: 26px;
-    right: 24px;
-    width: 74px;
-    height: 48px;
+    @apply absolute top-26px right-24px w-74px h-48px;
     background-image: radial-gradient(circle, color-mix(in srgb, var(--primary) 72%, transparent) 1.5px, transparent 1.5px);
     background-size: 17px 17px;
     opacity: 0.46;
 }
 
 .offer-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 66px;
-    height: 66px;
-    margin-bottom: 28px;
+    @apply flex items-center justify-center w-66px h-66px mb-28px rounded-8px;
     border: 1px solid color-mix(in srgb, var(--primary) 42%, transparent);
-    border-radius: 8px;
     background: color-mix(in srgb, var(--primary) 9%, transparent);
     box-shadow:
         inset 0 0 20px color-mix(in srgb, var(--primary) 14%, transparent),
         0 0 18px color-mix(in srgb, var(--primary) 13%, transparent);
 
     span {
-        display: grid;
-        width: 36px;
-        height: 32px;
-        place-items: center;
-        border-radius: 4px;
+        @apply grid w-36px h-32px place-items-center rounded-4px;
         background: var(--primary);
         color: var(--background);
         box-shadow: 0 0 16px color-mix(in srgb, var(--primary) 62%, transparent);
@@ -128,15 +110,13 @@ const services = [
 }
 
 .offer-card-title {
+    @apply mb-12px;
     color: color-mix(in srgb, var(--lightestSlate) 96%, #ffffff);
     line-height: 1.15;
-    margin-bottom: 12px;
 }
 
 .offer-rule {
-    width: 50px;
-    height: 2px;
-    margin-bottom: 12px;
+    @apply w-50px h-2px mb-12px;
     background: var(--primary);
     box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 58%, transparent);
 }
@@ -147,20 +127,13 @@ const services = [
 
 @media (max-width: 960px) {
     .offer-grid {
-        grid-template-columns: 1fr;
-        max-width: 620px;
-        width: 100%;
-        margin: 0 auto;
+        @apply grid-cols-1 max-w-620px w-full mx-auto;
     }
 }
 
 @media (max-width: 520px) {
     .offer-grid {
-        gap: 18px;
-    }
-
-    .offer-card-copy {
-        max-width: 100%;
+        @apply gap-18px;
     }
 }
 </style>

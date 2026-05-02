@@ -131,25 +131,15 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
 }
 
 .hero-meta-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 7px 14px;
+    @apply inline-flex items-center gap-7px px-14px py-7px rounded-full text-sm font-500 no-underline whitespace-nowrap;
     border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-    border-radius: 999px;
     background: color-mix(in srgb, var(--background) 90%, #001e2e);
     color: color-mix(in srgb, var(--lightestSlate) 80%, transparent);
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    white-space: nowrap;
     transition: border-color 0.2s ease, color 0.2s ease;
 
     svg {
-        width: 15px;
-        height: 15px;
+        @apply w-15px h-15px flex-shrink-0;
         color: var(--primary);
-        flex-shrink: 0;
     }
 
     &:hover {

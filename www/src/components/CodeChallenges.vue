@@ -79,96 +79,66 @@ function openSite(site: string) {
     }
 
         .code-item {
-            position: relative;
-            visibility: visible;
-            overflow: hidden;
+            @apply relative overflow-hidden rounded-8px px-22px py-18px h-full z-1;
             border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-            border-radius: 8px;
-            padding: 18px 22px;
-            height: 100%;
-            z-index: 1;
             background: color-mix(in srgb, var(--background) 92%, #001e2e);
             transition: transform 0.25s ease, border-color 0.25s ease;
+            visibility: visible;
 
             .code-title-row {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                margin-bottom: 14px;
+                @apply flex items-center gap-16px mb-14px;
             }
 
             .code-icon-tile {
-                display: grid;
-                width: 58px;
-                height: 58px;
-                flex: 0 0 auto;
-                place-items: center;
+                @apply grid w-58px h-58px flex-none place-items-center rounded-7px;
                 border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-                border-radius: 7px;
                 background: color-mix(in srgb, var(--background) 84%, #001c2a);
                 color: var(--primary);
 
                 svg {
-                    width: 29px;
-                    height: 29px;
+                    @apply w-29px h-29px;
                 }
             }
 
             .code-item-inner {
-                display: flex;
-                justify-content: space-between;
-                flex-direction: column;
-                height: 100%;
-                min-width: 0;
+                @apply flex justify-between flex-col h-full min-w-0;
 
                 .code-card-header {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: stretch;
-                    justify-content: space-between;
-                    gap: 14px;
+                    @apply flex flex-col items-stretch justify-between gap-14px;
                 }
 
                 .code-card-copy {
-                    min-width: 0;
+                    @apply min-w-0;
                 }
 
                 .code-title {
-                    margin: 0;
+                    @apply m-0;
                     color: var(--primary);
                     line-height: 1.15;
                 }
 
                 .code-description {
-                    max-width: 760px;
+                    @apply max-w-760px;
                     color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
 
                     p {
-                        margin: 0;
+                        @apply m-0;
                     }
                 }
 
                 .item-links {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
+                    @apply inline-flex items-center gap-8px;
                     color: var(--primary);
 
                     .item-links-toggle {
-                        display: grid;
-                        width: 34px;
-                        height: 34px;
-                        place-items: center;
+                        @apply grid w-34px h-34px place-items-center rounded-6px cursor-pointer;
                         border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
-                        border-radius: 6px;
                         background: transparent;
                         color: var(--primary);
-                        cursor: pointer;
                         transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 
                         svg {
-                            width: 20px;
-                            height: 20px;
+                            @apply w-20px h-20px;
                         }
 
                         &:hover {
@@ -181,27 +151,16 @@ function openSite(site: string) {
             }
 
             .code-techs {
-                margin-top: 18px;
+                @apply mt-18px;
 
                 ul {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 8px;
-                    padding: 0;
-                    margin: 0;
-                    list-style: none;
+                    @apply flex flex-wrap gap-8px p-0 m-0 list-none;
                 }
 
                 li {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 6px;
-                    padding: 5px 9px;
+                    @apply inline-flex items-center gap-6px px-9px py-5px rounded-full text-size-13px leading-none;
                     border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
-                    border-radius: 999px;
                     color: color-mix(in srgb, var(--lightestSlate) 78%, transparent);
-                    font-size: 13px;
-                    line-height: 1;
 
                     svg {
                         color: var(--primary);
@@ -219,21 +178,17 @@ function openSite(site: string) {
 @media (max-width: 767px) {
     .code-challenge {
         .code-item {
-            padding: 16px;
-            border-radius: 14px;
+            @apply p-16px rounded-14px;
 
             .code-title-row {
-                gap: 12px;
-                align-items: flex-start;
+                @apply gap-12px items-start;
             }
 
             .code-icon-tile {
-                width: 56px;
-                height: 56px;
+                @apply w-56px h-56px;
 
                 svg {
-                    width: 27px;
-                    height: 27px;
+                    @apply w-27px h-27px;
                 }
             }
         }
