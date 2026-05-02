@@ -12,10 +12,10 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
-                        <p class="md:text-3xl text-2xl font-500 mb-2">Hi, I’m Jenuel — a</p>
+                        <p class="md:text-3xl text-2xl font-500 mb-2">Hi, I'm Jenuel — a</p>
                         <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">Software Developer</h1>
                         <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] mb-2">
-                            I create apps that are engaging, accessible and scalable.
+                            Turning ideas into high-performance apps — web, mobile, and desktop.
                         </h2>
                     </div>
                     <div class="mt-30px flex lg:justify-end justify-center flex-wrap gap-20px items-center">
@@ -40,6 +40,21 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                             </a>
                         </div>
                         <YoutubeButton />
+                    </div>
+
+                    <div class="hero-meta-bar mt-22px flex lg:justify-end justify-center flex-wrap gap-10px">
+                        <span class="hero-meta-chip">
+                            <Icon icon="tabler:map-pin" />
+                            Philippines
+                        </span>
+                        <a href="mailto:me@jenuel.dev" class="hero-meta-chip">
+                            <Icon icon="tabler:mail" />
+                            me@jenuel.dev
+                        </a>
+                        <span class="hero-meta-chip">
+                            <Icon icon="tabler:clock" />
+                            Available for work
+                        </span>
                     </div>
                 </div>
             </div>
@@ -113,5 +128,33 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
 .a-enter {
     opacity: 1;
     transform: translateY(0);
+}
+
+.hero-meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--background) 90%, #001e2e);
+    color: color-mix(in srgb, var(--lightestSlate) 80%, transparent);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    svg {
+        width: 15px;
+        height: 15px;
+        color: var(--primary);
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        border-color: color-mix(in srgb, var(--primary) 48%, transparent);
+        color: var(--lightestSlate);
+    }
 }
 </style>

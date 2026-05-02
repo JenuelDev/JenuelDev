@@ -3,7 +3,7 @@ import { Icon } from "@iconify/vue";
 </script>
 
 <template>
-    <section class="mx-auto w-full max-w-1160px px-14px mb-110px mt-70px">
+    <section class="mx-auto w-full max-w-900px px-10px mb-90px">
         <div v-scrollanimation class="cta-card relative overflow-hidden">
             <div class="cta-card-inner px-22px py-56px sm:px-44px md:py-62px lg:px-70px flex flex-col items-center text-center relative overflow-hidden">
                 <div class="cta-glow" aria-hidden="true"></div>
@@ -18,30 +18,30 @@ import { Icon } from "@iconify/vue";
                     <i></i>
                 </div>
 
-                <div class="cta-badge inline-flex items-center gap-8px px-16px py-7px rounded-6px text-[var(--primary)] text-size-12px font-800 uppercase mb-26px">
-                    <Icon icon="tabler:bolt" class="text-size-16px" />
+                <div class="cta-badge inline-flex items-center gap-8px px-16px py-7px rounded-6px text-[var(--primary)] text-base font-800 uppercase mb-26px">
+                    <Icon icon="tabler:bolt" class="text-lg" />
                     Let's Build Something Amazing
                 </div>
 
-                <h2 class="lg:text-size-38px md:text-size-34px text-size-29px font-800 mb-14px leading-tight max-w-760px">
+                <h2 class="lg:text-size-44px md:text-size-38px text-size-28px font-700 mb-14px leading-tight max-w-760px">
                     Let's work together on
                     <span class="text-[var(--primary)] font-400"> your next project</span>
                 </h2>
 
-                <p class="md:text-size-18px text-size-16px text-[var(--lightestSlate)] max-w-540px mb-30px leading-7">
+                <p class="text-[var(--lightestSlate)] max-w-540px mb-30px leading-7">
                     I'm currently available for freelance work, interesting projects,
                     and full-time opportunities. Let's turn your ideas into reality.
                 </p>
 
                 <router-link
                     to="/contact"
-                    class="cta-btn inline-flex items-center justify-center gap-14px min-w-250px px-46px py-18px rounded-12px text-[var(--background)] font-500 text-size-18px mb-22px"
+                    class="cta-btn inline-flex items-center justify-center gap-14px min-w-250px px-46px py-18px rounded-12px text-[var(--background)] font-500 mb-22px"
                 >
-                    <Icon icon="tabler:send" class="text-size-22px" />
+                    <Icon icon="tabler:send" class="text-lg" />
                     Contact Me
                 </router-link>
 
-                <div class="flex items-center gap-10px text-size-15px text-[var(--lightestSlate)]">
+                <div class="flex items-center gap-10px text-base text-[var(--lightestSlate)]">
                     <span class="cta-dot-pulse w-10px h-10px rounded-full bg-[var(--primary)] inline-block"></span>
                     Available for new opportunities
                 </div>

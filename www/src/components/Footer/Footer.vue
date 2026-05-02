@@ -1,71 +1,127 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 
-const lighthouseScores = [
-    { label: "Performance", score: 100 },
-    { label: "Accessibility", score: 100 },
-    { label: "Best Practices", score: 100 },
-    { label: "SEO", score: 100 },
+const navLinks = [
+    { label: 'About', href: '/about-me#about-me' },
+    { label: 'Skills', href: '/about-me#technical-skills' },
+    { label: 'Projects', href: '/about-me#projects' },
+    { label: 'Experience', href: '/about-me#experience' },
+    { label: 'Achievements', href: '/about-me#achievements' },
 ];
 
-function openSite(site: string) {
-    window.open(site, "_blank");
-}
+const services = [
+    'Web Development',
+    'Mobile Development',
+    'Back-end Solutions',
+    'UI/UX Implementation',
+    'Consulting',
+];
+
+const socials = [
+    { icon: 'tabler:brand-github', href: 'https://github.com/JenuelDev', label: 'GitHub' },
+    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/jenuelganawed/', label: 'LinkedIn' },
+    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/jenueldev/', label: 'Instagram' },
+    { icon: 'tabler:mail', href: 'mailto:me@jenuel.dev', label: 'Email' },
+];
 </script>
+
 <template>
-    <section
-        v-scrollanimation
-        class="w-full max-w-960px px-12px py-8px mx-auto mt-8px mb-28px flex flex-wrap justify-center gap-20px md:gap-14px md:px-10px md:py-6px md:mb-22px"
-        aria-label="Lighthouse scores"
-    >
-        <div v-for="item in lighthouseScores" :key="item.label" class="flex flex-col items-center gap-5 min-w-94px">
-            <div
-                class="w-30px h-30px rounded-full border-2 md:border-4 border-[var(--primary)] text-[var(--primary)] grid place-items-center text-size-20px font-600 leading-none md:w-50px md:h-50px md:text-size-13px"
-                :aria-label="`${item.label} score ${item.score}`"
-            >
-                {{ item.score }}
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo" aria-label="Jenuel Dev">
+                        <Icon icon="tabler:code" />
+                    </div>
+                    <p class="footer-tagline">
+                        Developer&nbsp;•&nbsp;Problem Solver&nbsp;•&nbsp;Lifelong Learner
+                    </p>
+                    <p class="footer-desc">
+                        Building clean, efficient and impactful digital experiences.
+                    </p>
+                </div>
+
+                <!-- Navigate -->
+                <div class="footer-col">
+                    <h3 class="footer-col-heading">Navigate</h3>
+                    <ul class="footer-links">
+                        <li v-for="link in navLinks" :key="link.label">
+                            <a :href="link.href">
+                                <span class="footer-link-dot" aria-hidden="true"></span>
+                                {{ link.label }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-col">
+                    <h3 class="footer-col-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li v-for="service in services" :key="service">
+                            <span class="footer-link-item">
+                                <span class="footer-link-dot" aria-hidden="true"></span>
+                                {{ service }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Let's Connect -->
+                <div class="footer-col">
+                    <h3 class="footer-col-heading">Let's Connect</h3>
+                    <p class="footer-connect-copy">
+                        Have a project in mind or just want to say hi? I'd love to hear from you.
+                    </p>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <Icon icon="tabler:mail" />
+                            <a href="mailto:me@jenuel.dev">me@jenuel.dev</a>
+                        </li>
+                        <li>
+                            <Icon icon="tabler:map-pin" />
+                            <span>Philippines</span>
+                        </li>
+                        <li>
+                            <Icon icon="tabler:clock" />
+                            <span>Usually replies within 24h</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="m-0 text-center text-size-20px leading-1.2 md:text-md">{{ item.label }}</p>
-        </div>
-    </section>
-    <div
-        class="mx-auto mb-20px w-full max-w-760px flex items-center gap-12px px-12px md:px-8px"
-        aria-hidden="true"
-    >
-        <div class="h-1px flex-1 bg-gradient-to-r from-transparent via-white/30 to-white/55"></div>
-        <div
-            class="w-38px h-38px rounded-full border border-[var(--primary)]/50 bg-[var(--lightBackground)]/70 shadow-[0_0_20px_rgba(79,213,127,0.25)] flex items-center justify-center"
-        >
-            <Icon icon="mdi:earth" class="text-size-20px text-[var(--primary)]" />
-        </div>
-        <div class="h-1px flex-1 bg-gradient-to-l from-transparent via-white/30 to-white/55"></div>
-    </div>
-    <div v-scrollanimation class="my-footer text-size-20px">
-        <div class="footer-toggle-link" @click="openSite('https://github.com/JenuelDev')">
-            <div class="copy-right">
-                {{ new Date().getFullYear() }}
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-copyright"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M14.5 9a3.5 4 0 1 0 0 6"></path>
-                </svg>
-                Jenuel Ganawed
+
+            <!-- Divider -->
+            <div class="footer-divider" aria-hidden="true">
+                <span></span>
+                <div class="footer-divider-icon">
+                    <Icon icon="tabler:code" />
+                </div>
+                <span></span>
             </div>
-            <q class="text-center">Programming isn't about what you know; it's about what you can figure out.</q>
-            <p class="m-0 mt-8px text-center text-size-16px">
-                This website was created from the ground up using Vue technology.
-            </p>
+
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-socials">
+                    <a
+                        v-for="s in socials"
+                        :key="s.label"
+                        :href="s.href"
+                        target="_blank"
+                        rel="noopener noreferrer external"
+                        :aria-label="s.label"
+                        class="footer-social-btn"
+                    >
+                        <Icon :icon="s.icon" />
+                    </a>
+                </div>
+                <p class="footer-copy">
+                    &copy; {{ new Date().getFullYear() }} Jenuel Ganawed. All rights reserved.
+                </p>
+                <p class="footer-built">
+                    Built with <Icon icon="tabler:heart" class="footer-heart" /> and lots of <Icon icon="tabler:coffee" />
+                </p>
+            </div>
         </div>
-    </div>
+    </footer>
 </template>

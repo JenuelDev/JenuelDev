@@ -9,10 +9,10 @@ function openSite(site: string) {
 <template>
     <section v-scrollanimation class="code-challenge">
         <h2
-            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
+            class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
             others
         </h2>
-        <p class="md:text-size-24px text-size-20px md:px-10px w-[100%] md:leading-relaxed leading-normal">
+        <p class="text-lg md:px-10px w-[100%] leading-7">
             {{ CodeChallenge.des }}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-22px mt-42px">
@@ -26,11 +26,11 @@ function openSite(site: string) {
                                         <div class="code-icon-tile" aria-hidden="true">
                                             <Icon icon="material-symbols:folder-open" />
                                         </div>
-                                        <h3 class="code-title md:text-size-21px text-size-19px font-800">
+                                        <h3 class="code-title text-xl font-800">
                                             {{ code.title }}
                                         </h3>
                                     </div>
-                                    <div class="code-description md:text-size-15px text-size-14px leading-6"
+                                    <div class="code-description text-base leading-6"
                                         v-html="code.des"></div>
                                 </div>
                                 <div class="item-links">

@@ -16,6 +16,8 @@ interface ExperienceItem {
     url?: string;
     certificate?: ExperienceCertificate;
     technologies?: string[];
+    timeline_icon?: string;
+    logo?: string;
 }
 
 const experiences = Experience as ExperienceItem[];
@@ -25,19 +27,23 @@ const timelineIconMap = ['tabler:briefcase', 'tabler:code', 'tabler:rocket', 'ta
 function getDescriptionPoints(description: string | string[]) {
     return Array.isArray(description) ? description.slice(0, 3) : [description];
 }
+
+function getTimelineIcon(exp: ExperienceItem, index: number) {
+    return exp.timeline_icon || timelineIconMap[index % timelineIconMap.length];
+}
 </script>
 <template>
-    <section id="experience" v-scrollanimation class="my-work-experience mx-auto pt-10">
+    <section id="experience" v-scrollanimation class="my-work-experience mx-auto mb-90px">
         <div class="experience-shell relative">
             <h2
                 v-scrollanimation
-                class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px"
+                class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
             >
                 work experience
             </h2>
             <p
                 v-scrollanimation
-                class="md:text-size-24px text-size-20px md:px-10px w-full max-w-900px md:leading-relaxed leading-normal relative mb-10"
+                class="text-lg w-full max-w-900px leading-7 relative mb-10"
             >
                 A summary of my professional journey and the impact I've created through the roles I've held.
             </p>
@@ -50,16 +56,17 @@ function getDescriptionPoints(description: string | string[]) {
                     class="experience-row"
                 >
                     <span class="timeline-dot" aria-hidden="true">
-                        <Icon class="timeline-dot-icon" :icon="timelineIconMap[index % timelineIconMap.length]" />
+                        <Icon class="timeline-dot-icon" :icon="getTimelineIcon(exp, index)" />
                     </span>
                     <article class="experience-card">
-                        <div class="experience-logo-tile" aria-hidden="true">
-                            <Icon :icon="timelineIconMap[index % timelineIconMap.length]" />
+                        <div class="experience-logo-tile">
+                            <img v-if="exp.logo" :src="exp.logo" :alt="`${exp.company} logo`" loading="lazy" />
+                            <Icon v-else :icon="getTimelineIcon(exp, index)" aria-hidden="true" />
                         </div>
                         <div class="experience-content">
                             <div class="experience-card-top">
                                 <div class="experience-card-body">
-                                    <h3 class="experience-role lg:text-size-21px md:text-size-20px text-size-19px font-800">
+                                    <h3 class="experience-role text-xl font-700">
                                         {{ exp.position }}
                                     </h3>
                                     <a
@@ -80,7 +87,7 @@ function getDescriptionPoints(description: string | string[]) {
                                     <span v-html="`${exp.workStart} - ${exp.workUntil}`"></span>
                                 </p>
                             </div>
-                            <div class="experience-description md:text-size-15px text-size-14px leading-6">
+                            <div class="experience-description leading-6">
                                 <ul class="experience-description-list">
                                     <li v-for="(item, itemIndex) in getDescriptionPoints(exp.des)" :key="itemIndex">
                                         {{ item }}
@@ -98,11 +105,11 @@ function getDescriptionPoints(description: string | string[]) {
 
 <style lang="scss" scoped>
 .my-work-experience {
-    max-width: 1160px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     min-height: 50vh;
-    padding-inline: 14px;
+    padding-inline: 10px;
 
     &.a-before-enter {
         opacity: 0;
@@ -122,7 +129,7 @@ function getDescriptionPoints(description: string | string[]) {
 
 .modern-timeline {
     list-style: none;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0;
     position: relative;
@@ -238,6 +245,14 @@ function getDescriptionPoints(description: string | string[]) {
     background: color-mix(in srgb, var(--background) 84%, #001c2a);
     color: var(--primary);
 
+    img {
+        display: block;
+        max-width: 78%;
+        max-height: 78%;
+        border-radius: 6px;
+        object-fit: contain;
+    }
+
     svg {
         width: 34px;
         height: 34px;
@@ -263,7 +278,6 @@ function getDescriptionPoints(description: string | string[]) {
     gap: 8px;
     margin: 2px 0 0;
     color: var(--primary);
-    font-size: 15px;
     font-weight: 800;
     white-space: nowrap;
 
@@ -284,7 +298,6 @@ function getDescriptionPoints(description: string | string[]) {
     display: inline-block;
     margin-bottom: 0;
     color: color-mix(in srgb, var(--lightestSlate) 92%, transparent);
-    font-size: 16px;
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -386,7 +399,6 @@ function getDescriptionPoints(description: string | string[]) {
 
     .experience-period,
     .experience-company {
-        font-size: 14px;
     }
 }
 

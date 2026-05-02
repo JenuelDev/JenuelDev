@@ -155,13 +155,13 @@ onUnmounted(() => {
 });
 </script>
 <template>
-    <section id="achievements" v-scrollanimation class="mx-auto w-full max-w-1000px pt-10">
+    <section id="achievements" v-scrollanimation class="mx-auto w-full max-w-900px px-10px mb-90px">
         <div class="relative">
             <h2
-                class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px">
+                class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px">
                 Achievements
             </h2>
-            <p class="md:text-size-24px text-size-20px md:px-10px  md:leading-relaxed leading-relaxed mb-5">
+            <p class="text-lg leading-7 mb-5">
                 During my professional journey, I've embraced continuous learning as an essential part of growth. There
                 are many ways to learn, such as joining projects or taking courses. Through these experiences, I've been
                 able to achieve significant milestones.
@@ -193,10 +193,10 @@ onUnmounted(() => {
                                 <div class="achievement-card-top">
                                     <span class="achievement-provider">{{ achievement.from }}</span>
                                 </div>
-                                <div class="achievement-title md:text-size-22px text-size-20px font-800">
+                                <div class="achievement-title text-xl font-700">
                                     {{ achievement.name }}
                                 </div>
-                                <div class="achievement-description md:text-size-16px text-size-15px leading-6">
+                                <div class="achievement-description leading-6">
                                     {{ achievement.description }}
                                 </div>
                                 <a
@@ -207,7 +207,7 @@ onUnmounted(() => {
                                     @click.stop
                                 >
                                     <span>View Certificate</span>
-                                    <Icon icon="mdi:open-in-new" class="text-size-17px" />
+                                    <Icon icon="mdi:open-in-new" class="text-lg" />
                                 </a>
                             </div>
                         </article>
@@ -225,10 +225,10 @@ onUnmounted(() => {
                                 <div class="achievement-card-top">
                                     <span class="achievement-provider">{{ achievement.from }}</span>
                                 </div>
-                                <div class="achievement-title md:text-size-22px text-size-20px font-800">
+                                <div class="achievement-title text-xl font-700">
                                     {{ achievement.name }}
                                 </div>
-                                <div class="achievement-description md:text-size-16px text-size-15px leading-6">
+                                <div class="achievement-description leading-6">
                                     {{ achievement.description }}
                                 </div>
                                 <a
@@ -239,7 +239,7 @@ onUnmounted(() => {
                                     @click.stop
                                 >
                                     <span>View Certificate</span>
-                                    <Icon icon="mdi:open-in-new" class="text-size-17px" />
+                                    <Icon icon="mdi:open-in-new" class="text-lg" />
                                 </a>
                             </div>
                         </article>
@@ -308,7 +308,6 @@ onUnmounted(() => {
     border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
     border-radius: 999px;
     color: var(--primary);
-    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.04em;
     background: color-mix(in srgb, var(--primary) 7%, transparent);
@@ -360,7 +359,6 @@ onUnmounted(() => {
     border: 1px solid color-mix(in srgb, var(--primary) 46%, transparent);
     border-radius: 6px;
     color: var(--primary);
-    font-size: 14px;
     font-weight: 800;
     text-decoration: none;
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;

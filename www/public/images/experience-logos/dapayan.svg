@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Dap-ayan logo">
+  <rect width="120" height="120" rx="22" fill="#061a2e"/>
+  <path d="M28 26h31c22 0 36 13 36 34s-14 34-36 34H28V26zm25 18v32h6c11 0 18-6 18-16s-7-16-18-16h-6z" fill="#64ffda"/>
+  <path d="M27 101h66" stroke="#64ffda" stroke-width="6" stroke-linecap="round"/>
+</svg>

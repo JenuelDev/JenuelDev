@@ -11,20 +11,55 @@ onMounted(() => {
 });
 
 const works = Project;
+
 function openSite(site: string) {
     window.open(site, "_blank");
 }
+
+const techIconMap: Record<string, string> = {
+    electron: 'mdi:electron-framework',
+    'electron.builder': 'mdi:electron-framework',
+    vue: 'material-icon-theme:vue',
+    vue3: 'material-icon-theme:vue',
+    vuejs: 'material-icon-theme:vue',
+    nuxt: 'vscode-icons:file-type-nuxt',
+    'nuxt js': 'vscode-icons:file-type-nuxt',
+    react: 'vscode-icons:file-type-reactjs',
+    javascript: 'skill-icons:javascript',
+    typescript: 'vscode-icons:file-type-typescript-official',
+    firebase: 'skill-icons:firebase-light',
+    unocss: 'material-icon-theme:unocss',
+    windicss: 'material-icon-theme:windicss',
+    tailwindcss: 'devicon:tailwindcss',
+    vuepress: 'material-icon-theme:vue',
+    api: 'tabler:api',
+    pwa: 'tabler:device-mobile-check',
+    'html/css': 'skill-icons:html',
+    html: 'skill-icons:html',
+    css: 'skill-icons:css',
+    sass: 'skill-icons:sass',
+    php: 'skill-icons:php-dark',
+    laravel: 'material-icon-theme:laravel',
+    nodejs: 'material-icon-theme:nodejs',
+    mongodb: 'skill-icons:mongodb',
+    mysql: 'skill-icons:mysql-light',
+};
+
+function getTechIcon(tech: string): string {
+    return techIconMap[tech.toLowerCase()] ?? 'tabler:code';
+}
+
 </script>
 <template>
-    <section id="projects" v-scrollanimation class="my-work lg:pt-130px pt-0 mx-auto max-w-[1000px] px-10px">
+    <section id="projects" v-scrollanimation class="my-work mx-auto max-w-900px px-10px mb-90px">
         <h2
-            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mb-15px"
+            class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
         >
             projects
         </h2>
-        <p class="md:text-size-24px text-size-20px md:leading-relaxed leading-normal">
+        <p class="text-lg leading-7">
             Learning is a journey, not a destination. One of the most effective ways to grow is by building personal
-            projects. I decided to challenge myself by designing and developing my own. These “hobby” projects matter to
+            projects. I decided to challenge myself by designing and developing my own. These "hobby" projects matter to
             me because they push me to keep learning, stay up to date, and sharpen my skills. In reality, they are far
             more than just hobbies., they are a vital part of my growth as a developer.
         </p>
@@ -32,26 +67,16 @@ function openSite(site: string) {
             <template v-for="(work, i) in works.works" :key="i">
                 <div v-scrollanimation class="work-info mx-0 md:my-30 my-1" style="transition-delay: 500ms">
                     <div class="work-info-details" :class="(i as number) % 2 == 0 ? 'left-content' : 'right-content'">
-                        <p class="text-[var(--primary)] font-200">{{ work.overline }}</p>
-                        <h3 class="md:text-size-28px text-size-25px mb-25px font-600">{{ work.title }}</h3>
+                        <p class="project-overline text-[var(--primary)] font-600">{{ work.overline }}</p>
+                        <h3 class="project-title text-xl font-700">{{ work.title }}</h3>
                         <div class="info-des-container">
-                            <p class="" v-html="work.des"></p>
-                        </div>
-                        <ul class="info-tech-list" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
-                            <li v-for="tech in work.techs" :key="tech">
-                                {{ tech }}
-                            </li>
-                        </ul>
-                        <div class="work-links" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
-                            <div
-                                v-for="link in work.links"
-                                class="work-links-toggle customTooltip"
-                                :gloss="link.tooltip"
-                                :key="link.name"
-                                @click="openSite(link.link)"
-                            >
-                                <Icon :icon="link.icon" />
-                            </div>
+                            <p v-html="work.des"></p>
+                            <ul class="info-tech-list" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
+                                <li v-for="tech in work.techs" :key="tech">
+                                    <Icon :icon="getTechIcon(tech)" class="tech-icon" />
+                                    {{ tech }}
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="work-info-image" :class="(i as number) % 2 == 0 ? 'right-image' : 'left-image'">
@@ -124,69 +149,98 @@ function openSite(site: string) {
         }
 
         .work-info-details {
-            .info-overline {
-                margin: 10px 0px;
-                color: var(--primary);
-                font-weight: 400;
+            .project-overline {
+                margin: 0 0 8px;
+                letter-spacing: 0;
             }
 
-            .info-title {
-                margin: 0px 0px 20px;
-                font-size: clamp(18px, 5vw, 23px);
-                color: var(--lightestSlate) !important;
+            .project-title {
+                margin: 0 0 18px;
+                color: color-mix(in srgb, var(--lightestSlate) 94%, transparent);
+                letter-spacing: 0;
+                line-height: 1.15;
             }
 
             .info-des-container {
-                @apply relative z-10 p-16px bg-[var(--lightBackground)] md:text-size-18px md:leading-snug text-size-16px leading-tight;
+                position: relative;
+                z-index: 10;
+                border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+                border-radius: 8px;
+                padding: 20px;
+                background: color-mix(in srgb, var(--background) 92%, #001e2e);
+                color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
+                line-height: 1.55;
+
+                p {
+                    margin: 0 0 18px;
+                }
             }
 
             .info-tech-list {
                 display: flex;
-                position: relative;
-                z-index: 10;
-                margin-top: 25px;
-                margin-bottom: 10px;
-                list-style-type: none;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 0 0 14px;
+                padding: 0;
+                list-style: none;
 
                 li {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 5px 11px;
+                    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+                    border-radius: 999px;
+                    background: color-mix(in srgb, var(--primary) 6%, transparent);
+                    color: color-mix(in srgb, var(--lightestSlate) 82%, transparent);
+                    font-size: 13px;
                     white-space: nowrap;
-                    margin-right: 15px;
+                    line-height: 1;
+
+                    .tech-icon {
+                        width: 15px;
+                        height: 15px;
+                        flex-shrink: 0;
+                    }
+                }
+
+                &.work-links-right {
+                    justify-content: flex-end;
                 }
             }
 
             .work-links {
-                justify-content: flex-start;
-                margin-left: 0px;
-                margin-right: -10px;
                 display: flex;
                 align-items: center;
-                position: relative;
-                margin-top: 10px;
-                margin-left: -10px;
-                color: var(--lightestSlate);
+                gap: 8px;
+
+                &.work-links-right {
+                    justify-content: flex-end;
+                }
 
                 .work-links-toggle {
-                    padding: 10px;
+                    display: grid;
+                    width: 34px;
+                    height: 34px;
+                    place-items: center;
+                    border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
+                    border-radius: 6px;
+                    background: transparent;
+                    color: var(--primary);
                     cursor: pointer;
+                    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 
-                    .highlight-hover {
-                        color: var(--slate) !important;
+                    svg {
+                        width: 18px;
+                        height: 18px;
                     }
 
                     &:hover {
-                        .highlight-hover {
-                            color: var(--primary) !important;
-                        }
+                        transform: translateY(-2px);
+                        border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+                        background: color-mix(in srgb, var(--primary) 8%, transparent);
                     }
                 }
-            }
-
-            .work-links-right {
-                justify-content: flex-end !important;
-            }
-
-            .work-links-left {
-                justify-content: flex-start !important;
             }
         }
 
@@ -253,7 +307,7 @@ function openSite(site: string) {
 
 @media only screen and (max-width: 768px) {
     .my-work {
-        padding: 0;
+        padding-inline: 10px;
 
         .work-info {
             display: grid;
@@ -278,12 +332,25 @@ function openSite(site: string) {
                 grid-column: 1 / -1;
                 padding: 40px 40px 30px;
                 z-index: 5;
+                text-align: left;
+
+                .info-tech-list,
+                .work-links {
+                    justify-content: flex-start !important;
+                }
             }
 
             .left-image {
                 grid-column: 1 / -1;
                 height: 100%;
                 opacity: 0.25;
+            }
+
+            .work-info-details {
+                .info-des-container {
+                    padding: 18px;
+                    line-height: 1.5;
+                }
             }
         }
     }

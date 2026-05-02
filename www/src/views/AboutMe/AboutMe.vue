@@ -20,7 +20,7 @@ import CtaSection from '@/components/AboutMe/CtaSection.vue';
 <style lang="scss">
 .what-i-offer-content {
     margin: 70px auto 10px auto;
-    max-width: 1000px;
+    max-width: 900px;
     min-height: 60vh;
 
     .services-title {

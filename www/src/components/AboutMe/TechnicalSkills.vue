@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import { skillList, mySkills } from "../../constant/TechnicalSkills";
+import { skillList, mySkills, type Skill } from "../../constant/TechnicalSkills";
 import { reactive, ref } from "vue";
 const dialog = ref(false);
 const dialogContent = reactive({
@@ -29,6 +29,96 @@ const closeDialog = () => {
 
     dialog.value = !dialog.value;
 };
+
+const skillsByName = new Map<string, Skill>();
+
+mySkills.forEach((skill) => {
+    skillsByName.set(skill.tech, {
+        icon: skill.icon,
+        text: skill.tech,
+        des: skill.des,
+    });
+
+    skill.tools.forEach((tool) => {
+        skillsByName.set(tool.text, tool);
+    });
+});
+
+const getSkill = (name: string, icon: string, des = ""): Skill => {
+    return skillsByName.get(name) || { icon, text: name, des };
+};
+
+const skillGroups = [
+    {
+        title: "Frontend",
+        icon: "tabler:layout-dashboard",
+        description: "Frameworks and languages I use for responsive, accessible, interactive interfaces.",
+        skills: [
+            getSkill("JavaScript", "skill-icons:javascript"),
+            getSkill("TypeScript", "vscode-icons:file-type-typescript-official"),
+            getSkill("Vue", "material-icon-theme:vue"),
+            getSkill("Nuxt JS", "vscode-icons:file-type-nuxt"),
+            getSkill("ReactJs", "vscode-icons:file-type-reactjs"),
+            getSkill("Astro", "skill-icons:astro"),
+        ],
+    },
+    {
+        title: "Backend",
+        icon: "tabler:server-cog",
+        description: "Server-side tools for APIs, business logic, and maintainable application workflows.",
+        skills: [
+            getSkill("PHP", "skill-icons:php-dark"),
+            getSkill("laravel/Lumen", "material-icon-theme:laravel"),
+            getSkill("CodeIgniter", "logos:codeigniter-icon"),
+            getSkill("NodeJs", "material-icon-theme:nodejs"),
+            getSkill("Rails", "vscode-icons:file-type-ruby"),
+            getSkill("Ruby on Rails", "skill-icons:rails"),
+        ],
+    },
+    {
+        title: "Database",
+        icon: "tabler:database",
+        description: "Relational and document databases used for application data and platform features.",
+        skills: [
+            getSkill("Database", "solar:database-bold-duotone"),
+            getSkill("MySQL", "skill-icons:mysql-light"),
+            getSkill("PostgreSQL", "skill-icons:postgresql-light"),
+            getSkill("MongoDB", "skill-icons:mongodb"),
+        ],
+    },
+    {
+        title: "Styling & Tooling",
+        icon: "tabler:tools",
+        description: "CSS systems, build tooling, and desktop app tooling for faster development.",
+        skills: [
+            getSkill("HTML/CSS", "skill-icons:html"),
+            getSkill("html5", "skill-icons:html"),
+            getSkill("SASS", "skill-icons:sass"),
+            getSkill("tailwindcss", "devicon:tailwindcss"),
+            getSkill("windicss", "material-icon-theme:windicss"),
+            getSkill("UnoCss", "material-icon-theme:unocss"),
+            getSkill("Vite", "vscode-icons:file-type-vite"),
+            getSkill("Electron", "mdi:electron-framework"),
+        ],
+    },
+    {
+        title: "Design",
+        icon: "tabler:brush",
+        description: "Design handoff and interface thinking for user-friendly frontend implementation.",
+        skills: [
+            getSkill("UI Design", "hugeicons:web-design-01"),
+            getSkill("Figma", "logos:figma"),
+        ],
+    },
+    {
+        title: "AI & Productivity",
+        icon: "tabler:sparkles",
+        description: "Practical AI usage for development assistance, automation, and faster iteration.",
+        skills: [
+            getSkill("Artificial Intelligence", "mdi:robot"),
+        ],
+    },
+];
 </script>
 
 <template>
@@ -73,49 +163,51 @@ const closeDialog = () => {
             </div>
         </li>
     </ul>
-    <section class="flex flex-col w-[100%] max-w-[1000px] visible opacity-100 z-10 px-10px mx-auto">
+    <section class="flex flex-col w-[100%] max-w-900px visible opacity-100 z-10 px-10px mx-auto mb-90px">
         <h1
             v-scrollanimation
-            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
+            class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
         >
             skills
         </h1>
         <p
             v-scrollanimation
-            class="md:text-size-24px text-size-20px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed"
+            class="text-lg w-[100%] max-w-[770px] leading-7"
         >
             Continuous learning is a core focus to stay current with emerging technologies and select the best tools
             for each project.
         </p>
-        <div class="technical-skills-wrapper mt-30px flex flex-wrap sm:gap-10 gap-0 sm:px-5">
+        <div class="technical-skills-grid grid grid-cols-1 md:grid-cols-2 gap-22px mt-42px">
             <div
                 v-scrollanimation
-                class="flex flex-col justify-between"
-                v-for="mySkill in mySkills"
-                :key="mySkill.tech"
+                class="technical-skill-card"
+                v-for="group in skillGroups"
+                :key="group.title"
             >
-                <div>
-                    <div class="flex items-center">
-                        <Icon :icon="mySkill.icon" class="text-2xl" />
-                        <div class="ml-7px font-600 md:text-size-24px text-size-20px">{{ mySkill.tech }}</div>
-                        <span class="technical-skill-year md:text-size-20px text-size-18px opacity-70">{{
-                            mySkill.yearStarted
-                        }}</span>
+                <div class="technical-skill-card-header">
+                    <div class="technical-skill-icon">
+                        <Icon :icon="group.icon" />
                     </div>
-                    <div class="md:text-size-20px text-size-18px md:leading-normal leading-normal py-[1rem]">
-                        {{ mySkill.des }}
+                    <div>
+                        <h3 class="technical-skill-title text-xl font-700">
+                            {{ group.title }}
+                        </h3>
+                        <p class="technical-skill-description leading-6">
+                            {{ group.description }}
+                        </p>
                     </div>
                 </div>
-                <div class="text-size-14px flex items-center gap-5px flex-wrap">
-                    <div
-                        class="p-5px rounded-md cursor-pointer flex items-center gap-5px text-size-20px duration-100 truncate scale-100 hover:scale-103"
-                        v-for="tool in mySkill.tools"
-                        :key="tool.text"
-                        @click="openDialog(tool)"
+                <div class="technical-skill-tags flex flex-wrap gap-10px mt-22px">
+                    <button
+                        v-for="skill in group.skills"
+                        :key="skill.text"
+                        type="button"
+                        class="technical-skill-tag"
+                        @click="openDialog(skill)"
                     >
-                        <Icon class="skill-icon min-w-30px text-3xl" :icon="tool.icon"></Icon>
-                        <span class="ml-10px">{{ tool.text }}</span>
-                    </div>
+                        <Icon class="skill-icon" :icon="skill.icon"></Icon>
+                        <span>{{ skill.text }}</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -123,27 +215,86 @@ const closeDialog = () => {
 </template>
 
 <style lang="scss">
-.technical-skill-year {
-    &::before {
-        content: "\2022";
-        color: #a0aec0;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        font-weight: 400;
-    }
-}
-
-.technical-skills-wrapper {
-    & > * {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        flex: 1 1 300px;
-    }
-}
-
 .modal-enter-active,
 .modal-leave-active {
     transition: 0.3s;
+}
+
+.technical-skill-card {
+    min-height: 250px;
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    border-radius: 8px;
+    padding: 22px;
+    background: color-mix(in srgb, var(--background) 92%, #001e2e);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: color-mix(in srgb, var(--primary) 42%, transparent);
+    }
+}
+
+.technical-skill-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.technical-skill-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--background) 84%, #001c2a);
+    color: var(--primary);
+
+    svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.technical-skill-title {
+    margin: 0 0 7px;
+    color: var(--primary);
+    letter-spacing: 0;
+    line-height: 1.15;
+}
+
+.technical-skill-description {
+    margin: 0;
+    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
+}
+
+.technical-skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 38px;
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    border-radius: 999px;
+    padding: 7px 12px;
+    background: transparent;
+    color: color-mix(in srgb, var(--lightestSlate) 82%, transparent);
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+        background: color-mix(in srgb, var(--primary) 8%, transparent);
+        color: var(--primary);
+    }
+
+    .skill-icon {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+    }
 }
 
 .modal-enter-from,
@@ -184,7 +335,6 @@ const closeDialog = () => {
         z-index: 90;
         top: 0;
         left: 0;
-        font-size: 1.1rem;
 
         .box {
             position: fixed;
@@ -211,13 +361,31 @@ const closeDialog = () => {
                 align-items: center;
                 gap: 10px;
                 color: var(--primary);
-                font-size: 1.3rem;
             }
         }
     }
 }
 
 @media screen and (max-width: 553px) {
+    .technical-skill-card-header {
+        gap: 12px;
+    }
+
+    .technical-skill-card {
+        padding: 18px;
+    }
+
+    .technical-skill-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+    }
+
     .modal-window {
         .modal-window-content {
             .box {
