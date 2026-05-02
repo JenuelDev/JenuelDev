@@ -5,6 +5,7 @@ import TechnicalSkills from './../../components/AboutMe/TechnicalSkills.vue';
 import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
 import Projects from '@/components/AboutMe/Projects.vue';
 import Achievements from '@/components/AboutMe/Achievements.vue';
+import CtaSection from '@/components/AboutMe/CtaSection.vue';
 
 </script>
 <template>
@@ -14,11 +15,12 @@ import Achievements from '@/components/AboutMe/Achievements.vue';
     <Experience />
     <Achievements />
     <WhatIconOffer />
+    <CtaSection />
 </template>
 <style lang="scss">
 .what-i-offer-content {
     margin: 70px auto 10px auto;
-    max-width: 1000px;
+    max-width: 900px;
     min-height: 60vh;
 
     .services-title {
