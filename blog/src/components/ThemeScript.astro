@@ -1,20 +1,29 @@
 ---
 // ThemeScript.astro - Inline script that runs immediately to prevent theme flash
-// This must be placed in the <head> of your layout
+// Must be placed first in <head>
 ---
 <script is:inline>
   (function() {
-    const theme = (() => {
-      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-        return localStorage.getItem('theme');
-      }
-      return 'dark'; // Default to dark
-    })();
-    
-    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    var DARK_ACCENTS = ['greenLight', 'yellowOrange', 'underTheSea', 'NightBurns'];
+    var LIGHT_ACCENTS = ['lightBurn', 'brightMind'];
+
+    var accent = localStorage.getItem('accent') || 'greenLight';
+    var isDarkAccent = DARK_ACCENTS.indexOf(accent) !== -1;
+
+    // For dark accents, always dark. For light accents, respect light/dark pref.
+    var isDark;
+    if (isDarkAccent) {
+      isDark = true;
+    } else {
+      var stored = localStorage.getItem('theme');
+      isDark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
+    document.documentElement.setAttribute('data-accent', accent);
   })();
 </script>

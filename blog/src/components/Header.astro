@@ -50,16 +50,16 @@ const pathname = new URL(Astro.request.url).pathname;
         right: 0;
         z-index: 9999;
         background: var(--slate1-soft);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--slate6);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid color-mix(in srgb, var(--primary) 22%, var(--slate6));
+        box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
-    /* Light mode: subtler borders */
     :root:not(.dark) .nav-header {
         border-bottom-color: var(--slate4);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
 
     .nav-container {
@@ -68,7 +68,7 @@ const pathname = new URL(Astro.request.url).pathname;
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 1.5rem;
         gap: 1rem;
     }
 
@@ -78,68 +78,74 @@ const pathname = new URL(Astro.request.url).pathname;
         align-items: center;
         gap: 0.25rem;
         padding: 0.5rem 1rem;
-        border: 2px solid var(--slate6);
-        border-radius: 9999px;
+        border: 1px solid color-mix(in srgb, var(--primary) 36%, var(--slate6));
+        border-radius: 4px;
         text-decoration: none;
         color: var(--slate12);
         font-size: 0.875rem;
-        transition: all 0.2s ease;
+        font-family: 'Inter var', monospace;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         justify-self: start;
         height: 42px;
         box-sizing: border-box;
+        background: color-mix(in srgb, var(--primary) 6%, transparent);
     }
 
-    /* Light mode: lighter borders */
     :root:not(.dark) .nav-logo {
         border-color: var(--slate4);
-    }
-
-    :root:not(.dark) .nav-logo:hover {
-        border-color: var(--slate6);
+        background: transparent;
     }
 
     .nav-logo:hover {
-        border-color: var(--slate8);
-        background: var(--slate2);
+        border-color: var(--primary);
+        color: var(--primary);
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
     }
 
     .nav-logo-dot {
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
-        background: var(--orange9);
+        background: var(--primary);
         margin-right: 0.25rem;
+        box-shadow: 0 0 8px color-mix(in srgb, var(--primary) 70%, transparent);
+        flex-shrink: 0;
     }
 
     .nav-logo-text {
         color: var(--slate12);
+        transition: color 0.25s ease;
+    }
+
+    .nav-logo:hover .nav-logo-text {
+        color: var(--primary);
     }
 
     .nav-logo-bold {
         font-weight: 800;
-        color: var(--slate12);
+        color: var(--primary);
     }
 
     .nav-logo-suffix {
-        color: var(--slate11);
+        color: var(--slate9);
         margin-left: 0.25rem;
+        font-size: 0.75rem;
     }
 
-    /* Navigation Links - Centered */
+    /* Navigation Links */
     .nav-links {
         display: none;
         align-items: center;
         justify-content: center;
-        gap: 0.25rem;
+        gap: 0.125rem;
         padding: 0.25rem;
-        border: 2px solid var(--slate6);
-        border-radius: 9999px;
-        background: var(--slate2);
+        border: 1px solid var(--slate6);
+        border-radius: 4px;
+        background: color-mix(in srgb, var(--slate2) 80%, transparent);
         height: 42px;
         box-sizing: border-box;
     }
 
-    /* Light mode: lighter borders */
     :root:not(.dark) .nav-links {
         border-color: var(--slate4);
     }
@@ -154,29 +160,40 @@ const pathname = new URL(Astro.request.url).pathname;
         display: flex;
         align-items: center;
         gap: 0.375rem;
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
+        padding: 0.5rem 0.875rem;
+        border-radius: 4px;
         text-decoration: none;
-        color: var(--slate11);
+        color: var(--slate10);
         font-size: 0.875rem;
-        transition: all 0.2s ease;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         height: 34px;
         box-sizing: border-box;
+        counter-increment: item 1;
+        font-family: 'Inter var', monospace;
+    }
+
+    .nav-link::before {
+        content: "0" counter(item) ".";
+        color: var(--primary);
+        font-size: 0.7rem;
+        margin-right: 2px;
+        opacity: 0.8;
     }
 
     .nav-link:hover {
-        color: var(--slate12);
-        background: var(--slate3);
+        color: var(--primary);
+        background: color-mix(in srgb, var(--primary) 8%, transparent);
     }
 
     .nav-link-active {
-        color: var(--slate12);
-        background: var(--slate4);
+        color: var(--primary);
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
     }
 
     .nav-link svg {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
     }
 
     /* Actions (Theme Toggle) */

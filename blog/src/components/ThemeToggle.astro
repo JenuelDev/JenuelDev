@@ -1,107 +1,120 @@
 ---
-import { Icon } from "astro-icon/components";
+// ThemeToggle — 6 color themes matching main site
 ---
 
 <div class="theme-toggle">
     <button
         id="theme-toggle-btn"
         class="theme-toggle-btn"
-        aria-label="Toggle theme"
-        title="Toggle theme"
+        aria-label="Change theme"
+        title="Change theme"
     >
-        <Icon name="tabler:sun" class="theme-icon-light" />
-        <Icon name="tabler:moon" class="theme-icon-dark" />
+        <span class="theme-toggle-swatch" id="active-swatch"></span>
     </button>
 
-    <div class="theme-dropdown" id="theme-dropdown">
-        <button class="theme-option" data-theme="light">
-            <Icon name="tabler:sun" />
-            <span>Light</span>
-        </button>
-        <button class="theme-option" data-theme="dark">
-            <Icon name="tabler:moon" />
-            <span>Dark</span>
-        </button>
-        <button class="theme-option" data-theme="system">
-            <Icon name="tabler:device-desktop" />
-            <span>System</span>
-        </button>
+    <div class="theme-dropdown" id="theme-dropdown" role="menu">
+        <p class="theme-dropdown-label">Theme</p>
+        <div class="theme-grid">
+            <button class="theme-item ti-greenLight" data-accent="greenLight" data-dark="true" title="Green Light" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+            <button class="theme-item ti-yellowOrange" data-accent="yellowOrange" data-dark="true" title="Yellow Orange" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+            <button class="theme-item ti-underTheSea" data-accent="underTheSea" data-dark="true" title="Under the Sea" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+            <button class="theme-item ti-NightBurns" data-accent="NightBurns" data-dark="true" title="Night Burns" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+            <button class="theme-item ti-lightBurn" data-accent="lightBurn" data-dark="false" title="Light Burn" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+            <button class="theme-item ti-brightMind" data-accent="brightMind" data-dark="false" title="Bright Mind" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+        </div>
     </div>
 </div>
 
 <script>
-    function initThemeToggle() {
-        const btn = document.getElementById("theme-toggle-btn");
-        const dropdown = document.getElementById("theme-dropdown");
-        const options = document.querySelectorAll(".theme-option");
+    const DARK_ACCENTS = ['greenLight', 'yellowOrange', 'underTheSea', 'NightBurns'];
+    const ACCENT_PRIMARY: Record<string, string> = {
+        greenLight: '#64ffdb',
+        yellowOrange: '#f0a500',
+        underTheSea: '#2aea5e',
+        NightBurns: '#fc595f',
+        lightBurn: '#b8005c',
+        brightMind: '#4b5ebe',
+    };
 
-        // Remove existing listeners to prevent duplicates
-        if (btn) {
-            const newBtn = btn.cloneNode(true);
-            btn.parentNode?.replaceChild(newBtn, btn);
-
-            // Toggle dropdown
-            newBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                dropdown?.classList.toggle("open");
-            });
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener("click", () => {
-            dropdown?.classList.remove("open");
-        });
-
-        // Handle theme selection
-        options.forEach((option: any) => {
-            option.addEventListener("click", () => {
-                const theme = option.dataset.theme || "light";
-                localStorage.setItem("theme", theme);
-                applyTheme(theme);
-                dropdown?.classList.remove("open");
-            });
-        });
-    }
-
-    // Get current theme
-    function getTheme() {
-        return localStorage.getItem("theme") || "light";
-    }
-
-    // Apply theme
-    function applyTheme(theme: string) {
-        const isDark =
-            theme === "dark" ||
-            (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-
+    function applyAccent(accent: string) {
+        const isDark = DARK_ACCENTS.includes(accent);
+        document.documentElement.setAttribute('data-accent', accent);
         if (isDark) {
-            document.documentElement.classList.add("dark");
+            document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.remove('dark');
         }
+        localStorage.setItem('accent', accent);
+        updateActiveSwatch(accent);
+        updateActiveItems(accent);
+    }
 
-        // Update active state
-        document.querySelectorAll(".theme-option").forEach((opt: any) => {
-            opt.classList.toggle("active", opt.dataset.theme === theme);
+    function updateActiveSwatch(accent: string) {
+        const el = document.getElementById('active-swatch');
+        if (el) el.style.background = ACCENT_PRIMARY[accent] ?? '#64ffdb';
+    }
+
+    function updateActiveItems(accent: string) {
+        document.querySelectorAll<HTMLElement>('.theme-item').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.accent === accent);
         });
     }
 
-    // Initialize on first load
-    initThemeToggle();
-    applyTheme(getTheme());
+    function initToggle() {
+        const btn = document.getElementById('theme-toggle-btn');
+        const dropdown = document.getElementById('theme-dropdown');
 
-    // Re-initialize after Astro page transitions
-    document.addEventListener("astro:page-load", () => {
-        initThemeToggle();
-        applyTheme(getTheme());
-    });
-
-    // Listen for system theme changes
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-        if (getTheme() === "system") {
-            applyTheme("system");
+        if (btn) {
+            const fresh = btn.cloneNode(true) as HTMLElement;
+            btn.parentNode?.replaceChild(fresh, btn);
+            fresh.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown?.classList.toggle('open');
+            });
         }
-    });
+
+        document.addEventListener('click', () => dropdown?.classList.remove('open'));
+
+        document.querySelectorAll<HTMLElement>('.theme-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const accent = item.dataset.accent ?? 'greenLight';
+                applyAccent(accent);
+                dropdown?.classList.remove('open');
+            });
+        });
+
+        const current = localStorage.getItem('accent') ?? 'greenLight';
+        updateActiveSwatch(current);
+        updateActiveItems(current);
+    }
+
+    initToggle();
+    document.addEventListener('astro:page-load', initToggle);
 </script>
 
 <style>
@@ -118,82 +131,122 @@ import { Icon } from "astro-icon/components";
         border-radius: 9999px;
         border: 2px solid var(--slate6);
         background: var(--slate2);
-        color: var(--slate12);
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         box-sizing: border-box;
+        padding: 0;
     }
 
     .theme-toggle-btn:hover {
         background: var(--slate3);
-        border-color: var(--slate7);
+        border-color: var(--primary);
+        transform: scale(1.05);
     }
 
-    .theme-toggle-btn svg {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-
-    /* Show/hide icons based on current theme */
-    :root:not(.dark) .theme-icon-dark {
-        display: none;
-    }
-
-    :root.dark .theme-icon-light {
-        display: none;
+    .theme-toggle-swatch {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--primary);
+        transition: background 0.25s ease;
+        box-shadow: 0 0 8px color-mix(in srgb, var(--primary) 50%, transparent);
     }
 
     .theme-dropdown {
         position: absolute;
-        top: calc(100% + 0.5rem);
+        top: calc(100% + 0.625rem);
         right: 0;
-        min-width: 140px;
+        min-width: 180px;
         background: var(--slate2);
         border: 1px solid var(--slate6);
-        border-radius: 0.75rem;
-        padding: 0.375rem;
+        border-radius: 12px;
+        padding: 0.75rem;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-0.5rem);
-        transition: all 0.2s ease;
+        transform: translateY(-0.5rem) scale(0.97);
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
         z-index: 100;
-        box-shadow:
-            0 10px 15px -3px rgba(0, 0, 0, 0.1),
-            0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
     }
 
     .theme-dropdown.open {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 
-    .theme-option {
-        display: flex;
-        align-items: center;
+    .theme-dropdown-label {
+        margin: 0 0 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--slate9);
+    }
+
+    .theme-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.5rem;
-        width: 100%;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
-        border: none;
-        background: transparent;
-        color: var(--slate12);
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: background 0.15s ease;
     }
 
-    .theme-option:hover {
+    .theme-item {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid transparent;
         background: var(--slate3);
+        cursor: pointer;
+        transition: all 0.2s ease;
     }
 
-    .theme-option.active {
-        background: var(--slate4);
+    .theme-item:hover {
+        border-color: var(--slate7);
+        transform: translateY(-1px);
     }
 
-    .theme-option svg {
-        width: 1rem;
-        height: 1rem;
-        flex-shrink: 0;
+    .theme-item.active {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 1px var(--primary);
     }
+
+    .theme-item .swatch {
+        display: block;
+        height: 12px;
+        border-radius: 3px;
+        width: 100%;
+    }
+
+    /* greenLight */
+    .ti-greenLight .s1 { background: #0a192f; }
+    .ti-greenLight .s2 { background: #64ffdb; }
+    .ti-greenLight .s3 { background: #112240; }
+
+    /* yellowOrange */
+    .ti-yellowOrange .s1 { background: #222222; }
+    .ti-yellowOrange .s2 { background: #f0a500; }
+    .ti-yellowOrange .s3 { background: #303030; }
+
+    /* underTheSea */
+    .ti-underTheSea .s1 { background: #021921; }
+    .ti-underTheSea .s2 { background: #2aea5e; }
+    .ti-underTheSea .s3 { background: #042631; }
+
+    /* NightBurns */
+    .ti-NightBurns .s1 { background: #151515; }
+    .ti-NightBurns .s2 { background: #fc595f; }
+    .ti-NightBurns .s3 { background: #25251d; }
+
+    /* lightBurn */
+    .ti-lightBurn .s1 { background: #dcdcdc; }
+    .ti-lightBurn .s2 { background: #b8005c; }
+    .ti-lightBurn .s3 { background: #e9e9e9; }
+
+    /* brightMind */
+    .ti-brightMind .s1 { background: #ffffff; }
+    .ti-brightMind .s2 { background: #4b5ebe; }
+    .ti-brightMind .s3 { background: #e9e9e9; }
 </style>

@@ -1,7 +1,5 @@
 ---
-import Hero from "../components/Home/Hero.astro";
 import Layout from "../layouts/default.astro";
-import HorizontalAdBox from "../components/ads/HorizontalAdBox.astro";
 import { supabase } from "../lib/supabase";
 import dayjs from "dayjs";
 const title = "Jenuel Dev";
@@ -21,7 +19,6 @@ if (error) {
     console.log(error);
 }
 
-const isDev = import.meta.env.DEV;
 const blogs = data ?? [];
 ---
 
@@ -31,8 +28,7 @@ const blogs = data ?? [];
     image=`https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`
 >
     <main>
-        <Hero />
-        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-20">
+        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-28">
             {
                 blogs.map((blog, i) => (
                     <>
@@ -49,9 +45,6 @@ const blogs = data ?? [];
                                 </p>
                             </div>
                         </a>
-                        {!isDev && i % 7 === 0 && i !== 0 && (
-                            <HorizontalAdBox adSlot="2796186432" />
-                        )}
                     </>
                 ))
             }
