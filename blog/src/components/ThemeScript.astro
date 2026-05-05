@@ -3,14 +3,12 @@
 // Must be placed first in <head>
 ---
 <script is:inline>
-  (function() {
+  function applyTheme() {
     var DARK_ACCENTS = ['greenLight', 'yellowOrange', 'underTheSea', 'NightBurns'];
-    var LIGHT_ACCENTS = ['lightBurn', 'brightMind'];
 
     var accent = localStorage.getItem('accent') || 'greenLight';
     var isDarkAccent = DARK_ACCENTS.indexOf(accent) !== -1;
 
-    // For dark accents, always dark. For light accents, respect light/dark pref.
     var isDark;
     if (isDarkAccent) {
       isDark = true;
@@ -25,5 +23,8 @@
       document.documentElement.classList.remove('dark');
     }
     document.documentElement.setAttribute('data-accent', accent);
-  })();
+  }
+
+  applyTheme();
+  document.addEventListener('astro:after-swap', applyTheme);
 </script>
