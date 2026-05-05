@@ -66,9 +66,7 @@ import { ClientRouter } from "astro:transitions";
         <Header transition:persist />
         <slot />
         <Footer />
-            </body>
-</html>
-<script is:inline>
+        <script is:inline>
     (function () {
         function getPrimary() {
             return getComputedStyle(document.documentElement)
@@ -127,3 +125,5 @@ import { ClientRouter } from "astro:transitions";
         background-color: var(--primary) !important;
     }
 </style>
+    </body>
+</html>
