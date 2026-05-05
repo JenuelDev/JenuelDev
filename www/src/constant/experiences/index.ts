@@ -5,10 +5,8 @@ const vocphone = {
     workStart: 'Nov. 2021',
     workUntil: '<span class="present-work">Present</span>',
     des: [
-        'Led the end-to-end design and development of selected external web and backend projects aligned with user stories and business goals.',
         'Collaborate with product owners and stakeholders to translate requirements into clear technical tasks and delivery milestones.',
         'Architect, implement, and review features with a focus on scalability, performance, and long-term maintainability.',
-        'Mentor teammates, share best practices, and help standardize tools, patterns, and coding conventions across projects.',
         'Continuously evaluate and adopt modern technologies to improve development workflows and overall product quality.',
     ],
     technologies: [
