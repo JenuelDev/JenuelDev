@@ -19,6 +19,9 @@
     --slate11: #0a0e1a;
     --slate12: #18181b;
 
+    --primary: #b8005c;
+    --primary-darker: #8a0045;
+
     --orange1: #fff7ed;
     --orange2: #ffedd5;
     --orange3: #fed7aa;
@@ -70,45 +73,47 @@
     --green10: #3cb179;
     --green11: #4cc38a;
     --green12: #14532d;
+
+    /* Linear gradient colors (light) */
+    --linear-1: #ef4e7b;
+    --linear-2: #a166ab;
+    --linear-3: #5073b8;
+    --linear-4: #1098ad;
+    --linear-5: #07b39b;
+    --linear-6: #6fba82;
 }
 
-/* Dark theme - applied when .dark class is on html */
+/* Dark theme — navy palette matching main site */
 :root.dark {
-    --slate1: #151718;
-    --slate1-soft: rgba(21, 23, 24, 0.85);
-    --slate2: #1a1d1e;
-    --slate3: #202425;
-    --slate4: #26292b;
-    --slate5: #2b2f31;
-    --slate6: #313538;
-    --slate7: #3a3f42;
-    --slate8: #4c5155;
-    --slate9: #697177;
-    --slate10: #787f85;
-    --slate11: #9ba1a6;
-    --slate12: #ecedee;
+    --slate1: #0a192f;
+    --slate1-soft: rgba(10, 25, 47, 0.85);
+    --slate2: #112240;
+    --slate3: #172b4d;
+    --slate4: #1e3a5f;
+    --slate5: #243e6b;
+    --slate6: #2d4a6a;
+    --slate7: #3b5c7e;
+    --slate8: #4a6d8c;
+    --slate9: #8892b0;
+    --slate10: #a8b2d1;
+    --slate11: #ccd6f6;
+    --slate12: #e6f1ff;
 
-    --orange1: #1f1206;
-    --orange2: #2b1400;
-    --orange3: #391a03;
-    --orange4: #441f04;
-    --orange5: #4f2305;
-    --orange6: #5f2a06;
-    --orange7: #763205;
-    --orange8: #943e00;
-    --orange9: #f76808;
-    --orange10: #ff802b;
-    --orange11: #ff8b3e;
-    --orange12: #feeadd;
+    --primary: #64ffdb;
+    --primary-darker: #349780;
 
-    --blue1: #0f1720;
-    --blue2: #0f1b2d;
-    --blue3: #10243e;
-    --blue4: #102a4c;
-    --blue5: #0f3058;
-    --blue6: #0d3868;
-    --blue7: #0a4481;
-    --blue8: #0954a5;
+    --orange9: var(--primary);
+    --orange10: var(--primary);
+    --orange11: var(--primary);
+
+    --blue1: #0a192f;
+    --blue2: #0f2239;
+    --blue3: #102a4c;
+    --blue4: #0f3058;
+    --blue5: #0d3868;
+    --blue6: #0a4481;
+    --blue7: #0954a5;
+    --blue8: #0091ff;
     --blue9: #0091ff;
     --blue10: #369eff;
     --blue11: #52a9ff;
@@ -139,13 +144,122 @@
     --green10: #3cb179;
     --green11: #4cc38a;
     --green12: #e5fbeb;
+
+    /* Linear gradient colors (dark) */
+    --linear-1: #ef4e7b;
+    --linear-2: #a166ab;
+    --linear-3: #5073b8;
+    --linear-4: #1098ad;
+    --linear-5: #07b39b;
+    --linear-6: #6fba82;
+}
+
+/* ── Accent theme overrides (dark mode) ──────────────────────── */
+
+:root.dark[data-accent="yellowOrange"] {
+    --slate1: #222222;
+    --slate1-soft: rgba(34, 34, 34, 0.85);
+    --slate2: #2a2a2a;
+    --slate3: #333333;
+    --slate4: #3a3a3a;
+    --slate5: #424242;
+    --slate6: #4a4a4a;
+    --slate7: #555555;
+    --slate8: #666666;
+    --primary: #f0a500;
+    --primary-darker: #e45826;
+    --linear-1: #53354a;
+    --linear-2: #903749;
+    --linear-3: #e84545;
+    --linear-4: #e45826;
+    --linear-5: #f0a500;
+    --linear-6: #e6d5b8;
+}
+
+:root.dark[data-accent="underTheSea"] {
+    --slate1: #021921;
+    --slate1-soft: rgba(2, 25, 33, 0.85);
+    --slate2: #042631;
+    --slate3: #073340;
+    --slate4: #0a3f50;
+    --slate5: #0e4d5f;
+    --slate6: #135870;
+    --slate7: #186980;
+    --slate8: #1e7a92;
+    --primary: #2aea5e;
+    --primary-darker: #00a941;
+    --linear-1: #a9eafc;
+    --linear-2: #177c59;
+    --linear-3: #00a941;
+    --linear-4: #00a941;
+    --linear-5: #328552;
+    --linear-6: #147439;
+}
+
+:root.dark[data-accent="NightBurns"] {
+    --slate1: #151515;
+    --slate1-soft: rgba(21, 21, 21, 0.85);
+    --slate2: #1e1e1e;
+    --slate3: #272727;
+    --slate4: #303030;
+    --slate5: #3a3a3a;
+    --slate6: #444444;
+    --slate7: #505050;
+    --slate8: #606060;
+    --primary: #fc595f;
+    --primary-darker: #d2494e;
+    --linear-1: #832e31;
+    --linear-2: #a63c40;
+    --linear-3: #d3494e;
+    --linear-4: #e5585d;
+    --linear-5: #df9395;
+    --linear-6: #fff;
+}
+
+/* ── Light accent themes ─────────────────────────────────────── */
+
+:root[data-accent="lightBurn"]:not(.dark) {
+    --primary: #b8005c;
+    --primary-darker: #8a0045;
+    --slate1: #dcdcdc;
+    --slate1-soft: rgba(220, 220, 220, 0.92);
+    --slate2: #e5e5e5;
+    --slate3: #d0d0d0;
+    --slate4: #bdbdbd;
+    --slate5: #9e9e9e;
+    --slate6: #757575;
+    --slate7: #616161;
+    --slate8: #424242;
+    --slate9: #2b2b2b;
+    --slate10: #1a1a1a;
+    --slate11: #111111;
+    --slate12: #0a0a0a;
+}
+
+:root[data-accent="brightMind"]:not(.dark) {
+    --primary: #4b5ebe;
+    --primary-darker: #3749a6;
+    --slate1: #ffffff;
+    --slate1-soft: rgba(255, 255, 255, 0.92);
+    --slate2: #f5f5f5;
+    --slate3: #e8e8e8;
+    --slate4: #d5d5d5;
+    --slate5: #b0b0b0;
+    --slate6: #888888;
+    --slate7: #666666;
+    --slate8: #444444;
+    --slate9: #2e2e2e;
+    --slate10: #1a1a1a;
+    --slate11: #111111;
+    --slate12: #0a0a0a;
 }
 
 html {
-    font-family: Inter, sans-serif;
+    font-family: 'Open Sans', Inter, sans-serif;
     background-color: var(--slate1);
     color: var(--slate12);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
+                color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 

@@ -16,11 +16,10 @@ const { title, description, url, image, canonical }: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
-const DES =
-    description ?? "I build apps that are engaging, accessible and scalable - JenuelDev";
+const DES = description ?? "I build apps that are engaging, accessible and scalable - JenuelDev";
 const URL = url ?? "https://jenuel.dev";
-const defaultImage = 'https://i.imgur.com/2q9zwKJ.png';
-import { ClientRouter } from 'astro:transitions';
+const defaultImage = "https://i.imgur.com/2q9zwKJ.png";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -28,7 +27,7 @@ import { ClientRouter } from 'astro:transitions';
     <head>
         <!-- Theme script must be first to prevent flash -->
         <ThemeScript />
-        
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />
@@ -67,46 +66,64 @@ import { ClientRouter } from 'astro:transitions';
         <Header transition:persist />
         <slot />
         <Footer />
-<div id="bmc-persist" transition:persist></div>
-    </body>
+            </body>
 </html>
-<script>
-    document.addEventListener("astro:page-load", () => {
-        const isOnBlogPost = !!document.getElementById("main-content");
-        const container = document.getElementById("bmc-persist");
-        if (!container) return;
-
-        const btn = document.getElementById("bmc-wbtn");
-        if (btn) {
-            if (btn.parentElement !== container) container.appendChild(btn);
-            container.style.display = isOnBlogPost ? "" : "none";
-        } else if (isOnBlogPost) {
-            const script = document.createElement("script");
-            script.setAttribute("data-name", "BMC-Widget");
-            script.setAttribute("data-cfasync", "false");
-            script.setAttribute("data-id", "jenuel.dev");
-            script.setAttribute("data-description", "Support me on Buy me a coffee!");
-            script.setAttribute("data-message", "");
-            script.setAttribute("data-color", "#FF813F");
-            script.setAttribute("data-position", "Right");
-            script.setAttribute("data-x_margin", "18");
-            script.setAttribute("data-y_margin", "18");
-            script.src = "https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js";
-            document.body.appendChild(script);
-
-            const obs = new MutationObserver(() => {
-                const newBtn = document.getElementById("bmc-wbtn");
-                if (newBtn) {
-                    container.appendChild(newBtn);
-                    obs.disconnect();
-                }
-            });
-            obs.observe(document.body, { childList: true });
+<script is:inline>
+    (function () {
+        function getPrimary() {
+            return getComputedStyle(document.documentElement)
+                .getPropertyValue('--primary').trim() || '#26B0A1';
         }
-    });
+
+        function patchIframeSrc(iframe) {
+            var color = encodeURIComponent(getPrimary());
+            iframe.src = iframe.src.replace(/color=[^&"]+/, 'color=' + color);
+        }
+
+        // Patch iframe the moment BMC injects it
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                m.addedNodes.forEach(function (node) {
+                    if (node.id === 'bmc-iframe') patchIframeSrc(node);
+                });
+            });
+        }).observe(document.body, { childList: true, subtree: true });
+
+        // On theme change: patch existing iframe so next open uses the new color
+        new MutationObserver(function (mutations) {
+            var changed = mutations.some(function (m) {
+                return m.attributeName === 'data-accent' || m.attributeName === 'class';
+            });
+            if (!changed) return;
+            var iframe = document.getElementById('bmc-iframe');
+            if (iframe) patchIframeSrc(iframe);
+        }).observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-accent', 'class'],
+        });
+
+        if (document.querySelector('script[data-name="BMC-Widget"]')) return;
+        var s = document.createElement('script');
+        s.setAttribute('data-name', 'BMC-Widget');
+        s.setAttribute('data-cfasync', 'false');
+        s.setAttribute('data-id', 'jenuel.dev');
+        s.setAttribute('data-description', 'Support me on Buy me a coffee!');
+        s.setAttribute('data-message', '');
+        s.setAttribute('data-color', getPrimary());
+        s.setAttribute('data-position', 'Right');
+        s.setAttribute('data-x_margin', '18');
+        s.setAttribute('data-y_margin', '18');
+        s.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
+        document.body.appendChild(s);
+    })();
 </script>
 <style is:global>
     :root .astro-loading-indicator {
         z-index: 999999999999;
+    }
+
+    /* Keep BMC button color in sync with the active theme */
+    #bmc-wbtn {
+        background-color: var(--primary) !important;
     }
 </style>

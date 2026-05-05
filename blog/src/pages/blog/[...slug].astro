@@ -341,6 +341,64 @@ const author = data ? data.user_profile : null;
             }
         }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.95rem;
+            border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--slate6));
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: color-mix(in srgb, var(--primary) 15%, var(--slate2));
+        }
+
+        thead th {
+            padding: 0.75rem 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 2px solid color-mix(in srgb, var(--primary) 40%, var(--slate6));
+            border-right: 1px solid color-mix(in srgb, var(--primary) 20%, var(--slate6));
+        }
+
+        thead th:last-child {
+            border-right: none;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid color-mix(in srgb, var(--primary) 15%, var(--slate6));
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: color-mix(in srgb, var(--primary) 4%, var(--slate2));
+        }
+
+        tbody tr:hover {
+            background: color-mix(in srgb, var(--primary) 10%, var(--slate2));
+        }
+
+        tbody td {
+            padding: 0.7rem 1.25rem;
+            color: var(--slate11);
+            vertical-align: middle;
+            border-right: 1px solid color-mix(in srgb, var(--primary) 15%, var(--slate6));
+        }
+
+        tbody td:last-child {
+            border-right: none;
+        }
+
         *::-webkit-scrollbar {
             height: 10px;
         }

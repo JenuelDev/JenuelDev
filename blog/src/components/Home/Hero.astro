@@ -1,69 +1,123 @@
 ---
 export const prerender = true;
-import { Icon } from "astro-icon/components";
 ---
 
-<section class="w-100% sm:text-lg flex flex-col pt-5 my-10 mt-20">
-    <div class="flex flex-col gap-5 items-center justify-center h-100% max-w-800px mx-auto">
-        <div
-            class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
-        >
-            <div class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
-            <span class="text-gray-300 text-xs sm:text-sm font-medium"> Welcome to my Blog </span>
-        </div>
-
-        <div class="flex items-center gap-3">
-            <h1
-                class="tracking-tight md:text-5xl sm:text-4xl text-2xl group flex pb-3 pt-1.5 px-2 bg-[var(--red3)] text-[var(--red10)] rounded-md"
-            >
-                <Icon name="tabler:device-laptop" class="mr-1" />
-                digital
-            </h1>
-            <div class="md:text-lg text-sm text-secondary">clean, <br />maintainable code</div>
-        </div>
-        <div class="flex flex-wrap gap-3 items-center justify-center">
-            <h1
-                class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--orange3)] text-[var(--orange10)] rounded-md relative"
-            >
-                <div
-                    class="absolute -left-4 md:-bottom-9 -bottom-6 animate-bounce animate-duration-2000"
-                >
-                    <div
-                        class="p-1 rounded-lg backdrop-blur-sm border border-purple-500/20 text-purple-400 sm:text-lg text-sm flex gap-1 items-center"
-                    >
-                        <Icon name="tabler:chart-bubble-filled" /> Innovation
-                    </div>
-                </div>
-
-                <Icon name="tabler:apps" class="mr-1" />
-                software
-            </h1>
-            <h1
-                class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--green3)] text-[var(--green10)] rounded-md relative"
-            >
-                <div
-                    class="absolute -right-4 md:-top-6 -top-5 animate-bounce animate-duration-2500"
-                >
-                    <div
-                        class="p-1 rounded-lg bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 text-blue-400 sm:text-lg text-sm flex gap-1 items-center"
-                    >
-                        <Icon name="tabler:terminal-2" /> Clean Code
-                    </div>
-                </div>
-                <Icon name="tabler:terminal-2" class="mr-1" />
-                programmer
-            </h1>
-        </div>
-        <div class="flex flex-wrap gap-3 items-center justify-center">
-            <developer class="md:text-lg text-sm text-secondary text-right">
-                building delightful <br /> developer experiences
-            </developer>
-            <h1
-                class="tracking-tight md:text-5xl sm:text-4xl text-2xl flex pb-3 pt-1.5 px-2 bg-[var(--blue3)] text-[var(--blue10)] rounded-md"
-            >
-                <Icon name="tabler:devices-code" class="mr-1" />
-                developer
-            </h1>
+<section class="hero">
+    <div class="hero-inner">
+        <p class="hero-eyebrow">Hi, my name is</p>
+        <h1 class="hero-name">Jenuel Ganawed.</h1>
+        <h2 class="hero-tagline">I build things for the web.</h2>
+        <p class="hero-desc">
+            Software developer, technical writer, and open-source enthusiast. This is where I share
+            articles on programming, finance, and everything in between.
+        </p>
+        <div class="hero-actions">
+            <a href="/programming" class="hero-btn-primary">Read Articles</a>
+            <a href="https://jenuel.dev" target="_blank" rel="noopener" class="hero-btn-ghost">
+                Visit Portfolio ↗
+            </a>
         </div>
     </div>
 </section>
+
+<style>
+    .hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+        padding-top: 100px;
+    }
+
+    .hero-inner {
+        max-width: 640px;
+    }
+
+    .hero-eyebrow {
+        margin: 0 0 0.75rem;
+        color: var(--primary);
+        font-family: 'Inter var', monospace;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+    }
+
+    .hero-name {
+        margin: 0 0 0.25rem;
+        color: var(--slate12);
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+
+    .hero-tagline {
+        margin: 0 0 1.5rem;
+        color: var(--slate9);
+        font-size: clamp(1.5rem, 4vw, 2.6rem);
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+    }
+
+    .hero-desc {
+        margin: 0 0 2.5rem;
+        color: var(--slate10);
+        font-size: 1rem;
+        line-height: 1.7;
+        max-width: 540px;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid var(--primary);
+        border-radius: 4px;
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
+        color: var(--primary);
+        font-family: 'Inter var', monospace;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        letter-spacing: 0.02em;
+    }
+
+    .hero-btn-primary:hover {
+        background: color-mix(in srgb, var(--primary) 18%, transparent);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px color-mix(in srgb, var(--primary) 20%, transparent);
+    }
+
+    .hero-btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid var(--slate6);
+        border-radius: 4px;
+        background: transparent;
+        color: var(--slate10);
+        font-family: 'Inter var', monospace;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        letter-spacing: 0.02em;
+    }
+
+    .hero-btn-ghost:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        transform: translateY(-2px);
+    }
+</style>
