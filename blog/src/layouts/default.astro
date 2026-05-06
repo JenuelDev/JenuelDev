@@ -19,7 +19,6 @@ import { SEO } from "astro-seo";
 const DES = description ?? "I build apps that are engaging, accessible and scalable - JenuelDev";
 const URL = url ?? "https://jenuel.dev";
 const defaultImage = "https://i.imgur.com/2q9zwKJ.png";
-import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -33,7 +32,6 @@ import { ClientRouter } from "astro:transitions";
         <link rel="icon" type="image/svg+xml" href="/JenuelDev.ico" />
         <meta name="generator" content={Astro.generator} />
         <meta name="google-adsense-account" content="ca-pub-2268807726840190" />
-        <ClientRouter />
         <LoadingIndicator color="var(--c-blue-500)" height="5px" />
         <SEO
             title={title}
@@ -66,64 +64,59 @@ import { ClientRouter } from "astro:transitions";
         <Header transition:persist />
         <slot />
         <Footer />
+        <script
+            is:inline
+            data-name="BMC-Widget"
+            data-cfasync="false"
+            data-id="jenuel.dev"
+            data-description="Support me on Buy me a coffee!"
+            data-message=""
+            data-color="#40DCA5"
+            data-position="Right"
+            data-x_margin="18"
+            data-y_margin="18"
+            src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        ></script>
         <script is:inline>
-    (function () {
-        function getPrimary() {
-            return getComputedStyle(document.documentElement)
-                .getPropertyValue('--primary').trim() || '#26B0A1';
-        }
+            (function () {
+                function getPrimary() {
+                    return (
+                        getComputedStyle(document.documentElement)
+                            .getPropertyValue("--primary")
+                            .trim() || "#FF813F"
+                    );
+                }
 
-        function patchIframeSrc(iframe) {
-            var color = encodeURIComponent(getPrimary());
-            iframe.src = iframe.src.replace(/color=[^&"]+/, 'color=' + color);
-        }
+                function syncButtonColor() {
+                    var button = document.getElementById("bmc-wbtn");
+                    if (button) button.style.backgroundColor = getPrimary();
+                }
 
-        // Patch iframe the moment BMC injects it
-        new MutationObserver(function (mutations) {
-            mutations.forEach(function (m) {
-                m.addedNodes.forEach(function (node) {
-                    if (node.id === 'bmc-iframe') patchIframeSrc(node);
+                new MutationObserver(function (mutations) {
+                    mutations.forEach(function (mutation) {
+                        mutation.addedNodes.forEach(function (node) {
+                            if (node.id === "bmc-wbtn") syncButtonColor();
+                        });
+                    });
+                }).observe(document.body, { childList: true, subtree: true });
+
+                new MutationObserver(syncButtonColor).observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ["class", "data-accent"],
                 });
-            });
-        }).observe(document.body, { childList: true, subtree: true });
 
-        // On theme change: patch existing iframe so next open uses the new color
-        new MutationObserver(function (mutations) {
-            var changed = mutations.some(function (m) {
-                return m.attributeName === 'data-accent' || m.attributeName === 'class';
-            });
-            if (!changed) return;
-            var iframe = document.getElementById('bmc-iframe');
-            if (iframe) patchIframeSrc(iframe);
-        }).observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['data-accent', 'class'],
-        });
+                syncButtonColor();
+            })();
+        </script>
+        <style is:global>
+            :root .astro-loading-indicator {
+                z-index: 999999999999;
+            }
 
-        if (document.querySelector('script[data-name="BMC-Widget"]')) return;
-        var s = document.createElement('script');
-        s.setAttribute('data-name', 'BMC-Widget');
-        s.setAttribute('data-cfasync', 'false');
-        s.setAttribute('data-id', 'jenuel.dev');
-        s.setAttribute('data-description', 'Support me on Buy me a coffee!');
-        s.setAttribute('data-message', '');
-        s.setAttribute('data-color', getPrimary());
-        s.setAttribute('data-position', 'Right');
-        s.setAttribute('data-x_margin', '18');
-        s.setAttribute('data-y_margin', '18');
-        s.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
-        document.body.appendChild(s);
-    })();
-</script>
-<style is:global>
-    :root .astro-loading-indicator {
-        z-index: 999999999999;
-    }
-
-    /* Keep BMC button color in sync with the active theme */
-    #bmc-wbtn {
-        background-color: var(--primary) !important;
-    }
-</style>
+            #bmc-wbtn {
+                background-color: var(--primary) !important;
+                z-index: 999999 !important;
+            }
+        </style>
     </body>
 </html>
