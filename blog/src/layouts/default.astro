@@ -71,43 +71,11 @@ const defaultImage = "https://i.imgur.com/2q9zwKJ.png";
             data-id="jenuel.dev"
             data-description="Support me on Buy me a coffee!"
             data-message=""
-            data-color="#40DCA5"
+            data-color="#26B0A1"
             data-position="Right"
             data-x_margin="18"
             data-y_margin="18"
-            src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        ></script>
-        <script is:inline>
-            (function () {
-                function getPrimary() {
-                    return (
-                        getComputedStyle(document.documentElement)
-                            .getPropertyValue("--primary")
-                            .trim() || "#FF813F"
-                    );
-                }
-
-                function syncButtonColor() {
-                    var button = document.getElementById("bmc-wbtn");
-                    if (button) button.style.backgroundColor = getPrimary();
-                }
-
-                new MutationObserver(function (mutations) {
-                    mutations.forEach(function (mutation) {
-                        mutation.addedNodes.forEach(function (node) {
-                            if (node.id === "bmc-wbtn") syncButtonColor();
-                        });
-                    });
-                }).observe(document.body, { childList: true, subtree: true });
-
-                new MutationObserver(syncButtonColor).observe(document.documentElement, {
-                    attributes: true,
-                    attributeFilter: ["class", "data-accent"],
-                });
-
-                syncButtonColor();
-            })();
-        </script>
+            src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"></script>
         <style is:global>
             :root .astro-loading-indicator {
                 z-index: 999999999999;
