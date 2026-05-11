@@ -166,6 +166,16 @@ export const mySkills: MySkill[] = [
                 text: `Figma`,
                 des: `As a developer that also works with frontend development, I started to learn and gain experience in UX designing because I want it to be User Friendly. Figma is great for creating designs and is what I use.`,
             },
+            {
+                icon: 'simple-icons:openai',
+                text: 'ChatGPT Image',
+                des: 'ChatGPT Image helps create visual references, explore interface directions, and generate design assets for faster iteration.',
+            },
+            {
+                icon: 'logos:google-icon',
+                text: 'Google Stitch',
+                des: 'Google Stitch helps turn prompts and ideas into UI mockups, making it useful for quick layout exploration and design handoff.',
+            },
         ],
     },
     {
@@ -173,6 +183,37 @@ export const mySkills: MySkill[] = [
         tech: 'Artificial Intelligence',
         des: 'Solid foundational knowledge of AI concepts with practical experience leveraging AI tools to increase productivity, automate routine tasks, and assist in code and content workflows while following ethical best practices.',
         yearStarted: 2023,
-        tools: [],
+        tools: [
+            {
+                icon: 'tabler:terminal-2',
+                text: 'Codex',
+                des: 'Codex helps with codebase navigation, implementation, debugging, and structured development workflows directly inside projects.',
+            },
+            {
+                icon: 'simple-icons:anthropic',
+                text: 'Claude Code',
+                des: 'Claude Code supports agentic coding workflows, code review, refactoring, and implementation assistance from the terminal.',
+            },
+            {
+                icon: 'simple-icons:openai',
+                text: 'ChatGPT',
+                des: 'ChatGPT is useful for planning, debugging, documentation, research, content drafting, and exploring implementation ideas.',
+            },
+            {
+                icon: 'simple-icons:githubcopilot',
+                text: 'GitHub Copilot',
+                des: 'GitHub Copilot provides inline coding assistance, autocomplete, chat support, and development guidance inside the editor.',
+            },
+            {
+                icon: 'simple-icons:ollama',
+                text: 'Ollama',
+                des: 'Ollama makes it practical to run and experiment with local language models for private, offline, and custom AI workflows.',
+            },
+            {
+                icon: 'simple-icons:openrouter',
+                text: 'OpenRouter',
+                des: 'OpenRouter provides access to multiple AI models through a single API, making it easier to compare and route model usage.',
+            },
+        ],
     },
 ];

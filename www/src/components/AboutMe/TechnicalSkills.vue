@@ -108,6 +108,8 @@ const skillGroups = [
         skills: [
             getSkill("UI Design", "hugeicons:web-design-01"),
             getSkill("Figma", "logos:figma"),
+            getSkill("ChatGPT Image", "simple-icons:openai"),
+            getSkill("Google Stitch", "logos:google-icon"),
         ],
     },
     {
@@ -116,6 +118,12 @@ const skillGroups = [
         description: "Practical AI usage for development assistance, automation, and faster iteration.",
         skills: [
             getSkill("Artificial Intelligence", "mdi:robot"),
+            getSkill("Codex", "tabler:terminal-2"),
+            getSkill("Claude Code", "simple-icons:anthropic"),
+            getSkill("ChatGPT", "simple-icons:openai"),
+            getSkill("GitHub Copilot", "simple-icons:githubcopilot"),
+            getSkill("Ollama", "simple-icons:ollama"),
+            getSkill("OpenRouter", "simple-icons:openrouter"),
         ],
     },
 ];

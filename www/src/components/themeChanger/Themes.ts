@@ -35,4 +35,10 @@ export const themes = [
         color2: "#dcdcdc",
         color3: "#2b2b2b"
     },
+    {
+        name: "supportTeal",
+        color1: '#2db3a4',
+        color2: "#238b80",
+        color3: "#071f26"
+    },
 ];

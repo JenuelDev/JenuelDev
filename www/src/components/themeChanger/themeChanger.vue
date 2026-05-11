@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { themes } from './Themes';
 
-let theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'greenLight';
+let theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'supportTeal';
 document.documentElement.setAttribute('theme', theme as string);
 
 const open = ref(false);

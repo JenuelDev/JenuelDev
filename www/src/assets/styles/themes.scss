@@ -165,3 +165,30 @@
     --profile-gradient-2: #5d6ec5;
     --profile-gradient-3: #778cf5;
 }
+
+[theme="supportTeal"] {
+    --primary: #2db3a4;
+    --image-cover: #2db3a4;
+    --primary-darker: #238b80;
+    --background: #071f26;
+    --lightBackground: #0d3038;
+    --nav-bg: rgba(7, 31, 38, 0.85);
+    --slate: #8fa6ad;
+    --lightSlate: #b3c7cc;
+    --lightestSlate: #d7eef2;
+    --white: #eefcff;
+    --navy-shadow: rgba(2, 13, 16, 0.86);
+
+    // for linear gradient
+    --linear-1: #0d6d72;
+    --linear-2: #168b88;
+    --linear-3: #2db3a4;
+    --linear-4: #41c7b8;
+    --linear-5: #76ded4;
+    --linear-6: #d7fff9;
+
+    // profile gradient
+    --profile-gradient-1: #06434a;
+    --profile-gradient-2: #168f88;
+    --profile-gradient-3: #2db3a4;
+}

@@ -12,10 +12,10 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
             <div class="lg:order-1 order-2">
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
-                        <p class="md:text-3xl text-2xl font-500 mb-2">Hi, I'm Jenuel — a</p>
+                        <p class="md:text-3xl text-2xl font-500 mb-2">Hi, I'm Jenuel</p>
                         <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">Software Developer</h1>
                         <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] mb-2">
-                            Turning ideas into high-performance apps — web, mobile, and desktop.
+                            I build fast, reliable apps for web, mobile, and desktop.
                         </h2>
                     </div>
                     <div class="mt-30px flex lg:justify-end justify-center flex-wrap gap-20px items-center">
@@ -26,7 +26,7 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                                 class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 flex items-center gap-5px"
                             >
                                 <Icon icon="tabler:brand-linkedin-filled" class="text-2xl" />
-                                <span> Get In Touch </span>
+                                <span> Contact Me </span>
                             </a>
                         </div>
                         <div>
@@ -36,7 +36,7 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                                 class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 cursor-pointer whitespace-nowrap flex items-center gap-5px"
                             >
                                 <Icon icon="tabler:file-type-doc" class="text-2xl" />
-                                <span> Resume </span>
+                                <span> View Resume </span>
                             </a>
                         </div>
                         <YoutubeButton />
@@ -53,7 +53,7 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                         </a>
                         <span class="hero-meta-chip">
                             <Icon icon="tabler:clock" />
-                            Available for work
+                            Open to opportunities
                         </span>
                     </div>
                 </div>
