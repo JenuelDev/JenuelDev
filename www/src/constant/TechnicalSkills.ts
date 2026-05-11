@@ -120,6 +120,13 @@ export const mySkills: MySkill[] = [
         ],
     },
     {
+        icon: 'skill-icons:python-dark',
+        tech: 'Python',
+        des: 'I use Python for scripting, automation, backend utilities, data handling, and AI-assisted development workflows.',
+        yearStarted: 2023,
+        tools: [],
+    },
+    {
         icon: "solar:database-bold-duotone",
         tech: "Database",
         des: "I have experience managing both SQL and NoSQL databases. This includes relational systems like MySQL and PostgreSQL, as well as NoSQL solutions such as MongoDB and Redis. I also work with managed database platforms and backend services like Firebase and Supabase.",
@@ -139,6 +146,16 @@ export const mySkills: MySkill[] = [
                 icon: 'skill-icons:mongodb',
                 text: 'MongoDB',
                 des: `MongoDB is a NoSQL database that stores data in a flexible, JSON-like format called BSON (Binary JSON). Unlike traditional relational databases (SQL), MongoDB is schema-less, meaning you don't need to define a strict structure for your data.`
+            },
+            {
+                icon: 'logos:firebase',
+                text: 'Firebase',
+                des: 'Firebase provides backend services such as authentication, realtime databases, cloud storage, hosting, and serverless functions for web and mobile applications.'
+            },
+            {
+                icon: 'logos:supabase-icon',
+                text: 'Supabase',
+                des: 'Supabase is an open-source backend platform built around PostgreSQL, with authentication, storage, realtime features, and APIs for application development.'
             }
         ]
     },

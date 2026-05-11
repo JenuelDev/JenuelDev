@@ -70,6 +70,7 @@ const skillGroups = [
             getSkill("PHP", "skill-icons:php-dark"),
             getSkill("laravel/Lumen", "material-icon-theme:laravel"),
             getSkill("CodeIgniter", "logos:codeigniter-icon"),
+            getSkill("Python", "skill-icons:python-dark"),
             getSkill("NodeJs", "material-icon-theme:nodejs"),
             getSkill("Rails", "vscode-icons:file-type-ruby"),
             getSkill("Ruby on Rails", "skill-icons:rails"),
@@ -84,6 +85,8 @@ const skillGroups = [
             getSkill("MySQL", "skill-icons:mysql-light"),
             getSkill("PostgreSQL", "skill-icons:postgresql-light"),
             getSkill("MongoDB", "skill-icons:mongodb"),
+            getSkill("Firebase", "logos:firebase"),
+            getSkill("Supabase", "logos:supabase-icon"),
         ],
     },
     {
