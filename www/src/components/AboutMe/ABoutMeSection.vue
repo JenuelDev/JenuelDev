@@ -91,7 +91,7 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
         <div
             v-scrollanimation
             class="md:text-2xl text-xl md:px-10px w-[100%] max-w-[770px] pt-100px md:leading-relaxed leading-relaxed relative"
-            style="transition-delay: 100ms"
+            style="transition-delay: 100ms; display: none;"
         >
             <p class="mb-30px">
                 In 2016, I made a pivotal career shift from criminology to Information Technology. That transition

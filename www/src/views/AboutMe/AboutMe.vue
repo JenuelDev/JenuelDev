@@ -6,10 +6,12 @@ import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
 import Projects from '@/components/AboutMe/Projects.vue';
 import Achievements from '@/components/AboutMe/Achievements.vue';
 import CtaSection from '@/components/AboutMe/CtaSection.vue';
+import LatestArticles from '@/components/AboutMe/LatestArticles.vue';
 
 </script>
 <template>
     <AboutMeSection />
+    <LatestArticles />
     <TechnicalSkills />
     <Projects />
     <Experience />

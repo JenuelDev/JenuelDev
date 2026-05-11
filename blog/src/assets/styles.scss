@@ -216,6 +216,30 @@
     --linear-6: #fff;
 }
 
+:root.dark[data-accent="supportTeal"] {
+    --slate1: #071f26;
+    --slate1-soft: rgba(7, 31, 38, 0.85);
+    --slate2: #0d3038;
+    --slate3: #123a43;
+    --slate4: #174b54;
+    --slate5: #1c5963;
+    --slate6: #236a75;
+    --slate7: #2b7c87;
+    --slate8: #3b939e;
+    --slate9: #8fa6ad;
+    --slate10: #b3c7cc;
+    --slate11: #d7eef2;
+    --slate12: #eefcff;
+    --primary: #2db3a4;
+    --primary-darker: #238b80;
+    --linear-1: #0d6d72;
+    --linear-2: #168b88;
+    --linear-3: #2db3a4;
+    --linear-4: #41c7b8;
+    --linear-5: #76ded4;
+    --linear-6: #d7fff9;
+}
+
 /* ── Light accent themes ─────────────────────────────────────── */
 
 :root[data-accent="lightBurn"]:not(.dark) {

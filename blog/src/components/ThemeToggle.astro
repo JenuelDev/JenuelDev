@@ -1,5 +1,5 @@
 ---
-// ThemeToggle — 6 color themes matching main site
+// ThemeToggle — color themes matching main site
 ---
 
 <div class="theme-toggle">
@@ -16,6 +16,11 @@
         <p class="theme-dropdown-label">Theme</p>
         <div class="theme-grid">
             <button class="theme-item ti-greenLight" data-accent="greenLight" data-dark="true" title="Green Light" role="menuitem">
+                <span class="swatch s1"></span>
+                <span class="swatch s2"></span>
+                <span class="swatch s3"></span>
+            </button>
+            <button class="theme-item ti-supportTeal" data-accent="supportTeal" data-dark="true" title="Support Teal" role="menuitem">
                 <span class="swatch s1"></span>
                 <span class="swatch s2"></span>
                 <span class="swatch s3"></span>
@@ -50,9 +55,10 @@
 </div>
 
 <script>
-    const DARK_ACCENTS = ['greenLight', 'yellowOrange', 'underTheSea', 'NightBurns'];
+    const DARK_ACCENTS = ['greenLight', 'yellowOrange', 'underTheSea', 'NightBurns', 'supportTeal'];
     const ACCENT_PRIMARY: Record<string, string> = {
         greenLight: '#64ffdb',
+        supportTeal: '#2db3a4',
         yellowOrange: '#f0a500',
         underTheSea: '#2aea5e',
         NightBurns: '#fc595f',
@@ -75,7 +81,7 @@
 
     function updateActiveSwatch(accent: string) {
         const el = document.getElementById('active-swatch');
-        if (el) el.style.background = ACCENT_PRIMARY[accent] ?? '#64ffdb';
+        if (el) el.style.background = ACCENT_PRIMARY[accent] ?? '#2db3a4';
     }
 
     function updateActiveItems(accent: string) {
@@ -102,13 +108,13 @@
         document.querySelectorAll<HTMLElement>('.theme-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const accent = item.dataset.accent ?? 'greenLight';
+                const accent = item.dataset.accent ?? 'supportTeal';
                 applyAccent(accent);
                 dropdown?.classList.remove('open');
             });
         });
 
-        const current = localStorage.getItem('accent') ?? 'greenLight';
+        const current = localStorage.getItem('accent') ?? 'supportTeal';
         updateActiveSwatch(current);
         updateActiveItems(current);
     }
@@ -224,6 +230,11 @@
     .ti-greenLight .s1 { background: #0a192f; }
     .ti-greenLight .s2 { background: #64ffdb; }
     .ti-greenLight .s3 { background: #112240; }
+
+    /* supportTeal */
+    .ti-supportTeal .s1 { background: #071f26; }
+    .ti-supportTeal .s2 { background: #2db3a4; }
+    .ti-supportTeal .s3 { background: #0d3038; }
 
     /* yellowOrange */
     .ti-yellowOrange .s1 { background: #222222; }
