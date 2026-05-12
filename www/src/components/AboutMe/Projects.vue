@@ -18,7 +18,7 @@ function openSite(site: string) {
 
 const techIconMap: Record<string, string> = {
     electron: 'mdi:electron-framework',
-    'electron.builder': 'mdi:electron-framework',
+    flutter: 'skill-icons:flutter-light',
     vue: 'material-icon-theme:vue',
     vue3: 'material-icon-theme:vue',
     vuejs: 'material-icon-theme:vue',

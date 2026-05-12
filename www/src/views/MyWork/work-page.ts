@@ -4,7 +4,7 @@ export default {
             overline: 'Desktop Application',
             title: 'Believers Sword App',
             des: "Focus on what matters instead of fighting with your mind. Whether you're new to this app or a seasoned user, Believers Sword App is a simple application that helps you study bible with extra features.",
-            techs: ['electron', 'electron.builder', 'Vue3', 'windiCss'],
+            techs: ['electron', 'Flutter', 'Vue3', 'windiCss'],
             links: [
                 {
                     link: 'https://github.com/Bible-Projects/believers-sword-app',
