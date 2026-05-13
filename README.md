@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [From a Side Project in 2019 to a Published App: My Experience Building Believers Sword](https://blog.jenuel.dev/blog/From-a-Side-Project-in-2019-to-a-Published-App-My-Experience-Building-Believers-Sword)
 - [Supabase Developer Update May 2026: More Secure APIs, Custom Auth Providers, and Better Developer Tooling](https://blog.jenuel.dev/blog/Supabase-Developer-Update-May-2026-More-Secure-APIs-Custom-Auth-Providers-and-Better-Developer-Tooling)
 - [I Built a Custom Status Line for Claude Code — And It Changes Everything](https://blog.jenuel.dev/blog/I-Built-a-Custom-Status-Line-for-Claude-Code-And-It-Changes-Everything)
 - [Automate Your Workflow with Hermess: Your Personal AI Assistant](https://blog.jenuel.dev/blog/Automate-Your-Workflow-with-Hermess-Your-Personal-AI-Assistant)
 - [Why Every Developer Needs a Full 8 Hours of Sleep 😴](https://blog.jenuel.dev/blog/Why-Every-Developer-Needs-a-Full-8-Hours-of-Sleep-)
-- [Why Most Side Projects Fail &lpar;and How to Actually Ship One&rpar;](https://blog.jenuel.dev/blog/Why-Most-Side-Projects-Fail-and-How-to-Actually-Ship-One-)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
