@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/default.astro";
 import { supabase } from "../../lib/supabase";
 import { Icon } from "astro-icon/components";
-import dayjs from "dayjs";
 import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
 import "../../assets/code-highlight/atom-one-dark.css";
 const { slug } = Astro.params;
@@ -153,9 +152,7 @@ const author = data ? data.user_profile : null;
                     </div>
                 )
             }
-            <span class="text-size-15px">
-                {dayjs(data.created_at).format("MMM. DD, YYYY. h:mm A")}
-            </span>
+            <span class="text-size-15px blog-date" data-date={data.created_at}></span>
         </div>
 
         <HorizontalAdBox adSlot="4295024492" />
@@ -184,6 +181,20 @@ const author = data ? data.user_profile : null;
     </section>
 </Layout>
 <script>
+    const dateEl = document.querySelector<HTMLElement>(".blog-date[data-date]");
+    if (dateEl?.dataset.date) {
+        const d = new Date(dateEl.dataset.date);
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const month = months[d.getMonth()];
+        const day = String(d.getDate()).padStart(2, "0");
+        const year = d.getFullYear();
+        let hours = d.getHours();
+        const minutes = String(d.getMinutes()).padStart(2, "0");
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+        dateEl.textContent = `${month}. ${day}, ${year}. ${hours}:${minutes} ${ampm}`;
+    }
+
     setTimeout(async () => {
         const MainContentElement = document.getElementById("main-content");
         const id = MainContentElement?.getAttribute("data-id");
