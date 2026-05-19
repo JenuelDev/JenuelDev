@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI is moving from demo to infrastructure, and today made that obvious](https://blog.jenuel.dev/blog/ai-is-moving-from-demo-to-infrastructure)
+- [AI coding agents are growing up. Most workflows are not.](https://blog.jenuel.dev/blog/ai-coding-agents-are-growing-up-workflows-arent)
+- [The Pope, AI, and the question Silicon Valley keeps avoiding](https://blog.jenuel.dev/blog/the-pope-ai-and-the-question-silicon-valley-keeps-avoiding)
 - [How to Auto-Deploy a Laravel App to DigitalOcean Using GitHub Actions](https://blog.jenuel.dev/blog/How-to-Auto-Deploy-a-Laravel-App-to-DigitalOcean-Using-GitHub-Actions)
 - [From a Side Project in 2019 to a Published App: My Experience Building Believers Sword](https://blog.jenuel.dev/blog/From-a-Side-Project-in-2019-to-a-Published-App-My-Experience-Building-Believers-Sword)
-- [Supabase Developer Update May 2026: More Secure APIs, Custom Auth Providers, and Better Developer Tooling](https://blog.jenuel.dev/blog/Supabase-Developer-Update-May-2026-More-Secure-APIs-Custom-Auth-Providers-and-Better-Developer-Tooling)
-- [I Built a Custom Status Line for Claude Code — And It Changes Everything](https://blog.jenuel.dev/blog/I-Built-a-Custom-Status-Line-for-Claude-Code-And-It-Changes-Everything)
-- [Automate Your Workflow with Hermess: Your Personal AI Assistant](https://blog.jenuel.dev/blog/Automate-Your-Workflow-with-Hermess-Your-Personal-AI-Assistant)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
