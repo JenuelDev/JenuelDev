@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI agents are only as useful as the tools they can safely touch](https://blog.jenuel.dev/blog/ai-agents-tools-safe-access)
 - [AI is moving from demo to infrastructure, and today made that obvious](https://blog.jenuel.dev/blog/ai-is-moving-from-demo-to-infrastructure)
 - [AI coding agents are growing up. Most workflows are not.](https://blog.jenuel.dev/blog/ai-coding-agents-are-growing-up-workflows-arent)
 - [The Pope, AI, and the question Silicon Valley keeps avoiding](https://blog.jenuel.dev/blog/the-pope-ai-and-the-question-silicon-valley-keeps-avoiding)
 - [How to Auto-Deploy a Laravel App to DigitalOcean Using GitHub Actions](https://blog.jenuel.dev/blog/How-to-Auto-Deploy-a-Laravel-App-to-DigitalOcean-Using-GitHub-Actions)
-- [From a Side Project in 2019 to a Published App: My Experience Building Believers Sword](https://blog.jenuel.dev/blog/From-a-Side-Project-in-2019-to-a-Published-App-My-Experience-Building-Believers-Sword)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
