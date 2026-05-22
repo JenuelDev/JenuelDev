@@ -13,6 +13,7 @@ export default [
                     hash: '#about-me'
                 },
                 label: 'About Me',
+                description: 'Get to know who I am',
                 icon: 'tabler:user',
                 external: false
             },
@@ -23,6 +24,7 @@ export default [
                     hash: '#technical-skills'
                 },
                 label: 'Techs',
+                description: 'Tools and stack I work with',
                 icon: 'tabler:device-desktop-code',
                 external: false
             },
@@ -33,6 +35,7 @@ export default [
                     hash: '#projects'
                 },
                 label: 'Projects',
+                description: 'Things I have built',
                 icon: 'tabler:terminal-2',
                 external: false
             },
@@ -40,6 +43,7 @@ export default [
                 routeName: 'Experience',
                 to: { path: '/', hash: '#experience' },
                 label: 'Experience',
+                description: 'Where I have worked',
                 icon: 'tabler:briefcase-2-filled',
                 external: false
             },
@@ -47,6 +51,7 @@ export default [
                 routeName: 'Achievements',
                 to: { path: '/', hash: '#achievements' },
                 label: 'Achievements',
+                description: 'Recognitions and milestones',
                 icon: 'game-icons:achievement',
                 external: false
             }
@@ -84,6 +89,7 @@ export default [
         routeName: string | null;
         to: string | { path?: string; query?: any; hash?: string };
         label: string;
+        description?: string;
         icon: string;
     }>;
 }>;

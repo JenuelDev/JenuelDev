@@ -75,25 +75,39 @@ onUnmounted(() => {
                             <div class="dropdown-menu">
                                 <div class="dropdown-menu-inner">
                                     <template v-for="(childLink, childIndex) in headerLink.children" :key="childIndex">
-                                        <RouterLink v-if="!childLink.external" :to="childLink.to" class="dropdown-item">
-                                            <div
-                                                class="flex items-center"
-                                                :class="{ active: $route.name == childLink.routeName }"
-                                            >
+                                        <RouterLink
+                                            v-if="!childLink.external"
+                                            :to="childLink.to"
+                                            class="dropdown-item"
+                                            :class="{ active: $route.name == childLink.routeName }"
+                                        >
+                                            <div class="dropdown-item-icon mr-2">
                                                 <Icon :icon="childLink.icon" />
-                                                <span class="text-size-14px font-500"> {{ childLink.label }} </span>
+                                            </div>
+                                            <div class="dropdown-item-text">
+                                                <span class="dropdown-item-label">{{ childLink.label }}</span>
+                                                <span v-if="childLink.description" class="dropdown-item-desc">
+                                                    {{ childLink.description }}
+                                                </span>
                                             </div>
                                         </RouterLink>
                                         <a
                                             v-else
-                                            class="dropdown-item flex items-center"
+                                            class="dropdown-item"
                                             rel="external"
                                             :href="childLink.to as string"
                                             hreflang="es-es"
                                             target="_blank"
                                         >
-                                            <Icon :icon="childLink.icon" />
-                                            <span class="text-size-14px font-500"> {{ childLink.label }} </span>
+                                            <div class="dropdown-item-icon">
+                                                <Icon :icon="childLink.icon" />
+                                            </div>
+                                            <div class="dropdown-item-text">
+                                                <span class="dropdown-item-label">{{ childLink.label }}</span>
+                                                <span v-if="childLink.description" class="dropdown-item-desc">
+                                                    {{ childLink.description }}
+                                                </span>
+                                            </div>
                                         </a>
                                     </template>
                                 </div>
@@ -176,8 +190,9 @@ onUnmounted(() => {
 .dropdown-menu-inner {
     background: var(--background);
     border: 1px solid var(--primary);
-    border-radius: 8px;
-    min-width: 180px;
+    border-radius: 12px;
+    min-width: 280px;
+    padding: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     transform: scale(0.95) translateY(-10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -199,26 +214,59 @@ onUnmounted(() => {
 .dropdown-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
     color: var(--text);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease;
     white-space: nowrap;
 }
 
 .dropdown-item:hover {
-    /* background: var(--primary);
-    color: var(--background) !important; */
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .dropdown-item.active {
-    /* background: var(--primary);
-    color: var(--background); */
+    background: color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
-.dropdown-item :deep(svg) {
+.dropdown-item-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--primary) 14%, transparent);
+    color: var(--primary);
+    transition: background 0.2s ease;
+}
+
+.dropdown-item:hover .dropdown-item-icon {
+    background: color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+.dropdown-item-icon :deep(svg) {
     width: 18px;
     height: 18px;
+}
+
+.dropdown-item-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.dropdown-item-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dropdown-item-desc {
+    font-size: 12px;
+    opacity: 0.65;
+    margin-top: 2px;
 }
 </style>
