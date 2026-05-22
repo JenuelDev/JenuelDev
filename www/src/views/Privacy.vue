@@ -1,5 +1,5 @@
 <template>
-  <div class="text-lg max-w-1200px mx-auto px-5 md:mt-30">
+  <div class="privacy-policy-page text-lg mx-auto px-5 md:mt-30">
 
     <h1 class="text-3xl font-bold mb-4">PRIVACY POLICY</h1>
     <p class="subtitle text-gray-500 mb-6">Last updated: February 02, 2026</p>
@@ -264,3 +264,9 @@
 
   </div>
 </template>
+
+<style lang="scss" scoped>
+.privacy-policy-page {
+  max-width: 800px;
+}
+</style>

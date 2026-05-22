@@ -37,6 +37,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/privacy-policy/photo-booth-auto-print',
+      name: 'PrivacyPolicyPhotoBoothAutoPrint',
+      component: () => import('@/views/PrivacyPolicy/PhotoBoothAutoPrint.vue'),
+      meta: {
+        title: "Privacy Policy - Photo Booth Auto Print - JenuelDev"
+      }
+    },
+    {
       path: '/project-archives',
       name: 'ProjectArchives',
       component: () => import('@/views/ProjectArchives/index.vue'),
