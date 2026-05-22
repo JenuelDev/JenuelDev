@@ -1,6 +1,25 @@
 <script setup lang="ts">
 import CodeChallenge from '@/constant/code-challenges-page/index';
 import { Icon } from "@iconify/vue"
+import { computed } from 'vue';
+import { RouterLink } from 'vue-router';
+
+const props = withDefaults(defineProps<{
+    limit?: number;
+    title?: string;
+    description?: string;
+}>(), {
+    limit: 6,
+    title: 'projects archives',
+});
+
+const visibleChallenges = computed(() =>
+    props.limit ? CodeChallenge.challenges.slice(0, props.limit) : CodeChallenge.challenges
+);
+
+const hasMore = computed(() =>
+    props.limit !== undefined && props.limit > 0 && CodeChallenge.challenges.length > props.limit
+);
 
 function openSite(site: string) {
     window.open(site, '_blank');
@@ -10,13 +29,13 @@ function openSite(site: string) {
     <section v-scrollanimation class="code-challenge">
         <h2
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
-            others
+            {{ title }}
         </h2>
         <p class="text-lg md:px-10px w-[100%] leading-7">
-            {{ CodeChallenge.des }}
+            {{ description ?? CodeChallenge.des }}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-22px mt-42px">
-            <template v-for="(code, index) in CodeChallenge.challenges" :key="index">
+            <template v-for="(code, index) in visibleChallenges" :key="index">
                 <div v-scrollanimation :style="'transition-delay:' + index * 100 + 'ms'">
                     <div class="code-item">
                         <div class="code-item-inner">
@@ -60,12 +79,45 @@ function openSite(site: string) {
                 </div>
             </template>
         </div>
+        <div v-if="hasMore" class="view-all-wrap">
+            <RouterLink to="/project-archives" class="view-all-btn">
+                <span>View all projects</span>
+                <Icon icon="tabler:arrow-right" />
+            </RouterLink>
+        </div>
     </section>
 </template>
 
 <style lang="scss">
 .code-challenge {
     @apply max-w-[1100px] mx-auto my-100px px-14px;
+
+    .view-all-wrap {
+        @apply flex justify-center mt-42px;
+    }
+
+    .view-all-btn {
+        @apply inline-flex items-center gap-10px px-22px py-12px rounded-8px text-size-15px font-600 no-underline;
+        border: 1px solid color-mix(in srgb, var(--primary) 38%, transparent);
+        color: var(--primary);
+        background: color-mix(in srgb, var(--primary) 6%, transparent);
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+        svg {
+            @apply w-18px h-18px;
+            transition: transform 0.2s ease;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+            background: color-mix(in srgb, var(--primary) 14%, transparent);
+
+            svg {
+                transform: translateX(4px);
+            }
+        }
+    }
 
     &.a-before-enter {
         opacity: 0;
@@ -79,7 +131,7 @@ function openSite(site: string) {
     }
 
         .code-item {
-            @apply relative overflow-hidden rounded-8px px-22px py-18px h-full z-1;
+            @apply relative rounded-8px px-22px py-18px h-full z-1;
             border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
             background: color-mix(in srgb, var(--background) 92%, #001e2e);
             transition: transform 0.25s ease, border-color 0.25s ease;

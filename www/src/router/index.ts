@@ -37,6 +37,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/project-archives',
+      name: 'ProjectArchives',
+      component: () => import('@/views/ProjectArchives/index.vue'),
+      meta: {
+        title: "Project Archives - JenuelDev"
+      }
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'PageNotFound',
       component: () => import('@/views/PageNotFound/index.vue'),
