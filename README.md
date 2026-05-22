@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Your VS Code extensions are production access. Treat them that way.](https://blog.jenuel.dev/blog/vscode-extensions-production-access)
 - [Google is turning productivity into an AI subscription. Be careful what you rent.](https://blog.jenuel.dev/blog/google-ai-subscriptions-productivity-rent-attention)
 - [AI agents are becoming the new IDE. Keep your hands on the wheel.](https://blog.jenuel.dev/blog/ai-agents-new-ide-hands-on-wheel)
 - [AI agents are only as useful as the tools they can safely touch](https://blog.jenuel.dev/blog/ai-agents-tools-safe-access)
 - [AI is moving from demo to infrastructure, and today made that obvious](https://blog.jenuel.dev/blog/ai-is-moving-from-demo-to-infrastructure)
-- [AI coding agents are growing up. Most workflows are not.](https://blog.jenuel.dev/blog/ai-coding-agents-are-growing-up-workflows-arent)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
