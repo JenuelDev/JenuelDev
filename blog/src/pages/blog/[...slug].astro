@@ -243,6 +243,7 @@ const author = data ? data.user_profile : null;
 
                 &:hover {
                     color: var(--primary);
+                    background-color: transparent;
 
                     &::before {
                         width: 100%;
@@ -417,11 +418,11 @@ const author = data ? data.user_profile : null;
         a {
             word-wrap: break-word;
             text-decoration: none;
-            color: var(--orange) !important;
+            color: var(--orange);
 
             &:hover {
                 background-color: var(--orange);
-                color: black !important;
+                color: black;
             }
         }
     }
