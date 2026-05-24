@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI therapy apps need boundaries before they need hype](https://blog.jenuel.dev/blog/ai-therapy-apps-need-boundaries)
 - [Your AI is not bad, your instructions are](https://blog.jenuel.dev/blog/your-ai-is-not-bad-your-instructions-are)
 - [Faith tech is moving from Bible apps to wearables. Pay attention.](https://blog.jenuel.dev/blog/faith-tech-wearables-attention)
 - [Your VS Code extensions are production access. Treat them that way.](https://blog.jenuel.dev/blog/vscode-extensions-production-access)
 - [Google is turning productivity into an AI subscription. Be careful what you rent.](https://blog.jenuel.dev/blog/google-ai-subscriptions-productivity-rent-attention)
-- [AI agents are becoming the new IDE. Keep your hands on the wheel.](https://blog.jenuel.dev/blog/ai-agents-new-ide-hands-on-wheel)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
