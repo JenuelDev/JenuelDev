@@ -18,7 +18,11 @@ function openSite(site: string) {
 
 const techIconMap: Record<string, string> = {
     electron: 'mdi:electron-framework',
-    flutter: 'skill-icons:flutter-light',
+    flutter: 'vscode-icons:file-type-flutter',
+    dart: 'vscode-icons:file-type-dartlang',
+    android: 'logos:android-icon',
+    'naive ui': 'logos:naiveui',
+    naiveui: 'logos:naiveui',
     vue: 'material-icon-theme:vue',
     vue3: 'material-icon-theme:vue',
     vuejs: 'material-icon-theme:vue',
@@ -27,7 +31,7 @@ const techIconMap: Record<string, string> = {
     react: 'vscode-icons:file-type-reactjs',
     javascript: 'skill-icons:javascript',
     typescript: 'vscode-icons:file-type-typescript-official',
-    firebase: 'skill-icons:firebase-light',
+    firebase: 'logos:firebase-icon',
     unocss: 'material-icon-theme:unocss',
     windicss: 'material-icon-theme:windicss',
     tailwindcss: 'devicon:tailwindcss',

@@ -1,10 +1,10 @@
 export default {
     works: [
         {
-            overline: 'Desktop Application',
+            overline: 'Desktop | Mobile | Web',
             title: 'Believers Sword',
             des: "Focus on what matters instead of fighting with your mind. Whether you're new to this app or a seasoned user, Believers Sword App is a simple application that helps you study bible.",
-            techs: ['electron', 'Flutter', 'Vue3', 'windiCss'],
+            techs: ['electron', 'Flutter', 'Vue3', 'UnoCSS', 'Laravel', 'Dart', 'Android', 'Naive UI'],
             links: [
                 {
                     link: 'https://github.com/Bible-Projects/believers-sword-app',
@@ -19,6 +19,26 @@ export default {
             ],
             imageLink: 'https://believersword.com/',
             img: '/images/projects/BS.webp',
+        },
+        {
+            overline: 'Mobile Application',
+            title: 'Photo Booth: Auto Print',
+            des: 'Photo Booth Auto Print is a Flutter app that automates photo booth printing — capture, queue, and auto-print photos for events with minimal setup.',
+            techs: ['Flutter', 'Dart', 'Android'],
+            links: [
+                {
+                    link: 'https://play.google.com/store/apps/details?id=dev.jenuel.photo_booth_auto_print',
+                    icon: null,
+                    tooltip: 'Open in Google Play',
+                },
+                {
+                    link: 'https://photo-booth.jenuel.dev',
+                    icon: null,
+                    tooltip: 'Open Link',
+                },
+            ],
+            imageLink: 'https://photo-booth.jenuel.dev',
+            img: '/images/projects/photo-booth.png',
         },
         {
             overline: 'Web Application',
