@@ -22,6 +22,21 @@ export default {
         },
         {
             overline: 'Mobile Application',
+            title: 'Gospel Guitar Chords',
+            des: 'Gospel Guitar Chords is an offline-first Flutter app for browsing gospel song chords. It bundles a local chord database and integrates YouTube playback so you can practice along with the song.',
+            techs: ['Flutter', 'Dart', 'SQLite', 'Android'],
+            links: [
+                {
+                    link: 'https://gospel-guitar-chords.jenuel.dev/',
+                    icon: null,
+                    tooltip: 'Open Link',
+                },
+            ],
+            imageLink: 'https://gospel-guitar-chords.jenuel.dev/',
+            img: '/images/projects/gospel-guitar-chords.png',
+        },
+        {
+            overline: 'Mobile Application',
             title: 'Photo Booth: Auto Print',
             des: 'Photo Booth Auto Print is a Flutter app that automates photo booth printing — capture, queue, and auto-print photos for events with minimal setup.',
             techs: ['Flutter', 'Dart', 'Android'],
