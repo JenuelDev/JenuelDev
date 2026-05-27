@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI for science is becoming a builder workflow, not a lab demo](https://blog.jenuel.dev/blog/ai-for-science-builder-workflow)
+- [Gemini Omni makes video generation feel more like editing](https://blog.jenuel.dev/blog/gemini-omni-video-editing-model)
 - [AI guardrails are not security boundaries](https://blog.jenuel.dev/blog/ai-guardrails-are-not-security-boundaries)
 - [Age checks are becoming the new login wall](https://blog.jenuel.dev/blog/age-checks-are-becoming-the-new-login-wall)
 - [AI therapy apps need boundaries before they need hype](https://blog.jenuel.dev/blog/ai-therapy-apps-need-boundaries)
-- [Your AI is not bad, your instructions are](https://blog.jenuel.dev/blog/your-ai-is-not-bad-your-instructions-are)
-- [Faith tech is moving from Bible apps to wearables. Pay attention.](https://blog.jenuel.dev/blog/faith-tech-wearables-attention)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
