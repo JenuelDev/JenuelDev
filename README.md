@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI models are missing religious context. Builders should treat that as an eval problem.](https://blog.jenuel.dev/blog/ai-religious-context-evals)
 - [AI for science is becoming a builder workflow, not a lab demo](https://blog.jenuel.dev/blog/ai-for-science-builder-workflow)
 - [Gemini Omni makes video generation feel more like editing](https://blog.jenuel.dev/blog/gemini-omni-video-editing-model)
 - [AI guardrails are not security boundaries](https://blog.jenuel.dev/blog/ai-guardrails-are-not-security-boundaries)
 - [Age checks are becoming the new login wall](https://blog.jenuel.dev/blog/age-checks-are-becoming-the-new-login-wall)
-- [AI therapy apps need boundaries before they need hype](https://blog.jenuel.dev/blog/ai-therapy-apps-need-boundaries)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
