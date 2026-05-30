@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI&#39;s next bottleneck is not the model. It is moving the data.](https://blog.jenuel.dev/blog/ai-data-movement-next-bottleneck)
 - [Physical AI needs an operations playbook, not just smarter robots](https://blog.jenuel.dev/blog/physical-ai-needs-an-operations-playbook)
 - [AI models are missing religious context. Builders should treat that as an eval problem.](https://blog.jenuel.dev/blog/ai-religious-context-evals)
 - [AI for science is becoming a builder workflow, not a lab demo](https://blog.jenuel.dev/blog/ai-for-science-builder-workflow)
 - [Gemini Omni makes video generation feel more like editing](https://blog.jenuel.dev/blog/gemini-omni-video-editing-model)
-- [AI guardrails are not security boundaries](https://blog.jenuel.dev/blog/ai-guardrails-are-not-security-boundaries)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
