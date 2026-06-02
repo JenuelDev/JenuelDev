@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Local AI PCs are turning into the new test bench](https://blog.jenuel.dev/blog/local-ai-pcs-are-the-new-test-bench)
 - [The AI classroom needs lab rules, not blanket bans](https://blog.jenuel.dev/blog/ai-classroom-needs-lab-rules-not-blanket-bans)
 - [AI usage limits are a product feature now](https://blog.jenuel.dev/blog/ai-usage-limits-are-product-feature)
 - [AI&#39;s next bottleneck is not the model. It is moving the data.](https://blog.jenuel.dev/blog/ai-data-movement-next-bottleneck)
 - [Physical AI needs an operations playbook, not just smarter robots](https://blog.jenuel.dev/blog/physical-ai-needs-an-operations-playbook)
-- [AI models are missing religious context. Builders should treat that as an eval problem.](https://blog.jenuel.dev/blog/ai-religious-context-evals)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
