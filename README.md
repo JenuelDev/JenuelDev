@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [OpenAI models on Bedrock make AI deployment less messy](https://blog.jenuel.dev/blog/openai-models-on-bedrock-make-ai-deployment-less-messy)
 - [Local AI PCs are turning into the new test bench](https://blog.jenuel.dev/blog/local-ai-pcs-are-the-new-test-bench)
 - [The AI classroom needs lab rules, not blanket bans](https://blog.jenuel.dev/blog/ai-classroom-needs-lab-rules-not-blanket-bans)
 - [AI usage limits are a product feature now](https://blog.jenuel.dev/blog/ai-usage-limits-are-product-feature)
 - [AI&#39;s next bottleneck is not the model. It is moving the data.](https://blog.jenuel.dev/blog/ai-data-movement-next-bottleneck)
-- [Physical AI needs an operations playbook, not just smarter robots](https://blog.jenuel.dev/blog/physical-ai-needs-an-operations-playbook)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
