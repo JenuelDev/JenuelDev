@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [OpenAI Lockdown Mode makes prompt injection a user problem now](https://blog.jenuel.dev/blog/openai-lockdown-mode-prompt-injection-user-problem)
 - [AI needs a brake pedal before the next model jump](https://blog.jenuel.dev/blog/ai-needs-a-brake-pedal-before-next-model-jump)
 - [Meta&#39;s delayed AI model is a reminder to build for model churn](https://blog.jenuel.dev/blog/meta-delayed-ai-model-build-for-churn)
 - [PewDiePie built an open-source AI workspace, and the point is bigger than the hype](https://blog.jenuel.dev/blog/pewdiepie-odysseus-open-source-ai-workspace)
 - [Nvidia DGX Spark shows the future of PCs, but maybe not for normal people](https://blog.jenuel.dev/blog/nvidia-dgx-spark-ai-pc-future-normal-users)
-- [Microsoft&#39;s MAI-Thinking-1 shows the model factory matters more than the model drop](https://blog.jenuel.dev/blog/microsoft-mai-thinking-1-model-factory)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
