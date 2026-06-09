@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI evals are broken, but builders still need them](https://blog.jenuel.dev/blog/ai-evals-are-broken-but-builders-still-need-them)
 - [Claude as a chemist is a preview of AI that works inside expert workflows](https://blog.jenuel.dev/blog/claude-chemist-expert-ai-workflows)
 - [OpenAI Lockdown Mode makes prompt injection a user problem now](https://blog.jenuel.dev/blog/openai-lockdown-mode-prompt-injection-user-problem)
 - [AI needs a brake pedal before the next model jump](https://blog.jenuel.dev/blog/ai-needs-a-brake-pedal-before-next-model-jump)
 - [Meta&#39;s delayed AI model is a reminder to build for model churn](https://blog.jenuel.dev/blog/meta-delayed-ai-model-build-for-churn)
-- [PewDiePie built an open-source AI workspace, and the point is bigger than the hype](https://blog.jenuel.dev/blog/pewdiepie-odysseus-open-source-ai-workspace)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
