@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [We Do Not Just Write Code Anymore. We Direct Agents.](https://blog.jenuel.dev/blog/we-do-not-just-write-code-anymore-we-direct-agents)
+- [AI adoption needs evidence, not vibes](https://blog.jenuel.dev/blog/ai-adoption-needs-evidence-not-vibes)
 - [AI evals are broken, but builders still need them](https://blog.jenuel.dev/blog/ai-evals-are-broken-but-builders-still-need-them)
 - [Claude as a chemist is a preview of AI that works inside expert workflows](https://blog.jenuel.dev/blog/claude-chemist-expert-ai-workflows)
 - [OpenAI Lockdown Mode makes prompt injection a user problem now](https://blog.jenuel.dev/blog/openai-lockdown-mode-prompt-injection-user-problem)
-- [AI needs a brake pedal before the next model jump](https://blog.jenuel.dev/blog/ai-needs-a-brake-pedal-before-next-model-jump)
-- [Meta&#39;s delayed AI model is a reminder to build for model churn](https://blog.jenuel.dev/blog/meta-delayed-ai-model-build-for-churn)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
