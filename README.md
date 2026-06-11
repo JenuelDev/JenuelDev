@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI Overviews are a liability lesson for every builder](https://blog.jenuel.dev/blog/ai-overviews-liability-lesson-for-builders)
 - [We Do Not Just Write Code Anymore. We Direct Agents.](https://blog.jenuel.dev/blog/we-do-not-just-write-code-anymore-we-direct-agents)
 - [AI adoption needs evidence, not vibes](https://blog.jenuel.dev/blog/ai-adoption-needs-evidence-not-vibes)
 - [AI evals are broken, but builders still need them](https://blog.jenuel.dev/blog/ai-evals-are-broken-but-builders-still-need-them)
 - [Claude as a chemist is a preview of AI that works inside expert workflows](https://blog.jenuel.dev/blog/claude-chemist-expert-ai-workflows)
-- [OpenAI Lockdown Mode makes prompt injection a user problem now](https://blog.jenuel.dev/blog/openai-lockdown-mode-prompt-injection-user-problem)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
