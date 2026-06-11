@@ -51,9 +51,9 @@
 
 ### Personal Works
 
--   [Believers Sword](https://believers-sword.brojenuel.com/)
--   [FamTree](https://fam-tree.brojenuel.com/)
--   [Others](https://brojenuel.com/my-work)
+-   [Believers Sword](https://believersword.com/)
+-   [FamTree](https://famtree.jenuel.dev/)
+-   [Others](https://www.jenuel.dev/#projects)
 
 ### Buy Me A Coffee 😁
 [![Buy Me Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=☕&slug=jenuel.dev&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/jenuel.dev)
