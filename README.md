@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Healthcare-specific AI is the practical model story builders should watch](https://blog.jenuel.dev/blog/healthcare-specific-ai-practical-model-story-builders)
 - [AI music detectors are becoming a product feature, not a gimmick](https://blog.jenuel.dev/blog/ai-music-detectors-are-a-product-signal)
 - [Physical AI needs labs, not just louder demos](https://blog.jenuel.dev/blog/physical-ai-labs-robotics-builders)
 - [AI Overviews are a liability lesson for every builder](https://blog.jenuel.dev/blog/ai-overviews-liability-lesson-for-builders)
 - [We Do Not Just Write Code Anymore. We Direct Agents.](https://blog.jenuel.dev/blog/we-do-not-just-write-code-anymore-we-direct-agents)
-- [AI adoption needs evidence, not vibes](https://blog.jenuel.dev/blog/ai-adoption-needs-evidence-not-vibes)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
