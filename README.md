@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Developer jobs are not dead, but the salary ladder is changing](https://blog.jenuel.dev/blog/developer-jobs-salary-ladder-languages-frameworks-2026)
+- [Pre-launch AI simulations are becoming the new model safety check](https://blog.jenuel.dev/blog/pre-launch-ai-simulations-new-model-safety-check)
 - [I Stopped Using Heavy IDEs. AI Became My IDE.](https://blog.jenuel.dev/blog/i-stopped-using-heavy-ides-ai-became-my-ide)
 - [Voice AI is becoming a full-stack problem](https://blog.jenuel.dev/blog/voice-ai-full-stack-cartesia-sonic-ink)
 - [Gemini Omni shows where AI video tools are heading next](https://blog.jenuel.dev/blog/gemini-omni-video-ai-workflow)
-- [Long context is not AI memory: a builder playbook for reliable AI apps](https://blog.jenuel.dev/blog/long-context-is-not-ai-memory-builder-playbook)
-- [Healthcare-specific AI is the practical model story builders should watch](https://blog.jenuel.dev/blog/healthcare-specific-ai-practical-model-story-builders)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
