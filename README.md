@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Claude Is Powerful, but Outages and Limits Are Part of the Deal](https://blog.jenuel.dev/blog/claude-outages-limits-part-of-the-deal)
+- [I Am Fired Up Again](https://blog.jenuel.dev/blog/i-am-fired-up-again)
 - [I Spent Years Learning to Code. Now People Vibe Code in a Weekend.](https://blog.jenuel.dev/blog/i-spent-years-learning-to-code-now-people-vibe-code-in-a-weekend)
 - [Developer jobs are not dead, but the salary ladder is changing](https://blog.jenuel.dev/blog/developer-jobs-salary-ladder-languages-frameworks-2026)
 - [Pre-launch AI simulations are becoming the new model safety check](https://blog.jenuel.dev/blog/pre-launch-ai-simulations-new-model-safety-check)
-- [I Stopped Using Heavy IDEs. AI Became My IDE.](https://blog.jenuel.dev/blog/i-stopped-using-heavy-ides-ai-became-my-ide)
-- [Voice AI is becoming a full-stack problem](https://blog.jenuel.dev/blog/voice-ai-full-stack-cartesia-sonic-ink)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
