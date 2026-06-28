@@ -27,14 +27,6 @@ const blogs = data ?? [];
     description={description}
     image=`https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`
 >
-    <Fragment slot="head">
-        <script
-            is:inline
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268807726840190"
-            crossorigin="anonymous"></script>
-    </Fragment>
-
     <main>
         <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-28">
             {

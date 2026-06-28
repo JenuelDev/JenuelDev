@@ -2,7 +2,6 @@
 import Layout from "../../layouts/default.astro";
 import { supabase } from "../../lib/supabase";
 import dayjs from "dayjs";
-import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
 
 const limit = 50;
 
@@ -16,8 +15,6 @@ const { data, error } = await supabase
 if (error) {
     console.log(error);
 }
-
-const isDev = import.meta.env.DEV;
 const blogs = data ?? [];
 const title = "Blogs - Jenuel Dev";
 const description = "I build apps that are engaging, accessible and scalable - JenuelDev";
@@ -49,9 +46,6 @@ const description = "I build apps that are engaging, accessible and scalable - J
                                 </p>
                             </div>
                         </a>
-                        {!isDev && i % 7 === 0 && i !== 0 && (
-                            <HorizontalAdBox adSlot="2796186432" />
-                        )}
                     </>
                 ))
             }
