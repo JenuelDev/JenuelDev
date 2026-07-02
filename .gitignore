@@ -7,3 +7,5 @@ node_modules
 .netlify
 .vercel
 .claude/settings.local.json
+combined.log
+error.log
