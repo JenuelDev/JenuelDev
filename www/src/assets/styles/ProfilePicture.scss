@@ -6,3 +6,19 @@
         transform: scale(1.2) rotate(10deg);
     }
 }
+
+// Themed "cover color" over the profile photo, matching the project cards.
+// The photo's white background multiplies down to the active theme's --image-cover,
+// so it blends into the dark theme instead of sitting on a stark white block.
+.profile-image-cover {
+    position: relative;
+    background-color: var(--image-cover);
+    line-height: 0;
+
+    img {
+        display: block;
+        mix-blend-mode: multiply;
+        filter: grayscale(100%) contrast(1) brightness(95%);
+        transition: transform 0.3s ease;
+    }
+}

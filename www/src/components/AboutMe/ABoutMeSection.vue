@@ -59,7 +59,7 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                 </div>
             </div>
             <div class="lg:order-2 order-1 z-50 relative">
-                <div class="overflow-hidden rounded-lg">
+                <div class="profile-image-cover overflow-hidden rounded-lg">
                     <img
                         class="max-w-300px w-[300px] profile-picture-style"
                         loading="eager"
