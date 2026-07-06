@@ -19,6 +19,28 @@ export default {
             ],
             imageLink: 'https://believersword.com/',
             img: '/images/projects/BS.webp',
+            logo: '/project logo/believers sword.png',
+        },
+        {
+            overline: 'Mobile Application',
+            title: 'Tracksy',
+            des: 'Tracksy is a personal expense tracker to log, analyze, and manage your spending — all in one clean, simple app. Track expenses by category, visualize patterns with charts, set budgets, and keep separate profiles for personal and business.',
+            techs: ['Flutter', 'Dart', 'Firebase', 'SQLite', 'Android', 'iOS'],
+            links: [
+                {
+                    link: 'https://github.com/JenuelDev/Tracksy',
+                    icon: null,
+                    tooltip: 'Open in Github',
+                },
+                {
+                    link: 'https://tracksy.jenuel.dev/',
+                    icon: null,
+                    tooltip: 'Open Link',
+                },
+            ],
+            imageLink: 'https://tracksy.jenuel.dev/',
+            img: '/images/projects/tracksy.png',
+            logo: '/project logo/tracksy.png',
         },
         {
             overline: 'Mobile Application',
@@ -34,6 +56,7 @@ export default {
             ],
             imageLink: 'https://gospel-guitar-chords.jenuel.dev/',
             img: '/images/projects/gospel-guitar-chords.png',
+            logo: '/project logo/gospel song chords logo.png',
         },
         {
             overline: 'Mobile Application',
@@ -54,6 +77,7 @@ export default {
             ],
             imageLink: 'https://photo-booth.jenuel.dev',
             img: '/images/projects/photo-booth.png',
+            logo: '/project logo/photo booth.png',
         },
         {
             overline: 'Web Application',
@@ -74,6 +98,7 @@ export default {
             ],
             imageLink: 'https://famtree.jenuel.dev/',
             img: 'https://i.imgur.com/icyfsRQ.png',
+            logo: '/project logo/fam tree.png',
         },
     ],
 } as any;

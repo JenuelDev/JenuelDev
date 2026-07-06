@@ -21,6 +21,8 @@ const techIconMap: Record<string, string> = {
     flutter: 'vscode-icons:file-type-flutter',
     dart: 'vscode-icons:file-type-dartlang',
     android: 'logos:android-icon',
+    ios: 'mdi:apple',
+    sqlite: 'vscode-icons:file-type-sqlite',
     'naive ui': 'logos:naiveui',
     naiveui: 'logos:naiveui',
     vue: 'material-icon-theme:vue',
@@ -71,8 +73,19 @@ function getTechIcon(tech: string): string {
             <template v-for="(work, i) in works.works" :key="i">
                 <div v-scrollanimation class="work-info mx-0 md:my-30 my-1" style="transition-delay: 500ms">
                     <div class="work-info-details" :class="(i as number) % 2 == 0 ? 'left-content' : 'right-content'">
-                        <p class="project-overline text-[var(--primary)] font-600">{{ work.overline }}</p>
-                        <h3 class="project-title text-xl font-700">{{ work.title }}</h3>
+                        <div class="project-header">
+                            <img
+                                v-if="work.logo"
+                                class="project-logo"
+                                loading="lazy"
+                                :src="work.logo"
+                                :alt="`${work.title} logo`"
+                            />
+                            <div class="project-heading">
+                                <p class="project-overline text-[var(--primary)] font-600">{{ work.overline }}</p>
+                                <h3 class="project-title text-xl font-700">{{ work.title }}</h3>
+                            </div>
+                        </div>
                         <div class="info-des-container">
                             <p v-html="work.des"></p>
                             <ul class="info-tech-list" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
@@ -145,6 +158,10 @@ function getTechIcon(tech: string): string {
             position: relative;
             grid-area: 1/7/-1/-2;
             text-align: right;
+
+            .project-header {
+                flex-direction: row-reverse;
+            }
         }
 
         .left-image {
@@ -153,13 +170,32 @@ function getTechIcon(tech: string): string {
         }
 
         .work-info-details {
+            .project-header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin: 0 0 18px;
+            }
+
+            .project-logo {
+                height: 72px;
+                width: auto;
+                border-radius: 16px;
+                flex-shrink: 0;
+                vertical-align: middle;
+            }
+
+            .project-heading {
+                min-width: 0;
+            }
+
             .project-overline {
-                margin: 0 0 8px;
+                margin: 0 0 6px;
                 letter-spacing: 0;
             }
 
             .project-title {
-                margin: 0 0 18px;
+                margin: 0;
                 color: color-mix(in srgb, var(--lightestSlate) 94%, transparent);
                 letter-spacing: 0;
                 line-height: 1.15;
@@ -337,6 +373,10 @@ function getTechIcon(tech: string): string {
                 padding: 40px 40px 30px;
                 z-index: 5;
                 text-align: left;
+
+                .project-header {
+                    flex-direction: row;
+                }
 
                 .info-tech-list,
                 .work-links {
