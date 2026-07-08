@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [When will Claude-level AI run on a normal PC? I searched the web, and the answer is not simple](https://blog.jenuel.dev/blog/when-will-claude-level-ai-run-on-a-normal-pc)
 - [AI crawlers are forcing a new internet economy](https://blog.jenuel.dev/blog/ai-crawlers-new-internet-economy)
 - [Claude Fable 5 Feels Different. But Should Developers Trust It?](https://blog.jenuel.dev/blog/claude-fable-5-feels-different-developer-review)
 - [Ornith 1.0: The Open-Source Coding Model Developers Should Watch Closely](https://blog.jenuel.dev/blog/ornith-1-open-source-agentic-coding-model)
 - [Stop Feeding Your AI Agent the Whole Repo: Build a Project Brain That Retrieves What It Needs](https://blog.jenuel.dev/blog/build-ai-agent-project-brain-without-overloading-context)
-- [Claude Is Powerful, but Outages and Limits Are Part of the Deal](https://blog.jenuel.dev/blog/claude-outages-limits-part-of-the-deal)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
