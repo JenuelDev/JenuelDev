@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [China Is Not Banning AI. It May Be Closing the Door on Its Best Models.](https://blog.jenuel.dev/blog/china-not-banning-ai-may-restrict-best-models)
 - [GitHub Can Now Detect System-Prompt Injection: What I Learned from Researching CodeQL 2.26.0](https://blog.jenuel.dev/blog/codeql-system-prompt-injection-research)
 - [When will Claude-level AI run on a normal PC? I searched the web, and the answer is not simple](https://blog.jenuel.dev/blog/when-will-claude-level-ai-run-on-a-normal-pc)
 - [AI crawlers are forcing a new internet economy](https://blog.jenuel.dev/blog/ai-crawlers-new-internet-economy)
 - [Claude Fable 5 Feels Different. But Should Developers Trust It?](https://blog.jenuel.dev/blog/claude-fable-5-feels-different-developer-review)
-- [Ornith 1.0: The Open-Source Coding Model Developers Should Watch Closely](https://blog.jenuel.dev/blog/ornith-1-open-source-agentic-coding-model)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
