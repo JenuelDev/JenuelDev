@@ -7,13 +7,124 @@ const isDev = import.meta.env.DEV;
 const { adSlot } = Astro.props;
 ---
 
-<div class="border-2 border-[var(--slate8)] p-2 rounded-md border-dashed relative">
+<div class="border-2 border-[var(--slate8)] p-2 rounded-md border-dashed relative" data-ad-box>
     <div
         class="absolute -top-[15px] left-[50%] translate-x-[-50%] px-1 bg-[var(--slate5)] rounded-md text-sm z-999"
+        data-ad-label
+        style={isDev ? "display:none" : undefined}
     >
         Ads
     </div>
-    <div class="min-h-100px">
+    <div class="min-h-100px relative">
         {!isDev && <HorizontalAd adSlot={adSlot} />}
+
+        <!-- Shown when the ad is blocked or no ad is served (in dev there is no ad at all). -->
+        <a
+            class="ad-fallback"
+            data-ad-fallback
+            href="mailto:me@jenuel.dev?subject=Advertise%20on%20jenuel.dev&body=Hi%20Jenuel%2C%20I'd%20like%20to%20advertise%20in%20this%20spot%20on%20your%20blog."
+            style={isDev ? undefined : "display:none"}
+        >
+            <span class="ad-fallback-eyebrow">This spot is available</span>
+            <span class="ad-fallback-title">Want to own this part of the website?</span>
+            <span class="ad-fallback-cta">Contact me &rarr; me@jenuel.dev</span>
+        </a>
     </div>
 </div>
+
+<style>
+    .ad-fallback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 100px;
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        color: var(--slate11);
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .ad-fallback:hover {
+        background: color-mix(in srgb, var(--primary) 8%, transparent);
+    }
+
+    .ad-fallback-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--slate11) 65%, transparent);
+    }
+
+    .ad-fallback-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--slate12);
+    }
+
+    .ad-fallback-cta {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .ad-fallback:hover .ad-fallback-cta {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    // Reveal the "advertise here" fallback whenever an ad slot ends up empty —
+    // either AdSense reported no ad to serve, or an ad blocker stopped it loading.
+    function syncAdFallbacks() {
+        document.querySelectorAll<HTMLElement>("[data-ad-box]").forEach((box) => {
+            const fallback = box.querySelector<HTMLElement>("[data-ad-fallback]");
+            if (!fallback) return;
+
+            const label = box.querySelector<HTMLElement>("[data-ad-label]");
+            const ins = box.querySelector<HTMLElement>("ins.adsbygoogle");
+
+            // No ad markup at all (e.g. dev build) — keep the fallback visible
+            // and drop the "Ads" label since nothing is being advertised.
+            if (!ins) {
+                fallback.style.display = "";
+                if (label) label.style.display = "none";
+                return;
+            }
+
+            // Show the fallback (no ad) and hide the "Ads" label.
+            const show = () => {
+                fallback.style.display = "";
+                if (label) label.style.display = "none";
+            };
+            // A real ad filled the slot: hide the fallback, restore the "Ads" label.
+            const hide = () => {
+                fallback.style.display = "none";
+                if (label) label.style.display = "";
+            };
+
+            const evaluate = () => {
+                const status = ins.getAttribute("data-ad-status");
+                if (status === "filled") return hide();
+                if (status === "unfilled") return show();
+                // Blocked / never processed: no status set and nothing rendered.
+                const rendered = ins.offsetHeight > 0 && !!ins.querySelector("iframe");
+                if (!rendered) show();
+            };
+
+            // React the moment AdSense marks the slot filled/unfilled.
+            const observer = new MutationObserver(evaluate);
+            observer.observe(ins, { attributes: true, attributeFilter: ["data-ad-status"] });
+
+            // Backstop for ad blockers, where data-ad-status is never set.
+            setTimeout(evaluate, 2500);
+        });
+    }
+
+    syncAdFallbacks();
+    // Re-run after Astro View Transitions navigations.
+    document.addEventListener("astro:page-load", syncAdFallbacks);
+</script>
