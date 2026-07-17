@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/default.astro";
 import { supabase } from "../../lib/supabase";
 import { Icon } from "astro-icon/components";
+import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
 import "../../assets/code-highlight/atom-one-dark.css";
 const { slug } = Astro.params;
 const isDev = import.meta.env.DEV;
@@ -153,6 +154,8 @@ const author = data ? data.user_profile : null;
             }
             <span class="text-size-15px blog-date" data-date={data.created_at}></span>
         </div>
+
+        <HorizontalAdBox adSlot="4295024492" />
 
         <div
             class="content-render mx-auto relative md:text-lg pt-5 px-1 text-secondary"

@@ -1,0 +1,19 @@
+---
+export interface Props {
+    adSlot: string;
+}
+import HorizontalAd from "./HorizontalAd.astro";
+const isDev = import.meta.env.DEV;
+const { adSlot } = Astro.props;
+---
+
+<div class="border-2 border-[var(--slate8)] p-2 rounded-md border-dashed relative">
+    <div
+        class="absolute -top-[15px] left-[50%] translate-x-[-50%] px-1 bg-[var(--slate5)] rounded-md text-sm z-999"
+    >
+        Ads
+    </div>
+    <div class="min-h-100px">
+        {!isDev && <HorizontalAd adSlot={adSlot} />}
+    </div>
+</div>
