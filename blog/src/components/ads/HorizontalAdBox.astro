@@ -95,14 +95,19 @@ const { adSlot } = Astro.props;
                 return;
             }
 
-            // Show the fallback (no ad) and hide the "Ads" label.
+            // Show the fallback (no ad) and hide the "Ads" label. Collapse the
+            // empty <ins> too — an unfilled/blocked slot keeps the tall height it
+            // reserved, which would leave a big blank gap above the fallback.
             const show = () => {
                 fallback.style.display = "";
+                ins.style.display = "none";
                 if (label) label.style.display = "none";
             };
-            // A real ad filled the slot: hide the fallback, restore the "Ads" label.
+            // A real ad filled the slot: hide the fallback, restore the ad and
+            // the "Ads" label.
             const hide = () => {
                 fallback.style.display = "none";
+                ins.style.display = "block";
                 if (label) label.style.display = "";
             };
 
