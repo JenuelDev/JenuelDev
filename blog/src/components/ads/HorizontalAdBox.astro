@@ -107,34 +107,44 @@ const { adSlot } = Astro.props;
             // <ins> from the DOM entirely. Show the invite.
             if (!ins) return showFallback();
 
-            const evaluate = (final: boolean) => {
-                const status = ins.getAttribute("data-ad-status");
-                if (status === "filled") return showAd();
-                if (status === "unfilled") return showFallback();
-
-                // The AdSense script itself failed to load (its onerror fired) —
-                // a blocker cut the request. Deterministic, so react immediately.
-                if ((window as any).__adsBlocked === true) return showFallback();
-
-                // Final backstop: covers blockers that *neuter* the script
-                // instead of blocking the request — the script "loads" but no
-                // ad ever renders and no status is ever set.
-                if (final) {
-                    const rendered = ins.offsetHeight > 0 && !!ins.querySelector("iframe");
-                    if (!rendered) showFallback();
-                }
+            // A real ad renders an <iframe> with actual height. A blocked,
+            // unfilled, or "filled-but-blank" slot (common on brand-new AdSense
+            // accounts, which report "filled" while showing nothing) renders
+            // nothing measurable — that empty state is what triggers the invite.
+            const CREATIVE_MIN_PX = 30;
+            const creativeHeight = () => {
+                const frame = ins.querySelector("iframe");
+                return frame ? frame.getBoundingClientRect().height : 0;
             };
 
-            // React the moment AdSense marks the slot filled/unfilled.
+            const evaluate = (finalPass: boolean) => {
+                // Blocker cut the request (onerror fired) — decisive.
+                if ((window as any).__adsBlocked === true) return showFallback();
+
+                const status = ins.getAttribute("data-ad-status");
+                if (status === "unfilled") return showFallback();
+
+                // A creative actually rendered — show it. This works even when
+                // the status attribute is never set, as long as an ad appears.
+                if (creativeHeight() >= CREATIVE_MIN_PX) return showAd();
+
+                // Nothing visible yet. Only give up on the final pass, so a slow
+                // (but real) ad isn't prematurely replaced by the invite.
+                if (finalPass) return showFallback();
+            };
+
+            // React the moment AdSense flips data-ad-status.
             new MutationObserver(() => evaluate(false)).observe(ins, {
                 attributes: true,
                 attributeFilter: ["data-ad-status"],
             });
 
-            // Quick pass for a hard-blocked request, then a final backstop for
-            // the neutered-script / genuinely-unfilled cases.
-            setTimeout(() => evaluate(false), 1000);
-            setTimeout(() => evaluate(true), 2800);
+            // Poll a few times (real ads can be slow to paint), then a final
+            // backstop that reveals the invite if the slot is still empty —
+            // covering blocked, unfilled, neutered-script, and filled-but-blank.
+            setTimeout(() => evaluate(false), 1200);
+            setTimeout(() => evaluate(false), 3000);
+            setTimeout(() => evaluate(true), 4500);
         });
     }
 
