@@ -8,6 +8,13 @@ const { adSlot } = Astro.props;
 ---
 
 <div class="border-2 border-[var(--slate8)] p-2 rounded-md border-dashed relative" data-ad-box>
+    <div
+        class="absolute -top-[15px] left-[50%] translate-x-[-50%] px-1 bg-[var(--slate5)] rounded-md text-sm z-999"
+        data-ad-label
+        style={isDev ? "display:none" : undefined}
+    >
+        Advertise
+    </div>
     <div class="min-h-100px relative">
         {!isDev && <HorizontalAd adSlot={adSlot} />}
 
@@ -77,25 +84,32 @@ const { adSlot } = Astro.props;
             const fallback = box.querySelector<HTMLElement>("[data-ad-fallback]");
             if (!fallback) return;
 
+            const label = box.querySelector<HTMLElement>("[data-ad-label]");
             const ins = box.querySelector<HTMLElement>("ins.adsbygoogle");
 
-            // No ad markup at all (e.g. dev build) — keep the fallback visible.
+            // No ad markup at all (e.g. dev build) — keep the fallback visible
+            // and drop the "Advertise" label since nothing is being advertised.
             if (!ins) {
                 fallback.style.display = "";
+                if (label) label.style.display = "none";
                 return;
             }
 
             // Show the fallback (no ad). Collapse the empty <ins> too — an
             // unfilled/blocked slot keeps the tall height it reserved, which
-            // would leave a big blank gap above the fallback.
+            // would leave a big blank gap above the fallback. Hide the label,
+            // since there's no ad to label.
             const show = () => {
                 fallback.style.display = "";
                 ins.style.display = "none";
+                if (label) label.style.display = "none";
             };
-            // A real ad filled the slot: hide the fallback, restore the ad.
+            // A real ad filled the slot: hide the fallback, restore the ad and
+            // the "Advertise" label.
             const hide = () => {
                 fallback.style.display = "none";
                 ins.style.display = "block";
+                if (label) label.style.display = "";
             };
 
             const evaluate = () => {
