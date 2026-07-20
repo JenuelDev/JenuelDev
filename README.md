@@ -1,4 +1,4 @@
-<a href="https://app.daily.dev/jenueldev"><img src="https://api.daily.dev/devcards/v2/JJtZr4Sjm.png?type=wide&r=rac" width="652" alt="Jenuel Oras Ganawed's Dev Card"/></a>
+<a href="https://daily.dev/jenueldev"><img src="https://api.daily.dev/devcards/v2/JJtZr4Sjm.png?type=default&r=th4" width="356" alt="Jenuel Oras Ganawed's Dev Card"/></a>
 
 
 ### 🛠 Languages And Tools
