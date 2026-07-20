@@ -87,46 +87,54 @@ const { adSlot } = Astro.props;
             const label = box.querySelector<HTMLElement>("[data-ad-label]");
             const ins = box.querySelector<HTMLElement>("ins.adsbygoogle");
 
-            // No ad markup at all (e.g. dev build) — keep the fallback visible
-            // and drop the "Advertisement" label since nothing is being advertised.
-            if (!ins) {
+            // Show the fallback invite: collapse the empty <ins> (so it doesn't
+            // leave a tall blank gap) and hide the "Advertisement" label, since
+            // there's no ad to label.
+            const showFallback = () => {
                 fallback.style.display = "";
-                if (label) label.style.display = "none";
-                return;
-            }
-
-            // Show the fallback (no ad). Collapse the empty <ins> too — an
-            // unfilled/blocked slot keeps the tall height it reserved, which
-            // would leave a big blank gap above the fallback. Hide the label,
-            // since there's no ad to label.
-            const show = () => {
-                fallback.style.display = "";
-                ins.style.display = "none";
+                if (ins) ins.style.display = "none";
                 if (label) label.style.display = "none";
             };
             // A real ad filled the slot: hide the fallback, restore the ad and
             // the "Advertisement" label.
-            const hide = () => {
+            const showAd = () => {
                 fallback.style.display = "none";
-                ins.style.display = "block";
+                if (ins) ins.style.display = "block";
                 if (label) label.style.display = "";
             };
 
-            const evaluate = () => {
+            // No ad markup at all — dev build, or an ad blocker stripped the
+            // <ins> from the DOM entirely. Show the invite.
+            if (!ins) return showFallback();
+
+            const evaluate = (final: boolean) => {
                 const status = ins.getAttribute("data-ad-status");
-                if (status === "filled") return hide();
-                if (status === "unfilled") return show();
-                // Blocked / never processed: no status set and nothing rendered.
-                const rendered = ins.offsetHeight > 0 && !!ins.querySelector("iframe");
-                if (!rendered) show();
+                if (status === "filled") return showAd();
+                if (status === "unfilled") return showFallback();
+
+                // The AdSense script itself failed to load (its onerror fired) —
+                // a blocker cut the request. Deterministic, so react immediately.
+                if ((window as any).__adsBlocked === true) return showFallback();
+
+                // Final backstop: covers blockers that *neuter* the script
+                // instead of blocking the request — the script "loads" but no
+                // ad ever renders and no status is ever set.
+                if (final) {
+                    const rendered = ins.offsetHeight > 0 && !!ins.querySelector("iframe");
+                    if (!rendered) showFallback();
+                }
             };
 
             // React the moment AdSense marks the slot filled/unfilled.
-            const observer = new MutationObserver(evaluate);
-            observer.observe(ins, { attributes: true, attributeFilter: ["data-ad-status"] });
+            new MutationObserver(() => evaluate(false)).observe(ins, {
+                attributes: true,
+                attributeFilter: ["data-ad-status"],
+            });
 
-            // Backstop for ad blockers, where data-ad-status is never set.
-            setTimeout(evaluate, 2500);
+            // Quick pass for a hard-blocked request, then a final backstop for
+            // the neutered-script / genuinely-unfilled cases.
+            setTimeout(() => evaluate(false), 1000);
+            setTimeout(() => evaluate(true), 2800);
         });
     }
 
