@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jenuel.dev/sitemap.xml
+Sitemap: https://blog.jenuel.dev/sitemap.xml

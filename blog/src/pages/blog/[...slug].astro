@@ -2,8 +2,10 @@
 import { Image } from "astro:assets";
 import Layout from "../../layouts/default.astro";
 import { supabase } from "../../lib/supabase";
+import { ogImageUrl } from "../../lib/og";
 import { Icon } from "astro-icon/components";
 import HorizontalAdBox from "../../components/ads/HorizontalAdBox.astro";
+import dayjs from "dayjs";
 import "../../assets/code-highlight/atom-one-dark.css";
 const { slug } = Astro.params;
 const isDev = import.meta.env.DEV;
@@ -14,19 +16,83 @@ const { data } = await supabase
     .eq("is_active", 1)
     .eq("slug", slug)
     .single();
-const url = Astro.url;
 const author = data ? data.user_profile : null;
+
+// --- SEO ---------------------------------------------------------------
+const SITE = "https://blog.jenuel.dev";
+const canonicalUrl = new URL(Astro.url.pathname, SITE).href;
+
+const authorName =
+    author?.username ||
+    [author?.first_name, author?.last_name].filter(Boolean).join(" ") ||
+    "Jenuel Oras Ganawed";
+
+const toISO = (value: any) => {
+    if (!value) return undefined;
+    const parsed = new Date(value);
+    return isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
+};
+const publishedTime = toISO(data.created_at);
+const modifiedTime = toISO(data.updated_at) ?? publishedTime;
+
+// Human-readable published date, rendered server-side so it's in the crawlable
+// HTML (inside a <time> element) instead of being injected by client JS.
+const displayDate = data.created_at ? dayjs(data.created_at).format("MMM. DD, YYYY. h:mm A") : "";
+
+// cover image, or a generated social-share card (via the shared OG helper).
+const ogImage = data.cover_img ?? ogImageUrl(data.title ?? "", data.summary ?? "");
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.title,
+    description: data.summary,
+    image: ogImage ? [ogImage] : undefined,
+    datePublished: publishedTime,
+    dateModified: modifiedTime,
+    author: {
+        "@type": "Person",
+        name: authorName,
+        url: author?.website ?? "https://jenuel.dev",
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Jenuel Dev",
+        logo: { "@type": "ImageObject", url: "https://i.imgur.com/2q9zwKJ.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    keywords: Array.isArray(data.tags) ? data.tags.join(", ") : undefined,
+};
+
+const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
+        { "@type": "ListItem", position: 3, name: data.title, item: canonicalUrl },
+    ],
+};
+
+// Guard against a stray "</script>" inside the JSON breaking the tag.
+const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u003c");
 ---
 
 <Layout
     title={data.title}
     description={data.summary}
-    url={url.toString()}
-    canonical={url.toString()}
-    image={data.cover_img ??
-        `https://og-image.jenuel.dev/api/og/generate?title=${data.title}&description=${data.summary}`}
+    url={canonicalUrl}
+    canonical={canonicalUrl}
+    image={ogImage}
     isBlog={true}
+    publishedTime={publishedTime}
+    modifiedTime={modifiedTime}
+    authorName={authorName}
+    tags={data.tags}
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" is:inline set:html={jsonLdString} />
+    </Fragment>
     <section
         id="main-content"
         class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-20"
@@ -152,7 +218,7 @@ const author = data ? data.user_profile : null;
                     </div>
                 )
             }
-            <span class="text-size-15px blog-date" data-date={data.created_at}></span>
+            <time class="text-size-15px blog-date" datetime={publishedTime}>{displayDate}</time>
         </div>
 
         <HorizontalAdBox adSlot="4295024492" />
@@ -182,20 +248,6 @@ const author = data ? data.user_profile : null;
     </section>
 </Layout>
 <script>
-    const dateEl = document.querySelector<HTMLElement>(".blog-date[data-date]");
-    if (dateEl?.dataset.date) {
-        const d = new Date(dateEl.dataset.date);
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        const month = months[d.getMonth()];
-        const day = String(d.getDate()).padStart(2, "0");
-        const year = d.getFullYear();
-        let hours = d.getHours();
-        const minutes = String(d.getMinutes()).padStart(2, "0");
-        const ampm = hours >= 12 ? "PM" : "AM";
-        hours = hours % 12 || 12;
-        dateEl.textContent = `${month}. ${day}, ${year}. ${hours}:${minutes} ${ampm}`;
-    }
-
     setTimeout(async () => {
         const MainContentElement = document.getElementById("main-content");
         const id = MainContentElement?.getAttribute("data-id");

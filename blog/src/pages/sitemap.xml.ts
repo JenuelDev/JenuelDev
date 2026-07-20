@@ -5,10 +5,11 @@ import { createClient } from "@supabase/supabase-js";
 const domain = "https://blog.jenuel.dev";
 
 const pages = [
-    {
-        url: domain + "/blog",
-        lastmod: "2024-08-07",
-    },
+    { url: domain + "/" },
+    { url: domain + "/blog", lastmod: "2024-08-07" },
+    { url: domain + "/about" },
+    { url: domain + "/programming" },
+    { url: domain + "/finance" },
 ];
 
 export async function GET(props: any) {

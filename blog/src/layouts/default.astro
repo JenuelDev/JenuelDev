@@ -5,20 +5,49 @@ import LoadingIndicator from "astro-loading-indicator/component";
 
 interface Props {
     title: string;
+    titleTemplate?: string;
     description?: string;
     url?: string;
     image?: string;
     isBlog?: boolean;
     canonical?: string | null | undefined;
+    publishedTime?: string;
+    modifiedTime?: string;
+    authorName?: string;
+    tags?: string[];
+    noindex?: boolean;
+    nofollow?: boolean;
 }
 
-const { title, description, url, image, canonical }: Props = Astro.props;
+const {
+    title,
+    titleTemplate = "%s | Jenuel Dev",
+    description,
+    url,
+    image,
+    isBlog,
+    canonical,
+    publishedTime,
+    modifiedTime,
+    authorName,
+    tags,
+    noindex = false,
+    nofollow = false,
+}: Props = Astro.props;
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
+
+const SITE = "https://blog.jenuel.dev";
 const DES = description ?? "I build apps that are engaging, accessible and scalable - JenuelDev";
-const URL = url ?? "https://jenuel.dev";
+// Self-canonicalize every page to its real blog.jenuel.dev URL unless the
+// caller overrides it. The old hard-coded jenuel.dev / www.jenuel.dev fallback
+// told Google the blog was a duplicate of the separate portfolio site.
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE).href;
+const ogUrl = url ?? canonicalUrl;
 const defaultImage = "https://i.imgur.com/2q9zwKJ.png";
+const ogImage = image ?? defaultImage;
+const ogType = isBlog ? "article" : "website";
 ---
 
 <!doctype html>
@@ -35,28 +64,54 @@ const defaultImage = "https://i.imgur.com/2q9zwKJ.png";
         <LoadingIndicator color="var(--c-blue-500)" height="5px" />
         <SEO
             title={title}
+            titleTemplate={titleTemplate}
+            noindex={noindex}
+            nofollow={nofollow}
             description={DES}
-            canonical={canonical ?? "https://www.jenuel.dev"}
+            canonical={canonicalUrl}
             openGraph={{
                 basic: {
                     title: title,
-                    url: URL,
-                    image: image ?? defaultImage,
-                    type: "website",
+                    url: ogUrl,
+                    image: ogImage,
+                    type: ogType,
                 },
                 optional: {
                     description: DES,
                     siteName: "JenuelDev",
+                    locale: "en_US",
                 },
+                ...(isBlog
+                    ? {
+                          article: {
+                              publishedTime: publishedTime,
+                              modifiedTime: modifiedTime ?? publishedTime,
+                              authors: authorName ? [authorName] : undefined,
+                              tags: tags,
+                          },
+                      }
+                    : {}),
             }}
             twitter={{
                 title: title,
-                site: URL,
+                site: "@JenuelDev",
                 card: "summary_large_image",
                 creator: "@JenuelDev",
                 description: DES,
-                image: image ?? defaultImage,
+                image: ogImage,
                 imageAlt: "JenuelDev",
+            }}
+            extend={{
+                link: [
+                    {
+                        rel: "alternate",
+                        type: "application/rss+xml",
+                        title: "Jenuel.Dev - Articles",
+                        href: `${SITE}/rss.xml`,
+                    },
+                    { rel: "sitemap", type: "application/xml", href: `${SITE}/sitemap.xml` },
+                ],
+                meta: [{ name: "author", content: "Jenuel Oras Ganawed" }],
             }}
         />
     </head>

@@ -13,7 +13,7 @@ const { adSlot } = Astro.props;
         data-ad-label
         style={isDev ? "display:none" : undefined}
     >
-        Advertise
+        Advertisement
     </div>
     <div class="min-h-100px relative">
         {!isDev && <HorizontalAd adSlot={adSlot} />}
@@ -88,7 +88,7 @@ const { adSlot } = Astro.props;
             const ins = box.querySelector<HTMLElement>("ins.adsbygoogle");
 
             // No ad markup at all (e.g. dev build) — keep the fallback visible
-            // and drop the "Advertise" label since nothing is being advertised.
+            // and drop the "Advertisement" label since nothing is being advertised.
             if (!ins) {
                 fallback.style.display = "";
                 if (label) label.style.display = "none";
@@ -105,7 +105,7 @@ const { adSlot } = Astro.props;
                 if (label) label.style.display = "none";
             };
             // A real ad filled the slot: hide the fallback, restore the ad and
-            // the "Advertise" label.
+            // the "Advertisement" label.
             const hide = () => {
                 fallback.style.display = "none";
                 ins.style.display = "block";

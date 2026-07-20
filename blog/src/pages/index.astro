@@ -1,10 +1,58 @@
 ---
 import Layout from "../layouts/default.astro";
 import { supabase } from "../lib/supabase";
+import { ogImageUrl } from "../lib/og";
 import dayjs from "dayjs";
-const title = "Jenuel Dev";
+const title = "Jenuel Dev — Programming & Finance Blog for Developers";
 const description =
     "Jenuel Ganawed Blogs - Software Developer specializing in creating engaging, accessible, and scalable web applications. Delivering innovative solutions for businesses and individuals.";
+
+// Homepage JSON-LD: identifies the site and its author for Google's knowledge
+// graph / sitelinks. sameAs lists the canonical profiles that represent the brand.
+const homeJsonLd = [
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Jenuel Dev",
+        alternateName: "JenuelDev Blogs",
+        url: "https://blog.jenuel.dev",
+        description: description,
+        inLanguage: "en",
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Jenuel Oras Ganawed",
+        url: "https://jenuel.dev",
+        image: "https://i.imgur.com/2q9zwKJ.png",
+        jobTitle: "Software Developer",
+        sameAs: [
+            "https://jenuel.dev",
+            "https://github.com/BrockenDuck",
+            "https://www.youtube.com/@JenuelGanawed",
+            "https://twitter.com/JenuelDev",
+        ],
+    },
+    {
+        // Matches the `publisher` used in each post's BlogPosting schema, so
+        // Google resolves them to the same entity.
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Jenuel Dev",
+        url: "https://blog.jenuel.dev",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://i.imgur.com/2q9zwKJ.png",
+        },
+        sameAs: [
+            "https://jenuel.dev",
+            "https://github.com/BrockenDuck",
+            "https://www.youtube.com/@JenuelGanawed",
+            "https://twitter.com/JenuelDev",
+        ],
+    },
+];
+const homeJsonLdString = JSON.stringify(homeJsonLd).replace(/</g, "\\u003c");
 
     const limit = 50;
 
@@ -24,13 +72,17 @@ const blogs = data ?? [];
 
 <Layout
     title={title}
+    titleTemplate="%s"
     description={description}
-    image=`https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`
+    image={ogImageUrl(title, description)}
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" is:inline set:html={homeJsonLdString} />
+    </Fragment>
     <main>
         <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-28">
             {
-                blogs.map((blog, i) => (
+                blogs.map((blog) => (
                     <>
                         <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
                             <div class="content-summary leading-5 col-span-6 ">

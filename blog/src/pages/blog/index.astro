@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/default.astro";
 import { supabase } from "../../lib/supabase";
+import { ogImageUrl } from "../../lib/og";
 import dayjs from "dayjs";
 
 const limit = 50;
@@ -16,22 +17,20 @@ if (error) {
     console.log(error);
 }
 const blogs = data ?? [];
-const title = "Blogs - Jenuel Dev";
+const title = "Blog";
 const description = "I build apps that are engaging, accessible and scalable - JenuelDev";
 ---
 
 <Layout
     title={title}
     description={description}
-    url="https://jenuel.dev/blog"
-    canonical={"https://jenuel.dev/blog"}
-    image=`https://jenuel-dev-og-image.vercel.app/api/og/generate?title=${title}&description=${description}`
+    image={ogImageUrl(title, description)}
 >
     <section class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-15">
         <h1 class="text-7xl font-bold pt-10 pb-15">Blogs</h1>
         <div class="flex flex-col gap-5">
             {
-                blogs.map((blog, i) => (
+                blogs.map((blog) => (
                     <>
                         <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
                             <div class="content-summary leading-5 col-span-6 ">
