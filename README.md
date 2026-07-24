@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [I Uninstalled Vue DevTools. My Tests Became the Better Debugger.](https://blog.jenuel.dev/blog/i-uninstalled-vue-devtools-tests-became-better-debugger)
 - [That Camera at the Intersection Is Building a Searchable Map of Your Life](https://blog.jenuel.dev/blog/that-camera-is-building-a-searchable-map-of-your-life)
 - [Vibe Coders Aren&#39;t Taking Your Job. Developers Who Master AI Are Raising the Bar.](https://blog.jenuel.dev/blog/vibe-coders-arent-taking-your-job-developers-who-master-ai-are-raising-the-bar)
 - [China Is Not Banning AI. It May Be Closing the Door on Its Best Models.](https://blog.jenuel.dev/blog/china-not-banning-ai-may-restrict-best-models)
 - [GitHub Can Now Detect System-Prompt Injection: What I Learned from Researching CodeQL 2.26.0](https://blog.jenuel.dev/blog/codeql-system-prompt-injection-research)
-- [When will Claude-level AI run on a normal PC? I searched the web, and the answer is not simple](https://blog.jenuel.dev/blog/when-will-claude-level-ai-run-on-a-normal-pc)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
