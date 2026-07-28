@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Should You Sign Out of OpenAI? The Hugging Face Breach Explained](https://blog.jenuel.dev/blog/should-you-sign-out-of-openai-hugging-face-breach)
 - [What PewDiePie Is Building in AI Now: Odysseus Is Becoming a Serious Local AI Workspace](https://blog.jenuel.dev/blog/what-pewdiepie-is-building-in-ai-now-odysseus-july-2026)
 - [I Uninstalled Vue DevTools. My Tests Became the Better Debugger.](https://blog.jenuel.dev/blog/i-uninstalled-vue-devtools-tests-became-better-debugger)
 - [That Camera at the Intersection Is Building a Searchable Map of Your Life](https://blog.jenuel.dev/blog/that-camera-is-building-a-searchable-map-of-your-life)
 - [Vibe Coders Aren&#39;t Taking Your Job. Developers Who Master AI Are Raising the Bar.](https://blog.jenuel.dev/blog/vibe-coders-arent-taking-your-job-developers-who-master-ai-are-raising-the-bar)
-- [China Is Not Banning AI. It May Be Closing the Door on Its Best Models.](https://blog.jenuel.dev/blog/china-not-banning-ai-may-restrict-best-models)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
