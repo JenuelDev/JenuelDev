@@ -280,30 +280,6 @@ const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u00
             padding-bottom: 20px;
             list-style-type: disc;
 
-            a {
-                position: relative;
-                color: var(--primary);
-
-                &:before {
-                    content: "";
-                    height: 2px;
-                    position: absolute;
-                    bottom: -5px;
-                    width: 0;
-                    background-color: var(--primary);
-                    transition: all 0.2s;
-                }
-
-                &:hover {
-                    color: var(--primary);
-                    background-color: transparent;
-
-                    &::before {
-                        width: 100%;
-                    }
-                }
-            }
-
             li {
                 p {
                     padding-bottom: 5px;
@@ -404,23 +380,6 @@ const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u00
             padding-bottom: 20px;
             padding-top: 10px;
 
-            a {
-                @apply px-[5px] border-b-2 border-slate-300 font-bold relative;
-
-                &:hover {
-                    --gradient-from-color: #ff76e1;
-                    --gradient-to-color: #8fd3f4;
-                    --gradient-color-stops: var(--gradient-from-color),
-                        var(--gradient-to-color, rgba(162, 247, 182, 0));
-                    background-image: linear-gradient(to right, var(--gradient-color-stops));
-                    border-radius: 0.125rem;
-                    font-size: 1.125rem;
-                    overflow-wrap: break-word;
-                    padding: 0.25rem 0.5rem;
-                    color: black;
-                }
-            }
-
             code {
                 background-color: var(--slate3);
                 padding: 0 5px;
@@ -430,6 +389,38 @@ const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u00
 
             strong {
                 color: var(--slate12);
+            }
+        }
+
+        /* Inline links sit in a wall of body text, so they have to carry their
+           own weight: accent color + a solid underline, not just bold. */
+        p a,
+        li a,
+        blockquote a,
+        td a {
+            /* Plain CSS on purpose: `@apply` is inert here — the UnoCSS
+               directives transformer isn't enabled in uno.config.ts. */
+            position: relative;
+            padding: 0 2px;
+            font-weight: 600;
+            color: var(--primary);
+            border-bottom: 2px solid color-mix(in srgb, var(--primary) 55%, transparent);
+            transition:
+                color 0.15s,
+                border-color 0.15s,
+                background-color 0.15s;
+
+            &:hover,
+            &:focus-visible {
+                --gradient-from-color: #ff76e1;
+                --gradient-to-color: #8fd3f4;
+                --gradient-color-stops: var(--gradient-from-color),
+                    var(--gradient-to-color, rgba(162, 247, 182, 0));
+                background-image: linear-gradient(to right, var(--gradient-color-stops));
+                border-radius: 0.125rem;
+                border-bottom-color: transparent;
+                overflow-wrap: break-word;
+                color: black;
             }
         }
 
@@ -513,11 +504,13 @@ const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u00
         a {
             word-wrap: break-word;
             text-decoration: none;
-            color: var(--orange);
+            color: var(--primary);
+            border-bottom: 2px solid color-mix(in srgb, var(--primary) 55%, transparent);
 
             &:hover {
-                background-color: var(--orange);
-                color: black;
+                background-color: var(--primary);
+                border-bottom-color: var(--primary);
+                color: var(--slate1);
             }
         }
     }
