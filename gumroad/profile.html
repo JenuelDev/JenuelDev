@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jenuel.Dev — Shop</title>
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAABMLAAATCwAAAAAAAAAAAAAlHAj/JRwI/yUcB/8lHAf/JBwH/yUcB/8kGwf/JBwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JBsG/yQbBv8lHAf/JRwH/yUcB/8lHAf/JRsG/yUbBv8lHAf/JRwH/yUbB/8lHAb/JRwG/yUbB/8kGwf/JBsH/yQbB/8kGwf/JBsH/yUbB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yUbBv8lHAf/Jh0H/yUcB/8kGwb/JRwH/yYdB/8mHQj/JRwI/yUcB/8lHAf/JBwH/yQbB/8lGwf/JBsG/yQaBf8kGwb/JRwH/yUcB/8lHAf/JBsG/yUcB/8lHAf/JRwH/yUcB/8lHAj/JRwH/yUcB/8kGwb/IxsG/yQbB/8kGwb/JBsH/yQbB/8mHAf/JRwH/yUcB/8lHAf/JRwH/yUcCP8lHAf/JRwH/yUcB/8lHAf/JRwH/yQbBv8lHAb/JRwH/yUcB/8lHAf/JRwH/yUcB/8lGwf/JBsG/yQbB/8kGgb/JBsG/yQbB/8kGwb/JBwH/yUcB/8kHAf/JBsG/yQbBv8lGwf/JBsH/yUcB/8lHAf/JRsH/yUcB/8lHAf/Jh0H/yUcB/8kGwf/JRwH/yUcB/8kGwf/JBsH/yQaBv8jGgb/JBsG/yQbB/8lGwf/JRsG/yQbBv8mHQj/Jh0H/yQbB/8kGwf/JRwH/yUcB/8lHAf/JRwH/yQbB/8kGgb/JRsH/yUcCP8lHAf/JRwH/yYcB/8lHAf/JRwH/yQbBv8lHAf/Jh0I/yUcB/8kGwf/JBsH/yQbB/8lHAf/JRwH/yUcB/8kGwb/JRsH/yUbBv8kGwb/JBsH/yUcB/8lHAf/JBsG/yQbBv8kGwf/IxsG/yQbBv8kGwf/JBsH/yMbBv8jGgb/JBsG/yQbBv8kGwf/JRwH/yUcB/8lHAj/JRwI/yUcB/8kGwf/JRwH/yUcB/8kGwb/JBsG/yQbB/8kGwb/JBsG/yUcB/8lHAf/JRsH/yQbBv8lGwf/JRwH/yYcB/8kGwf/JBsH/yUcB/8lHAf/JRsH/yUcB/8kGwf/JBsG/yUbB/8lHAf/JRwH/yUcB/8lHAf/JRsH/yQbB/8lHAf/JRwH/yUcB/8kGwf/JBsH/yQbB/8lHAf/JR0H/yUcB/8kGwb/JBsG/yQbBv8lGwf/JBsH/yUcB/8lHAf/JRwH/yQbB/8kHAf/JBsH/yMbBv8jGwf/IxsG/yQbB/8kGwb/IxsG/yQbB/8kGwf/JBwH/yUcCP8lHAf/JBwH/yQcB/8lHAf/JRwH/yUcB/8lHAf/JBsG/yQbBv8kGwf/JBsG/yUbB/8mHQj/Jh0I/yUbBv8kGwb/JBsG/yQbB/8lHAf/JRwH/yUbB/8kGwf/JBsH/yUbB/8lHAb/JRwH/yQcB/8kGwf/JRwH/yUcB/8lHAj/JRwH/yUcB/8lHAf/JBsH/yUcCP8lHAf/JBsG/yMaBv8lHAf/JRwH/yUcB/8lHAf/JBsG/yQbBv8kGwb/IxoG/yQbB/8kGwb/JBsG/yQbBv8kGwb/JBwH/yQbB/8jGgb/IxoG/yQbB/8kGwf/IxsG/yQbBv8lGwf/JRwH/yUcB/8lHAj/JRwH/yQbB/8lHAf/JRwH/yUcB/8lGwf/JRwH/yQbBv8kGwb/JBoG/yQbB/8lHAj/Jh0I/yYdCP8lGwb/JBsG/yQbBv8lHAf/JRwH/yQbB/8lHAf/JBsH/yQbB/8lGwf/JRsH/yUcB/8lHAf/JBsH/yQbB/8lGwf/JRwH/yUcB/8lHAf/JRwH/yUbB/8lHAf/JRwH/yUcB/8lGwf/JRwH/yUcB/8kGwb/JRwH/yQcB/8kGwf/JBwH/yUcB/8lHAb/JR0H/yUdBv8lHQf/JR0G/yYdB/8mHQf/JRwG/yQcB/8kGwf/JBsH/yQbB/8kGwf/JRwH/yUcB/8kHAf/JRwH/yUcB/8lHAf/JR0H/yUcB/8kGwf/JRwH/yUcB/8kGwb/JBsG/yQbBv8lGwf/JRwI/yUcB/8kHAf/JBsH/yQbB/8lHAf/JRwH/yUcB/8kHAf/JBwH/yQbB/8kGwf/JRwH/yUcB/8kGwf/JBsH/yQbB/8jGwb/IxoG/yQbB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yQbBv8lHAf/JRwH/yQbBv8kGwb/JBwH/yUcB/8mHQf/JR0H/yQbBv8gFwX/HRMF/xsRBP8aEQT/GhAF/xkQBP8bEQX/HRIF/x0TBf8fFgX/IxoG/yUdBv8mHQf/JRwH/yQbB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yQb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Bv8lHAf/JRwG/yQcB/8kGwb/JBsG/yQcBv8kGwf/JRwG/yUcB/8lHAb/JBsG/yQbBv8lHAf/JRwH/yUcB/8lGwf/JBsG/yQbBv8kGwb/IxsG/yMaB/8kGwb/JRwG/yMbBv8gFwX/GxEE/xoRBP8fFgX/JR0G/ysjCP8sJQj/LCUI/ykiB/8lHQb/IBcF/xwSBf8bEQT/HhUE/yQbBv8mHQf/JRwG/yQbBv8kGwb/JBsG/yQbBv8lHAf/JRwH/yQbBv8kHAb/JR0H/yYdB/8mHQj/JRwI/yUcB/8lHAf/JRwH/yUbB/8kGwf/JBsH/yUbB/8lHAf/JRsH/yQbBv8kGwf/JRwH/yUcB/8lHAb/JBsG/yQbBv8kGwf/JRwH/yUcB/8lHAb/JBsG/yQbBv8kGwb/JRsH/yUcB/8lHAf/JRwH/yQbBv8kGwb/JBsG/yQbBv8kGwf/JBsF/yMaBv8jGwb/JRwF/yUdBv8lHAf/JBwG/yQbBv8jGQb/IhkG/yIZBf8iGQX/IxoG/yQbBv8lHQf/JR0H/yQcBv8kGwb/JBsG/yQbBv8kHAf/JRwH/yUcB/8kGwb/JRwH/yUcB/8lHAf/JBwH/yUcB/8lHAf/JRwI/yUcB/8lHAf/JBwH/yUcB/8lHAf/JBsH/yMaBv8kGgb/JRwH/yQbBv8kGwb/JBsG/yUcBv8lHAb/JRwH/yUcBv8kGwb/JBsH/yUcBv8lHAf/JRwH/yQbBv8kGwb/JRsG/yUbBv8lHAf/JRwH/yUcB/8lHAf/JRsH/yQbBv8kGwb/JRwG/yUbBv8kGwb/JBsG/yQbBv8kGwb/JBsG/yQbBv8lHAb/JBwG/yQcB/8kHAb/JBsG/yQbBv8kGwf/JBsG/yMaBv8jGgb/IxoG/yMbBv8kGwb/JRwH/yUcB/8lHAf/JBsG/yQcBv8kHAb/JRwG/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yQbBv8jGgb/JBsG/yUcB/8lHAf/JRwH/yQbB/8kHAb/JBsG/yQbBv8kGwb/JBsG/yUcBv8lHAb/JRsG/yUcB/8lGwb/JRsG/yUbBv8kGwb/JRwH/yYcB/8lHAf/JRwH/yQbB/8kGwb/JRsG/yUcBv8kGwb/JRwG/yQbBv8kGwb/JBsG/yQbBv8kGwb/JBsG/yQbBv8kGwb/IxsG/yQbBv8kGwb/JBwH/yQbBv8kGwf/JBsG/yMaBv8kGwb/JRwH/yUcB/8lHAf/JRwG/yQbBv8kGwb/JBsG/yQbBv8kGwf/JRwH/yYdCP8lHAf/JRwH/yYdB/8lHAf/JBsH/yQbBv8kGwb/JBsG/yUcB/8kHAf/JRwH/yUcB/8lHAf/JRwH/yQbBv8jGgb/IxoG/yMaBv8lHAf/JRwH/yUcB/8lHAb/JRwG/yYcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yUcB/8kGwf/JRwH/yUcB/8kGwb/JBsG/yQbBv8kGwf/JBsG/yQbBv8kGwb/JBsG/yQbBv8kGwf/JRwG/yUcB/8lHAb/JRwG/yUcB/8kGwb/JBwG/yQbB/8kGwb/JBsG/yUcB/8kHAf/JRwH/yUcBv8kGwb/JBsH/yQbB/8jGwb/JBwH/yUcB/8lHAf/JBwH/yQbBv8kHAf/JRwH/yQbBv8kGwb/JRwH/yUcB/8mHAf/JRwH/yUcB/8lGwf/JRwH/yQbBv8kGwb/IxoG/yMaBv8jGgb/JRwH/yUbBv8kHAb/JRwH/yYdB/8lHAf/JRwH/yUcB/8lHAf/JRwG/yUcB/8lHAf/JRwH/yUcB/8lGwf/JRsH/yUcB/8kHAb/JBsG/yUcB/8kGwb/JBsG/yUcBv8kHAb/JBsG/yUcBv8kGwb/JRwH/yUcB/8kGwb/JBwG/yQbBv8kGwb/JBsG/yUbBv8lGwb/JBsH/yUcB/8mHAf/JRsG/yQbBv8lHAf/JRwI/yUcB/8lHAf/JRwH/yUcB/8kGwb/JBsG/yQbB/8lGwf/JBsH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yQcB/8kGwb/JBsG/yMaBv8kGwb/JBsH/yQbB/8lHAf/JRwH/yUcB/8mHAf/Jh0H/yYcB/8lHAf/JBsH/yUcB/8lHAf/JBwG/yUcBv8lHAf/JRwH/yQbBv8lHAf/JBsH/yQcB/8lHAf/JRwG/yUbBv8kGwb/JBsG/yQbBv8kGwb/JBsG/yQbB/8jGgf/JBsH/yQbBv8kGwb/JRwH/yUcB/8kGwb/JBsH/yUcB/8lHAf/JRwH/yUcB/8lGwb/JBsG/yUcB/8lHAf/JRsH/yQcBv8kGwb/JBsH/yQbB/8lHAb/JBsG/yUcB/8mHAf/JRwH/yUcB/8lHAf/JRwH/yUcB/8kHAb/JRwG/yQbBv8kGwb/JBwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JRwH/yQbBv8lHAb/JRwH/yQcB/8kGwf/JRsH/yUcB/8kGwb/JBwG/yUcB/8kHAf/JRwH/yQbB/8kGwb/IxoG/yMbBv8kHAf/JRwH/yQbBv8kGwb/IxsG/yQcB/8kHAf/JRwH/yUcB/8kHAf/JRwH/yUcB/8lHAf/Jh0I/yYdB/8mHAf/Jh0H/yUcB/8kGwb/JRwH/yUcB/8lHAb/JBsG/yQbB/8lHAf/JhwH/yUcB/8lHAf/JRwH/yUcB/8lHAf/JBwH/yUbB/8lHAf/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace'],
+          sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4',
+            400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e',
+            800: '#115e59', 900: '#134e4a',
+          },
+          ink: {
+            950: '#050e0d', 900: '#081615', 800: '#0d1e1c', 700: '#132a27',
+          },
+        },
+        keyframes: {
+          blink: { '0%,49%': { opacity: 1 }, '50%,100%': { opacity: 0 } },
+          floatSlow: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+          fadeUp: { '0%': { opacity: 0, transform: 'translateY(14px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+        },
+        animation: {
+          blink: 'blink 1s step-start infinite',
+          floatSlow: 'floatSlow 6s ease-in-out infinite',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { color-scheme: light dark; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    background-color: #f7fbfa;
+    color: #0b1a18;
+    transition: background-color .25s ease, color .25s ease;
+  }
+  html.dark body { background-color: #050e0d; color: #dff5f1; }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(13,148,136,0.10) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13,148,136,0.10) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  html.dark .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(94,234,212,0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(94,234,212,0.07) 1px, transparent 1px);
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(70px);
+    opacity: .30;
+    pointer-events: none;
+  }
+
+  .card-surface {
+    background-color: #ffffff;
+    border: 1px solid rgba(13,148,136,0.14);
+  }
+  html.dark .card-surface {
+    background-color: #0a1717;
+    border-color: rgba(94,234,212,0.12);
+  }
+
+  .terminal-surface {
+    background-color: #071211;
+    border: 1px solid rgba(94,234,212,0.16);
+  }
+
+  .nav-pill {
+    background-color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(13,148,136,0.14);
+  }
+  html.dark .nav-pill {
+    background-color: rgba(8,22,21,0.75);
+    border-color: rgba(94,234,212,0.14);
+  }
+
+  .nav-link { color: #33524e; transition: color .2s, background-color .2s; }
+  .nav-link:hover { color: #0f766e; background-color: rgba(5,14,13,0.05); }
+  .nav-link.is-active { color: #0f766e; background-color: rgba(13,148,136,0.10); }
+  html.dark .nav-link { color: #cbd5e1; }
+  html.dark .nav-link:hover { color: #5eead4; background-color: rgba(255,255,255,0.05); }
+  html.dark .nav-link.is-active { color: #5eead4; background-color: rgba(45,212,191,0.12); }
+
+  ::selection { background: #0f766e; color: #f0fdfa; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #14b8a6;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: #0f766e; color: #f0fdfa; padding: .6rem 1rem; border-radius: .5rem;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  .chip {
+    border: 1px solid rgba(13,148,136,0.35);
+    background: rgba(13,148,136,0.08);
+  }
+  html.dark .chip { background: rgba(45,212,191,0.10); border-color: rgba(94,234,212,0.30); }
+
+  .thumb-fallback {
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+  }
+
+  .logo-mark {
+    box-shadow: 0 0 0 1px rgba(45,212,191,0.35), 0 0 18px rgba(45,212,191,0.25);
+  }
+</style>
+</head>
+<body class="font-sans antialiased">
+<a href="#main" class="skip-link font-medium text-sm">Skip to content</a>
+
+<!-- ===== Header ===== -->
+<div class="sticky top-3 sm:top-4 z-40 px-3 sm:px-5">
+  <header class="nav-pill max-w-4xl mx-auto rounded-full backdrop-blur shadow-sm shadow-black/5">
+    <div class="h-14 px-4 sm:px-6 flex items-center justify-between gap-4">
+      <a href="#main" class="flex items-center gap-2.5 font-mono font-semibold text-[15px] text-ink-950 dark:text-white shrink-0">
+        <span class="logo-mark relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-ink-950 dark:bg-black" aria-hidden="true">
+          <span class="h-2 w-2 rounded-full bg-brand-400"></span>
+        </span>
+        <span>Jenuel<span class="text-brand-600 dark:text-brand-400">.</span>Dev</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden sm:flex items-center gap-0.5 md:gap-1 font-mono text-[13px] md:text-sm">
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="#shop">shop</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="https://jenueldev.gumroad.com/ebooks">ebooks</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="#writing">writing</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="#connect">connect</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="https://jenuel.dev" target="_blank" rel="noopener noreferrer">website</a>
+      </nav>
+
+      <button id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode"
+        class="inline-flex items-center justify-center h-9 w-9 rounded-full border border-ink-950/10 dark:border-white/10 text-ink-700 dark:text-slate-200 hover:bg-ink-950/5 dark:hover:bg-white/5 transition-colors shrink-0">
+        <svg id="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+        <svg id="icon-moon" class="hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+</div>
+
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="relative overflow-hidden bg-grid" aria-labelledby="hero-heading">
+    <div class="glow bg-brand-300 dark:bg-brand-500 h-72 w-72 -top-10 -left-16" aria-hidden="true"></div>
+    <div class="glow bg-emerald-200 dark:bg-emerald-600 h-72 w-72 top-24 right-0" aria-hidden="true"></div>
+
+    <div class="relative max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28 grid lg:grid-cols-[1.1fr,0.9fr] gap-14 items-center">
+      <div class="reveal">
+        <p class="font-mono text-sm text-brand-700 dark:text-brand-300 mb-4">
+          <span class="text-ink-700/60 dark:text-slate-500">$</span> whoami<span class="inline-block w-2 ml-0.5 -mb-0.5 h-4 bg-brand-500 dark:bg-brand-400 animate-blink" aria-hidden="true"></span>
+        </p>
+
+        <h1 id="hero-heading" data-gumroad-field="name"
+          class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-950 dark:text-white">
+          Jenuel.Dev
+        </h1>
+
+        <p data-gumroad-field="bio"
+          class="mt-5 max-w-xl text-lg leading-relaxed text-ink-700 dark:text-slate-300">
+          Hi 👋 I'm a developer who builds tools, writes about code and money, and packages what I learn into things you can actually use.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-2" aria-label="Focus areas">
+          <span class="chip text-brand-700 dark:text-brand-200 text-xs font-mono px-3 py-1 rounded-full">code</span>
+          <span class="chip text-brand-700 dark:text-brand-200 text-xs font-mono px-3 py-1 rounded-full">finance</span>
+          <span class="chip text-brand-700 dark:text-brand-200 text-xs font-mono px-3 py-1 rounded-full">teaching</span>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#shop"
+            class="inline-flex items-center gap-2 rounded-full bg-brand-700 hover:bg-brand-800 dark:bg-brand-400 dark:hover:bg-brand-300 text-white dark:text-ink-950 font-semibold px-5 py-3 text-sm transition-colors shadow-sm shadow-brand-600/20">
+            Browse products
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a href="#connect"
+            class="inline-flex items-center gap-2 rounded-full border border-ink-950/15 dark:border-white/15 hover:bg-ink-950/5 dark:hover:bg-white/5 text-ink-950 dark:text-slate-100 font-semibold px-5 py-3 text-sm transition-colors">
+            Say hi
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="terminal-surface rounded-2xl shadow-2xl shadow-black/30 overflow-hidden animate-floatSlow">
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[0.03]">
+            <span class="h-3 w-3 rounded-full bg-[#ff5f56]" aria-hidden="true"></span>
+            <span class="h-3 w-3 rounded-full bg-[#ffbd2e]" aria-hidden="true"></span>
+            <span class="h-3 w-3 rounded-full bg-[#27c93f]" aria-hidden="true"></span>
+            <span class="ml-2 font-mono text-xs text-slate-400">shop.json</span>
+          </div>
+          <pre id="shop-snippet" class="font-mono text-[13px] leading-6 p-5 overflow-x-auto text-slate-200"><code><span class="text-brand-400">const</span> <span class="text-sky-300">shop</span> = {
+  <span class="text-sky-200">products</span>: <span id="snippet-count" class="text-amber-300">0</span>,
+  <span class="text-sky-200">bestseller</span>: <span id="snippet-top" class="text-emerald-300">"—"</span>,
+  <span class="text-sky-200">status</span>: <span class="text-emerald-300">"open for orders"</span>,
+};</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Shop ===== -->
+  <section id="shop" class="relative py-20 sm:py-28 border-t border-ink-950/5 dark:border-white/5" aria-labelledby="shop-heading">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="font-mono text-sm text-brand-700 dark:text-brand-300">## shop</p>
+          <h2 id="shop-heading" class="mt-2 text-2xl sm:text-3xl font-bold text-ink-950 dark:text-white">the shop</h2>
+          <p class="mt-3 text-ink-700 dark:text-slate-400">Templates, tools, and guides built from real projects — pick what solves your problem today.</p>
+        </div>
+        <a href="https://jenueldev.gumroad.com/ebooks"
+          class="inline-flex items-center gap-1.5 rounded-full border border-ink-950/15 dark:border-brand-300/30 text-ink-950 dark:text-brand-300 font-mono text-sm px-4 py-2 hover:bg-ink-950/5 dark:hover:bg-white/5 transition-colors shrink-0">
+          Browse ebooks
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+
+      <div id="products-grid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" role="list"></div>
+
+      <p id="products-empty" class="hidden mt-10 text-ink-700/70 dark:text-slate-400 font-mono text-sm">
+        // no products published yet — check back soon
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Writing ===== -->
+  <section id="writing" class="relative py-20 sm:py-28 border-t border-ink-950/5 dark:border-white/5 bg-brand-50/50 dark:bg-white/[0.02]" aria-labelledby="writing-heading">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="font-mono text-sm text-brand-700 dark:text-brand-300">## writing</p>
+          <h2 id="writing-heading" class="mt-2 text-2xl sm:text-3xl font-bold text-ink-950 dark:text-white">latest writing</h2>
+          <p class="mt-3 text-ink-700 dark:text-slate-400">Recent writing on development, tools, productivity, and lessons from building software.</p>
+        </div>
+        <a href="https://blog.jenuel.dev/blog/" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 rounded-full border border-ink-950/15 dark:border-brand-300/30 text-ink-950 dark:text-brand-300 font-mono text-sm px-4 py-2 hover:bg-ink-950/5 dark:hover:bg-white/5 transition-colors shrink-0">
+          View all
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+        </a>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="reveal card-surface rounded-2xl p-6 flex flex-col">
+          <p class="font-mono text-xs font-semibold tracking-wide text-brand-700 dark:text-brand-300">Jul 3, 2026</p>
+          <h3 class="mt-3 font-bold text-lg text-ink-950 dark:text-white leading-snug">Claude Fable 5 Feels Different. But Should Developers Trust It?</h3>
+          <p class="mt-3 text-sm text-ink-700 dark:text-slate-400 flex-1">Claude Fable 5 looks genuinely better for long, agentic coding and knowledge work, but developers should use it selectively instead of treating it as the default…</p>
+          <a href="https://blog.jenuel.dev/blog/claude-fable-5-feels-different-developer-review" target="_blank" rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+          </a>
+        </article>
+
+        <article class="reveal card-surface rounded-2xl p-6 flex flex-col">
+          <p class="font-mono text-xs font-semibold tracking-wide text-brand-700 dark:text-brand-300">Jun 28, 2026</p>
+          <h3 class="mt-3 font-bold text-lg text-ink-950 dark:text-white leading-snug">Ornith 1.0: The Open-Source Coding Model Developers Should Watch Closely</h3>
+          <p class="mt-3 text-sm text-ink-700 dark:text-slate-400 flex-1">Ornith 1.0 is a new open-source agentic coding model family from DeepReinforce. Here is why its self-scaffolding approach, benchmarks, and workflow matter…</p>
+          <a href="https://blog.jenuel.dev/blog/ornith-1-open-source-agentic-coding-model" target="_blank" rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+          </a>
+        </article>
+
+        <article class="reveal card-surface rounded-2xl p-6 flex flex-col">
+          <p class="font-mono text-xs font-semibold tracking-wide text-brand-700 dark:text-brand-300">Jun 26, 2026</p>
+          <h3 class="mt-3 font-bold text-lg text-ink-950 dark:text-white leading-snug">Stop Feeding Your AI Agent the Whole Repo: Build a Project Brain That Retrieves What It Needs</h3>
+          <p class="mt-3 text-sm text-ink-700 dark:text-slate-400 flex-1">A practical guide to making AI coding agents knowledgeable without dumping the whole codebase into context: project instruction files, repo maps, retrieval…</p>
+          <a href="https://blog.jenuel.dev/blog/build-ai-agent-project-brain-without-overloading-context" target="_blank" rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Connect ===== -->
+  <section id="connect" class="relative py-20 sm:py-28 border-t border-ink-950/5 dark:border-white/5" aria-labelledby="connect-heading">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="reveal card-surface rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto">
+        <p class="font-mono text-sm text-brand-700 dark:text-brand-300">## connect</p>
+        <h2 id="connect-heading" class="mt-2 text-2xl sm:text-3xl font-bold text-ink-950 dark:text-white">let's talk</h2>
+        <p class="mt-3 text-ink-700 dark:text-slate-400">Questions about a product, a collab idea, or just want to say hi — I read everything.</p>
+
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <a href="mailto:jenuelganawed936@gmail.com"
+            class="inline-flex items-center gap-2 rounded-full bg-brand-700 hover:bg-brand-800 dark:bg-brand-400 dark:hover:bg-brand-300 text-white dark:text-ink-950 font-semibold px-5 py-3 text-sm transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+            Email me
+          </a>
+          <button type="button" id="copy-email"
+            class="inline-flex items-center gap-2 rounded-full border border-ink-950/15 dark:border-white/15 hover:bg-ink-950/5 dark:hover:bg-white/5 text-ink-950 dark:text-slate-100 font-semibold px-5 py-3 text-sm transition-colors">
+            <span id="copy-email-label">Copy email</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="border-t border-ink-950/5 dark:border-white/5 py-8">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ink-700/70 dark:text-slate-400">
+    <p>&copy; <span id="footer-year">2026</span> Jenuel.Dev. Built with code &amp; coffee.</p>
+    <p class="font-mono text-xs">console.log("thanks for stopping by");</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Theme (runs immediately to avoid a flash of the wrong theme) ---------- */
+  var root = document.documentElement;
+  var STORAGE_KEY = 'jd-theme';
+
+  function prefersDark() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function getStoredTheme() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+
+  root.classList.toggle('dark', (getStoredTheme() || (prefersDark() ? 'dark' : 'light')) === 'dark');
+
+  /* ---------- Everything else waits for the full document (the gumroad-data
+     script tag is injected server-side and may appear after this script). ---------- */
+  function ready(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  ready(function () {
+    /* ---- Theme toggle wiring ---- */
+    var toggleBtn = document.getElementById('theme-toggle');
+    var iconSun = document.getElementById('icon-sun');
+    var iconMoon = document.getElementById('icon-moon');
+
+    function reflectTheme() {
+      var isDark = root.classList.contains('dark');
+      toggleBtn.setAttribute('aria-pressed', String(isDark));
+      toggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      iconSun.classList.toggle('hidden', isDark);
+      iconMoon.classList.toggle('hidden', !isDark);
+    }
+    reflectTheme();
+
+    toggleBtn.addEventListener('click', function () {
+      var next = root.classList.contains('dark') ? 'light' : 'dark';
+      root.classList.toggle('dark', next === 'dark');
+      reflectTheme();
+      try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* ignore */ }
+    });
+
+    /* ---- Read Gumroad's injected catalog ---- */
+    function readGumroadData() {
+      var el = document.getElementById('gumroad-data');
+      if (!el) return { products: [], posts: [], pages: [] };
+      try {
+        var parsed = JSON.parse(el.textContent || '{}');
+        return {
+          products: Array.isArray(parsed.products) ? parsed.products : [],
+          posts: Array.isArray(parsed.posts) ? parsed.posts : [],
+          pages: Array.isArray(parsed.pages) ? parsed.pages : [],
+        };
+      } catch (e) {
+        return { products: [], posts: [], pages: [] };
+      }
+    }
+
+    var data = readGumroadData();
+
+    var PALETTES = [
+      ['#0d9488', '#5eead4'],
+      ['#0ea5e9', '#2dd4bf'],
+      ['#f59e0b', '#f97316'],
+      ['#10b981', '#0ea5e9'],
+      ['#a855f7', '#2dd4bf'],
+    ];
+
+    function hashStr(str) {
+      var h = 0;
+      for (var i = 0; i < str.length; i++) { h = (h * 31 + str.charCodeAt(i)) | 0; }
+      return Math.abs(h);
+    }
+
+    function escapeHTML(str) {
+      return String(str == null ? '' : str).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function formatPrice(price) {
+      if (price === null || price === undefined || price === '') return '';
+      var str = String(price).trim();
+      if (/^[\$€£¥]/.test(str)) return str;
+      if (/^\d/.test(str)) return '$' + str;
+      return str;
+    }
+
+    function formatType(type) {
+      if (!type) return 'Product';
+      return String(type).replace(/[_-]+/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    }
+
+    function formatDate(iso) {
+      if (!iso) return '';
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return '';
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function iconFor(type) {
+      var t = (type || '').toLowerCase();
+      if (t.indexOf('ebook') > -1 || t.indexOf('book') > -1) {
+        return '<path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17.5A1.5 1.5 0 0 1 18.5 21H6.5A2.5 2.5 0 0 1 4 18.5v-14Z"></path><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"></path>';
+      }
+      if (t.indexOf('course') > -1 || t.indexOf('video') > -1) {
+        return '<rect x="2.5" y="4.5" width="19" height="13" rx="2"></rect><path d="M8 21h8M12 17.5V21"></path>';
+      }
+      if (t.indexOf('membership') > -1 || t.indexOf('bundle') > -1) {
+        return '<rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a4 4 0 0 1 8 0v2"></path>';
+      }
+      return '<rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path>';
+    }
+
+    /* ---- Render products ---- */
+    var grid = document.getElementById('products-grid');
+    var emptyMsg = document.getElementById('products-empty');
+
+    if (data.products.length === 0) {
+      emptyMsg.classList.remove('hidden');
+    } else {
+      data.products.forEach(function (p, idx) {
+        var name = p && p.name ? p.name : 'Untitled product';
+        var url = p && p.url ? p.url : '#';
+        var price = formatPrice(p && p.price);
+        var type = formatType(p && p.native_type);
+        var thumb = p && p.thumbnail_url ? String(p.thumbnail_url).trim() : '';
+        var desc = p && p.description ? String(p.description).replace(/<[^>]*>/g, '').trim() : '';
+        if (desc.length > 130) desc = desc.slice(0, 130).trim() + '…';
+        var palette = PALETTES[hashStr(name) % PALETTES.length];
+
+        var card = document.createElement('article');
+        card.setAttribute('role', 'listitem');
+        card.className = 'reveal card-surface rounded-2xl overflow-hidden flex flex-col transition-transform hover:-translate-y-1 duration-200';
+        card.style.transitionDelay = (Math.min(idx, 6) * 60) + 'ms';
+
+        card.innerHTML =
+          '<a href="' + escapeHTML(url) + '" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" class="thumb-fallback h-32 relative flex items-center justify-center cursor-pointer" style="--c1:' + palette[0] + ';--c2:' + palette[1] + '">' +
+            '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + iconFor(p && p.native_type) + '</svg>' +
+          '</a>' +
+          '<div class="p-5 flex flex-col flex-1">' +
+            '<p class="font-mono text-[11px] uppercase tracking-wide text-brand-700 dark:text-brand-300">' + escapeHTML(type) + '</p>' +
+            '<h3 class="mt-2 font-semibold text-ink-950 dark:text-white leading-snug">' + escapeHTML(name) + '</h3>' +
+            (desc ? '<p class="mt-2 text-sm text-ink-700 dark:text-slate-400 flex-1">' + escapeHTML(desc) + '</p>' : '<div class="flex-1"></div>') +
+            '<div class="mt-4 flex items-center justify-between gap-3">' +
+              '<a href="' + escapeHTML(url) + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200">' +
+                'View product' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>' +
+              '</a>' +
+              (price ? '<span class="font-mono text-lg font-bold text-brand-700 dark:text-brand-300 shrink-0">' + escapeHTML(price) + '</span>' : '') +
+            '</div>' +
+          '</div>';
+
+        /* Try to layer the real product cover on top of the icon, added via
+           the DOM API (not as HTML) so a strict sanitizer can't strip an
+           inline event handler. If the image 404s or is blocked, it removes
+           itself and the icon underneath still shows. */
+        if (thumb) {
+          var img = document.createElement('img');
+          img.src = thumb;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.referrerPolicy = 'no-referrer';
+          img.className = 'absolute inset-0 w-full h-full object-cover';
+          img.onerror = function () { img.remove(); };
+          var thumbEl = card.querySelector('.thumb-fallback');
+          if (thumbEl) thumbEl.appendChild(img);
+        }
+
+        grid.appendChild(card);
+      });
+    }
+
+    /* ---- Terminal snippet ---- */
+    var countEl = document.getElementById('snippet-count');
+    var topEl = document.getElementById('snippet-top');
+    if (countEl) countEl.textContent = String(data.products.length);
+    if (topEl) {
+      var top = data.products[0] && data.products[0].name ? data.products[0].name : '—';
+      if (top.length > 28) top = top.slice(0, 28).trim() + '…';
+      topEl.textContent = '"' + top.replace(/"/g, '\\"') + '"';
+    }
+
+    /* ---- Copy email ---- */
+    var copyBtn = document.getElementById('copy-email');
+    var copyLabel = document.getElementById('copy-email-label');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        var email = 'jenuelganawed936@gmail.com';
+        function done(ok) {
+          copyLabel.textContent = ok ? 'Copied!' : email;
+          setTimeout(function () { copyLabel.textContent = 'Copy email'; }, 1800);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
+        } else {
+          done(false);
+        }
+      });
+    }
+
+    /* ---- Footer year ---- */
+    var yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+    /* ---- Reveal on scroll ---- */
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealEls = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ---- Active nav highlighting ---- */
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+    var spySections = [];
+    var pageLink = null;
+    navLinks.forEach(function (link) {
+      if (link.getAttribute('aria-current') === 'page') pageLink = link;
+      var href = link.getAttribute('href') || '';
+      if (href.charAt(0) !== '#' || href.length < 2) return;
+      var section = document.getElementById(href.slice(1));
+      if (section) spySections.push({ link: link, el: section });
+    });
+
+    if (spySections.length || pageLink) {
+      var syncActive = function () {
+        var probe = window.scrollY + 140; /* clear the sticky pill */
+        var current = null;
+        spySections.forEach(function (s) {
+          if (s.el.getBoundingClientRect().top + window.scrollY <= probe) current = s;
+        });
+        /* On a tall viewport the final section can be shorter than the screen, so
+           its top never reaches the probe. Claim it once we hit the page bottom. */
+        if (spySections.length &&
+            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+          current = spySections[spySections.length - 1];
+        }
+        var active = current ? current.link : pageLink;
+        navLinks.forEach(function (l) { l.classList.toggle('is-active', l === active); });
+      };
+      var ticking = false;
+      var onScroll = function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () { ticking = false; syncActive(); });
+      };
+      syncActive();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+    }
+
+    /* ---- Easter egg ---- */
+    console.log('thanks for stopping by — built by Jenuel.Dev');
+  });
+})();
+</script>
+
+</body>
+</html>

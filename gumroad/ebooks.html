@@ -1,0 +1,83 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{mono:['ui-monospace','SFMono-Regular','Menlo','Consolas','Liberation Mono','monospace'],sans:['ui-sans-serif','system-ui','-apple-system','Segoe UI','Roboto','Helvetica','Arial','sans-serif']},colors:{brand:{50:'#f0fdfa',100:'#ccfbf1',200:'#99f6e4',300:'#5eead4',400:'#2dd4bf',500:'#14b8a6',600:'#0d9488',700:'#0f766e',800:'#115e59',900:'#134e4a'},ink:{950:'#050e0d',900:'#081615',800:'#0d1e1c',700:'#132a27'}},keyframes:{blink:{'0%,49%':{opacity:1},'50%,100%':{opacity:0}},floatSlow:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'}}},animation:{blink:'blink 1s step-start infinite',floatSlow:'floatSlow 6s ease-in-out infinite'}}}};
+</script>
+<style>
+:root{color-scheme:light dark}html{scroll-behavior:smooth}body{background:#f7fbfa;color:#0b1a18;transition:background-color .25s,color .25s}html.dark body{background:#050e0d;color:#dff5f1}.bg-grid{background-image:linear-gradient(to right,rgba(13,148,136,.10) 1px,transparent 1px),linear-gradient(to bottom,rgba(13,148,136,.10) 1px,transparent 1px);background-size:36px 36px}html.dark .bg-grid{background-image:linear-gradient(to right,rgba(94,234,212,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(94,234,212,.07) 1px,transparent 1px)}.glow{position:absolute;border-radius:9999px;filter:blur(70px);opacity:.3;pointer-events:none}.card-surface{background:#fff;border:1px solid rgba(13,148,136,.14)}html.dark .card-surface{background:#0a1717;border-color:rgba(94,234,212,.12)}.terminal-surface{background:#071211;border:1px solid rgba(94,234,212,.16)}.nav-pill{background:rgba(255,255,255,.75);border:1px solid rgba(13,148,136,.14)}html.dark .nav-pill{background:rgba(8,22,21,.75);border-color:rgba(94,234,212,.14)}.nav-link{color:#33524e;transition:color .2s,background-color .2s}.nav-link:hover{color:#0f766e;background-color:rgba(5,14,13,.05)}.nav-link.is-active{color:#0f766e;background-color:rgba(13,148,136,.10)}html.dark .nav-link{color:#cbd5e1}html.dark .nav-link:hover{color:#5eead4;background-color:rgba(255,255,255,.05)}html.dark .nav-link.is-active{color:#5eead4;background-color:rgba(45,212,191,.12)}.chip{border:1px solid rgba(13,148,136,.35);background:rgba(13,148,136,.08)}html.dark .chip{background:rgba(45,212,191,.10);border-color:rgba(94,234,212,.30)}.logo-mark{box-shadow:0 0 0 1px rgba(45,212,191,.35),0 0 18px rgba(45,212,191,.25)}.book-cover{background:linear-gradient(135deg,var(--c1),var(--c2))}.book-spine{box-shadow:inset 7px 0 0 rgba(0,0,0,.15),inset 9px 0 0 rgba(255,255,255,.09),0 18px 30px rgba(4,35,31,.22)}::selection{background:#0f766e;color:#f0fdfa}a:focus-visible,button:focus-visible{outline:2px solid #14b8a6;outline-offset:3px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:#0f766e;color:#f0fdfa;padding:.6rem 1rem;border-radius:.5rem}.skip-link:focus{left:1rem;top:1rem}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+</style>
+<a href="#main" class="skip-link font-medium text-sm">Skip to content</a>
+<div class="sticky top-3 sm:top-4 z-40 px-3 sm:px-5">
+  <header class="nav-pill max-w-4xl mx-auto rounded-full backdrop-blur shadow-sm shadow-black/5">
+    <div class="h-14 px-4 sm:px-6 flex items-center justify-between gap-4">
+      <a href="https://jenueldev.gumroad.com" class="flex items-center gap-2.5 font-mono font-semibold text-[15px] text-ink-950 dark:text-white shrink-0">
+        <span class="logo-mark relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-ink-950 dark:bg-black" aria-hidden="true"><span class="h-2 w-2 rounded-full bg-brand-400"></span></span>
+        <span>Jenuel<span class="text-brand-600 dark:text-brand-400">.</span>Dev</span>
+      </a>
+      <nav aria-label="Primary" class="hidden sm:flex items-center gap-0.5 md:gap-1 font-mono text-[13px] md:text-sm">
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="https://jenueldev.gumroad.com/#shop">shop</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="#ebooks" aria-current="page">ebooks</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="https://jenueldev.gumroad.com/#writing">writing</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="https://jenueldev.gumroad.com/#connect">connect</a>
+        <a class="nav-link rounded-full px-2 md:px-3 py-1.5" href="https://jenuel.dev" target="_blank" rel="noopener noreferrer">website</a>
+      </nav>
+      <button id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" class="inline-flex items-center justify-center h-9 w-9 rounded-full border border-ink-950/10 dark:border-white/10 text-ink-700 dark:text-slate-200 hover:bg-ink-950/5 dark:hover:bg-white/5 transition-colors shrink-0">
+        <svg id="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg id="icon-moon" class="hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+      </button>
+    </div>
+  </header>
+</div>
+<main id="main">
+  <section class="relative overflow-hidden bg-grid" aria-labelledby="hero-heading">
+    <div class="glow bg-brand-300 dark:bg-brand-500 h-72 w-72 -top-10 -left-16" aria-hidden="true"></div>
+    <div class="glow bg-emerald-200 dark:bg-emerald-600 h-72 w-72 top-24 right-0" aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28 grid lg:grid-cols-[1.1fr,.9fr] gap-14 items-center">
+      <div>
+        <p class="font-mono text-sm text-brand-700 dark:text-brand-300 mb-4"><span class="text-ink-700/60 dark:text-slate-500">$</span> ls ./ebooks<span class="inline-block w-2 ml-1 -mb-0.5 h-4 bg-brand-500 dark:bg-brand-400 animate-blink" aria-hidden="true"></span></p>
+        <h1 id="hero-heading" class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-950 dark:text-white">Practical ideas,<br><span class="text-brand-700 dark:text-brand-300">made portable.</span></h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-ink-700 dark:text-slate-300">Guides and reference material from Jenuel.Dev—built to help you think clearly, learn faster, and keep useful knowledge close.</p>
+        <div class="mt-6 flex flex-wrap gap-2"><span class="chip text-brand-700 dark:text-brand-200 text-xs font-mono px-3 py-1 rounded-full">instant download</span><span class="chip text-brand-700 dark:text-brand-200 text-xs font-mono px-3 py-1 rounded-full">lifetime access</span><span class="chip text-brand-700 dark:text-brand-200 text-xs font-mono px-3 py-1 rounded-full">2 titles</span></div>
+        <a href="#ebooks" class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-700 hover:bg-brand-800 dark:bg-brand-400 dark:hover:bg-brand-300 text-white dark:text-ink-950 font-semibold px-5 py-3 text-sm transition-colors shadow-sm shadow-brand-600/20">Browse ebooks <span aria-hidden="true">→</span></a>
+      </div>
+      <div>
+        <div class="terminal-surface rounded-2xl shadow-2xl shadow-black/30 overflow-hidden animate-floatSlow">
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[.03]"><span class="h-3 w-3 rounded-full bg-[#ff5f56]"></span><span class="h-3 w-3 rounded-full bg-[#ffbd2e]"></span><span class="h-3 w-3 rounded-full bg-[#27c93f]"></span><span class="ml-2 font-mono text-xs text-slate-400">ebooks.json</span></div>
+          <pre class="font-mono text-[13px] leading-6 p-5 overflow-x-auto text-slate-200"><code><span class="text-brand-400">const</span> <span class="text-sky-300">library</span> = {
+  <span class="text-sky-200">titles</span>: <span class="text-amber-300">2</span>,
+  <span class="text-sky-200">topics</span>: [<span class="text-emerald-300">"mindset"</span>, <span class="text-emerald-300">"code"</span>],
+  <span class="text-sky-200">format</span>: <span class="text-emerald-300">"digital"</span>,
+  <span class="text-sky-200">status</span>: <span class="text-emerald-300">"ready to download"</span>,
+};</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="ebooks" class="relative py-20 sm:py-28 border-t border-ink-950/5 dark:border-white/5" aria-labelledby="ebooks-heading">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="max-w-2xl"><p class="font-mono text-sm text-brand-700 dark:text-brand-300">## ebooks</p><h2 id="ebooks-heading" class="mt-2 text-2xl sm:text-3xl font-bold text-ink-950 dark:text-white">the digital bookshelf</h2><p class="mt-3 text-ink-700 dark:text-slate-400">Compact resources designed for real use—not another unread file in your downloads folder.</p></div>
+      <div class="mt-10 grid md:grid-cols-2 gap-5">
+        <article class="card-surface rounded-2xl overflow-hidden flex flex-col transition-transform hover:-translate-y-1 duration-200">
+          <a href="https://jenueldev.gumroad.com/l/yijgwx" class="book-cover relative h-52 flex items-center justify-center p-8" style="--c1:#115e59;--c2:#081615" aria-label="View The Power of Positive Thinking">
+            <div class="book-spine w-36 h-44 rounded-r-lg p-5 text-white flex flex-col justify-between"><span class="font-mono text-[9px] tracking-widest text-brand-200">JENUEL.DEV EDITIONS</span><strong class="text-xl leading-tight">The Power of Positive Thinking</strong><span class="text-brand-300 text-3xl font-bold">+</span></div>
+          </a>
+          <div class="p-6 flex flex-col flex-1"><p class="font-mono text-[11px] uppercase tracking-wide text-brand-700 dark:text-brand-300">Personal growth · ebook</p><h3 class="mt-2 text-xl font-semibold text-ink-950 dark:text-white leading-snug">The Power of Positive Thinking: A Guide to Transforming Your Life</h3><p class="mt-3 text-sm text-ink-700 dark:text-slate-400 flex-1">A practical guide to reshaping your mindset, building constructive habits, and approaching everyday challenges with greater confidence.</p><div class="mt-5 flex items-center justify-between gap-3"><a href="https://jenueldev.gumroad.com/l/yijgwx" class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200">View ebook <span aria-hidden="true">→</span></a><span class="font-mono text-lg font-bold text-brand-700 dark:text-brand-300">$10</span></div></div>
+        </article>
+        <article class="card-surface rounded-2xl overflow-hidden flex flex-col transition-transform hover:-translate-y-1 duration-200">
+          <a href="https://jenueldev.gumroad.com/l/programming-coding-cheat-sheets" class="book-cover relative h-52 flex items-center justify-center p-8" style="--c1:#0f766e;--c2:#0d1e1c" aria-label="View Programming/Coding Cheat Sheets">
+            <div class="book-spine w-36 h-44 rounded-r-lg p-5 text-white flex flex-col justify-between"><span class="font-mono text-[9px] tracking-widest text-brand-200">JENUEL.DEV FIELD NOTES</span><strong class="text-xl leading-tight">Programming / Coding Cheat Sheets</strong><span class="text-brand-300 text-2xl font-mono font-bold">{ }</span></div>
+          </a>
+          <div class="p-6 flex flex-col flex-1"><p class="font-mono text-[11px] uppercase tracking-wide text-brand-700 dark:text-brand-300">Development · reference</p><h3 class="mt-2 text-xl font-semibold text-ink-950 dark:text-white leading-snug">Programming/Coding Cheat Sheets</h3><p class="mt-3 text-sm text-ink-700 dark:text-slate-400 flex-1">Quick-reference notes for common programming concepts and syntax—made to stay close while you learn, debug, and ship.</p><div class="mt-5 flex items-center justify-between gap-3"><a href="https://jenueldev.gumroad.com/l/programming-coding-cheat-sheets" class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200">View ebook <span aria-hidden="true">→</span></a><span class="font-mono text-lg font-bold text-brand-700 dark:text-brand-300">$2+</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 border-t border-ink-950/5 dark:border-white/5 bg-brand-50/50 dark:bg-white/[.02]"><div class="max-w-3xl mx-auto px-5 sm:px-8 text-center"><p class="font-mono text-sm text-brand-700 dark:text-brand-300">// keep learning</p><h2 class="mt-3 text-2xl font-bold text-ink-950 dark:text-white">Small library. Useful shelf.</h2><p class="mt-3 text-ink-700 dark:text-slate-400">Each title is made to be highlighted, revisited, and put to work.</p><a href="https://jenueldev.gumroad.com" class="mt-6 inline-flex items-center gap-2 rounded-full border border-ink-950/15 dark:border-white/15 hover:bg-ink-950/5 dark:hover:bg-white/5 text-ink-950 dark:text-slate-100 font-semibold px-5 py-3 text-sm transition-colors">Back to the shop</a></div></section>
+</main>
+<footer class="border-t border-ink-950/5 dark:border-white/5 py-8"><div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ink-700/70 dark:text-slate-400"><p>&copy; <span id="footer-year">2026</span> Jenuel.Dev. Built with code &amp; coffee.</p><p class="font-mono text-xs">console.log("thanks for reading");</p></div></footer>
+<script>
+(function(){'use strict';var root=document.documentElement,key='jd-theme';function prefersDark(){return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches}function stored(){try{return localStorage.getItem(key)}catch(e){return null}}root.classList.toggle('dark',(stored()||(prefersDark()?'dark':'light'))==='dark');function ready(fn){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fn)}else{fn()}}ready(function(){var button=document.getElementById('theme-toggle'),sun=document.getElementById('icon-sun'),moon=document.getElementById('icon-moon');function reflect(){var dark=root.classList.contains('dark');button.setAttribute('aria-pressed',String(dark));button.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');sun.classList.toggle('hidden',dark);moon.classList.toggle('hidden',!dark)}reflect();button.addEventListener('click',function(){var next=root.classList.contains('dark')?'light':'dark';root.classList.toggle('dark',next==='dark');reflect();try{localStorage.setItem(key,next)}catch(e){}});document.getElementById('footer-year').textContent=new Date().getFullYear();
+var navLinks=Array.prototype.slice.call(document.querySelectorAll('.nav-link')),spySections=[],pageLink=null;
+navLinks.forEach(function(link){if(link.getAttribute('aria-current')==='page')pageLink=link;var href=link.getAttribute('href')||'';if(href.charAt(0)!=='#'||href.length<2)return;var section=document.getElementById(href.slice(1));if(section)spySections.push({link:link,el:section})});
+if(spySections.length||pageLink){var syncActive=function(){var probe=window.scrollY+140,current=null;spySections.forEach(function(s){if(s.el.getBoundingClientRect().top+window.scrollY<=probe)current=s});if(spySections.length&&window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4){current=spySections[spySections.length-1]}var active=current?current.link:pageLink;navLinks.forEach(function(l){l.classList.toggle('is-active',l===active)})};var ticking=false,onScroll=function(){if(ticking)return;ticking=true;window.requestAnimationFrame(function(){ticking=false;syncActive()})};syncActive();window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll)}
+})})();
+</script>
