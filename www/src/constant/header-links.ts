@@ -66,7 +66,7 @@ export default [
     },
     {
         routeName: null,
-        to: 'https://buymeacoffee.com/jenuel.dev/extras',
+        to: 'https://store.jenuel.dev/',
         label: 'Store',
         icon: 'tabler:shopping-cart',
         external: true
