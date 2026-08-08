@@ -16,7 +16,7 @@
 ## Page composition
 
 1. Floating pill navigation.
-2. Grid-backed hero with a terminal command on the left and terminal/code panel on the right.
+2. The full hero — grid background, large headline, terminal/code panel on the right — belongs to the home page (`profile.html`) only. Standalone pages skip it and open directly on their first content section, which carries the grid background, glows, and a compact header: `$ command` line, page `h1`, one-line description, optional chips.
 3. Content sections separated by quiet borders, with `## section` monospace labels.
 4. Product cards matching the profile shop cards.
 5. Compact footer ending with a `console.log(...)` line.
