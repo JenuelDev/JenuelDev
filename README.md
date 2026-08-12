@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [PewDiePie&#39;s AI Repo: How to Install Odysseus and Run It Locally](https://blog.jenuel.dev/blog/pewdiepie-ai-repo-install-odysseus-locally)
 - [Meta&#39;s AI Hacked a Company. The Safety Test Was the Weak Link](https://blog.jenuel.dev/blog/meta-ai-hacked-company-safety-test-zero-trust)
 - [How to Build a Local AI Workspace Like PewDiePie&#39;s Odysseus: Hardware, Models, and Cost](https://blog.jenuel.dev/blog/build-local-ai-workspace-like-pewdiepie-odysseus)
 - [NVIDIA Put Hermes and Claude on an RTX Spark PC. Then the Agent Designed a House](https://blog.jenuel.dev/blog/nvidia-rtx-spark-hermes-claude-agent-designed-house)
 - [Should You Sign Out of OpenAI? The Hugging Face Breach Explained](https://blog.jenuel.dev/blog/should-you-sign-out-of-openai-hugging-face-breach)
-- [What PewDiePie Is Building in AI Now: Odysseus Is Becoming a Serious Local AI Workspace](https://blog.jenuel.dev/blog/what-pewdiepie-is-building-in-ai-now-odysseus-july-2026)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
