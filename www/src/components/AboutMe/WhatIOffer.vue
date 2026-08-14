@@ -24,10 +24,10 @@ const services = [
 
 <template>
     <section class="offer-section flex flex-col w-full max-w-900px visible opacity-100 z-10 px-10px mx-auto mb-90px">
-        <h1 v-scrollanimation
+        <h2 v-scrollanimation
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px">
             what i offer
-        </h1>
+        </h2>
         <p v-scrollanimation class="text-lg leading-7 mb-42px">
             High-quality solutions tailored to your goals, built with performance, scalability, and user experience in mind.
         </p>

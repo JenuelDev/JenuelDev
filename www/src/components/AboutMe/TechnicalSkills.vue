@@ -143,12 +143,12 @@ const skillGroups = [
                             class="x-close-button text-3xl"
                             icon="material-symbols:close-rounded"
                         />
-                        <h1 class="flex items-center">
+                        <h2 class="flex items-center">
                             <Icon class="skill-icon text-3xl" :icon="dialogContent.icon"></Icon>
                             <div>
                                 {{ dialogContent.title }}
                             </div>
-                        </h1>
+                        </h2>
                         <div class="text-center">
                             <p v-html="dialogContent.des"></p>
                         </div>
@@ -175,12 +175,12 @@ const skillGroups = [
         </li>
     </ul>
     <section class="flex flex-col w-[100%] max-w-900px visible opacity-100 z-10 px-10px mx-auto mb-90px">
-        <h1
+        <h2
             v-scrollanimation
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
         >
             skills
-        </h1>
+        </h2>
         <p
             v-scrollanimation
             class="text-lg w-[100%] max-w-[770px] leading-7"
@@ -367,7 +367,7 @@ const skillGroups = [
                 }
             }
 
-            h1 {
+            h2 {
                 margin: 10px 0;
                 align-items: center;
                 gap: 10px;

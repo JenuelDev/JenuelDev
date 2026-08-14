@@ -13,7 +13,9 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                 <div class="lg:text-right text-center max-w-500px">
                     <div>
                         <p class="md:text-3xl text-2xl font-500 mb-2">Hi, I'm Jenuel</p>
-                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">Software Developer</h1>
+                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">
+                            <span class="sr-only">Jenuel Ganawed — </span>Software Developer
+                        </h1>
                         <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] mb-2">
                             I build fast, reliable apps for web, mobile, and desktop.
                         </h2>
