@@ -37,6 +37,7 @@ const {
 import "../assets/styles.scss";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
+import { ogImageUrl } from "../lib/og";
 
 const SITE = "https://blog.jenuel.dev";
 const DES = description ?? "I build apps that are engaging, accessible and scalable - JenuelDev";
@@ -45,9 +46,28 @@ const DES = description ?? "I build apps that are engaging, accessible and scala
 // told Google the blog was a duplicate of the separate portfolio site.
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE).href;
 const ogUrl = url ?? canonicalUrl;
-const defaultImage = "https://i.imgur.com/2q9zwKJ.png";
-const ogImage = image ?? defaultImage;
+// Pages that don't supply an image get a card generated from their own title
+// instead of one shared static graphic, so every URL previews distinctly.
+const ogImage = image ?? ogImageUrl(title, DES);
 const ogType = isBlog ? "article" : "website";
+
+// astro-seo already emits <meta name="robots">, but only ever "index/noindex,
+// follow/nofollow" — it has no way to express preview directives.
+// `max-image-preview:large` is what unlocks full-size thumbnails in Google
+// Search and Discover, which matters a lot for article traffic.
+//
+// These go on a `googlebot` tag rather than a second `robots` tag: the preview
+// directives are Google-specific, and duplicating `robots` is what SEO auditing
+// tools flag as an error. Skipped entirely when noindex, because a more
+// specific user-agent tag overrides `robots` for that crawler.
+const robotsDirectives = noindex
+    ? []
+    : [
+          {
+              name: "googlebot",
+              content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+          },
+      ];
 ---
 
 <!doctype html>
@@ -111,7 +131,7 @@ const ogType = isBlog ? "article" : "website";
                     },
                     { rel: "sitemap", type: "application/xml", href: `${SITE}/sitemap.xml` },
                 ],
-                meta: [{ name: "author", content: "Jenuel Oras Ganawed" }],
+                meta: [{ name: "author", content: "Jenuel Oras Ganawed" }, ...robotsDirectives],
             }}
         />
     </head>

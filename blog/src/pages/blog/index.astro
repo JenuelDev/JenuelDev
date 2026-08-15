@@ -17,13 +17,23 @@ if (error) {
     console.log(error);
 }
 const blogs = data ?? [];
+const SITE = "https://blog.jenuel.dev";
 const title = "Blog";
-const description = "I build apps that are engaging, accessible and scalable - JenuelDev";
+const description =
+    "Articles by Jenuel Ganawed on software development, AI tooling, programming practice, developer productivity, and personal finance for people in tech.";
+
+// This page runs the same query as the homepage and renders the same 50 posts,
+// so it's a duplicate of "/". Point the canonical at the homepage to
+// consolidate ranking signals there; the URL keeps working for anyone who has
+// it bookmarked or linked. The Blog + blogPost structured data lives on the
+// homepage for the same reason — it belongs on the canonical URL.
+const CANONICAL = `${SITE}/`;
 ---
 
 <Layout
     title={title}
     description={description}
+    canonical={CANONICAL}
     image={ogImageUrl(title, description)}
 >
     <section class="w-full max-w-800px mx-auto px-5 sm:text-lg pt-15">

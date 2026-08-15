@@ -7,6 +7,24 @@ const title = "Jenuel Dev — Programming & Finance Blog for Developers";
 const description =
     "Jenuel Ganawed Blogs - Software Developer specializing in creating engaging, accessible, and scalable web applications. Delivering innovative solutions for businesses and individuals.";
 
+const SITE = "https://blog.jenuel.dev";
+
+// Self-hosted so the logo can't disappear out from under the structured data
+// the way a hotlinked image host can.
+const LOGO = `${SITE}/logo.png`;
+
+// sameAs is how Google reconciles this site with the person behind it, so every
+// entry has to resolve. The previous github.com/BrockenDuck entry was a 404 and
+// pointed the graph at an account that doesn't exist.
+const PROFILES = [
+    "https://www.jenuel.dev",
+    "https://github.com/JenuelDev",
+    "https://www.linkedin.com/in/jenuelganawed/",
+    "https://www.youtube.com/@JenuelGanawed",
+    "https://twitter.com/JenuelDev",
+    "https://www.instagram.com/brojenuel/",
+];
+
 // Homepage JSON-LD: identifies the site and its author for Google's knowledge
 // graph / sitelinks. sameAs lists the canonical profiles that represent the brand.
 const homeJsonLd = [
@@ -23,15 +41,10 @@ const homeJsonLd = [
         "@context": "https://schema.org",
         "@type": "Person",
         name: "Jenuel Oras Ganawed",
-        url: "https://jenuel.dev",
-        image: "https://i.imgur.com/2q9zwKJ.png",
+        url: "https://www.jenuel.dev",
+        image: LOGO,
         jobTitle: "Software Developer",
-        sameAs: [
-            "https://jenuel.dev",
-            "https://github.com/BrockenDuck",
-            "https://www.youtube.com/@JenuelGanawed",
-            "https://twitter.com/JenuelDev",
-        ],
+        sameAs: PROFILES,
     },
     {
         // Matches the `publisher` used in each post's BlogPosting schema, so
@@ -42,17 +55,11 @@ const homeJsonLd = [
         url: "https://blog.jenuel.dev",
         logo: {
             "@type": "ImageObject",
-            url: "https://i.imgur.com/2q9zwKJ.png",
+            url: LOGO,
         },
-        sameAs: [
-            "https://jenuel.dev",
-            "https://github.com/BrockenDuck",
-            "https://www.youtube.com/@JenuelGanawed",
-            "https://twitter.com/JenuelDev",
-        ],
+        sameAs: PROFILES,
     },
 ];
-const homeJsonLdString = JSON.stringify(homeJsonLd).replace(/</g, "\\u003c");
 
     const limit = 50;
 
@@ -68,6 +75,35 @@ if (error) {
 }
 
 const blogs = data ?? [];
+
+// This page is the canonical article listing (/blog canonicals here), so the
+// Blog + blogPost feed belongs on it. Lets Google read the listing as a feed of
+// articles rather than a wall of anchor tags.
+homeJsonLd.push({
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Jenuel Dev Blog",
+    description: description,
+    url: SITE,
+    inLanguage: "en",
+    publisher: {
+        "@type": "Organization",
+        name: "Jenuel Dev",
+        url: SITE,
+        logo: { "@type": "ImageObject", url: LOGO },
+    },
+    blogPost: blogs.map((blog: any) => ({
+        "@type": "BlogPosting",
+        headline: blog.title,
+        description: blog.summary,
+        url: `${SITE}/blog/${blog.slug}`,
+        dateModified: blog.updated_at,
+        image: blog.cover_img ?? undefined,
+    })),
+} as any);
+
+// Guard against a stray "</script>" in post titles breaking the tag.
+const homeJsonLdString = JSON.stringify(homeJsonLd).replace(/</g, "\\u003c");
 ---
 
 <Layout

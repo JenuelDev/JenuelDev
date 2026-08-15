@@ -58,7 +58,10 @@ const jsonLd = {
     publisher: {
         "@type": "Organization",
         name: "Jenuel Dev",
-        logo: { "@type": "ImageObject", url: "https://i.imgur.com/2q9zwKJ.png" },
+        url: SITE,
+        // Self-hosted: same logo URL the homepage Organization uses, so Google
+        // resolves both to one entity.
+        logo: { "@type": "ImageObject", url: `${SITE}/logo.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
     keywords: Array.isArray(data.tags) ? data.tags.join(", ") : undefined,

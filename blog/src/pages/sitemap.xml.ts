@@ -4,9 +4,10 @@ import { createClient } from "@supabase/supabase-js";
 
 const domain = "https://blog.jenuel.dev";
 
-const pages = [
+// "/blog" is intentionally absent: it renders the same listing as "/" and
+// canonicals there, so submitting both would ask Google to index a duplicate.
+const pages: Array<{ url: string; lastmod?: string }> = [
     { url: domain + "/" },
-    { url: domain + "/blog", lastmod: "2024-08-07" },
     { url: domain + "/about" },
     { url: domain + "/programming" },
     { url: domain + "/finance" },

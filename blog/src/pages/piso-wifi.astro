@@ -2,7 +2,13 @@
 import Layout from "../layouts/default.astro";
 ---
 
-<Layout title="Thanks For Connecting To Piso WiFi">
+<!-- Captive-portal landing page: a single heading and nothing else. Indexing it
+     just adds a thin-content URL to the site, so keep it out of search. -->
+<Layout
+    title="Thanks For Connecting To Piso WiFi"
+    description="Landing page shown after connecting to a Piso WiFi hotspot."
+    noindex={true}
+>
     <div class="flex flex-col items-center justify-center h-screen">
         <h1>Thanks For Connecting To Piso WiFi</h1>
     </div>
