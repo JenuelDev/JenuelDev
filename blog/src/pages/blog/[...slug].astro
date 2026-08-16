@@ -10,12 +10,25 @@ import "../../assets/code-highlight/atom-one-dark.css";
 const { slug } = Astro.params;
 const isDev = import.meta.env.DEV;
 
-const { data } = await supabase
+const { data: article } = await supabase
     .from("blogs")
     .select(`*, user_profile(*)`)
     .eq("is_active", 1)
     .eq("slug", slug)
     .single();
+const notFound = !article;
+if (notFound) Astro.response.status = 404;
+const data = article ?? {
+    id: "",
+    title: "Article not found",
+    summary: "The article you requested could not be found.",
+    created_at: null,
+    updated_at: null,
+    cover_img: null,
+    tags: [],
+    user_profile: null,
+    content: "",
+};
 const author = data ? data.user_profile : null;
 
 // --- SEO ---------------------------------------------------------------
@@ -53,7 +66,7 @@ const jsonLd = {
     author: {
         "@type": "Person",
         name: authorName,
-        url: author?.website ?? "https://jenuel.dev",
+        url: author?.website ?? "https://www.jenuel.dev/",
     },
     publisher: {
         "@type": "Organization",
@@ -72,8 +85,7 @@ const breadcrumbLd = {
     "@type": "BreadcrumbList",
     itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
-        { "@type": "ListItem", position: 3, name: data.title, item: canonicalUrl },
+        { "@type": "ListItem", position: 2, name: data.title, item: canonicalUrl },
     ],
 };
 
@@ -87,14 +99,15 @@ const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u00
     url={canonicalUrl}
     canonical={canonicalUrl}
     image={ogImage}
-    isBlog={true}
+    isBlog={!notFound}
     publishedTime={publishedTime}
     modifiedTime={modifiedTime}
     authorName={authorName}
     tags={data.tags}
+    noindex={notFound}
 >
     <Fragment slot="head">
-        <script type="application/ld+json" is:inline set:html={jsonLdString} />
+        {!notFound && <script type="application/ld+json" is:inline set:html={jsonLdString} />}
     </Fragment>
     <section
         id="main-content"
@@ -256,7 +269,7 @@ const jsonLdString = JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u00
         const id = MainContentElement?.getAttribute("data-id");
         const isDev = MainContentElement?.getAttribute("data-is-dev");
 
-        if (isDev !== "true") {
+        if (id && isDev !== "true") {
             fetch(`/increment-count?id=${id}`, { method: "GET" });
         }
     }, 5000);

@@ -22,14 +22,34 @@ if (error) {
 }
 
 const blogs = data ?? [];
+const collectionJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: title,
+    description,
+    url: "https://blog.jenuel.dev/finance",
+    mainEntity: {
+        "@type": "ItemList",
+        itemListElement: blogs.map((blog, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: blog.title,
+            url: `https://blog.jenuel.dev/blog/${blog.slug}`,
+        })),
+    },
+}).replace(/</g, "\\u003c");
 ---
 
 <Layout
     title={title}
     description={description}
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" is:inline set:html={collectionJsonLd} />
+    </Fragment>
     <main>
         <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-28">
+            <h1 class="text-5xl font-bold pb-5">Finance for developers</h1>
             {
                 blogs.map((blog) => (
                     <>

@@ -81,7 +81,7 @@ function openSite(site: string) {
                         :style="`transition-delay: ${(index + 1) * 100}ms`"
                         :key="headerLink.label ?? index"
                     >
-                        <a rel="external" :href="headerLink.to as string" hreflang="es-es">
+                        <a rel="external" :href="headerLink.to as string">
                             <Icon size="20" :icon="headerLink.icon" />
                             {{ headerLink.label }}
                         </a>

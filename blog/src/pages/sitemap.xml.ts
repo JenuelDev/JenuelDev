@@ -11,6 +11,7 @@ const pages: Array<{ url: string; lastmod?: string }> = [
     { url: domain + "/about" },
     { url: domain + "/programming" },
     { url: domain + "/finance" },
+    { url: domain + "/privacy-policy" },
 ];
 
 export async function GET(props: any) {
@@ -48,7 +49,8 @@ export async function GET(props: any) {
     sitemap.end();
     return new Response(await streamToPromise(sitemap), {
         headers: {
-            "Content-Type": "application/xml",
+            "Content-Type": "application/xml; charset=utf-8",
+            "Cache-Control": "public, max-age=3600, s-maxage=3600",
         },
     });
 }

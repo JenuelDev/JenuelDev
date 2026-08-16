@@ -5,7 +5,7 @@ import { ogImageUrl } from "../lib/og";
 import dayjs from "dayjs";
 const title = "Jenuel Dev — Programming & Finance Blog for Developers";
 const description =
-    "Jenuel Ganawed Blogs - Software Developer specializing in creating engaging, accessible, and scalable web applications. Delivering innovative solutions for businesses and individuals.";
+    "Practical articles by Jenuel Ganawed about software development, AI tools, developer productivity, programming, and personal finance for people in tech.";
 
 const SITE = "https://blog.jenuel.dev";
 
@@ -20,6 +20,9 @@ const PROFILES = [
     "https://www.jenuel.dev",
     "https://github.com/JenuelDev",
     "https://www.linkedin.com/in/jenuelganawed/",
+    "https://stackoverflow.com/users/8830054/jenuel-ganawed",
+    "https://dev.to/jenueldev",
+    "https://gravatar.com/jenueldev",
     "https://www.youtube.com/@JenuelGanawed",
     "https://twitter.com/JenuelDev",
     "https://www.instagram.com/brojenuel/",
@@ -42,7 +45,7 @@ const homeJsonLd = [
         "@type": "Person",
         name: "Jenuel Oras Ganawed",
         url: "https://www.jenuel.dev",
-        image: LOGO,
+        image: "https://www.jenuel.dev/profile_image.webp",
         jobTitle: "Software Developer",
         sameAs: PROFILES,
     },
@@ -117,6 +120,10 @@ const homeJsonLdString = JSON.stringify(homeJsonLd).replace(/</g, "\\u003c");
     </Fragment>
     <main>
         <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-28">
+            <header class="pb-5">
+                <h1 class="text-5xl font-bold">Programming and finance for developers</h1>
+                <p class="text-secondary mt-3">{description}</p>
+            </header>
             {
                 blogs.map((blog) => (
                     <>

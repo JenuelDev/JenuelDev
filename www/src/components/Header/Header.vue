@@ -96,7 +96,6 @@ onUnmounted(() => {
                                             class="dropdown-item"
                                             rel="external"
                                             :href="childLink.to as string"
-                                            hreflang="es-es"
                                             target="_blank"
                                         >
                                             <div class="dropdown-item-icon">
@@ -138,7 +137,6 @@ onUnmounted(() => {
                                 class="text-size-14px font-500 flex items-center"
                                 rel="external"
                                 :href="headerLink.to as string"
-                                hreflang="es-es"
                                 target="_blank"
                             >
                                 <Icon :icon="headerLink.icon" />
