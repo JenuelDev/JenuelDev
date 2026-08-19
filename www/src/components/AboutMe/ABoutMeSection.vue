@@ -5,6 +5,7 @@ import YoutubeButton from "@/components/Button/YoutubeButton.vue";
 import { Icon } from "@iconify/vue";
 
 const yearCount = computed(() => new Date().getFullYear() - 2018);
+const showYoutubeButton = false;
 </script>
 <template>
     <section id="about-me" class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
@@ -41,7 +42,7 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
                                 <span> View Resume </span>
                             </a>
                         </div>
-                        <YoutubeButton />
+                        <YoutubeButton v-if="showYoutubeButton" />
                     </div>
 
                     <div class="hero-meta-bar mt-22px flex lg:justify-end justify-center flex-wrap gap-10px">
