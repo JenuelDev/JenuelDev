@@ -15,99 +15,95 @@ interface ExperienceItem {
     des: string | string[];
     url?: string;
     certificate?: ExperienceCertificate;
-    technologies?: string[];
-    timeline_icon?: string;
-    logo?: string;
 }
 
 const experiences = Experience as ExperienceItem[];
 
-const timelineIconMap = ['tabler:briefcase', 'tabler:code', 'tabler:rocket', 'tabler:layers', 'tabler:star'];
-
 function getDescriptionPoints(description: string | string[]) {
-    return Array.isArray(description) ? description.slice(0, 3) : [description];
+    return Array.isArray(description) ? description.slice(0, 2) : [description];
 }
 
-function getTimelineIcon(exp: ExperienceItem, index: number) {
-    return exp.timeline_icon || timelineIconMap[index % timelineIconMap.length];
+function isCurrentRole(exp: ExperienceItem) {
+    return exp.workUntil.toLowerCase().includes('present');
 }
 </script>
+
 <template>
-    <section id="experience" v-scrollanimation class="my-work-experience mx-auto mb-90px">
-        <div class="experience-shell relative">
+    <section id="experience" v-scrollanimation class="work-experience mx-auto mb-90px">
+        <header class="experience-heading">
+            <p v-scrollanimation class="experience-eyebrow">career history</p>
             <h2
                 v-scrollanimation
-                class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
+                class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight"
             >
                 work experience
             </h2>
-            <p
+            <figure v-scrollanimation class="experience-quote">
+                <blockquote>
+                    &ldquo;One must learn by doing the thing, for though you think you know it, you have no
+                    certainty until you try.&rdquo;
+                </blockquote>
+                <figcaption>Sophocles</figcaption>
+            </figure>
+        </header>
+
+        <ol class="experience-timeline">
+            <li
+                v-for="(exp, index) in experiences"
+                :key="`${exp.company}-${index}`"
                 v-scrollanimation
-                class="text-lg w-full max-w-900px leading-7 relative mb-10"
+                class="experience-item"
+                :class="{ 'is-current': isCurrentRole(exp), 'is-flipped': index % 2 === 1 }"
             >
-                A summary of my professional journey and the impact I've created through the roles I've held.
-            </p>
+                <p class="experience-date">
+                    <span v-html="`${exp.workStart} - ${exp.workUntil}`"></span>
+                </p>
 
-            <ul class="modern-timeline mt-10 md:mt-12 px-0">
-                <li
-                    v-for="(exp, index) in experiences"
-                    :key="`${exp.company}-${index}`"
-                    v-scrollanimation
-                    class="experience-row"
-                >
-                    <span class="timeline-dot" aria-hidden="true">
-                        <Icon class="timeline-dot-icon" :icon="getTimelineIcon(exp, index)" />
-                    </span>
-                    <article class="experience-card">
-                        <div class="experience-logo-tile">
-                            <img v-if="exp.logo" :src="exp.logo" :alt="`${exp.company} logo`" loading="lazy" />
-                            <Icon v-else :icon="getTimelineIcon(exp, index)" aria-hidden="true" />
-                        </div>
-                        <div class="experience-content">
-                            <div class="experience-card-top">
-                                <div class="experience-card-body">
-                                    <h3 class="experience-role text-xl font-700">
-                                        {{ exp.position }}
-                                    </h3>
-                                    <a
-                                        v-if="exp.url"
-                                        :href="exp.url"
-                                        target="_blank"
-                                        rel="noopener noreferrer external"
-                                        class="experience-company"
-                                    >
-                                        {{ exp.company }}
-                                    </a>
-                                    <p v-else class="experience-company text-decoration-none">
-                                        {{ exp.company }}
-                                    </p>
-                                </div>
-                                <p class="experience-period">
-                                    <Icon icon="tabler:calendar" />
-                                    <span v-html="`${exp.workStart} - ${exp.workUntil}`"></span>
-                                </p>
-                            </div>
-                            <div class="experience-description leading-6">
-                                <ul class="experience-description-list">
-                                    <li v-for="(item, itemIndex) in getDescriptionPoints(exp.des)" :key="itemIndex">
-                                        {{ item }}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                </li>
-            </ul>
+                <span class="experience-track" aria-hidden="true"></span>
 
-        </div>
+                <article class="experience-entry">
+                    <h3 class="experience-role">
+                        {{ exp.position }}
+                    </h3>
+                    <a
+                        v-if="exp.url"
+                        :href="exp.url"
+                        target="_blank"
+                        rel="noopener noreferrer external"
+                        class="experience-company"
+                    >
+                        <span>{{ exp.company }}</span>
+                        <Icon icon="tabler:external-link" aria-hidden="true" />
+                    </a>
+                    <p v-else class="experience-company">
+                        {{ exp.company }}
+                    </p>
+
+                    <div class="experience-summary">
+                        <p v-for="(item, itemIndex) in getDescriptionPoints(exp.des)" :key="itemIndex">
+                            {{ item }}
+                        </p>
+                    </div>
+
+                    <a
+                        v-if="exp.certificate"
+                        :href="exp.certificate.link"
+                        target="_blank"
+                        rel="noopener noreferrer external"
+                        class="experience-certificate"
+                    >
+                        <Icon icon="tabler:certificate" aria-hidden="true" />
+                        <span>{{ exp.certificate.label }}</span>
+                    </a>
+                </article>
+            </li>
+        </ol>
     </section>
 </template>
 
 <style lang="scss" scoped>
-.my-work-experience {
+.work-experience {
     max-width: 900px;
-    display: flex;
-    flex-direction: column;
     min-height: 50vh;
     padding-inline: 10px;
 
@@ -123,286 +119,251 @@ function getTimelineIcon(exp: ExperienceItem, index: number) {
     }
 }
 
-.experience-shell {
-    position: relative;
+.experience-heading {
+    max-width: 720px;
+    margin: 0 auto 60px;
+    text-align: center;
+
+    h2 {
+        margin: 7px 0 12px;
+    }
 }
 
-.modern-timeline {
-    list-style: none;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    --timeline-dot-size: 42px;
-    --timeline-dot-left: 4px;
-    --timeline-dot-top: 24px;
-    --timeline-center: calc(var(--timeline-dot-left) + (var(--timeline-dot-size) / 2));
-
+.experience-eyebrow {
+    margin: 0;
+    color: color-mix(in srgb, var(--lightestSlate) 72%, transparent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
 }
 
-.experience-row {
-    position: relative;
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 28px;
-    align-items: center;
-    margin-bottom: 22px;
+.experience-quote {
+    max-width: 600px;
+    margin: 18px auto 0;
 
-    &::after {
-        content: "";
-        position: absolute;
-        left: var(--timeline-center);
-        top: 50%;
-        width: 2px;
-        height: calc(100% + 22px);
-        transform: translateX(-50%);
-        background: color-mix(in srgb, var(--primary) 62%, transparent);
-        opacity: 0.76;
+    blockquote {
+        margin: 0;
+        text-wrap: balance;
+        color: color-mix(in srgb, var(--lightestSlate) 78%, transparent);
+        font-size: 19px;
+        font-style: italic;
+        line-height: 1.6;
     }
 
-    &:last-child {
-        margin-bottom: 0;
+    figcaption {
+        margin-top: 12px;
+        color: color-mix(in srgb, var(--lightestSlate) 52%, transparent);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
 
-        &::after {
-            display: none;
+        &::before {
+            content: "— ";
         }
     }
 }
 
-.timeline-dot {
-    position: relative;
-    z-index: 1;
-    display: block;
-    width: var(--timeline-dot-size);
-    height: var(--timeline-dot-size);
-    margin-top: 0;
-    margin-left: var(--timeline-dot-left);
+.experience-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*
+ * Each entry is its own segment: a pill centred on the axis with a short rule
+ * hanging beneath it, and the copy sitting to one side of that rule.
+ */
+.experience-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 56px;
+
+    & + .experience-item {
+        margin-top: 34px;
+    }
+
+    &.a-before-enter {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.35s ease-in;
+    }
+
+    &.a-enter {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.experience-date {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    margin: 0;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--primary) 70%, transparent);
-    background: var(--primary);
-    color: var(--background);
-    box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 10%, transparent);
-}
-
-.timeline-dot-icon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    display: block;
-    width: 20px;
-    height: 20px;
-    transform: translate(-50%, -50%);
-}
-
-:deep(.timeline-dot-icon) {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    display: block;
-    transform: translate(-50%, -50%);
-
-    svg {
-        display: block;
-        width: 20px;
-        height: 20px;
-    }
-}
-
-.experience-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 24px;
-    align-items: flex-start;
-    overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-    border-radius: 8px;
-    padding: 18px 22px;
-    background: color-mix(in srgb, var(--background) 92%, #001e2e);
-    transition: transform 0.25s ease, border-color 0.25s ease;
-
-    &:hover {
-        transform: translateY(-4px);
-        border-color: color-mix(in srgb, var(--primary) 42%, transparent);
-        box-shadow: none;
-    }
-}
-
-.experience-logo-tile,
-.experience-card-body,
-.experience-description {
-    position: relative;
-    z-index: 1;
-}
-
-.experience-logo-tile {
-    display: grid;
-    width: 72px;
-    height: 72px;
-    place-items: center;
-    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-    border-radius: 7px;
-    background: color-mix(in srgb, var(--background) 84%, #001c2a);
-    color: var(--primary);
-
-    img {
-        display: block;
-        max-width: 78%;
-        max-height: 78%;
-        border-radius: 6px;
-        object-fit: contain;
-    }
-
-    svg {
-        width: 34px;
-        height: 34px;
-    }
-}
-
-.experience-content {
-    position: relative;
-    z-index: 1;
-}
-
-.experience-card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 18px;
-    margin-bottom: 12px;
-}
-
-.experience-period {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 2px 0 0;
-    color: var(--primary);
-    font-weight: 800;
+    padding: 7px 15px;
+    background: color-mix(in srgb, var(--lightestSlate) 26%, transparent);
+    color: color-mix(in srgb, var(--lightestSlate) 92%, transparent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1;
     white-space: nowrap;
+}
 
-    svg {
-        width: 18px;
-        height: 18px;
-    }
+.experience-track {
+    grid-column: 2;
+    grid-row: 2;
+    width: 1px;
+    margin-top: 18px;
+    background: color-mix(in srgb, var(--lightestSlate) 24%, transparent);
+}
+
+.experience-entry {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: start;
+    max-width: 360px;
+    padding: 46px 0 44px;
+    text-align: left;
 }
 
 .experience-role {
-    margin: 0 0 3px;
-    color: var(--primary);
-    letter-spacing: 0;
-    line-height: 1.15;
+    margin: 0;
+    color: color-mix(in srgb, var(--lightestSlate) 72%, transparent);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
 }
 
 .experience-company {
-    display: inline-block;
-    margin-bottom: 0;
-    color: color-mix(in srgb, var(--lightestSlate) 92%, transparent);
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 8px 0 0;
+    color: color-mix(in srgb, var(--lightestSlate) 60%, transparent);
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;
 
+    svg {
+        width: 14px;
+        height: 14px;
+    }
+
     &:hover {
-        color: color-mix(in srgb, var(--primary) 88%, #ffffff);
+        color: var(--primary);
     }
 }
 
-.experience-description {
-    margin: 0;
-    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
+.experience-summary {
+    margin-top: 18px;
+    color: color-mix(in srgb, var(--lightestSlate) 62%, transparent);
+    font-size: 15px;
+    line-height: 1.65;
+
+    p {
+        margin: 0 0 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
-.experience-description-list {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    display: grid;
-    row-gap: 3px;
+.experience-certificate {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
 
-    li {
-        position: relative;
-        padding-left: 16px;
+    svg {
+        width: 16px;
+        height: 16px;
+    }
 
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.72em;
-            width: 4px;
-            height: 4px;
-            border-radius: 999px;
-            background: var(--primary);
-        }
+    &:hover span {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+/* Copy flips to the left of the rule on every other entry. */
+.experience-item.is-flipped .experience-entry {
+    grid-column: 1;
+    justify-self: end;
+    text-align: right;
+}
+
+/* The role held today is the only one that carries the accent colour. */
+.experience-item.is-current {
+    .experience-date {
+        background: var(--primary);
+        color: var(--background);
+    }
+
+    .experience-track {
+        background: var(--primary);
+    }
+
+    .experience-role {
+        color: var(--primary);
+    }
+
+    .experience-company {
+        color: color-mix(in srgb, var(--lightestSlate) 88%, transparent);
+    }
+
+    .experience-summary {
+        color: color-mix(in srgb, var(--lightestSlate) 78%, transparent);
     }
 }
 
 @media (max-width: 767px) {
-    .modern-timeline {
-        --timeline-dot-size: 30px;
-        --timeline-dot-left: 2px;
-        --timeline-dot-top: 14px;
+    .experience-heading {
+        margin-bottom: 44px;
+        text-align: left;
     }
 
-    .experience-row {
-        grid-template-columns: 36px 1fr;
-        gap: 14px;
-        margin-bottom: 18px;
+    .experience-item {
+        grid-template-columns: 1px minmax(0, 1fr);
+        column-gap: 24px;
 
-        &::after {
-            height: calc(100% + 18px);
+        & + .experience-item {
+            margin-top: 26px;
         }
     }
 
-    .timeline-dot {
-        width: 30px;
-        height: 30px;
-        margin-left: 2px;
-        margin-top: 0;
-
-        svg {
-            width: 17px;
-            height: 17px;
-        }
+    .experience-date {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-left: -1px;
     }
 
-    :deep(.timeline-dot-icon),
-    :deep(.timeline-dot-icon svg) {
-        width: 17px;
-        height: 17px;
+    .experience-track {
+        grid-column: 1;
     }
 
-    .experience-card {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 16px;
-        border-radius: 14px;
-    }
-
-    .experience-logo-tile {
-        width: 56px;
-        height: 56px;
-
-        svg {
-            width: 27px;
-            height: 27px;
-        }
-    }
-
-    .experience-card-top {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .experience-role {
-        letter-spacing: 0.04em;
-    }
-
-    .experience-period,
-    .experience-company {
+    .experience-entry,
+    .experience-item.is-flipped .experience-entry {
+        grid-column: 2;
+        justify-self: start;
+        max-width: none;
+        padding: 30px 0 32px;
+        text-align: left;
     }
 }
 
 :deep(.present-work) {
-    font-weight: 700;
+    font-weight: inherit;
 }
 </style>

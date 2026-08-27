@@ -54,10 +54,6 @@ const showYoutubeButton = false;
                             <Icon icon="tabler:mail" />
                             me@jenuel.dev
                         </a>
-                        <span class="hero-meta-chip">
-                            <Icon icon="tabler:clock" />
-                            Open to opportunities
-                        </span>
                     </div>
                 </div>
             </div>

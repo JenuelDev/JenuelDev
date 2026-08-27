@@ -5,7 +5,6 @@ import TechnicalSkills from './../../components/AboutMe/TechnicalSkills.vue';
 import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
 import Projects from '@/components/AboutMe/Projects.vue';
 import Achievements from '@/components/AboutMe/Achievements.vue';
-import CtaSection from '@/components/AboutMe/CtaSection.vue';
 import LatestArticles from '@/components/AboutMe/LatestArticles.vue';
 
 </script>
@@ -17,7 +16,6 @@ import LatestArticles from '@/components/AboutMe/LatestArticles.vue';
     <Experience />
     <Achievements />
     <WhatIconOffer />
-    <CtaSection />
 </template>
 <style lang="scss">
 .what-i-offer-content {
