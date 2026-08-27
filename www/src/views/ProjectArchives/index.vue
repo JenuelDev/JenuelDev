@@ -10,6 +10,16 @@ import CodeChallenges from '@/components/CodeChallenges.vue';
 
 <style lang="scss" scoped>
 .project-archives {
-    padding-top: 120px;
+    padding-top: calc(var(--nav-height) + 32px);
+
+    :deep(.code-challenge) {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 1186px) {
+    .project-archives {
+        padding-top: 32px;
+    }
 }
 </style>

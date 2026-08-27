@@ -64,10 +64,8 @@ function getTechIcon(tech: string): string {
             projects
         </h2>
         <p class="text-lg leading-7">
-            Learning is a journey, not a destination. One of the most effective ways to grow is by building personal
-            projects. I decided to challenge myself by designing and developing my own. These "hobby" projects matter to
-            me because they push me to keep learning, stay up to date, and sharpen my skills. In reality, they are far
-            more than just hobbies., they are a vital part of my growth as a developer.
+            Learning is a journey, not a destination. Building personal projects is one of the most effective ways to
+            gain practical experience, strengthen my skills, and grow as a developer.
         </p>
         <div style="margin-top: 20px">
             <template v-for="(work, i) in works.works" :key="i">
@@ -83,7 +81,14 @@ function getTechIcon(tech: string): string {
                             />
                             <div class="project-heading">
                                 <p class="project-overline text-[var(--primary)] font-600">{{ work.overline }}</p>
-                                <h3 class="project-title text-xl font-700">{{ work.title }}</h3>
+                                <a
+                                    class="project-title-link"
+                                    :href="work.imageLink"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <h3 class="project-title text-xl font-700">{{ work.title }}</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="info-des-container">
@@ -196,9 +201,27 @@ function getTechIcon(tech: string): string {
 
             .project-title {
                 margin: 0;
-                color: color-mix(in srgb, var(--lightestSlate) 94%, transparent);
+                color: inherit;
                 letter-spacing: 0;
                 line-height: 1.15;
+            }
+
+            .project-title-link {
+                display: inline-block;
+                border-radius: 3px;
+                color: color-mix(in srgb, var(--lightestSlate) 94%, transparent);
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                &:hover,
+                &:focus-visible {
+                    color: var(--primary);
+                }
+
+                &:focus-visible {
+                    outline: 2px solid var(--primary);
+                    outline-offset: 4px;
+                }
             }
 
             .info-des-container {

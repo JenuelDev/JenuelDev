@@ -8,6 +8,99 @@ import worldTimeReact from './common/world-time-react';
 
 const otherCodeChallenges: CODE_CHALLENGES = [
     {
+        title: 'Gospel Guitar Chords',
+        des: 'An offline-first Flutter app for browsing gospel song chords, with a local chord database and integrated YouTube playback for practicing along with songs.',
+        links: [
+            {
+                link: 'https://gospel-guitar-chords.jenuel.dev/',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            },
+        ],
+        techs: [
+            {
+                name: 'Flutter',
+                icon: 'vscode-icons:file-type-flutter',
+            },
+            {
+                name: 'Dart',
+                icon: 'vscode-icons:file-type-dartlang',
+            },
+            {
+                name: 'SQLite',
+                icon: 'vscode-icons:file-type-sqlite',
+            },
+            {
+                name: 'Android',
+                icon: 'logos:android-icon',
+            },
+        ],
+    },
+    {
+        title: 'Photo Booth: Auto Print',
+        des: 'A Flutter app that automates photo booth printing, including photo capture, queuing, and automatic printing for events.',
+        links: [
+            {
+                link: 'https://play.google.com/store/apps/details?id=dev.jenuel.photo_booth_auto_print',
+                icon: 'logos:google-play-icon',
+                tooltip: 'Open in Google Play',
+            },
+            {
+                link: 'https://photo-booth.jenuel.dev',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            },
+        ],
+        techs: [
+            {
+                name: 'Flutter',
+                icon: 'vscode-icons:file-type-flutter',
+            },
+            {
+                name: 'Dart',
+                icon: 'vscode-icons:file-type-dartlang',
+            },
+            {
+                name: 'Android',
+                icon: 'logos:android-icon',
+            },
+        ],
+    },
+    {
+        title: 'Fam Tree',
+        des: 'A simple web application for creating and managing a visual family tree.',
+        links: [
+            {
+                link: 'https://github.com/JenuelDev/my-family-tree',
+                icon: 'tabler:brand-github-filled',
+                tooltip: 'Open in Github',
+            },
+            {
+                link: 'https://famtree.jenuel.dev/',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            },
+        ],
+        techs: [
+            {
+                name: 'Vue 3',
+                icon: 'material-icon-theme:vue',
+            },
+            {
+                name: 'JavaScript',
+                icon: 'devicon:javascript',
+            },
+            {
+                name: 'Firebase',
+                icon: 'logos:firebase',
+            },
+            {
+                name: 'UnoCSS',
+                icon: 'material-icon-theme:unocss',
+            },
+        ],
+    },
+    {
         title: 'Facebook Clone',
         des: 'Cloning facebook style. This is not intended to be used for phishing or other illegal activities. This is solely for educational purposes only.',
         links: [

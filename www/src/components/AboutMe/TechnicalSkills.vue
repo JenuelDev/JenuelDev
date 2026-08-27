@@ -59,7 +59,10 @@ const skillGroups = [
             getSkill("Vue", "material-icon-theme:vue"),
             getSkill("Nuxt JS", "vscode-icons:file-type-nuxt"),
             getSkill("ReactJs", "vscode-icons:file-type-reactjs"),
+            getSkill("Angular", "skill-icons:angular-dark"),
             getSkill("Astro", "skill-icons:astro"),
+            getSkill("Dart", "skill-icons:dart-light"),
+            getSkill("Flutter", "skill-icons:flutter-light"),
         ],
     },
     {
@@ -82,6 +85,7 @@ const skillGroups = [
         description: "Relational and document databases used for application data and platform features.",
         skills: [
             getSkill("Database", "solar:database-bold-duotone"),
+            getSkill("SQLite", "skill-icons:sqlite"),
             getSkill("MySQL", "skill-icons:mysql-light"),
             getSkill("PostgreSQL", "skill-icons:postgresql-light"),
             getSkill("MongoDB", "skill-icons:mongodb"),

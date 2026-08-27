@@ -59,6 +59,11 @@ export const mySkills: MySkill[] = [
                 des: `<a href="https://react.dev/" target="_blank">React.Js</a>is a JavaScript library for building interactive user interfaces (UIs). It was created by Facebook (now Meta) and is widely used for building modern web applications.`
             },
             {
+                icon: 'skill-icons:angular-dark',
+                text: 'Angular',
+                des: '<a href="https://angular.dev/" target="_blank">Angular</a> is a TypeScript-based web framework for building scalable, component-driven applications with integrated tools for routing, forms, dependency injection, and testing.'
+            },
+            {
                 icon: 'mdi:electron-framework',
                 text: 'Electron',
                 des: '<a href="https://www.electronjs.org/" target="_blank">Electron</a> is a framework that allows you to build desktop applications using web technologies like HTML, CSS, and JavaScript. It is developed by GitHub and is used by apps like VS Code, Discord, Slack, and WhatsApp Desktop.'
@@ -100,6 +105,19 @@ export const mySkills: MySkill[] = [
         ],
     },
     {
+        icon: 'skill-icons:dart-light',
+        tech: 'Dart',
+        des: 'I use Dart to build maintainable, cross-platform applications with a strong type system, asynchronous programming, and a productive development workflow.',
+        yearStarted: 2023,
+        tools: [
+            {
+                icon: 'skill-icons:flutter-light',
+                text: 'Flutter',
+                des: '<a href="https://flutter.dev/" target="_blank">Flutter</a> is an open-source UI toolkit for building natively compiled mobile, web, and desktop applications from a single Dart codebase.'
+            },
+        ],
+    },
+    {
         icon: 'skill-icons:php-dark',
         tech: 'PHP',
         des: 'For backend development, I primarily work with PHP, which was the first language I used to build server-side functionality. Over time, I shifted to using PHP frameworks to improve development efficiency, enabling faster server-side rendering and API development.',
@@ -129,9 +147,14 @@ export const mySkills: MySkill[] = [
     {
         icon: "solar:database-bold-duotone",
         tech: "Database",
-        des: "I have experience managing both SQL and NoSQL databases. This includes relational systems like MySQL and PostgreSQL, as well as NoSQL solutions such as MongoDB and Redis. I also work with managed database platforms and backend services like Firebase and Supabase.",
+        des: "I have experience managing both SQL and NoSQL databases. This includes relational systems like SQLite, MySQL, and PostgreSQL, as well as NoSQL solutions such as MongoDB and Redis. I also work with managed database platforms and backend services like Firebase and Supabase.",
         yearStarted: 2017,
         tools: [
+            {
+                icon: 'skill-icons:sqlite',
+                text: 'SQLite',
+                des: '<a href="https://www.sqlite.org/" target="_blank">SQLite</a> is a lightweight, embedded relational database that stores an application database in a local file. I use it for offline-first and mobile application data.'
+            },
             {
                 icon: 'skill-icons:mysql-light',
                 text: 'MySQL',

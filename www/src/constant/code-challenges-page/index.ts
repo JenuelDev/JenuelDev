@@ -1,6 +1,6 @@
 import challenges from './challenges';
 
 export default {
-    des: 'Beyond my primary projects, I’ve worked on various other applications and experiments—ranging from web tools and utilities to creative side projects. This section highlights some of these endeavors, showcasing my versatility, problem-solving skills, and passion for building useful and innovative solutions.',
+    des: 'A collection of applications, tools, and experiments that reflect my continued exploration of new technologies, practical problem-solving, and thoughtful software development.',
     challenges: challenges,
 };
