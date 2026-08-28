@@ -101,6 +101,40 @@ const otherCodeChallenges: CODE_CHALLENGES = [
         ],
     },
     {
+        title: 'Winning Combinations',
+        des: 'A Philippine lottery number generator that builds cryptographically secure random combinations for Ultra Lotto 6/58, Grand Lotto 6/55, Super Lotto 6/49, Mega Lotto 6/45, and Lotto 6/42, with optional include and exclude rules.',
+        links: [
+            {
+                link: 'https://github.com/JenuelDev/winning-combinations',
+                icon: 'tabler:brand-github-filled',
+                tooltip: 'Open in Github',
+            },
+            {
+                link: 'https://winning-combinations.jenuel.dev/',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            },
+        ],
+        techs: [
+            {
+                name: 'Vue 3',
+                icon: 'material-icon-theme:vue',
+            },
+            {
+                name: 'TypeScript',
+                icon: 'devicon:typescript',
+            },
+            {
+                name: 'UnoCSS',
+                icon: 'material-icon-theme:unocss',
+            },
+            {
+                name: 'PWA',
+                icon: 'mdi:pwa',
+            },
+        ],
+    },
+    {
         title: 'Facebook Clone',
         des: 'Cloning facebook style. This is not intended to be used for phishing or other illegal activities. This is solely for educational purposes only.',
         links: [

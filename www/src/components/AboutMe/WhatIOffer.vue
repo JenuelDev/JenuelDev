@@ -36,7 +36,6 @@ const services = [
             <div v-scrollanimation class="offer-card-wrap" v-for="(service, i) in services" :key="service.title"
                 :style="`transition-delay: ${i * 200}ms;`">
                 <div class="offer-card">
-                    <div class="offer-dots" aria-hidden="true"></div>
                     <div class="flex flex-col h-full p-24px justify-start items-start">
                         <div class="offer-icon text-[var(--primary)]">
                             <span>
@@ -68,44 +67,23 @@ const services = [
 .offer-card {
     @apply relative h-full overflow-hidden rounded-10px;
     border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
-    background:
-        radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 35%),
-        radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 40%),
-        color-mix(in srgb, var(--background) 92%, #001e2e);
-    box-shadow:
-        inset 0 0 24px color-mix(in srgb, var(--primary) 7%, transparent),
-        0 20px 55px -38px color-mix(in srgb, var(--primary) 55%, transparent);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    background: color-mix(in srgb, var(--background) 92%, #001e2e);
+    transition: border-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
         transform: translateY(-5px);
         border-color: color-mix(in srgb, var(--primary) 62%, transparent);
-        box-shadow:
-            inset 0 0 32px color-mix(in srgb, var(--primary) 11%, transparent),
-            0 22px 60px -34px color-mix(in srgb, var(--primary) 75%, transparent);
     }
-}
-
-.offer-dots {
-    @apply absolute top-26px right-24px w-74px h-48px;
-    background-image: radial-gradient(circle, color-mix(in srgb, var(--primary) 72%, transparent) 1.5px, transparent 1.5px);
-    background-size: 17px 17px;
-    opacity: 0.46;
 }
 
 .offer-icon {
     @apply flex items-center justify-center w-66px h-66px mb-28px rounded-8px;
     border: 1px solid color-mix(in srgb, var(--primary) 42%, transparent);
-    background: color-mix(in srgb, var(--primary) 9%, transparent);
-    box-shadow:
-        inset 0 0 20px color-mix(in srgb, var(--primary) 14%, transparent),
-        0 0 18px color-mix(in srgb, var(--primary) 13%, transparent);
 
     span {
         @apply grid w-36px h-32px place-items-center rounded-4px;
         background: var(--primary);
         color: var(--background);
-        box-shadow: 0 0 16px color-mix(in srgb, var(--primary) 62%, transparent);
     }
 }
 
@@ -118,7 +96,6 @@ const services = [
 .offer-rule {
     @apply w-50px h-2px mb-12px;
     background: var(--primary);
-    box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 58%, transparent);
 }
 
 .offer-card-copy {

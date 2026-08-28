@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CodeChallenge from '@/constant/code-challenges-page/index';
+import type { CODE_CHALLENGE } from '@/types/type';
 import { Icon } from "@iconify/vue"
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
@@ -24,6 +25,10 @@ const hasMore = computed(() =>
 function openSite(site: string) {
     window.open(site, '_blank');
 }
+
+function primaryLink(code: CODE_CHALLENGE) {
+    return code.links?.find((link) => link.icon === 'tabler:external-link')?.link ?? code.links?.[0]?.link;
+}
 </script>
 <template>
     <section v-scrollanimation class="code-challenge">
@@ -46,7 +51,15 @@ function openSite(site: string) {
                                             <Icon icon="material-symbols:folder-open" />
                                         </div>
                                         <h3 class="code-title text-xl font-800">
-                                            {{ code.title }}
+                                            <a
+                                                v-if="primaryLink(code)"
+                                                :href="primaryLink(code)"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {{ code.title }}
+                                            </a>
+                                            <template v-else>{{ code.title }}</template>
                                         </h3>
                                     </div>
                                     <div class="code-description text-base leading-6"
@@ -167,6 +180,19 @@ function openSite(site: string) {
                     @apply m-0;
                     color: var(--primary);
                     line-height: 1.15;
+
+                    a {
+                        @apply no-underline;
+                        color: inherit;
+                        text-decoration-color: color-mix(in srgb, var(--primary) 50%, transparent);
+                        text-underline-offset: 4px;
+                        transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
+
+                        &:hover,
+                        &:focus-visible {
+                            @apply underline;
+                        }
+                    }
                 }
 
                 .code-description {

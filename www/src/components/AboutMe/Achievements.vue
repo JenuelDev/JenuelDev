@@ -177,9 +177,6 @@ onUnmounted(() => {
                 @pointercancel="onPointerUp"
                 @click.capture="onClickCapture"
             >
-                <div class="absolute left-0 top-0 bottom-0 w-36px pointer-events-none z-1 bg-gradient-to-r from-[var(--background)] to-transparent"></div>
-                <div class="absolute right-0 top-0 bottom-0 w-36px pointer-events-none z-1 bg-gradient-to-l from-[var(--background)] to-transparent"></div>
-
                 <div ref="loopTrackRef" class="w-max flex will-change-transform mt-20px">
                     <div ref="firstGroupRef" class="flex gap-16px pr-16px md:gap-12px md:pr-12px">
                         <article
@@ -189,7 +186,6 @@ onUnmounted(() => {
                             @dragstart.prevent
                         >
                             <div class="achievement-card">
-                                <div class="achievement-dots" aria-hidden="true"></div>
                                 <div class="achievement-card-top">
                                     <span class="achievement-provider">{{ achievement.from }}</span>
                                 </div>
@@ -221,7 +217,6 @@ onUnmounted(() => {
                             @dragstart.prevent
                         >
                             <div class="achievement-card">
-                                <div class="achievement-dots" aria-hidden="true"></div>
                                 <div class="achievement-card-top">
                                     <span class="achievement-provider">{{ achievement.from }}</span>
                                 </div>
@@ -255,7 +250,6 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .achievement-card {
-    position: relative;
     display: flex;
     width: min(82vw, 330px);
     min-height: 272px;
@@ -265,38 +259,16 @@ onUnmounted(() => {
     border: 1px solid color-mix(in srgb, var(--primary) 34%, transparent);
     border-radius: 10px;
     padding: 20px;
-    background:
-        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 34%),
-        radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 42%),
-        color-mix(in srgb, var(--background) 92%, #001e2e);
-    box-shadow:
-        inset 0 0 24px color-mix(in srgb, var(--primary) 7%, transparent),
-        0 20px 55px -38px color-mix(in srgb, var(--primary) 55%, transparent);
-    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    background: color-mix(in srgb, var(--background) 92%, #001e2e);
+    transition: transform 0.22s ease, border-color 0.22s ease;
 
     &:hover {
         transform: translateY(-5px);
         border-color: color-mix(in srgb, var(--primary) 62%, transparent);
-        box-shadow:
-            inset 0 0 32px color-mix(in srgb, var(--primary) 11%, transparent),
-            0 22px 60px -34px color-mix(in srgb, var(--primary) 75%, transparent);
     }
 }
 
-.achievement-dots {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 66px;
-    height: 46px;
-    background-image: radial-gradient(circle, color-mix(in srgb, var(--primary) 68%, transparent) 1.4px, transparent 1.4px);
-    background-size: 16px 16px;
-    opacity: 0.32;
-}
-
 .achievement-card-top {
-    position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -310,15 +282,12 @@ onUnmounted(() => {
     color: var(--primary);
     font-weight: 700;
     letter-spacing: 0.04em;
-    background: color-mix(in srgb, var(--primary) 7%, transparent);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .achievement-title {
-    position: relative;
-    z-index: 1;
     margin-bottom: 10px;
     color: color-mix(in srgb, var(--lightestSlate) 96%, #ffffff);
     line-height: 1.18;
@@ -331,12 +300,9 @@ onUnmounted(() => {
     height: 2px;
     margin-top: 12px;
     background: var(--primary);
-    box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 58%, transparent);
 }
 
 .achievement-description {
-    position: relative;
-    z-index: 1;
     display: -webkit-box;
     margin: 0 0 18px;
     overflow: hidden;
@@ -346,8 +312,6 @@ onUnmounted(() => {
 }
 
 .achievement-link {
-    position: relative;
-    z-index: 1;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -361,12 +325,12 @@ onUnmounted(() => {
     color: var(--primary);
     font-weight: 800;
     text-decoration: none;
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 
     &:hover {
         transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--primary) 70%, transparent);
         background: color-mix(in srgb, var(--primary) 8%, transparent);
-        box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 22%, transparent);
     }
 }
 
