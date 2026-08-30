@@ -5,8 +5,8 @@ const vocphone = {
     workStart: 'Nov. 2021',
     workUntil: '<span class="present-work">Present</span>',
     des: [
-        'Collaborate with product owners and stakeholders to translate requirements into clear technical tasks and delivery milestones.',
-        'Architect, implement, and review features with a focus on scalability, performance, and long-term maintainability.',
+        'Work with the dev team to turn product requirements into workable technical solutions and realistic estimates.',
+        'Build and review features across the stack, keeping an eye on scalability, performance, and long-term maintainability.',
         'Continuously evaluate and adopt modern technologies to improve development workflows and overall product quality.',
     ],
     technologies: [

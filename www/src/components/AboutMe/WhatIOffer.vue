@@ -51,6 +51,18 @@ const services = [
                 </div>
             </div>
         </div>
+
+        <div v-scrollanimation class="offer-cta flex flex-col items-center text-center mt-48px"
+            :style="`transition-delay: ${services.length * 200}ms;`">
+            <p class="offer-cta-copy mb-20px">
+                Have a project in mind? Let's talk about how I can help.
+            </p>
+            <router-link to="/contact"
+                class="offer-cta-btn inline-flex items-center justify-center gap-10px px-32px py-14px rounded-8px text-[var(--background)] font-600">
+                <Icon icon="tabler:send" class="text-xl" />
+                <span>Contact Me</span>
+            </router-link>
+        </div>
     </section>
 </template>
 
@@ -102,6 +114,23 @@ const services = [
     color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
 }
 
+.offer-cta-copy {
+    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
+}
+
+.offer-cta-btn {
+    border: 1px solid color-mix(in srgb, var(--primary) 56%, #ffffff);
+    background: var(--primary);
+    box-shadow: 0 0 22px color-mix(in srgb, var(--primary) 32%, transparent);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+        box-shadow: 0 0 32px color-mix(in srgb, var(--primary) 52%, transparent);
+    }
+}
+
 @media (max-width: 960px) {
     .offer-grid {
         @apply grid-cols-1 max-w-620px w-full mx-auto;
@@ -111,6 +140,10 @@ const services = [
 @media (max-width: 520px) {
     .offer-grid {
         @apply gap-18px;
+    }
+
+    .offer-cta-btn {
+        @apply w-full;
     }
 }
 </style>
