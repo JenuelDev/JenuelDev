@@ -8,11 +8,11 @@ import worldTimeReact from './common/world-time-react';
 
 const otherCodeChallenges: CODE_CHALLENGES = [
     {
-        title: 'Gospel Guitar Chords',
+        title: 'Faith Chords',
         des: 'An offline-first Flutter app for browsing gospel song chords, with a local chord database and integrated YouTube playback for practicing along with songs.',
         links: [
             {
-                link: 'https://gospel-guitar-chords.jenuel.dev/',
+                link: 'https://faith-chords.jenuel.dev',
                 icon: 'tabler:external-link',
                 tooltip: 'Open Link',
             },
