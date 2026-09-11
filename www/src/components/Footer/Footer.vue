@@ -2,19 +2,18 @@
 import { Icon } from '@iconify/vue';
 
 const navLinks = [
-    { label: 'About', href: '/about-me#about-me' },
-    { label: 'Skills', href: '/about-me#technical-skills' },
-    { label: 'Projects', href: '/about-me#projects' },
-    { label: 'Experience', href: '/about-me#experience' },
-    { label: 'Achievements', href: '/about-me#achievements' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Featured Work', href: '/#projects' },
+    { label: 'Core Technology', href: '/#technical-skills' },
+    { label: 'About', href: '/#about' },
+    { label: 'Certificates', href: '/certificates' },
 ];
 
-const services = [
-    'Web Development',
-    'Mobile Development',
-    'Back-end Solutions',
-    'UI/UX Implementation',
-    'Consulting',
+const expertise = [
+    'Full-stack applications',
+    'Backend & APIs',
+    'Frontend engineering',
+    'System maintenance',
 ];
 
 const socials = [
@@ -35,10 +34,10 @@ const socials = [
                         <Icon icon="tabler:code" />
                     </div>
                     <p class="footer-tagline">
-                        Developer&nbsp;•&nbsp;Problem Solver&nbsp;•&nbsp;Lifelong Learner
+                        Laravel&nbsp;•&nbsp;Vue&nbsp;•&nbsp;TypeScript
                     </p>
                     <p class="footer-desc">
-                        Building clean, efficient and impactful digital experiences.
+                        Senior full-stack developer building and maintaining production systems.
                     </p>
                 </div>
 
@@ -55,14 +54,14 @@ const socials = [
                     </ul>
                 </div>
 
-                <!-- Services -->
+                <!-- Expertise -->
                 <div class="footer-col">
-                    <h3 class="footer-col-heading">Services</h3>
+                    <h3 class="footer-col-heading">Expertise</h3>
                     <ul class="footer-links">
-                        <li v-for="service in services" :key="service">
+                        <li v-for="item in expertise" :key="item">
                             <span class="footer-link-item">
                                 <span class="footer-link-dot" aria-hidden="true"></span>
-                                {{ service }}
+                                {{ item }}
                             </span>
                         </li>
                     </ul>
@@ -72,7 +71,7 @@ const socials = [
                 <div class="footer-col">
                     <h3 class="footer-col-heading">Let's Connect</h3>
                     <p class="footer-connect-copy">
-                        Have a project in mind or just want to say hi? I'd love to hear from you.
+                        Hiring, or curious about something I've built? I'd love to hear from you.
                     </p>
                     <ul class="footer-contact-list">
                         <li>

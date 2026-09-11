@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import Achievements from '@/constant/achievements';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { Icon } from '@iconify/vue';
+import { RouterLink } from 'vue-router';
+import AchievementCard from './AchievementCard.vue';
 
 interface AchievementItem {
     name: string;
     from: string;
     description: string;
     url: string;
+    featured?: boolean;
 }
 
-const achievements = Achievements as AchievementItem[];
+const allAchievements = Achievements as AchievementItem[];
+
+// The homepage carries only the degree and the substantial certificates; the
+// full list (SoloLearn course badges included) lives on /certificates.
+const achievements = computed(() => allAchievements.filter((item) => item.featured));
+const totalCount = allAchievements.length;
 
 const loopWrapperRef = ref<HTMLDivElement | null>(null);
 const loopTrackRef = ref<HTMLDivElement | null>(null);
@@ -157,15 +165,22 @@ onUnmounted(() => {
 <template>
     <section id="achievements" v-scrollanimation class="mx-auto w-full max-w-900px px-10px mb-90px">
         <div class="relative">
-            <h2
-                class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px">
-                Achievements
-            </h2>
-            <p class="text-lg leading-7 mb-5">
-                During my professional journey, I've embraced continuous learning as an essential part of growth. There
-                are many ways to learn, such as joining projects or taking courses. Through these experiences, I've been
-                able to achieve significant milestones.
-            </p>
+            <div class="achievements-heading">
+                <div>
+                    <h2
+                        class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px">
+                        education &amp; certifications
+                    </h2>
+                    <p class="text-lg leading-7">
+                        My degree and the courses that actually shaped how I work. Continuous learning is part of the
+                        job, and these are the milestones worth showing.
+                    </p>
+                </div>
+                <RouterLink to="/certificates" class="achievements-view-all">
+                    <span>View all {{ totalCount }}</span>
+                    <Icon icon="tabler:arrow-up-right" />
+                </RouterLink>
+            </div>
             <div
                 ref="loopWrapperRef"
                 class="mt-22px overflow-hidden relative cursor-grab touch-pan-y [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]"
@@ -185,27 +200,12 @@ onUnmounted(() => {
                             class="cursor-grab"
                             @dragstart.prevent
                         >
-                            <div class="achievement-card">
-                                <div class="achievement-card-top">
-                                    <span class="achievement-provider">{{ achievement.from }}</span>
-                                </div>
-                                <div class="achievement-title text-xl font-700">
-                                    {{ achievement.name }}
-                                </div>
-                                <div class="achievement-description leading-6">
-                                    {{ achievement.description }}
-                                </div>
-                                <a
-                                    :href="achievement.url"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="achievement-link"
-                                    @click.stop
-                                >
-                                    <span>View Certificate</span>
-                                    <Icon icon="mdi:open-in-new" class="text-lg" />
-                                </a>
-                            </div>
+                            <AchievementCard
+                                :name="achievement.name"
+                                :from="achievement.from"
+                                :description="achievement.description"
+                                :url="achievement.url"
+                            />
                         </article>
                     </div>
 
@@ -216,27 +216,12 @@ onUnmounted(() => {
                             class="cursor-grab"
                             @dragstart.prevent
                         >
-                            <div class="achievement-card">
-                                <div class="achievement-card-top">
-                                    <span class="achievement-provider">{{ achievement.from }}</span>
-                                </div>
-                                <div class="achievement-title text-xl font-700">
-                                    {{ achievement.name }}
-                                </div>
-                                <div class="achievement-description leading-6">
-                                    {{ achievement.description }}
-                                </div>
-                                <a
-                                    :href="achievement.url"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="achievement-link"
-                                    @click.stop
-                                >
-                                    <span>View Certificate</span>
-                                    <Icon icon="mdi:open-in-new" class="text-lg" />
-                                </a>
-                            </div>
+                            <AchievementCard
+                                :name="achievement.name"
+                                :from="achievement.from"
+                                :description="achievement.description"
+                                :url="achievement.url"
+                            />
                         </article>
                     </div>
                 </div>
@@ -249,96 +234,39 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-.achievement-card {
+.achievements-heading {
     display: flex;
-    width: min(82vw, 330px);
-    min-height: 272px;
-    height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--primary) 34%, transparent);
-    border-radius: 10px;
-    padding: 20px;
-    background: color-mix(in srgb, var(--background) 92%, #001e2e);
-    transition: transform 0.22s ease, border-color 0.22s ease;
-
-    &:hover {
-        transform: translateY(-5px);
-        border-color: color-mix(in srgb, var(--primary) 62%, transparent);
-    }
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 22px;
+    flex-wrap: wrap;
 }
 
-.achievement-card-top {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.achievement-provider {
-    max-width: 180px;
-    padding: 5px 10px;
-    border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
-    border-radius: 999px;
-    color: var(--primary);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.achievement-title {
-    margin-bottom: 10px;
-    color: color-mix(in srgb, var(--lightestSlate) 96%, #ffffff);
-    line-height: 1.18;
-}
-
-.achievement-title::after {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 2px;
-    margin-top: 12px;
-    background: var(--primary);
-}
-
-.achievement-description {
-    display: -webkit-box;
-    margin: 0 0 18px;
-    overflow: hidden;
-    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-}
-
-.achievement-link {
+.achievements-view-all {
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    width: fit-content;
-    min-width: 164px;
-    margin-top: auto;
-    padding: 10px 14px;
-    border: 1px solid color-mix(in srgb, var(--primary) 46%, transparent);
+    gap: 7px;
+    flex-shrink: 0;
+    padding: 9px 16px;
+    border: 1px solid color-mix(in srgb, var(--primary) 38%, transparent);
     border-radius: 6px;
     color: var(--primary);
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: none;
-    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 
     &:hover {
         transform: translateY(-2px);
-        border-color: color-mix(in srgb, var(--primary) 70%, transparent);
+        border-color: color-mix(in srgb, var(--primary) 62%, transparent);
         background: color-mix(in srgb, var(--primary) 8%, transparent);
     }
 }
 
-@media (min-width: 768px) {
-    .achievement-card {
-        width: clamp(285px, 34vw, 365px);
-        min-height: 292px;
-        padding: 22px;
+@media (max-width: 600px) {
+    .achievements-view-all {
+        width: 100%;
+        justify-content: center;
     }
 }
 </style>

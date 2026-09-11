@@ -7,39 +7,6 @@ export default [
         external: false,
         children: [
             {
-                routeName: 'AboutMeSection',
-                to: {
-                    path: '/',
-                    hash: '#about-me'
-                },
-                label: 'About Me',
-                description: 'Get to know who I am',
-                icon: 'tabler:user',
-                external: false
-            },
-            {
-                routeName: 'TechnicalSkills',
-                to: {
-                    path: '/',
-                    hash: '#technical-skills'
-                },
-                label: 'Techs',
-                description: 'Tools and stack I work with',
-                icon: 'tabler:device-desktop-code',
-                external: false
-            },
-            {
-                routeName: 'Project',
-                to: {
-                    path: '/',
-                    hash: '#projects'
-                },
-                label: 'Projects',
-                description: 'Things I have built',
-                icon: 'tabler:terminal-2',
-                external: false
-            },
-            {
                 routeName: 'Experience',
                 to: { path: '/', hash: '#experience' },
                 label: 'Experience',
@@ -48,10 +15,43 @@ export default [
                 external: false
             },
             {
-                routeName: 'Achievements',
-                to: { path: '/', hash: '#achievements' },
-                label: 'Achievements',
-                description: 'Recognitions and milestones',
+                routeName: 'Project',
+                to: {
+                    path: '/',
+                    hash: '#projects'
+                },
+                label: 'Featured Work',
+                description: 'Products I own end to end',
+                icon: 'tabler:terminal-2',
+                external: false
+            },
+            {
+                routeName: 'TechnicalSkills',
+                to: {
+                    path: '/',
+                    hash: '#technical-skills'
+                },
+                label: 'Core Technology',
+                description: 'The stack I work in',
+                icon: 'tabler:device-desktop-code',
+                external: false
+            },
+            {
+                routeName: 'AboutMeSection',
+                to: {
+                    path: '/',
+                    hash: '#about'
+                },
+                label: 'About Me',
+                description: 'Get to know who I am',
+                icon: 'tabler:user',
+                external: false
+            },
+            {
+                routeName: 'Certificates',
+                to: '/certificates',
+                label: 'Certificates',
+                description: 'Education and credentials',
                 icon: 'game-icons:achievement',
                 external: false
             }

@@ -1,10 +1,13 @@
 export default {
     works: [
         {
-            overline: 'Desktop | Mobile | Web',
+            overline: 'Cross-platform product',
             title: 'Believers Sword',
-            des: "Focus on what matters instead of fighting with your mind. Whether you're new to this app or a seasoned user, Believers Sword App is a simple application that helps you study bible.",
-            techs: ['electron', 'Flutter', 'Vue3', 'UnoCSS', 'Laravel', 'Dart', 'Android', 'Naive UI'],
+            des:
+                'A cross-platform Bible study application I designed, built, and maintain end to end. It covers offline-first reading, cross-device synchronisation, notes, highlights, prayer tracking, devotionals, AI-assisted study tools, and background data sync.',
+            role: 'Product design, architecture, backend, frontend, mobile development, deployment, and infrastructure.',
+            platforms: ['Windows', 'Android', 'Web'],
+            techs: ['Laravel', 'PostgreSQL', 'Vue3', 'Electron', 'Flutter', 'Dart', 'SQLite', 'UnoCSS'],
             links: [
                 {
                     link: 'https://github.com/Bible-Projects/believers-sword-app',
@@ -22,10 +25,13 @@ export default {
             logo: '/project logo/believers sword.png',
         },
         {
-            overline: 'Mobile Application',
+            overline: 'Mobile product',
             title: 'Tracksy',
-            des: 'Tracksy is a personal expense tracker to log, analyze, and manage your spending — all in one clean, simple app. Track expenses by category, visualize patterns with charts, set budgets, and keep separate profiles for personal and business.',
-            techs: ['Flutter', 'Dart', 'Firebase', 'SQLite', 'Android', 'iOS'],
+            des:
+                'A personal expense tracker for logging, analysing, and managing spending. Categorised expenses, spending charts, budgets, and separate profiles for personal and business use, backed by local storage with cloud sync.',
+            role: 'Product design, Flutter application, data model, offline storage, and store releases.',
+            platforms: ['Android', 'iOS'],
+            techs: ['Flutter', 'Dart', 'Firebase', 'SQLite'],
             links: [
                 {
                     link: 'https://github.com/JenuelDev/Tracksy',

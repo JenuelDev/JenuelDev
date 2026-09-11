@@ -19,9 +19,9 @@ export interface SeoMeta {
 }
 
 const DEFAULTS = {
-  title: 'Jenuel Ganawed — Software Developer | Vue, Nuxt, Laravel',
+  title: 'Jenuel Ganawed — Senior Full-Stack Developer | Laravel, Vue, TypeScript',
   description:
-    'Jenuel Ganawed (JenuelDev) is a software developer from the Philippines building fast, reliable web, mobile, and desktop apps with Vue, Nuxt, Laravel, and Node.js.',
+    'Jenuel Ganawed (JenuelDev) is a senior full-stack developer from the Philippines with 8+ years of experience building production web applications, APIs, and business systems in Laravel, Vue, and TypeScript.',
 }
 
 function setMeta(selector: string, attr: 'name' | 'property', key: string, content: string) {

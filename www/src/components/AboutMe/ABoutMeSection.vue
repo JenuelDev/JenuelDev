@@ -6,19 +6,25 @@ import { Icon } from "@iconify/vue";
 
 const yearCount = computed(() => new Date().getFullYear() - 2018);
 const showYoutubeButton = false;
+
+const primaryStack = ["Laravel", "Vue", "TypeScript", "PHP"];
 </script>
 <template>
     <section id="about-me" class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
         <div class="flex lg:flex-row flex-col items-center gap-50px relative">
             <div class="lg:order-1 order-2">
-                <div class="lg:text-right text-center max-w-500px">
+                <div class="lg:text-right text-center max-w-520px">
                     <div>
-                        <p class="md:text-3xl text-2xl font-500 mb-2">Hi, I'm Jenuel</p>
-                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-2">
-                            <span class="sr-only">Jenuel Ganawed — </span>Software Developer
+                        <p class="md:text-2xl text-xl font-500 mb-2">Hi, I'm Jenuel</p>
+                        <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-3">
+                            <span class="sr-only">Jenuel Ganawed — </span>Senior Full-Stack Developer
                         </h1>
-                        <h2 class="md:text-3xl text-2xl text-[var(--lightestSlate)] mb-2">
-                            I build fast, reliable apps for web, mobile, and desktop.
+                        <ul class="hero-stack mb-3 flex lg:justify-end justify-center flex-wrap gap-x-10px gap-y-4px">
+                            <li v-for="tech in primaryStack" :key="tech">{{ tech }}</li>
+                        </ul>
+                        <h2 class="md:text-xl text-lg text-[var(--lightestSlate)] leading-relaxed mb-2">
+                            I build and maintain production web applications, APIs, and business systems, with
+                            <strong>{{ yearCount }}+ years</strong> of professional software development experience.
                         </h2>
                     </div>
                     <div class="mt-30px flex lg:justify-end justify-center flex-wrap gap-20px items-center">
@@ -46,6 +52,10 @@ const showYoutubeButton = false;
                     </div>
 
                     <div class="hero-meta-bar mt-22px flex lg:justify-end justify-center flex-wrap gap-10px">
+                        <span class="hero-meta-chip hero-meta-chip-highlight">
+                            <Icon icon="tabler:world" />
+                            Open to fully remote roles
+                        </span>
                         <span class="hero-meta-chip">
                             <Icon icon="tabler:map-pin" />
                             Philippines
@@ -87,33 +97,6 @@ const showYoutubeButton = false;
                 :type="2"
             />
         </div>
-        <div
-            v-scrollanimation
-            class="md:text-2xl text-xl md:px-10px w-[100%] max-w-[770px] pt-100px md:leading-relaxed leading-relaxed relative"
-            style="transition-delay: 100ms; display: none;"
-        >
-            <p class="mb-30px">
-                In 2016, I made a pivotal career shift from criminology to Information Technology. That transition
-                introduced me to software development and set the direction for the work I do today.
-            </p>
-            <p class="mb-30px">
-                With over <strong>{{ yearCount }} years of experience as a software developer</strong>, I have grown
-                in fast-paced environments, collaborated with talented engineers, and contributed to impactful projects.
-            </p>
-            <p class="mb-30px">
-                <strong>Attention to detail is a core principle</strong>, from writing efficient code to refining user
-                interactions. This mindset helps deliver digital experiences that are scalable, engaging, and
-                accessible.
-            </p>
-            <p class="mb-30px">
-                Outside of coding, I enjoy playing guitar, reading, walking, home workouts, good food, and continuous
-                learning.
-            </p>
-            <SvgDecoration
-                classNames="absolute lg:-right-30 -right-20 top-90 md:block hidden z-20 fill-[var(--primary)] opacity-50"
-                :type="3"
-            />
-        </div>
     </section>
 </template>
 
@@ -127,6 +110,17 @@ const showYoutubeButton = false;
 .a-enter {
     opacity: 1;
     transform: translateY(0);
+}
+
+.hero-stack {
+    @apply list-none p-0 m-0 text-base font-600;
+    color: var(--primary);
+
+    li + li::before {
+        content: "•";
+        margin-right: 10px;
+        opacity: 0.55;
+    }
 }
 
 .hero-meta-chip {
@@ -144,6 +138,13 @@ const showYoutubeButton = false;
     &:hover {
         border-color: color-mix(in srgb, var(--primary) 48%, transparent);
         color: var(--lightestSlate);
+    }
+
+    &.hero-meta-chip-highlight {
+        border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
+        color: var(--primary);
+        font-weight: 700;
     }
 }
 </style>

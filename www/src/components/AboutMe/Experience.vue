@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 import Experience from '@/constant/experiences/index';
+import { computed } from 'vue';
 
 interface ExperienceCertificate {
     link: string;
@@ -13,14 +14,17 @@ interface ExperienceItem {
     workStart: string;
     workUntil: string;
     des: string | string[];
+    technologies?: string[];
     url?: string;
     certificate?: ExperienceCertificate;
 }
 
 const experiences = Experience as ExperienceItem[];
 
+const yearCount = computed(() => new Date().getFullYear() - 2018);
+
 function getDescriptionPoints(description: string | string[]) {
-    return Array.isArray(description) ? description.slice(0, 2) : [description];
+    return Array.isArray(description) ? description : [description];
 }
 
 function isCurrentRole(exp: ExperienceItem) {
@@ -36,15 +40,12 @@ function isCurrentRole(exp: ExperienceItem) {
                 v-scrollanimation
                 class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight"
             >
-                work experience
+                professional experience
             </h2>
-            <figure v-scrollanimation class="experience-quote">
-                <blockquote>
-                    &ldquo;One must learn by doing the thing, for though you think you know it, you have no
-                    certainty until you try.&rdquo;
-                </blockquote>
-                <figcaption>Sophocles</figcaption>
-            </figure>
+            <p v-scrollanimation class="experience-intro">
+                {{ yearCount }} years of building and supporting production software, most of it in Laravel and Vue,
+                for teams that needed systems to keep working long after launch.
+            </p>
         </header>
 
         <ol class="experience-timeline">
@@ -79,11 +80,15 @@ function isCurrentRole(exp: ExperienceItem) {
                         {{ exp.company }}
                     </p>
 
-                    <div class="experience-summary">
-                        <p v-for="(item, itemIndex) in getDescriptionPoints(exp.des)" :key="itemIndex">
+                    <ul class="experience-summary">
+                        <li v-for="(item, itemIndex) in getDescriptionPoints(exp.des)" :key="itemIndex">
                             {{ item }}
-                        </p>
-                    </div>
+                        </li>
+                    </ul>
+
+                    <ul v-if="exp.technologies?.length" class="experience-tech">
+                        <li v-for="tech in exp.technologies" :key="tech">{{ tech }}</li>
+                    </ul>
 
                     <a
                         v-if="exp.certificate"
@@ -138,31 +143,12 @@ function isCurrentRole(exp: ExperienceItem) {
     text-transform: uppercase;
 }
 
-.experience-quote {
-    max-width: 600px;
-    margin: 18px auto 0;
-
-    blockquote {
-        margin: 0;
-        text-wrap: balance;
-        color: color-mix(in srgb, var(--lightestSlate) 78%, transparent);
-        font-size: 19px;
-        font-style: italic;
-        line-height: 1.6;
-    }
-
-    figcaption {
-        margin-top: 12px;
-        color: color-mix(in srgb, var(--lightestSlate) 52%, transparent);
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-
-        &::before {
-            content: "— ";
-        }
-    }
+.experience-intro {
+    max-width: 620px;
+    margin: 14px auto 0;
+    color: color-mix(in srgb, var(--lightestSlate) 70%, transparent);
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 .experience-timeline {
@@ -262,17 +248,51 @@ function isCurrentRole(exp: ExperienceItem) {
 }
 
 .experience-summary {
-    margin-top: 18px;
+    margin: 18px 0 0;
+    padding: 0;
     color: color-mix(in srgb, var(--lightestSlate) 62%, transparent);
     font-size: 15px;
     line-height: 1.65;
+    list-style: none;
 
-    p {
+    li {
+        position: relative;
         margin: 0 0 10px;
+        padding-left: 18px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 9px;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--primary) 70%, transparent);
+        }
 
         &:last-child {
             margin-bottom: 0;
         }
+    }
+}
+
+.experience-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        padding: 4px 10px;
+        border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+        border-radius: 999px;
+        color: color-mix(in srgb, var(--lightestSlate) 70%, transparent);
+        font-size: 12px;
+        line-height: 1.35;
+        white-space: nowrap;
     }
 }
 
@@ -302,6 +322,24 @@ function isCurrentRole(exp: ExperienceItem) {
     grid-column: 1;
     justify-self: end;
     text-align: right;
+}
+
+/* These entries are right-aligned, so their markers and chips belong on the
+   right too - otherwise the dots float away from the text they belong to. */
+.experience-item.is-flipped {
+    .experience-summary li {
+        padding-right: 18px;
+        padding-left: 0;
+
+        &::before {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    .experience-tech {
+        justify-content: flex-end;
+    }
 }
 
 /* The role held today is the only one that carries the accent colour. */
@@ -360,6 +398,22 @@ function isCurrentRole(exp: ExperienceItem) {
         max-width: none;
         padding: 30px 0 32px;
         text-align: left;
+    }
+
+    .experience-item.is-flipped {
+        .experience-summary li {
+            padding-right: 0;
+            padding-left: 18px;
+
+            &::before {
+                right: auto;
+                left: 0;
+            }
+        }
+
+        .experience-tech {
+            justify-content: flex-start;
+        }
     }
 }
 

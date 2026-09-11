@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
     description?: string;
 }>(), {
     limit: 6,
-    title: 'projects archives',
+    title: 'experiments & archive',
 });
 
 const visibleChallenges = computed(() =>

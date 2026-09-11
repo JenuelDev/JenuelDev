@@ -20,8 +20,8 @@ const router = createRouter({
       name: 'AboutMe',
       component: AboutMe,
       meta: {
-        title: "Jenuel Ganawed — Software Developer | Vue, Nuxt, Laravel",
-        description: "Jenuel Ganawed (JenuelDev) is a software developer from the Philippines building fast, reliable web, mobile, and desktop apps with Vue, Nuxt, Laravel, and Node.js. See projects, experience, and resume."
+        title: "Jenuel Ganawed — Senior Full-Stack Developer | Laravel, Vue, TypeScript",
+        description: "Jenuel Ganawed (JenuelDev) is a senior full-stack developer from the Philippines with 8+ years of experience building and maintaining production web applications, APIs, and business systems in Laravel, Vue, and TypeScript. Open to remote roles."
       }
     },
     {
@@ -29,8 +29,8 @@ const router = createRouter({
       name: 'Contact',
       component: () => import('@/views/ContactMe/index.vue'),
       meta: {
-        title: "Contact Jenuel Ganawed — Hire a Software Developer",
-        description: "Get in touch with Jenuel Ganawed for freelance work, full-time roles, or collaboration on web, mobile, and desktop projects."
+        title: "Contact Jenuel Ganawed — Senior Full-Stack Developer",
+        description: "Get in touch with Jenuel Ganawed about senior full-stack, Laravel, and Vue roles, or to talk through a system that needs building or maintaining."
       }
     },
     {
@@ -58,6 +58,15 @@ const router = createRouter({
       meta: {
         title: "Privacy Policy — Photo Booth Auto Print | JenuelDev",
         description: "Privacy policy for the Photo Booth Auto Print app: the device data it accesses, the permissions it requests, how photos are handled, and your rights."
+      }
+    },
+    {
+      path: '/certificates',
+      name: 'Certificates',
+      component: () => import('@/views/Certificates/index.vue'),
+      meta: {
+        title: "Education & Certificates — Jenuel Ganawed",
+        description: "The full list of Jenuel Ganawed's education and professional certificates, from a BS in Information Technology through to Laravel, Vue, C#, and Python coursework."
       }
     },
     {

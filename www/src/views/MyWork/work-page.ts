@@ -3,7 +3,7 @@ export default {
         {
             overline: 'Desktop Application',
             title: 'Believers Sword App',
-            des: "Focus on what matters instead of fighting with your mind. Whether you're new to this app or a seasoned user, Believers Sword App is a simple application that helps you study bible with extra features.",
+            des: "Focus on what matters instead of fighting with your mind. Whether you're new to this app or a seasoned user, Believers Sword App is a simple application that helps you study the Bible with extra features.",
             techs: ['electron', 'Flutter', 'Vue3', 'windiCss'],
             links: [
                 {

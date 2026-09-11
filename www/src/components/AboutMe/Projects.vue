@@ -61,11 +61,11 @@ function getTechIcon(tech: string): string {
         <h2
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
         >
-            projects
+            featured work
         </h2>
         <p class="text-lg leading-7">
-            Learning is a journey, not a destination. Building personal projects is one of the most effective ways to
-            gain practical experience, strengthen my skills, and grow as a developer.
+            Products I own end to end, from architecture and backend through to the apps people install. They are the
+            clearest evidence of how I design, ship, and keep a system running.
         </p>
         <div style="margin-top: 20px">
             <template v-for="(work, i) in works.works" :key="i">
@@ -80,7 +80,12 @@ function getTechIcon(tech: string): string {
                                 :alt="`${work.title} logo`"
                             />
                             <div class="project-heading">
-                                <p class="project-overline text-[var(--primary)] font-600">{{ work.overline }}</p>
+                                <p class="project-overline text-[var(--primary)] font-600">
+                                    {{ work.overline }}
+                                    <span v-if="work.platforms?.length" class="project-platforms">
+                                        {{ work.platforms.join(' · ') }}
+                                    </span>
+                                </p>
                                 <a
                                     class="project-title-link"
                                     :href="work.imageLink"
@@ -93,6 +98,10 @@ function getTechIcon(tech: string): string {
                         </div>
                         <div class="info-des-container">
                             <p v-html="work.des"></p>
+                            <p v-if="work.role" class="project-role">
+                                <span class="project-role-label">My role</span>
+                                {{ work.role }}
+                            </p>
                             <ul class="info-tech-list" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
                                 <li v-for="tech in work.techs" :key="tech">
                                     <Icon :icon="getTechIcon(tech)" class="tech-icon" />
@@ -222,6 +231,32 @@ function getTechIcon(tech: string): string {
                     outline: 2px solid var(--primary);
                     outline-offset: 4px;
                 }
+            }
+
+            .project-platforms {
+                display: inline-block;
+                margin-left: 8px;
+                padding-left: 9px;
+                border-left: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+                color: color-mix(in srgb, var(--lightestSlate) 62%, transparent);
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            .project-role {
+                margin: 0 0 18px !important;
+                font-size: 14px;
+                line-height: 1.55;
+            }
+
+            .project-role-label {
+                display: block;
+                margin-bottom: 3px;
+                color: var(--primary);
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
             }
 
             .info-des-container {

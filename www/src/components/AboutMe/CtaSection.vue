@@ -18,32 +18,46 @@ import { Icon } from "@iconify/vue";
                     <i></i>
                 </div>
 
-                <div class="cta-badge inline-flex items-center gap-8px px-16px py-7px rounded-6px text-[var(--primary)] text-base font-800 uppercase mb-26px">
-                    <Icon icon="tabler:bolt" class="text-lg" />
-                    Let's Build Something Amazing
-                </div>
+                <div class="cta-content flex flex-col items-center">
+                    <div class="cta-badge inline-flex items-center gap-9px px-16px py-7px rounded-6px text-[var(--primary)] text-base font-800 uppercase mb-26px">
+                        <span class="cta-dot-pulse w-8px h-8px rounded-full bg-[var(--primary)] inline-block"></span>
+                        Available for work
+                    </div>
 
-                <h2 class="lg:text-size-44px md:text-size-38px text-size-28px font-700 mb-14px leading-tight max-w-760px">
-                    Let's work together on
-                    <span class="text-[var(--primary)] font-400"> your next project</span>
-                </h2>
+                    <h2 class="lg:text-size-44px md:text-size-38px text-size-28px font-700 mb-14px leading-tight max-w-760px">
+                        Hiring a senior
+                        <span class="text-[var(--primary)] font-400">full-stack developer?</span>
+                    </h2>
 
-                <p class="text-[var(--lightestSlate)] max-w-540px mb-30px leading-7">
-                    I'm currently available for freelance work, interesting projects,
-                    and full-time opportunities. Let's turn your ideas into reality.
-                </p>
+                    <p class="text-[var(--lightestSlate)] max-w-540px mb-32px leading-7">
+                        Eight years of Laravel, Vue, and TypeScript, most of it spent keeping production systems
+                        running. I'm glad to walk through the decisions behind anything on this page.
+                    </p>
 
-                <router-link
-                    to="/contact"
-                    class="cta-btn inline-flex items-center justify-center gap-14px min-w-250px px-46px py-18px rounded-12px text-[var(--background)] font-500 mb-22px"
-                >
-                    <Icon icon="tabler:send" class="text-lg" />
-                    Contact Me
-                </router-link>
+                    <div class="cta-actions flex flex-wrap items-center justify-center gap-14px mb-26px">
+                        <router-link
+                            to="/contact"
+                            class="cta-btn inline-flex items-center justify-center gap-12px px-38px py-16px rounded-12px text-[var(--background)] font-500"
+                        >
+                            <Icon icon="tabler:send" class="text-lg" />
+                            Get in touch
+                        </router-link>
 
-                <div class="flex items-center gap-10px text-base text-[var(--lightestSlate)]">
-                    <span class="cta-dot-pulse w-10px h-10px rounded-full bg-[var(--primary)] inline-block"></span>
-                    Available for new opportunities
+                        <a
+                            href="/Jenuel Ganawed - Resume.pdf"
+                            target="_blank"
+                            class="cta-secondary inline-flex items-center justify-center gap-10px px-30px py-16px rounded-12px font-600"
+                        >
+                            <Icon icon="tabler:file-type-doc" class="text-lg" />
+                            Download resume
+                        </a>
+                    </div>
+
+                    <ul class="cta-meta flex flex-wrap items-center justify-center">
+                        <li>Fully remote</li>
+                        <li>Philippines &middot; UTC+8</li>
+                        <li>me@jenuel.dev</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -51,6 +65,51 @@ import { Icon } from "@iconify/vue";
 </template>
 
 <style scoped lang="scss">
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h2 span {
+    display: block;
+}
+
+.cta-meta {
+    gap: 10px 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: color-mix(in srgb, var(--lightestSlate) 62%, transparent);
+    font-size: 14px;
+
+    li {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    li + li::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        margin-right: 22px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--primary) 55%, transparent);
+    }
+}
+
+.cta-secondary {
+    border: 2px solid color-mix(in srgb, var(--primary) 34%, transparent);
+    color: var(--primary);
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--primary) 68%, transparent);
+        background: color-mix(in srgb, var(--primary) 8%, transparent);
+    }
+}
+
 .cta-card {
     border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
     border-radius: 28px;
@@ -135,8 +194,8 @@ import { Icon } from "@iconify/vue";
     }
 
     &.cta-corner-left {
-        left: 10px;
-        top: 136px;
+        left: 14px;
+        top: 26px;
 
         span {
             width: 78px;
@@ -236,7 +295,23 @@ import { Icon } from "@iconify/vue";
     }
 }
 
+@media (max-width: 860px) {
+    .cta-corner {
+        display: none;
+    }
+}
+
 @media (max-width: 520px) {
+    /* stacked, so the inline separators would dangle at the start of a wrapped line */
+    .cta-meta {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .cta-meta li + li::before {
+        display: none;
+    }
+
     .cta-card,
     .cta-card-inner {
         border-radius: 22px;
@@ -246,13 +321,14 @@ import { Icon } from "@iconify/vue";
         min-height: 420px;
     }
 
-    .cta-corner {
-        display: none;
-    }
-
-    .cta-btn {
+    .cta-btn,
+    .cta-secondary {
         width: 100%;
         min-width: 0;
+    }
+
+    .cta-actions {
+        width: 100%;
     }
 }
 </style>

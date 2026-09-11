@@ -135,66 +135,6 @@ const otherCodeChallenges: CODE_CHALLENGES = [
         ],
     },
     {
-        title: 'Facebook Clone',
-        des: 'Cloning facebook style. This is not intended to be used for phishing or other illegal activities. This is solely for educational purposes only.',
-        links: [
-            {
-                link: 'https://github.com/JenuelDev/facebook-clone',
-                icon: 'tabler:brand-github-filled',
-                tooltip: 'Open In Github',
-            },
-            {
-                link: 'https://teal-kelpie-a96265.netlify.app/',
-                icon: 'tabler:external-link',
-                tooltip: 'Open Link',
-            }
-        ],
-        techs: [
-            {
-                name: 'WindiCSS',
-                icon: 'material-icon-theme:windicss',
-            },
-            {
-                name: 'VueJS',
-                icon: 'ri:vuejs-fill',
-            },
-        ],
-    },
-    {
-        title: 'I Love Vue (VueSchool)',
-        des: '<p>This is a simple landing page for the VueSchool I Love Vue.</p>',
-        links: [
-            {
-                link: 'https://github.com/JenuelDev/i-love-vue',
-                icon: 'tabler:brand-github-filled',
-                tooltip: 'Open In Github',
-            },
-            {
-                link: 'https://i-love-vue.netlify.app/',
-                icon: 'tabler:external-link',
-                tooltip: 'Open Link',
-            }
-        ],
-        techs: [
-            {
-                name: 'html&css',
-                icon: 'ci:html5',
-            },
-            {
-                name: 'tailwindcss',
-                icon: 'devicon:tailwindcss',
-            },
-            {
-                name: 'VueJS',
-                icon: 'ri:vuejs-fill',
-            },
-            {
-                name: 'nuxt',
-                icon: 'vscode-icons:file-type-nuxt',
-            }
-        ],
-    },
-    {
         title: 'Random Name Selector',
         des: '<p>This is a simple name random name/item selector.</p>',
         headIcon: 'chat',
@@ -332,6 +272,66 @@ const otherCodeChallenges: CODE_CHALLENGES = [
                 tooltip: 'Open Link',
             },
         ]
+    },
+    {
+        title: 'Facebook Clone',
+        des: 'An early layout study recreating a complex, content-dense social feed UI in Vue to practise component structure and utility-first CSS.',
+        links: [
+            {
+                link: 'https://github.com/JenuelDev/facebook-clone',
+                icon: 'tabler:brand-github-filled',
+                tooltip: 'Open In Github',
+            },
+            {
+                link: 'https://teal-kelpie-a96265.netlify.app/',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            }
+        ],
+        techs: [
+            {
+                name: 'WindiCSS',
+                icon: 'material-icon-theme:windicss',
+            },
+            {
+                name: 'VueJS',
+                icon: 'ri:vuejs-fill',
+            },
+        ],
+    },
+    {
+        title: 'I Love Vue (VueSchool)',
+        des: 'A landing page built for the VueSchool I Love Vue campaign, focused on responsive layout and Nuxt page structure.',
+        links: [
+            {
+                link: 'https://github.com/JenuelDev/i-love-vue',
+                icon: 'tabler:brand-github-filled',
+                tooltip: 'Open In Github',
+            },
+            {
+                link: 'https://i-love-vue.netlify.app/',
+                icon: 'tabler:external-link',
+                tooltip: 'Open Link',
+            }
+        ],
+        techs: [
+            {
+                name: 'html&css',
+                icon: 'ci:html5',
+            },
+            {
+                name: 'tailwindcss',
+                icon: 'devicon:tailwindcss',
+            },
+            {
+                name: 'VueJS',
+                icon: 'ri:vuejs-fill',
+            },
+            {
+                name: 'nuxt',
+                icon: 'vscode-icons:file-type-nuxt',
+            }
+        ],
     },
     letsChat,
     worldTimeReact,

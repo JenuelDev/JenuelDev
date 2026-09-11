@@ -44,8 +44,8 @@ function onSendError(err: any) {
             Contact me</h1>
         <p
             class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed">
-            I am currently not looking for Job. However, if you have other request or questions, don't hesitate to
-            contact me using the form bellow.
+            I'm open to fully remote senior full-stack roles, particularly Laravel and Vue work. If you're hiring, or
+            you have a question about anything I've built, send me a message using the form below.
         </p>
         <div v-scrollanimation class="contact-me-form max-w-[700px] w-[100%] mt-30px mb-100px">
             <Form @send-error="onSendError" />

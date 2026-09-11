@@ -1,3 +1,9 @@
+// NOTE (metrics): recruiters respond strongly to numbers. Where you see a
+// "TODO(metric)" below, replace the bullet with the same sentence plus a real
+// figure, e.g. "serving ~12k monthly users", "cut report generation from 40s to
+// 6s", "across 4 production applications". Only add numbers you can defend in
+// an interview - leave the qualitative version if you are unsure.
+
 const vocphone = {
     position: 'Senior Software Developer',
     tab: 'Vocphone',
@@ -5,9 +11,14 @@ const vocphone = {
     workStart: 'Nov. 2021',
     workUntil: '<span class="present-work">Present</span>',
     des: [
-        'Work with the dev team to turn product requirements into workable technical solutions and realistic estimates.',
-        'Build and review features across the stack, keeping an eye on scalability, performance, and long-term maintainability.',
-        'Continuously evaluate and adopt modern technologies to improve development workflows and overall product quality.',
+        // TODO(metric): how many production applications do you own or maintain?
+        'Develop and maintain production web applications using Laravel, Vue, PHP, TypeScript, and SQL.',
+        // TODO(metric): rough number of users or teams these workflows serve?
+        'Design and implement APIs, business workflows, and third-party integrations used by customers and internal teams.',
+        // TODO(metric): a before/after on a performance or reliability fix lands well here.
+        'Investigate production issues, optimise existing systems, and keep legacy functionality stable while shipping new features.',
+        'Work directly with product owners and stakeholders to turn business requirements into maintainable technical solutions and realistic estimates.',
+        'Review code and contribute to architectural and implementation decisions across the stack.',
     ],
     technologies: [
         'Laravel',
@@ -33,9 +44,9 @@ const webinarinc = {
     workUntil: 'Nov. 2021',
     des: [
         'Built and maintained marketing and product websites, including platforms for the automotive industry.',
-        'Integrated third-party services such as Twilio to enable communication, notifications, and customer engagement features.',
-        'Contributed to the design and implementation of a Learning Management System (LMS) tailored for sales agents.',
-        'Worked closely with designers and stakeholders to turn wireframes and ideas into production-ready user interfaces.',
+        'Integrated third-party services such as Twilio to power communication, notifications, and customer engagement features.',
+        'Contributed to the design and implementation of a Learning Management System (LMS) built for sales agents.',
+        'Worked with designers and stakeholders to turn wireframes into production-ready user interfaces.',
     ],
     technologies: [
         'Laravel',
@@ -59,10 +70,10 @@ const utalk2019 = {
     workStart: 'August 2019',
     workUntil: 'April 2021',
     des: [
-        'Maintained and enhanced the admin platform for a Learning Management System (LMS) used by internal teams and clients.',
-        'Implemented new features and UI improvements to streamline workflows and improve usability.',
-        'Diagnosed and fixed bugs across the stack, ensuring stable releases and minimal downtime.',
-        'Collaborated with stakeholders to refine requirements and deliver updates that matched operational needs.',
+        'Maintained and extended the admin platform of a Learning Management System (LMS) used by internal teams and clients.',
+        'Shipped new features and interface improvements that streamlined day-to-day operational workflows.',
+        'Diagnosed and fixed defects across the stack, keeping releases stable and downtime minimal.',
+        'Refined requirements with stakeholders and delivered updates that matched real operational needs.',
     ],
     url: 'https://www.facebook.com/utalkphilippines',
     technologies: [
@@ -89,10 +100,10 @@ const dapayan2018 = {
     workStart: 'Aug. 2018',
     workUntil: 'May 2019',
     des: [
-        'Served as a project developer for a restaurant Ordering Management System used in a real business setting.',
+        'Project developer for an Ordering Management System used in a live restaurant business.',
         'Built and maintained core modules of the web application using PHP, JavaScript, HTML, CSS, and MySQL.',
-        'Prepared technical documentation, including system workflows and user guides, to support deployment and maintenance.',
-        'Worked closely with teammates and stakeholders to gather requirements and refine features based on feedback.',
+        'Wrote the technical documentation, including system workflows and user guides, to support deployment and handover.',
+        'Gathered requirements with teammates and stakeholders and refined features from real usage feedback.',
     ],
     url: 'https://www.facebook.com/DapayanCafeExtention',
     technologies: [
@@ -118,9 +129,9 @@ const ilearn2018 = {
     workUntil: 'Dec. 2018',
     des: [
         'Designed and developed client websites, translating visual concepts into responsive front-end implementations.',
-        'Created graphic assets for web and marketing materials using design tools such as Photoshop and Illustrator.',
-        'Edited and prepared video content to support digital campaigns and learning materials.',
-        'Collaborated with senior developers and designers, receiving feedback to improve code quality and visual consistency.',
+        'Created graphic assets for web and marketing material using Photoshop and Illustrator.',
+        'Edited and prepared video content for digital campaigns and learning materials.',
+        'Worked alongside senior developers and designers, applying their feedback to improve code quality and visual consistency.',
     ],
     url: 'http://www.ilearnsda.com',
     technologies: [
@@ -141,16 +152,16 @@ const ilearn2018 = {
 };
 
 const kcp = {
-    position: 'Web Developer Student',
+    position: 'BS Information Technology',
     tab: 'KCP',
-    company: 'KCP',
+    company: 'Kings College of the Philippines',
     workStart: 'Aug. 2016',
     workUntil: 'April 2019',
     des: [
         'Majored in Web Technology with a focus on full-stack web development fundamentals.',
-        'Developed academic and capstone projects that applied HTML, CSS, JavaScript, and backend technologies to real-world use cases.',
-        'Participated in seminars, workshops, and competitions to strengthen technical, communication, and teamwork skills.',
-        'Collaborated with classmates on group projects, handling both front-end implementation and basic backend integration.',
+        'Built academic and capstone projects applying HTML, CSS, JavaScript, and backend technologies to real-world use cases.',
+        'Took part in seminars, workshops, and competitions to strengthen technical and communication skills.',
+        'Collaborated on group projects, handling both front-end implementation and backend integration.',
     ],
     technologies: [
         'HTML5',

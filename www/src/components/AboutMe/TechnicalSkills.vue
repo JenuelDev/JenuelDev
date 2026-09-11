@@ -50,87 +50,77 @@ const getSkill = (name: string, icon: string, des = ""): Skill => {
 
 const skillGroups = [
     {
-        title: "Frontend",
-        icon: "tabler:layout-dashboard",
-        description: "Frameworks and languages I use for responsive, accessible, interactive interfaces.",
-        skills: [
-            getSkill("JavaScript", "skill-icons:javascript"),
-            getSkill("TypeScript", "vscode-icons:file-type-typescript-official"),
-            getSkill("Vue", "material-icon-theme:vue"),
-            getSkill("Nuxt JS", "vscode-icons:file-type-nuxt"),
-            getSkill("ReactJs", "vscode-icons:file-type-reactjs"),
-            getSkill("Angular", "skill-icons:angular-dark"),
-            getSkill("Astro", "skill-icons:astro"),
-            getSkill("Dart", "skill-icons:dart-light"),
-            getSkill("Flutter", "skill-icons:flutter-light"),
-        ],
-    },
-    {
-        title: "Backend",
-        icon: "tabler:server-cog",
-        description: "Server-side tools for APIs, business logic, and maintainable application workflows.",
+        title: "Primary",
+        level: "Daily, production depth",
+        icon: "tabler:stack-front",
+        description:
+            "The stack I work in every day and the one I'm strongest in. Most of my professional and personal systems are built on it.",
         skills: [
             getSkill("PHP", "skill-icons:php-dark"),
             getSkill("laravel/Lumen", "material-icon-theme:laravel"),
-            getSkill("CodeIgniter", "logos:codeigniter-icon"),
-            getSkill("Python", "skill-icons:python-dark"),
-            getSkill("NodeJs", "material-icon-theme:nodejs"),
-            getSkill("Rails", "vscode-icons:file-type-ruby"),
-            getSkill("Ruby on Rails", "skill-icons:rails"),
-        ],
-    },
-    {
-        title: "Database",
-        icon: "tabler:database",
-        description: "Relational and document databases used for application data and platform features.",
-        skills: [
-            getSkill("Database", "solar:database-bold-duotone"),
-            getSkill("SQLite", "skill-icons:sqlite"),
+            getSkill("Vue", "material-icon-theme:vue"),
+            getSkill("Nuxt JS", "vscode-icons:file-type-nuxt"),
+            getSkill("TypeScript", "vscode-icons:file-type-typescript-official"),
+            getSkill("JavaScript", "skill-icons:javascript"),
             getSkill("MySQL", "skill-icons:mysql-light"),
             getSkill("PostgreSQL", "skill-icons:postgresql-light"),
-            getSkill("MongoDB", "skill-icons:mongodb"),
-            getSkill("Firebase", "logos:firebase"),
-            getSkill("Supabase", "logos:supabase-icon"),
+            getSkill(
+                "REST APIs",
+                "tabler:api",
+                "Designing and consuming REST APIs: resource modelling, authentication, versioning, pagination, error contracts, and the integrations that connect applications to third-party services.",
+            ),
+            getSkill(
+                "Git",
+                "skill-icons:git",
+                "Day-to-day version control across teams and solo products: branching strategies, code review, resolving conflicts, and keeping a readable history.",
+            ),
         ],
     },
     {
-        title: "Styling & Tooling",
-        icon: "tabler:tools",
-        description: "CSS systems, build tooling, and desktop app tooling for faster development.",
+        title: "Production experience",
+        level: "Shipped and maintained",
+        icon: "tabler:server-cog",
+        description:
+            "Tools I've used to ship and support real applications, including the cross-platform and infrastructure side of my own products.",
         skills: [
+            getSkill("NodeJs", "material-icon-theme:nodejs"),
+            getSkill("Electron", "mdi:electron-framework"),
+            getSkill("Flutter", "skill-icons:flutter-light"),
+            getSkill("Dart", "skill-icons:dart-light"),
+            getSkill("SQLite", "skill-icons:sqlite"),
+            getSkill(
+                "Redis",
+                "skill-icons:redis-light",
+                "In-memory data store used for caching, queues, and background job processing in Laravel applications.",
+            ),
+            getSkill("Firebase", "logos:firebase"),
             getSkill("HTML/CSS", "skill-icons:html"),
-            getSkill("html5", "skill-icons:html"),
             getSkill("SASS", "skill-icons:sass"),
             getSkill("tailwindcss", "devicon:tailwindcss"),
-            getSkill("windicss", "material-icon-theme:windicss"),
             getSkill("UnoCss", "material-icon-theme:unocss"),
             getSkill("Vite", "vscode-icons:file-type-vite"),
-            getSkill("Electron", "mdi:electron-framework"),
         ],
     },
     {
-        title: "Design",
-        icon: "tabler:brush",
-        description: "Design handoff and interface thinking for user-friendly frontend implementation.",
+        title: "Additional",
+        level: "Working knowledge",
+        icon: "tabler:tools",
+        description:
+            "Technologies I've worked with on specific projects or use to support development, design handoff, and day-to-day productivity.",
         skills: [
-            getSkill("UI Design", "hugeicons:web-design-01"),
+            getSkill("ReactJs", "vscode-icons:file-type-reactjs"),
+            getSkill("Angular", "skill-icons:angular-dark"),
+            getSkill("Astro", "skill-icons:astro"),
+            getSkill("Python", "skill-icons:python-dark"),
+            getSkill("Ruby on Rails", "skill-icons:rails"),
+            getSkill("CodeIgniter", "logos:codeigniter-icon"),
+            getSkill("MongoDB", "skill-icons:mongodb"),
+            getSkill("Supabase", "logos:supabase-icon"),
             getSkill("Figma", "logos:figma"),
-            getSkill("ChatGPT Image", "simple-icons:openai"),
-            getSkill("Google Stitch", "logos:google-icon"),
-        ],
-    },
-    {
-        title: "AI & Productivity",
-        icon: "tabler:sparkles",
-        description: "Practical AI usage for development assistance, automation, and faster iteration.",
-        skills: [
             getSkill("Artificial Intelligence", "mdi:robot"),
-            getSkill("Codex", "tabler:terminal-2"),
             getSkill("Claude Code", "simple-icons:anthropic"),
-            getSkill("ChatGPT", "simple-icons:openai"),
+            getSkill("Codex", "tabler:terminal-2"),
             getSkill("GitHub Copilot", "simple-icons:githubcopilot"),
-            getSkill("Ollama", "simple-icons:ollama"),
-            getSkill("OpenRouter", "simple-icons:openrouter"),
         ],
     },
 ];
@@ -183,16 +173,15 @@ const skillGroups = [
             v-scrollanimation
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
         >
-            skills
+            core technology
         </h2>
         <p
             v-scrollanimation
             class="text-lg w-[100%] max-w-[770px] leading-7"
         >
-            Continuous learning is a core focus to stay current with emerging technologies and select the best tools
-            for each project.
+            Grouped by how deeply I actually work with each one, rather than everything I have ever touched.
         </p>
-        <div class="technical-skills-grid grid grid-cols-1 md:grid-cols-2 gap-22px mt-42px">
+        <div class="technical-skills-grid grid grid-cols-1 gap-22px mt-42px">
             <div
                 v-scrollanimation
                 class="technical-skill-card"
@@ -204,9 +193,12 @@ const skillGroups = [
                         <Icon :icon="group.icon" />
                     </div>
                     <div>
-                        <h3 class="technical-skill-title text-xl font-700">
-                            {{ group.title }}
-                        </h3>
+                        <div class="technical-skill-heading">
+                            <h3 class="technical-skill-title text-xl font-700">
+                                {{ group.title }}
+                            </h3>
+                            <span class="technical-skill-level">{{ group.level }}</span>
+                        </div>
                         <p class="technical-skill-description leading-6">
                             {{ group.description }}
                         </p>
@@ -236,7 +228,6 @@ const skillGroups = [
 }
 
 .technical-skill-card {
-    min-height: 250px;
     border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
     border-radius: 8px;
     padding: 22px;
@@ -272,11 +263,30 @@ const skillGroups = [
     }
 }
 
+.technical-skill-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
 .technical-skill-title {
-    margin: 0 0 7px;
+    margin: 0;
     color: var(--primary);
     letter-spacing: 0;
     line-height: 1.15;
+}
+
+.technical-skill-level {
+    padding: 4px 10px;
+    border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+    border-radius: 999px;
+    color: color-mix(in srgb, var(--lightestSlate) 70%, transparent);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 .technical-skill-description {

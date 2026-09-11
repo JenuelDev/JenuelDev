@@ -10,25 +10,22 @@ const projects: Array<{
     logo?: string;
     isLogoImage?: boolean;
     logoFontFamily?: string;
+    /** Shown on the homepage. Everything else lives on /certificates. */
+    featured?: boolean;
 }> = [
         {
-            name: "Introduction To Python",
-            from: "SoloLearn",
-            isLogoImage: true,
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
-            description: "This course covered the basic concepts of Python, as well as build real-life projects and solve different coding challenges.",
-            url: "https://www.sololearn.com/certificates/CC-BYG4YO41"
-        },
-        {
-            name: "Programming With Python 3.x",
-            from: "SimpleLearn",
-            isLogoImage: true,
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Simplilearn_logo.png/800px-Simplilearn_logo.png",
+            featured: true,
+            name: "Bachelor of Science in Information Technology",
             description:
-                "We learned the fundamentals of Python programming. The course covered essential topics such as data types, control structures, functions, and modules, providing a comprehensive foundation for writing efficient and effective Python code.",
-            url: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxMTY5IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNDcxNDk1N18xNzAyNDc0ODI2LnBuZyIsInVzZXJuYW1lIjoiSmVudWVsIE9yYXMgR2FuYXdlZCJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F3381%2FProgramming%2520with%2520Python%25203.X%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1304760874632407396&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVryqJNDc0SQktdUsCAMaW0h8lAAAA",
+                "Majored in Web Technology, and had been creating projects related to web programming and actively participating in events, seminars, and competitions.",
+            from: "Kings College of the Philippines",
+            isLogoImage: false,
+            logo: "Kings College of the Philippines",
+            logoFontFamily: "'Times New Roman', Times, serif",
+            url: "https://www.linkedin.com/in/jenuelganawed",
         },
         {
+            featured: true,
             name: "Foundational C# with Microsoft",
             from: "freeCodeCamp",
             isLogoImage: true,
@@ -38,6 +35,7 @@ const projects: Array<{
             url: "https://www.freecodecamp.org/certification/jenueldev/foundational-c-sharp-with-microsoft",
         },
         {
+            featured: true,
             name: "Learn Laravel VueJs from Scratch - Building a Tesla Web App",
             from: "Udemy",
             isLogoImage: true,
@@ -47,14 +45,32 @@ const projects: Array<{
             url: "https://www.udemy.com/certificate/UC-9ec97828-2ddb-41c2-9507-29fe60f097fb/",
         },
         {
-            name: "Bachelor of Science in Information Technology",
+            featured: true,
+            name: "Programming With Python 3.x",
+            from: "Simplilearn",
+            isLogoImage: true,
+            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Simplilearn_logo.png/800px-Simplilearn_logo.png",
             description:
-                "Majored in Web Technology, and had been creating projects related to web programming and actively participating in events, seminars, and competitions.",
-            from: "Kings College of The Philippines",
-            isLogoImage: false,
-            logo: "Kings College of The Philippines",
-            logoFontFamily: "'Times New Roman', Times, serif",
-            url: "https://www.linkedin.com/in/jenuelganawed",
+                "We learned the fundamentals of Python programming. The course covered essential topics such as data types, control structures, functions, and modules, providing a comprehensive foundation for writing efficient and effective Python code.",
+            url: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxMTY5IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNDcxNDk1N18xNzAyNDc0ODI2LnBuZyIsInVzZXJuYW1lIjoiSmVudWVsIE9yYXMgR2FuYXdlZCJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F3381%2FProgramming%2520with%2520Python%25203.X%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1304760874632407396&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVryqJNDc0SQktdUsCAMaW0h8lAAAA",
+        },
+        {
+            featured: true,
+            name: "Smart Android Apps Development for Beginners",
+            description:
+                "Successfully completed a course on Smart Android Apps Development for Beginners, where we covered the fundamentals of Android programming, user interface design, and essential tools and techniques for creating functional and user-friendly mobile applications.",
+            from: "Tesda",
+            isLogoImage: true,
+            logo: "https://www.tesda.gov.ph/Content/images/logos/TesdaLogo.png",
+            url: "https://github.com/BroJenuel/BroJenuel/raw/master/certificates/SMART%20Android%20Mobile%20Apps%20Development%20for%20Beginners_Certificate%20of%20Completion.pdf",
+        },
+        {
+            name: "Introduction To Python",
+            from: "SoloLearn",
+            isLogoImage: true,
+            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/SoloLearn_logo.svg/1920px-SoloLearn_logo.svg.png?20210710155454",
+            description: "This course covered the basic concepts of Python, as well as build real-life projects and solve different coding challenges.",
+            url: "https://www.sololearn.com/certificates/CC-BYG4YO41"
         },
         {
             name: "Responsive Web Design",
@@ -127,16 +143,6 @@ const projects: Array<{
             isLogoImage: true,
             logo: "https://www.tesda.gov.ph/Content/images/logos/TesdaLogo.png",
             url: "https://github.com/BroJenuel/BroJenuel/raw/master/certificates/SMARTtechno101_Certificate%20of%20Completion.pdf",
-        },
-        {
-            name: "Smart Android Apps Development For Beffiners",
-            description:
-                "Successfully completed a course on Smart Android Apps Development for Beginners, where we covered the fundamentals of Android programming, user interface design, and essential tools and techniques for creating functional and user-friendly mobile applications.",
-            from: "Tesda",
-            isLogoImage: true,
-            logo: "https://www.tesda.gov.ph/Content/images/logos/TesdaLogo.png",
-            url: "https://github.com/BroJenuel/BroJenuel/raw/master/certificates/SMART%20Android%20Mobile%20Apps%20Development%20for%20Beginners_Certificate%20of%20Completion.pdf",
-        },
-    ];
+        }];
 
 export default projects

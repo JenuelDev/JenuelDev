@@ -1,23 +1,30 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue"
-const services = [
+
+const areas = [
     {
-        icon: 'tabler:code',
-        title: 'Web Development',
+        icon: 'tabler:stack-2',
+        title: 'Full-stack applications',
         description:
-            'Responsive, fast, and modern websites built with clean code and best practices using the latest technologies.',
+            'Laravel and Vue applications built around real business workflows, from data model through to the screens people use every day.',
     },
     {
         icon: 'tabler:server',
-        title: 'Back-end Solutions',
+        title: 'Backend & APIs',
         description:
-            'Robust and secure server-side applications with efficient databases, APIs, and scalable architecture.',
+            'REST APIs, database design, authentication, third-party integrations, queues, and background jobs.',
     },
     {
-        icon: 'tabler:vector-bezier',
-        title: 'UI/UX Implementation',
+        icon: 'tabler:layout-dashboard',
+        title: 'Frontend engineering',
         description:
-            'Intuitive and engaging user interfaces translated from designs into pixel-perfect, accessible experiences.',
+            'Responsive Vue applications with a maintainable component architecture and interfaces that hold up as features accumulate.',
+    },
+    {
+        icon: 'tabler:tool',
+        title: 'System maintenance',
+        description:
+            'Debugging, performance work, production support, and modernising applications that already carry a business.',
     },
 ];
 </script>
@@ -26,42 +33,30 @@ const services = [
     <section class="offer-section flex flex-col w-full max-w-900px visible opacity-100 z-10 px-10px mx-auto mb-90px">
         <h2 v-scrollanimation
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px">
-            what i offer
+            what i work on
         </h2>
-        <p v-scrollanimation class="text-lg leading-7 mb-42px">
-            High-quality solutions tailored to your goals, built with performance, scalability, and user experience in mind.
+        <p v-scrollanimation class="text-lg leading-7 mb-42px max-w-[770px]">
+            The kind of work I do day to day, whether it lands in a product team's backlog or in a system I own outright.
         </p>
 
         <div class="offer-grid">
-            <div v-scrollanimation class="offer-card-wrap" v-for="(service, i) in services" :key="service.title"
-                :style="`transition-delay: ${i * 200}ms;`">
+            <div v-scrollanimation class="offer-card-wrap" v-for="(area, i) in areas" :key="area.title"
+                :style="`transition-delay: ${i * 150}ms;`">
                 <div class="offer-card">
                     <div class="flex flex-col h-full p-24px justify-start items-start">
                         <div class="offer-icon text-[var(--primary)]">
                             <span>
-                                <Icon :icon="service.icon" :size="34" />
+                                <Icon :icon="area.icon" :size="34" />
                             </span>
                         </div>
-                        <div class="offer-card-title text-xl font-700">{{ service.title }}</div>
+                        <div class="offer-card-title text-xl font-700">{{ area.title }}</div>
                         <div class="offer-rule" aria-hidden="true"></div>
                         <div class="offer-card-copy leading-6 text-left">
-                            {{ service.description }}
+                            {{ area.description }}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div v-scrollanimation class="offer-cta flex flex-col items-center text-center mt-48px"
-            :style="`transition-delay: ${services.length * 200}ms;`">
-            <p class="offer-cta-copy mb-20px">
-                Have a project in mind? Let's talk about how I can help.
-            </p>
-            <router-link to="/contact"
-                class="offer-cta-btn inline-flex items-center justify-center gap-10px px-32px py-14px rounded-8px text-[var(--background)] font-600">
-                <Icon icon="tabler:send" class="text-xl" />
-                <span>Contact Me</span>
-            </router-link>
         </div>
     </section>
 </template>
@@ -73,7 +68,7 @@ const services = [
 
 .offer-grid {
     @apply grid gap-32px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .offer-card {
@@ -114,23 +109,6 @@ const services = [
     color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
 }
 
-.offer-cta-copy {
-    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
-}
-
-.offer-cta-btn {
-    border: 1px solid color-mix(in srgb, var(--primary) 56%, #ffffff);
-    background: var(--primary);
-    box-shadow: 0 0 22px color-mix(in srgb, var(--primary) 32%, transparent);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-
-    &:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.05);
-        box-shadow: 0 0 32px color-mix(in srgb, var(--primary) 52%, transparent);
-    }
-}
-
 @media (max-width: 960px) {
     .offer-grid {
         @apply grid-cols-1 max-w-620px w-full mx-auto;
@@ -140,10 +118,6 @@ const services = [
 @media (max-width: 520px) {
     .offer-grid {
         @apply gap-18px;
-    }
-
-    .offer-cta-btn {
-        @apply w-full;
     }
 }
 </style>

@@ -1,21 +1,30 @@
 <script setup lang="ts">
 import Experience from '@/components/AboutMe/Experience.vue';
 import AboutMeSection from './../../components/AboutMe/ABoutMeSection.vue';
+import AboutSection from '@/components/AboutMe/AboutSection.vue';
 import TechnicalSkills from './../../components/AboutMe/TechnicalSkills.vue';
-import WhatIconOffer from './../../components/AboutMe/WhatIOffer.vue';
+import WhatIWorkOn from './../../components/AboutMe/WhatIWorkOn.vue';
 import Projects from '@/components/AboutMe/Projects.vue';
 import Achievements from '@/components/AboutMe/Achievements.vue';
 import LatestArticles from '@/components/AboutMe/LatestArticles.vue';
+import CtaSection from '@/components/AboutMe/CtaSection.vue';
 
 </script>
 <template>
+    <!--
+        Order is deliberate: a recruiter should hit professional experience and
+        owned products before anything else. Writing and certificates are
+        supporting evidence, so they sit below the fold-of-interest.
+    -->
     <AboutMeSection />
-    <LatestArticles />
-    <TechnicalSkills />
-    <Projects />
     <Experience />
+    <Projects />
+    <TechnicalSkills />
+    <WhatIWorkOn />
+    <AboutSection />
+    <LatestArticles />
     <Achievements />
-    <WhatIconOffer />
+    <CtaSection />
 </template>
 <style lang="scss">
 .what-i-offer-content {

@@ -1,6 +1,6 @@
 import challenges from './challenges';
 
 export default {
-    des: 'A collection of applications, tools, and experiments that reflect my continued exploration of new technologies, practical problem-solving, and thoughtful software development.',
+    des: 'Smaller apps, tools, and experiments built outside of work. Some are live products, some are studies in a technology I wanted to understand properly.',
     challenges: challenges,
 };
