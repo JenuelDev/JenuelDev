@@ -19,14 +19,9 @@ import { Icon } from "@iconify/vue";
                 </div>
 
                 <div class="cta-content flex flex-col items-center">
-                    <div class="cta-badge inline-flex items-center gap-9px px-16px py-7px rounded-6px text-[var(--primary)] text-base font-800 uppercase mb-26px">
-                        <span class="cta-dot-pulse w-8px h-8px rounded-full bg-[var(--primary)] inline-block"></span>
-                        Available for work
-                    </div>
-
                     <h2 class="lg:text-size-44px md:text-size-38px text-size-28px font-700 mb-14px leading-tight max-w-760px">
-                        Hiring a senior
-                        <span class="text-[var(--primary)] font-400">full-stack developer?</span>
+                        Want to talk
+                        <span class="text-[var(--primary)] font-400">code or architecture?</span>
                     </h2>
 
                     <p class="text-[var(--lightestSlate)] max-w-540px mb-32px leading-7">
@@ -54,7 +49,6 @@ import { Icon } from "@iconify/vue";
                     </div>
 
                     <ul class="cta-meta flex flex-wrap items-center justify-center">
-                        <li>Fully remote</li>
                         <li>Philippines &middot; UTC+8</li>
                         <li>me@jenuel.dev</li>
                     </ul>
@@ -242,14 +236,6 @@ import { Icon } from "@iconify/vue";
     }
 }
 
-.cta-badge {
-    position: relative;
-    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-    background: color-mix(in srgb, var(--primary) 7%, transparent);
-    box-shadow: inset 0 0 18px color-mix(in srgb, var(--primary) 9%, transparent);
-    letter-spacing: 0.08em;
-}
-
 .cta-btn {
     position: relative;
     border: 2px solid color-mix(in srgb, var(--primary) 56%, #ffffff);
@@ -266,17 +252,6 @@ import { Icon } from "@iconify/vue";
             0 0 0 3px color-mix(in srgb, var(--background) 92%, transparent),
             0 0 36px color-mix(in srgb, var(--primary) 68%, transparent);
     }
-}
-
-.cta-dot-pulse {
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 60%, transparent);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 60%, transparent); }
-    70% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--primary) 0%, transparent); }
-    100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 0%, transparent); }
 }
 
 @media (max-width: 768px) {

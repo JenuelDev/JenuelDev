@@ -6,6 +6,8 @@ import { Icon } from "@iconify/vue";
 
 const yearCount = computed(() => new Date().getFullYear() - 2018);
 const showYoutubeButton = false;
+// Hidden while currently employed — flip to true when open to new roles again.
+const showOpenToWork = false;
 
 const primaryStack = ["Laravel", "Vue", "TypeScript", "PHP"];
 </script>
@@ -52,7 +54,7 @@ const primaryStack = ["Laravel", "Vue", "TypeScript", "PHP"];
                     </div>
 
                     <div class="hero-meta-bar mt-22px flex lg:justify-end justify-center flex-wrap gap-10px">
-                        <span class="hero-meta-chip hero-meta-chip-highlight">
+                        <span v-if="showOpenToWork" class="hero-meta-chip hero-meta-chip-highlight">
                             <Icon icon="tabler:world" />
                             Open to fully remote roles
                         </span>
