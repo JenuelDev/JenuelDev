@@ -9,7 +9,6 @@ const showYoutubeButton = false;
 // Hidden while currently employed — flip to true when open to new roles again.
 const showOpenToWork = false;
 
-const primaryStack = ["Laravel", "Vue", "TypeScript", "PHP"];
 </script>
 <template>
     <section id="about-me" class="mx-auto mb-100px flex flex-col items-center max-w-900px visible px-10px lg:mt-130px">
@@ -21,9 +20,6 @@ const primaryStack = ["Laravel", "Vue", "TypeScript", "PHP"];
                         <h1 class="md:text-5xl text-3xl font-600 text-[var(--primary)] mb-3">
                             <span class="sr-only">Jenuel Ganawed — </span>Senior Full-Stack Developer
                         </h1>
-                        <ul class="hero-stack mb-3 flex lg:justify-end justify-center flex-wrap gap-x-10px gap-y-4px">
-                            <li v-for="tech in primaryStack" :key="tech">{{ tech }}</li>
-                        </ul>
                         <h2 class="md:text-xl text-lg text-[var(--lightestSlate)] leading-relaxed mb-2">
                             I build and maintain production web applications, APIs, and business systems, with
                             <strong>{{ yearCount }}+ years</strong> of professional software development experience.
@@ -112,17 +108,6 @@ const primaryStack = ["Laravel", "Vue", "TypeScript", "PHP"];
 .a-enter {
     opacity: 1;
     transform: translateY(0);
-}
-
-.hero-stack {
-    @apply list-none p-0 m-0 text-base font-600;
-    color: var(--primary);
-
-    li + li::before {
-        content: "•";
-        margin-right: 10px;
-        opacity: 0.55;
-    }
 }
 
 .hero-meta-chip {
