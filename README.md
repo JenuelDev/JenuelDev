@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [AI Made Me Faster. Shouldn&#39;t I Be Paid More?](https://blog.jenuel.dev/blog/ai-made-me-faster-shouldnt-i-be-paid-more)
 - [AI Is Making Us More Capable. Is It Making Us Less Capable Too?](https://blog.jenuel.dev/blog/ai-is-making-us-more-capable-is-it-making-us-less-capable-too)
 - [StyleX explained: Meta&#39;s answer to CSS that gets harder as apps grow](https://blog.jenuel.dev/blog/stylex-css-meta-styling-system-explained)
 - [Why Gin Fits the AI Agent Era](https://blog.jenuel.dev/blog/why-gin-fits-the-ai-agent-era)
 - [Your AI Agents Are Not a Team Yet: 7 Orchestration Lessons from Multi-Agent Failures](https://blog.jenuel.dev/blog/your-ai-agents-are-not-a-team-yet)
-- [The New Bug Isn&#39;t Always in the Code](https://blog.jenuel.dev/blog/the-new-bug-isnt-always-in-the-code)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
