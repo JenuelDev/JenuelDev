@@ -7,6 +7,9 @@ const props = defineProps<{
 }>();
 const rail = ref<HTMLElement | null>(null);
 const progress = ref(0);
+const rulerScroll = ref(0);
+const rulerSpan = ref(1);
+const progressMarker = ref(16);
 type Letter = { element: HTMLElement; advance: number; center: number };
 type RailWord = { element: HTMLElement; section: HTMLElement; letters: Letter[]; width: number };
 type Pose = { x: number; y: number; rotation: number; scale: number };
@@ -82,9 +85,15 @@ function update() {
     frame = 0;
     if (!rail.value) return;
     const height = rail.value.clientHeight;
+    if (!height) return;
     const right = rail.value.clientWidth - 50;
     const scrollRange = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     progress.value = clamp(window.scrollY / scrollRange) * 100;
+    // Ticks belong to the document, while the progress marker travels through
+    // the viewport. Only the nearby portion of the ruler is visible.
+    rulerScroll.value = window.scrollY;
+    rulerSpan.value = scrollRange + Math.max(1, height - 32);
+    progressMarker.value = 16 + (progress.value / 100) * Math.max(1, height - 32);
     const bounds = words.map((word) => word.section.getBoundingClientRect());
     const completed = bounds.filter((bound) => bound.top <= 64).length;
     words.forEach((word, index) => {
@@ -142,10 +151,22 @@ onUnmounted(() => {
 <template>
     <nav ref="rail" class="scroll-section-rail" aria-label="Page sections">
         <div class="scroll-rail-ruler" aria-hidden="true">
-            <span v-for="tick in 21" :key="tick" class="scroll-rail-tick" :style="{ top: `${(tick - 1) * 5}%` }">
-                <span v-if="(tick - 1) % 2 === 0">{{ (tick - 1) * 5 }}</span>
+            <span
+                v-for="tick in 501"
+                :key="tick"
+                class="scroll-rail-tick"
+                :style="{ top: `${((tick - 1) / 500) * rulerSpan - rulerScroll + 16}px` }"
+            >
+                <span
+                    v-if="(tick - 1) % 5 === 0"
+                    :style="{
+                        opacity:
+                            Math.abs(((tick - 1) / 500) * rulerSpan - rulerScroll + 16 - progressMarker) < 18 ? 0 : 1,
+                    }"
+                    >{{ (tick - 1) / 5 }}</span
+                >
             </span>
-            <div class="scroll-rail-progress" :style="{ top: `${progress}%` }">
+            <div class="scroll-rail-progress" :style="{ top: `${progressMarker}px` }">
                 <span>{{ Math.round(progress).toString().padStart(3, "0") }}%</span>
             </div>
         </div>
@@ -234,8 +255,9 @@ onUnmounted(() => {
 }
 .scroll-rail-ruler {
     position: absolute;
-    inset: 0 0 0 auto;
-    width: 16px;
+    inset: 0 -24px 0 auto;
+    width: 64px;
+    overflow: hidden;
     color: var(--slate);
     font: 9px var(--craft-mono);
 }
@@ -266,12 +288,9 @@ onUnmounted(() => {
         color: var(--primary);
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .scroll-section-rail {
-        width: 220px;
-    }
-    .scroll-rail-lettering {
-        width: 220px;
+        display: none;
     }
 }
 </style>

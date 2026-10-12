@@ -3,99 +3,110 @@ import { career } from "@/constant/career";
 import { Icon } from "@iconify/vue";
 </script>
 <template>
-    <section id="about-me" class="craft-hero" aria-labelledby="hero-heading">
-        <div class="profile-hero-layout">
-            <div class="profile-hero-copy">
-                <p class="profile-hero-greeting">Hi, I'm Jenuel</p>
-                <h1 id="hero-heading">
-                    <span class="sr-only">Jenuel Ganawed: </span>Senior Full-Stack <em>Developer</em>
-                </h1>
-                <p class="profile-hero-description">
-                    I build and maintain software applications, with professional experience since
-                    <strong>2018</strong>.
-                </p>
-                <div class="craft-actions profile-hero-actions">
-                    <a :href="career.emailHref" class="craft-button"><Icon icon="tabler:mail" /> Discuss a role</a>
-                    <a
-                        href="/Jenuel Ganawed - Resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="craft-button craft-button-outline"
-                        ><Icon icon="tabler:file-type-doc" /> View resume</a
-                    >
-                </div>
-                <a href="#projects" class="profile-hero-work"
-                    >Explore my products <Icon icon="tabler:arrow-down" aria-hidden="true"
-                /></a>
-                <div class="profile-hero-meta">
-                    <span><Icon icon="tabler:map-pin" aria-hidden="true" /> Philippines · UTC+8</span>
-                    <a href="https://www.linkedin.com/in/jenuelganawed/" target="_blank" rel="noopener noreferrer"
-                        ><Icon icon="tabler:brand-linkedin" aria-hidden="true" /> LinkedIn
-                        <Icon icon="tabler:arrow-up-right" aria-hidden="true"
+    <div class="hero-screen">
+        <section id="about-me" class="craft-hero" aria-labelledby="hero-heading">
+            <div class="profile-hero-layout">
+                <div class="profile-hero-copy">
+                    <p class="profile-hero-greeting">Hi, I'm Jenuel</p>
+                    <h1 id="hero-heading">
+                        <span class="sr-only">Jenuel Ganawed: </span>Senior Full-Stack <em>Developer</em>
+                    </h1>
+                    <p class="profile-hero-description">
+                        I build and maintain software applications, with professional experience since
+                        <strong>2018</strong>.
+                    </p>
+                    <div class="craft-actions profile-hero-actions">
+                        <a :href="career.emailHref" class="craft-button"><Icon icon="tabler:mail" /> Discuss a role</a>
+                        <a
+                            href="/Jenuel Ganawed - Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="craft-button craft-button-outline"
+                            ><Icon icon="tabler:file-type-doc" /> View resume</a
+                        >
+                    </div>
+                    <a href="#projects" class="profile-hero-work"
+                        >Explore my products <Icon icon="tabler:arrow-down" aria-hidden="true"
                     /></a>
+                    <div class="profile-hero-meta">
+                        <span><Icon icon="tabler:map-pin" aria-hidden="true" /> Philippines · UTC+8</span>
+                        <a href="https://www.linkedin.com/in/jenuelganawed/" target="_blank" rel="noopener noreferrer"
+                            ><Icon icon="tabler:brand-linkedin" aria-hidden="true" /> LinkedIn
+                            <Icon icon="tabler:arrow-up-right" aria-hidden="true"
+                        /></a>
+                    </div>
                 </div>
+                <figure class="profile-hero-portrait">
+                    <div class="profile-hero-photo">
+                        <img
+                            src="/profile_image-640.webp"
+                            srcset="
+                                /profile_image-480.webp  480w,
+                                /profile_image-640.webp  640w,
+                                /profile_image-768.webp  768w,
+                                /profile_image.webp     1024w
+                            "
+                            sizes="(max-width: 700px) 240px, 300px"
+                            width="300"
+                            height="300"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                            alt="Jenuel Ganawed, senior full-stack developer"
+                        />
+                    </div>
+                    <figcaption>Jenuel Ganawed <span>Full-stack / Since 2018</span></figcaption>
+                </figure>
             </div>
-            <figure class="profile-hero-portrait">
-                <div class="profile-hero-photo">
-                    <img
-                        src="/profile_image-640.webp"
-                        srcset="
-                            /profile_image-480.webp  480w,
-                            /profile_image-640.webp  640w,
-                            /profile_image-768.webp  768w,
-                            /profile_image.webp     1024w
-                        "
-                        sizes="(max-width: 700px) 240px, 300px"
-                        width="300"
-                        height="300"
-                        loading="eager"
-                        fetchpriority="high"
-                        decoding="async"
-                        alt="Jenuel Ganawed, senior full-stack developer"
-                    />
-                </div>
-                <figcaption>Jenuel Ganawed <span>Full-stack / Since 2018</span></figcaption>
-            </figure>
-        </div>
-    </section>
-    <div class="craft-marquee" aria-label="Development skills and technologies">
-        <div class="marquee-track">
-            <span v-for="copy in 2" :key="copy" :aria-hidden="copy === 2 ? true : undefined">
-                <template
-                    v-for="tech in [
-                        'Development',
-                        'Laravel',
-                        'Coding',
-                        'Vue',
-                        'Problem Solving',
-                        'TypeScript',
-                        'Web Applications',
-                        'PHP',
-                        'Clean Code',
-                        'PostgreSQL',
-                        'Mobile Development',
-                        'Flutter',
-                        'Building Products',
-                        'Electron',
-                        'Continuous Learning',
-                        'REST APIs',
-                    ]"
-                    :key="tech"
-                    ><b aria-hidden="true">▪</b> {{ tech }}</template
-                >
-            </span>
+        </section>
+        <div class="craft-marquee" aria-label="Development skills and technologies">
+            <div class="marquee-track">
+                <span v-for="copy in 2" :key="copy" :aria-hidden="copy === 2 ? true : undefined">
+                    <template
+                        v-for="tech in [
+                            'Development',
+                            'Laravel',
+                            'Coding',
+                            'Vue',
+                            'Problem Solving',
+                            'TypeScript',
+                            'Web Applications',
+                            'PHP',
+                            'Clean Code',
+                            'PostgreSQL',
+                            'Mobile Development',
+                            'Flutter',
+                            'Building Products',
+                            'Electron',
+                            'Continuous Learning',
+                            'REST APIs',
+                        ]"
+                        :key="tech"
+                        ><b aria-hidden="true">▪</b> {{ tech }}</template
+                    >
+                </span>
+            </div>
         </div>
     </div>
 </template>
 <style scoped lang="scss">
+.hero-screen {
+    min-height: calc(100vh - 48px);
+    min-height: calc(100dvh - 48px);
+    display: flex;
+    flex-direction: column;
+}
+.craft-marquee {
+    flex-shrink: 0;
+}
 .craft-hero {
     width: min(1280px, calc(100% - 80px));
-    min-height: 640px;
+    min-height: 0;
+    flex: 1;
     margin: 0 auto;
     padding: 80px 40px;
     display: grid;
     place-items: center;
-    border-inline: 1px solid var(--craft-line);
 }
 .profile-hero-layout {
     display: grid;
