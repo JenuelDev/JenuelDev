@@ -8,6 +8,12 @@ import { useStore } from "./stores/store";
 
 const store = useStore();
 
+// Mount the incoming route immediately so section links and scroll restoration
+// can resolve their targets while the new page fades into place.
+function finishPageLeave(_element: Element, done: () => void) {
+    done();
+}
+
 onBeforeMount(() => {
     if (localStorage.getItem("showedIntro") == "done") {
         let ext = localStorage.getItem("expy") ? localStorage.getItem("expy") : "";
@@ -47,7 +53,11 @@ onBeforeMount(() => {
 <template>
     <Header />
     <main class="site-main">
-        <RouterView />
+        <RouterView v-slot="{ Component, route }">
+            <Transition name="page" @leave="finishPageLeave">
+                <component :is="Component" :key="route.path" />
+            </Transition>
+        </RouterView>
     </main>
     <Footer />
 </template>
@@ -55,5 +65,22 @@ onBeforeMount(() => {
 <style lang="scss">
 .site-main {
     min-height: 70vh;
+}
+.page-enter-active {
+    transition: opacity 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-enter-from {
+    opacity: 0;
+}
+.page-enter-to {
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    .page-enter-active {
+        transition: none;
+    }
+    .page-enter-from {
+        opacity: 1;
+    }
 }
 </style>
