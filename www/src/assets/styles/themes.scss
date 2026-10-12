@@ -1,3 +1,22 @@
+:root:not([theme]),
+[theme="artcraft"] {
+    --primary: #f2f1ee;
+    --primary-darker: #c9c8c5;
+    --background: #121316;
+    --lightBackground: #191a1e;
+    --nav-bg: #121316;
+    --slate: #808184;
+    --lightSlate: #999a9b;
+    --lightestSlate: #f2f1ee;
+    --white: #f2f1ee;
+    --image-cover: transparent;
+    --liteprimary: #191a1e;
+    --lightestPrimary: #292a2e;
+    --light-navy: #191a1e;
+    --lightest-navy: #292a2e;
+    --navy-shadow: rgba(0, 0, 0, 0.3);
+}
+
 [theme="greenLight"] {
     --primary: #64ffda;
     --image-cover: #64ffda;
@@ -166,7 +185,7 @@
     --profile-gradient-3: #778cf5;
 }
 
-[theme="supportTeal"] {
+[theme="teal"] {
     --primary: #2db3a4;
     --image-cover: #2db3a4;
     --primary-darker: #238b80;

@@ -4,27 +4,27 @@ export default {
     links: [
         {
             link: "https://github.com/BroJenuel/MyPortFolio/tree/master/text-to-speach",
-            icon: 'tabler:brand-github-filled',
-            tooltip: 'Open in Github'
+            icon: "tabler:brand-github-filled",
+            tooltip: "Open in Github",
         },
         {
-            link: "jenuelganawed-texttospeach.netlify.app",
-            icon: 'tabler:external-link',
-            tooltip: 'Open Link'
-        }
+            link: "https://jenuelganawed-texttospeach.netlify.app",
+            icon: "tabler:external-link",
+            tooltip: "Open Link",
+        },
     ],
     techs: [
         {
             name: "html",
-            icon: 'tabler:brand-html5'
+            icon: "tabler:brand-html5",
         },
         {
             name: "javaScript",
-            icon: 'tabler:brand-javascript'
+            icon: "tabler:brand-javascript",
         },
         {
             name: "css",
-            icon: 'tabler:brand-css3'
-        }
-    ]
-}
+            icon: "tabler:brand-css3",
+        },
+    ],
+};

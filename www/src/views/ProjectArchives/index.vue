@@ -1,25 +1,17 @@
 <script setup lang="ts">
-import CodeChallenges from '@/components/CodeChallenges.vue';
+import CraftPage from "@/components/CraftPage.vue";
+import CodeChallenges from "@/components/CodeChallenges.vue";
+import archive from "@/constant/code-challenges-page";
 </script>
-
 <template>
-    <main class="project-archives">
-        <CodeChallenges title="project archives" :limit="0" />
-    </main>
+    <CraftPage
+        label="01 / Project archive"
+        title="Experiments & archive"
+        :description="archive.des"
+        :meta="`${archive.challenges.length} projects & experiments`"
+        flush
+    >
+        <template #title>Experiments <em>&amp; archive.</em></template>
+        <CodeChallenges :limit="0" :show-heading="false" />
+    </CraftPage>
 </template>
-
-<style lang="scss" scoped>
-.project-archives {
-    padding-top: calc(var(--nav-height) + 32px);
-
-    :deep(.code-challenge) {
-        margin-top: 0;
-    }
-}
-
-@media only screen and (max-width: 1186px) {
-    .project-archives {
-        padding-top: 32px;
-    }
-}
-</style>

@@ -51,7 +51,7 @@ onMounted(async () => {
                 <h2
                     class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
                 >
-                    latest articles
+                    Notes <em>from the workbench.</em>
                 </h2>
                 <p class="text-lg leading-7">
                     Recent writing on development, tools, productivity, and lessons from building software.
@@ -147,7 +147,10 @@ onMounted(async () => {
     border-radius: 999px;
     padding: 8px 13px;
     background: color-mix(in srgb, var(--primary) 7%, transparent);
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
 
     &:hover {
         transform: translateY(-2px);
@@ -172,7 +175,9 @@ onMounted(async () => {
     background: color-mix(in srgb, var(--background) 92%, #001e2e);
     color: inherit;
     text-decoration: none;
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
 
     &:hover {
         transform: translateY(-4px);

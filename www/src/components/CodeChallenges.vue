@@ -1,275 +1,193 @@
 <script setup lang="ts">
-import CodeChallenge from '@/constant/code-challenges-page/index';
-import type { CODE_CHALLENGE } from '@/types/type';
-import { Icon } from "@iconify/vue"
-import { computed } from 'vue';
-import { RouterLink } from 'vue-router';
-
-const props = withDefaults(defineProps<{
-    limit?: number;
-    title?: string;
-    description?: string;
-}>(), {
-    limit: 6,
-    title: 'experiments & archive',
-});
-
-const visibleChallenges = computed(() =>
-    props.limit ? CodeChallenge.challenges.slice(0, props.limit) : CodeChallenge.challenges
+import archive from "@/constant/code-challenges-page";
+import type { CODE_CHALLENGE } from "@/types/type";
+import { Icon } from "@iconify/vue";
+import { computed } from "vue";
+const props = withDefaults(
+    defineProps<{ limit?: number; title?: string; description?: string; showHeading?: boolean }>(),
+    {
+        limit: 6,
+        title: "Experiments & archive",
+        showHeading: true,
+    },
 );
-
-const hasMore = computed(() =>
-    props.limit !== undefined && props.limit > 0 && CodeChallenge.challenges.length > props.limit
-);
-
-function openSite(site: string) {
-    window.open(site, '_blank');
-}
-
+const visibleChallenges = computed(() => (props.limit ? archive.challenges.slice(0, props.limit) : archive.challenges));
+const hasMore = computed(() => props.limit > 0 && archive.challenges.length > props.limit);
 function primaryLink(code: CODE_CHALLENGE) {
-    return code.links?.find((link) => link.icon === 'tabler:external-link')?.link ?? code.links?.[0]?.link;
+    return code.links?.find((link) => link.icon === "tabler:external-link")?.link ?? code.links?.[0]?.link;
 }
 </script>
 <template>
-    <section v-scrollanimation class="code-challenge">
-        <h2
-            class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px md:px-10px">
-            {{ title }}
-        </h2>
-        <p class="text-lg md:px-10px w-[100%] leading-7">
-            {{ description ?? CodeChallenge.des }}
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-22px mt-42px">
-            <template v-for="(code, index) in visibleChallenges" :key="index">
-                <div v-scrollanimation :style="'transition-delay:' + index * 100 + 'ms'">
-                    <div class="code-item">
-                        <div class="code-item-inner">
-                            <header class="code-card-header">
-                                <div class="code-card-copy">
-                                    <div class="code-title-row">
-                                        <div class="code-icon-tile" aria-hidden="true">
-                                            <Icon icon="material-symbols:folder-open" />
-                                        </div>
-                                        <h3 class="code-title text-xl font-800">
-                                            <a
-                                                v-if="primaryLink(code)"
-                                                :href="primaryLink(code)"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                {{ code.title }}
-                                            </a>
-                                            <template v-else>{{ code.title }}</template>
-                                        </h3>
-                                    </div>
-                                    <div class="code-description text-base leading-6"
-                                        v-html="code.des"></div>
-                                </div>
-                                <div class="item-links">
-                                    <button
-                                        class="item-links-toggle customTooltip"
-                                        :gloss="link.tooltip"
-                                        v-for="link in code.links"
-                                        :key="link.link"
-                                        type="button"
-                                        @click="openSite(link.link)"
-                                    >
-                                        <Icon :icon="link.icon" />
-                                    </button>
-                                </div>
-                            </header>
-
-                            <footer class="code-techs">
-                                <ul>
-                                    <li v-for="tech in code.techs" :key="tech.name">
-                                        <Icon :icon="tech.icon" />
-                                        {{ tech.name }}
-                                    </li>
-                                </ul>
-                            </footer>
-                        </div>
-                    </div>
+    <section class="code-challenge" aria-label="Archived projects">
+        <header v-if="showHeading" class="archive-heading">
+            <h2>{{ title }}</h2>
+            <p>{{ description ?? archive.des }}</p>
+        </header>
+        <div class="archive-grid">
+            <article v-for="(code, index) in visibleChallenges" :key="code.title" class="archive-card">
+                <div class="archive-card-index">
+                    <span>Project / {{ code.techs[0]?.name || "Experiment" }}</span
+                    ><span>{{ String(index + 1).padStart(2, "0") }}</span>
                 </div>
-            </template>
+                <div class="archive-card-body">
+                    <Icon :icon="code.headIcon || 'tabler:folder'" class="archive-card-icon" aria-hidden="true" />
+                    <h2>
+                        <a
+                            v-if="primaryLink(code)"
+                            :href="primaryLink(code)"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >{{ code.title }}</a
+                        ><template v-else>{{ code.title }}</template>
+                    </h2>
+                    <div class="archive-description" v-html="code.des"></div>
+                    <div class="archive-links">
+                        <a
+                            v-for="link in code.links"
+                            :key="link.link"
+                            :href="link.link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            :aria-label="`${code.title}: ${link.tooltip}`"
+                            ><Icon :icon="link.icon" aria-hidden="true" /> {{ link.tooltip }}
+                            <Icon icon="tabler:arrow-up-right" aria-hidden="true"
+                        /></a>
+                    </div>
+                    <ul class="archive-tech" aria-label="Technology stack">
+                        <li v-for="tech in code.techs" :key="tech.name">{{ tech.name }}</li>
+                    </ul>
+                </div>
+            </article>
         </div>
-        <div v-if="hasMore" class="view-all-wrap">
-            <RouterLink to="/project-archives" class="view-all-btn">
-                <span>View all projects</span>
-                <Icon icon="tabler:arrow-right" />
-            </RouterLink>
-        </div>
+        <router-link v-if="hasMore" to="/project-archives" class="archive-all"
+            >View all projects <Icon icon="tabler:arrow-right"
+        /></router-link>
     </section>
 </template>
-
-<style lang="scss">
-.code-challenge {
-    @apply max-w-[1100px] mx-auto my-100px px-14px;
-
-    .view-all-wrap {
-        @apply flex justify-center mt-42px;
-    }
-
-    .view-all-btn {
-        @apply inline-flex items-center gap-10px px-22px py-12px rounded-8px text-size-15px font-600 no-underline;
-        border: 1px solid color-mix(in srgb, var(--primary) 38%, transparent);
-        color: var(--primary);
-        background: color-mix(in srgb, var(--primary) 6%, transparent);
-        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-
-        svg {
-            @apply w-18px h-18px;
-            transition: transform 0.2s ease;
-        }
-
-        &:hover {
-            transform: translateY(-2px);
-            border-color: color-mix(in srgb, var(--primary) 60%, transparent);
-            background: color-mix(in srgb, var(--primary) 14%, transparent);
-
-            svg {
-                transform: translateX(4px);
-            }
-        }
-    }
-
-    &.a-before-enter {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: 0.3s ease-in;
-    }
-
-    &.a-enter {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-        .code-item {
-            @apply relative rounded-8px px-22px py-18px h-full z-1;
-            border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-            background: color-mix(in srgb, var(--background) 92%, #001e2e);
-            transition: transform 0.25s ease, border-color 0.25s ease;
-            visibility: visible;
-
-            .code-title-row {
-                @apply flex items-center gap-16px mb-14px;
-            }
-
-            .code-icon-tile {
-                @apply grid w-58px h-58px flex-none place-items-center rounded-7px;
-                border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-                background: color-mix(in srgb, var(--background) 84%, #001c2a);
-                color: var(--primary);
-
-                svg {
-                    @apply w-29px h-29px;
-                }
-            }
-
-            .code-item-inner {
-                @apply flex justify-between flex-col h-full min-w-0;
-
-                .code-card-header {
-                    @apply flex flex-col items-stretch justify-between gap-14px;
-                }
-
-                .code-card-copy {
-                    @apply min-w-0;
-                }
-
-                .code-title {
-                    @apply m-0;
-                    color: var(--primary);
-                    line-height: 1.15;
-
-                    a {
-                        @apply no-underline;
-                        color: inherit;
-                        text-decoration-color: color-mix(in srgb, var(--primary) 50%, transparent);
-                        text-underline-offset: 4px;
-                        transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
-
-                        &:hover,
-                        &:focus-visible {
-                            @apply underline;
-                        }
-                    }
-                }
-
-                .code-description {
-                    @apply max-w-760px;
-                    color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
-
-                    p {
-                        @apply m-0;
-                    }
-                }
-
-                .item-links {
-                    @apply inline-flex items-center gap-8px;
-                    color: var(--primary);
-
-                    .item-links-toggle {
-                        @apply grid w-34px h-34px place-items-center rounded-6px cursor-pointer;
-                        border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
-                        background: transparent;
-                        color: var(--primary);
-                        transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-
-                        svg {
-                            @apply w-20px h-20px;
-                        }
-
-                        &:hover {
-                            transform: translateY(-2px);
-                            border-color: color-mix(in srgb, var(--primary) 55%, transparent);
-                            background: color-mix(in srgb, var(--primary) 8%, transparent);
-                        }
-                    }
-                }
-            }
-
-            .code-techs {
-                @apply mt-18px;
-
-                ul {
-                    @apply flex flex-wrap gap-8px p-0 m-0 list-none;
-                }
-
-                li {
-                    @apply inline-flex items-center gap-6px px-9px py-5px rounded-full text-size-13px leading-none;
-                    border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
-                    color: color-mix(in srgb, var(--lightestSlate) 78%, transparent);
-
-                    svg {
-                        color: var(--primary);
-                    }
-                }
-            }
-
-            &:hover {
-                transform: translateY(-4px);
-                border-color: color-mix(in srgb, var(--primary) 42%, transparent);
-            }
-        }
+<style scoped lang="scss">
+.archive-heading {
+    padding: 40px;
 }
-
-@media (max-width: 767px) {
-    .code-challenge {
-        .code-item {
-            @apply p-16px rounded-14px;
-
-            .code-title-row {
-                @apply gap-12px items-start;
-            }
-
-            .code-icon-tile {
-                @apply w-56px h-56px;
-
-                svg {
-                    @apply w-27px h-27px;
-                }
-            }
-        }
+.archive-heading h2 {
+    color: var(--white);
+    font-size: 40px;
+}
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--craft-line);
+    border-bottom: 1px solid var(--craft-line);
+}
+.archive-card {
+    min-width: 0;
+    background: var(--background);
+}
+.archive-card-index {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 28px;
+    border-bottom: 1px solid var(--craft-line);
+    font: 10px var(--craft-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.archive-card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 28px;
+    min-height: 340px;
+    height: calc(100% - 42px);
+}
+.archive-card-icon {
+    color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 26px;
+}
+h2 {
+    margin: 0 0 16px;
+    font: 600 24px/1.2 var(--craft-heading);
+    letter-spacing: -0.035em;
+    color: var(--white);
+    overflow-wrap: anywhere;
+}
+h2 a {
+    color: inherit;
+}
+h2 a:hover {
+    color: var(--primary);
+}
+.archive-description {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    overflow-wrap: anywhere;
+}
+.archive-description :deep(p) {
+    margin: 0;
+}
+.archive-description :deep(a) {
+    color: var(--primary);
+}
+.archive-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: auto;
+    padding-bottom: 24px;
+}
+.archive-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--white);
+    font: 10px var(--craft-mono);
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+.archive-links a:hover {
+    color: var(--primary);
+}
+.archive-links svg {
+    flex-shrink: 0;
+}
+.archive-tech {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    padding: 20px 0 0;
+    margin: 0;
+    border-top: 1px solid var(--craft-line);
+    font: 10px var(--craft-mono);
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.archive-all {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 28px;
+    color: var(--white);
+    font: 11px var(--craft-mono);
+    text-transform: uppercase;
+}
+@media (max-width: 1000px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 600px) {
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+    .archive-card-index,
+    .archive-card-body {
+        padding-inline: 20px;
+    }
+    .archive-card-body {
+        min-height: 0;
     }
 }
 </style>
