@@ -2,11 +2,10 @@
 ::before,
 ::after {
     box-sizing: inherit;
-    outline: none !important;
 }
 
 body {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     letter-spacing: 0.05em;
     line-height: 1.5;
     margin: 0px;
@@ -42,7 +41,7 @@ p {
         color: var(--primary);
 
         &::after {
-            content: '';
+            content: "";
             display: block;
             width: 0%;
             height: 1px;
@@ -58,5 +57,24 @@ p {
                 width: 100%;
             }
         }
+    }
+}
+
+:where(a, button, input, textarea, select, summary):focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}
+html {
+    scroll-padding-top: 100px;
+}
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }

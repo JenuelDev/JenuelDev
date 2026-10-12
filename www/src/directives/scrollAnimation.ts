@@ -1,38 +1,38 @@
-const animatedScrollObserver = new IntersectionObserver(
-  (entries, animatedScrollObserver) => {
+const animatedScrollObserver = new IntersectionObserver((entries, animatedScrollObserver) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("a-enter");
-        animatedScrollObserver.unobserve(entry.target);
-      }
+        if (entry.isIntersecting) {
+            entry.target.classList.add("a-enter");
+            animatedScrollObserver.unobserve(entry.target);
+        }
     });
-  }
-);
+});
 
 const animatedScrollObserverViewFull = new IntersectionObserver(
-  (entries, animatedScrollObserver) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("a-view-enter");
-        animatedScrollObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 1,
-  }
+    (entries, animatedScrollObserver) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("a-view-enter");
+                animatedScrollObserver.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 1,
+    },
 );
 
 export const animationViewFull = {
-  beforeMount(el: any) {
-    el.classList.add("a-view-before-enter");
-    animatedScrollObserverViewFull.observe(el);
-  },
+    beforeMount(el: any) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        el.classList.add("a-view-before-enter");
+        animatedScrollObserverViewFull.observe(el);
+    },
 };
 
 export default {
-  beforeMount(el: any) {
-    el.classList.add("a-before-enter");
-    animatedScrollObserver.observe(el);
-  },
+    beforeMount(el: any) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        el.classList.add("a-before-enter");
+        animatedScrollObserver.observe(el);
+    },
 };

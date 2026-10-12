@@ -1,26 +1,21 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
+import { Icon } from "@iconify/vue";
 
 const navLinks = [
-    { label: 'Experience', href: '/#experience' },
-    { label: 'Featured Work', href: '/#projects' },
-    { label: 'Core Technology', href: '/#technical-skills' },
-    { label: 'About', href: '/#about' },
-    { label: 'Certificates', href: '/certificates' },
+    { label: "Experience", href: "/#experience" },
+    { label: "Featured Work", href: "/#projects" },
+    { label: "Core Technology", href: "/#technical-skills" },
+    { label: "About", href: "/#about" },
+    { label: "Certificates", href: "/certificates" },
 ];
 
-const expertise = [
-    'Full-stack applications',
-    'Backend & APIs',
-    'Frontend engineering',
-    'System maintenance',
-];
+const expertise = ["Full-stack applications", "Backend & APIs", "Frontend engineering", "System maintenance"];
 
 const socials = [
-    { icon: 'tabler:brand-github', href: 'https://github.com/JenuelDev', label: 'GitHub' },
-    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/jenuelganawed/', label: 'LinkedIn' },
-    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/jenueldev/', label: 'Instagram' },
-    { icon: 'tabler:mail', href: 'mailto:me@jenuel.dev', label: 'Email' },
+    { icon: "tabler:brand-github", href: "https://github.com/JenuelDev", label: "GitHub" },
+    { icon: "tabler:brand-linkedin", href: "https://www.linkedin.com/in/jenuelganawed/", label: "LinkedIn" },
+    { icon: "tabler:brand-instagram", href: "https://www.instagram.com/jenueldev/", label: "Instagram" },
+    { icon: "tabler:mail", href: "mailto:me@jenuel.dev", label: "Email" },
 ];
 </script>
 
@@ -33,12 +28,8 @@ const socials = [
                     <div class="footer-logo" aria-label="Jenuel Dev">
                         <Icon icon="tabler:code" />
                     </div>
-                    <p class="footer-tagline">
-                        Laravel&nbsp;•&nbsp;Vue&nbsp;•&nbsp;TypeScript
-                    </p>
-                    <p class="footer-desc">
-                        Senior full-stack developer building and maintaining production systems.
-                    </p>
+                    <p class="footer-tagline">Laravel&nbsp;•&nbsp;Vue&nbsp;•&nbsp;TypeScript</p>
+                    <p class="footer-desc">Senior full-stack developer building and maintaining production systems.</p>
                 </div>
 
                 <!-- Navigate -->
@@ -84,7 +75,7 @@ const socials = [
                         </li>
                         <li>
                             <Icon icon="tabler:clock" />
-                            <span>Usually replies within 24h</span>
+                            <span>Currently employed; open to future opportunities</span>
                         </li>
                     </ul>
                 </div>
@@ -114,11 +105,10 @@ const socials = [
                         <Icon :icon="s.icon" />
                     </a>
                 </div>
-                <p class="footer-copy">
-                    &copy; {{ new Date().getFullYear() }} Jenuel Ganawed. All rights reserved.
-                </p>
+                <p class="footer-copy">&copy; {{ new Date().getFullYear() }} Jenuel Ganawed. All rights reserved.</p>
                 <p class="footer-built">
-                    Built with <Icon icon="tabler:heart" class="footer-heart" /> and lots of <Icon icon="tabler:coffee" />
+                    Built with <Icon icon="tabler:heart" class="footer-heart" /> and lots of
+                    <Icon icon="tabler:coffee" />
                 </p>
             </div>
         </div>
@@ -176,7 +166,9 @@ const socials = [
     .footer-link-item {
         @apply inline-flex items-center gap-10px text-size-15px no-underline;
         color: color-mix(in srgb, var(--lightestSlate) 72%, transparent);
-        transition: color 0.2s ease, gap 0.2s ease;
+        transition:
+            color 0.2s ease,
+            gap 0.2s ease;
         cursor: default;
     }
 
@@ -259,7 +251,10 @@ const socials = [
     border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
     background: color-mix(in srgb, var(--background) 88%, #001e2e);
     color: color-mix(in srgb, var(--lightestSlate) 80%, transparent);
-    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 
     svg {
         @apply w-20px h-20px;

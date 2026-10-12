@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import Experience from '@/constant/experiences/index';
-import { computed } from 'vue';
+import { Icon } from "@iconify/vue";
+import Experience from "@/constant/experiences/index";
 
 interface ExperienceCertificate {
     link: string;
@@ -21,14 +20,12 @@ interface ExperienceItem {
 
 const experiences = Experience as ExperienceItem[];
 
-const yearCount = computed(() => new Date().getFullYear() - 2018);
-
 function getDescriptionPoints(description: string | string[]) {
     return Array.isArray(description) ? description : [description];
 }
 
 function isCurrentRole(exp: ExperienceItem) {
-    return exp.workUntil.toLowerCase().includes('present');
+    return exp.workUntil.toLowerCase().includes("present");
 }
 </script>
 
@@ -43,8 +40,8 @@ function isCurrentRole(exp: ExperienceItem) {
                 professional experience
             </h2>
             <p v-scrollanimation class="experience-intro">
-                {{ yearCount }} years of building and supporting production software, most of it in Laravel and Vue,
-                for teams that needed systems to keep working long after launch.
+                Building and supporting production software since 2018, primarily in Laravel and Vue, for teams that
+                needed systems to keep working long after launch.
             </p>
         </header>
 
@@ -108,7 +105,8 @@ function isCurrentRole(exp: ExperienceItem) {
 
 <style lang="scss" scoped>
 .work-experience {
-    max-width: 900px;
+    width: 100%;
+    max-width: 1200px;
     min-height: 50vh;
     padding-inline: 10px;
 
@@ -157,15 +155,12 @@ function isCurrentRole(exp: ExperienceItem) {
     list-style: none;
 }
 
-/*
- * Each entry is its own segment: a pill centred on the axis with a short rule
- * hanging beneath it, and the copy sitting to one side of that rule.
- */
+/* Alternate entries around the centered timeline, with room for wider text. */
 .experience-item {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
     grid-template-rows: auto auto;
-    column-gap: 56px;
+    column-gap: 40px;
 
     & + .experience-item {
         margin-top: 34px;
@@ -210,8 +205,7 @@ function isCurrentRole(exp: ExperienceItem) {
 .experience-entry {
     grid-column: 3;
     grid-row: 2;
-    justify-self: start;
-    max-width: 360px;
+    min-width: 0;
     padding: 46px 0 44px;
     text-align: left;
 }
@@ -317,15 +311,11 @@ function isCurrentRole(exp: ExperienceItem) {
     }
 }
 
-/* Copy flips to the left of the rule on every other entry. */
 .experience-item.is-flipped .experience-entry {
     grid-column: 1;
-    justify-self: end;
     text-align: right;
 }
 
-/* These entries are right-aligned, so their markers and chips belong on the
-   right too - otherwise the dots float away from the text they belong to. */
 .experience-item.is-flipped {
     .experience-summary li {
         padding-right: 18px;
@@ -394,8 +384,6 @@ function isCurrentRole(exp: ExperienceItem) {
     .experience-entry,
     .experience-item.is-flipped .experience-entry {
         grid-column: 2;
-        justify-self: start;
-        max-width: none;
         padding: 30px 0 32px;
         text-align: left;
     }

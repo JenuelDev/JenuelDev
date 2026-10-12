@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import SvgDecoration from "./../SvgDecoration/SvgDecoration.vue";
-
-const yearCount = computed(() => new Date().getFullYear() - 2018);
 </script>
 
 <template>
@@ -16,10 +13,10 @@ const yearCount = computed(() => new Date().getFullYear() - 2018);
 
         <div v-scrollanimation class="about-body text-lg leading-relaxed max-w-[770px]">
             <p>
-                I'm a senior software developer with
-                <strong>{{ yearCount }}+ years of experience</strong> building and maintaining web, mobile, and
-                desktop applications. My primary stack is Laravel, Vue, TypeScript, PHP, MySQL, and PostgreSQL, with
-                production experience in Flutter, Electron, Node.js, and AI-assisted development workflows.
+                I'm a senior software developer with professional experience
+                <strong>since 2018</strong> building and maintaining web, mobile, and desktop applications. My primary
+                stack is Laravel, Vue, TypeScript, PHP, MySQL, and PostgreSQL, with production experience in Flutter,
+                Electron, Node.js, and AI-assisted development workflows.
             </p>
             <p>
                 I started in software after a career shift from criminology to Information Technology in 2016. Since

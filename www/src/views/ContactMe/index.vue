@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import SvgDecoration from '@/components/SvgDecoration/SvgDecoration.vue';
-import Form from './../../components/Form';
+import { career } from "@/constant/career";
+import { ref } from "vue";
+import SvgDecoration from "@/components/SvgDecoration/SvgDecoration.vue";
+import Form from "./../../components/Form";
 
 const errorModal = ref(false);
-const errorTitle = ref('');
-const errorMessage = ref('');
+const errorTitle = ref("");
+const errorMessage = ref("");
 
 function onSendError(err: any) {
-    errorTitle.value = 'Send Error';
+    errorTitle.value = "Send Error";
     // try to extract a useful message from common error shapes
     try {
         if (!err) {
-            errorMessage.value = 'Unknown error';
-        } else if (typeof err === 'string') {
+            errorMessage.value = "Unknown error";
+        } else if (typeof err === "string") {
             errorMessage.value = err;
         } else if (err.text) {
             // emailjs errors often put the message in `text`
@@ -22,7 +23,7 @@ function onSendError(err: any) {
             errorMessage.value = err.message;
         } else if (err.response && err.response.data) {
             const data = err.response.data;
-            errorMessage.value = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+            errorMessage.value = typeof data === "string" ? data : JSON.stringify(data, null, 2);
         } else if (err.response && err.response.statusText) {
             errorMessage.value = err.response.statusText;
         } else {
@@ -34,19 +35,31 @@ function onSendError(err: any) {
     }
     errorModal.value = true;
 }
-
 </script>
 <template>
-    <section v-scrollanimation
-        class="contact-me max-w-[1000px] lg:mt-130px mx-auto text-center flex flex-col items-center relative">
+    <section
+        v-scrollanimation
+        class="contact-me max-w-[1000px] lg:mt-130px mx-auto text-center flex flex-col items-center relative"
+    >
         <h1
-            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px">
-            Contact me</h1>
+            class="lg:text-size-52px md:text-size-44px text-size-36px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px md:px-10px"
+        >
+            Contact me
+        </h1>
         <p
-            class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed">
-            I'm open to fully remote senior full-stack roles, particularly Laravel and Vue work. If you're hiring, or
-            you have a question about anything I've built, send me a message using the form below.
+            class="md:text-size-24px text-size-20px md:px-10px w-[100%] max-w-[770px] md:leading-relaxed leading-relaxed"
+        >
+            {{ career.availability }}. My focus is {{ career.focus }}. Share the role, company, team, and technical
+            challenges so we can discuss the fit.
         </p>
+        <div class="contact-direct">
+            <a :href="career.emailHref">Email me@jenuel.dev</a>
+            <a href="https://www.linkedin.com/in/jenuelganawed/" target="_blank" rel="noopener noreferrer"
+                >Connect on LinkedIn</a
+            >
+            <a href="/Jenuel Ganawed - Resume.pdf" target="_blank" rel="noopener noreferrer">View resume</a>
+            <p>Philippines · UTC+8. Prefer a form? You can also send a message below.</p>
+        </div>
         <div v-scrollanimation class="contact-me-form max-w-[700px] w-[100%] mt-30px mb-100px">
             <Form @send-error="onSendError" />
         </div>
@@ -61,9 +74,12 @@ function onSendError(err: any) {
         </div>
         <SvgDecoration
             classNames="absolute md:visible invisible left-[-50px] bottom-[80px] transform rotate-[-180deg] fill-[var(--primary)] opacity-50"
-            :type="1" />
-        <SvgDecoration classNames="absolute md:right-0 md:visible invisible z-20 fill-[var(--primary)] opacity-50"
-            :type="2" />
+            :type="1"
+        />
+        <SvgDecoration
+            classNames="absolute md:right-0 md:visible invisible z-20 fill-[var(--primary)] opacity-50"
+            :type="2"
+        />
     </section>
 </template>
 
@@ -126,6 +142,23 @@ function onSendError(err: any) {
 </style>
 
 <style scoped>
+.contact-direct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+    margin-top: 24px;
+}
+.contact-direct a {
+    color: var(--primary);
+    padding: 12px 0;
+    font-weight: 600;
+}
+.contact-direct p {
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+}
 .error-modal-overlay {
     position: fixed;
     inset: 0;
@@ -142,7 +175,7 @@ function onSendError(err: any) {
     width: 90%;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 .close-button {
@@ -159,7 +192,7 @@ function onSendError(err: any) {
     margin: 0 0 10px 0;
 }
 .error-message {
-    background: rgba(0,0,0,0.04);
+    background: rgba(0, 0, 0, 0.04);
     padding: 10px;
     border-radius: 6px;
     white-space: pre-wrap;

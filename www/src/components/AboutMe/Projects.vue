@@ -1,460 +1,290 @@
 <script setup lang="ts">
-import CodeChallenge from "@/components/CodeChallenges.vue";
 import Project from "@/constant/projects";
-import { useStore } from "@/stores/store";
-import { onMounted } from "vue";
 import { Icon } from "@iconify/vue";
-
-const store = useStore();
-onMounted(() => {
-    store.workShow = true;
-});
-
-const works = Project;
-
-function openSite(site: string) {
-    window.open(site, "_blank");
-}
-
-const techIconMap: Record<string, string> = {
-    electron: 'mdi:electron-framework',
-    flutter: 'vscode-icons:file-type-flutter',
-    dart: 'vscode-icons:file-type-dartlang',
-    android: 'logos:android-icon',
-    ios: 'mdi:apple',
-    sqlite: 'vscode-icons:file-type-sqlite',
-    'naive ui': 'logos:naiveui',
-    naiveui: 'logos:naiveui',
-    vue: 'material-icon-theme:vue',
-    vue3: 'material-icon-theme:vue',
-    vuejs: 'material-icon-theme:vue',
-    nuxt: 'vscode-icons:file-type-nuxt',
-    'nuxt js': 'vscode-icons:file-type-nuxt',
-    react: 'vscode-icons:file-type-reactjs',
-    javascript: 'skill-icons:javascript',
-    typescript: 'vscode-icons:file-type-typescript-official',
-    firebase: 'logos:firebase-icon',
-    unocss: 'material-icon-theme:unocss',
-    windicss: 'material-icon-theme:windicss',
-    tailwindcss: 'devicon:tailwindcss',
-    vuepress: 'material-icon-theme:vue',
-    api: 'tabler:api',
-    pwa: 'tabler:device-mobile-check',
-    'html/css': 'skill-icons:html',
-    html: 'skill-icons:html',
-    css: 'skill-icons:css',
-    sass: 'skill-icons:sass',
-    php: 'skill-icons:php-dark',
-    laravel: 'material-icon-theme:laravel',
-    nodejs: 'material-icon-theme:nodejs',
-    mongodb: 'skill-icons:mongodb',
-    mysql: 'skill-icons:mysql-light',
-};
-
-function getTechIcon(tech: string): string {
-    return techIconMap[tech.toLowerCase()] ?? 'tabler:code';
-}
-
 </script>
 <template>
-    <section id="projects" v-scrollanimation class="my-work mx-auto max-w-900px px-10px mb-90px">
+    <section id="projects" class="selected-work mx-auto max-w-900px px-10px mb-90px" aria-labelledby="projects-heading">
         <h2
+            id="projects-heading"
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
         >
-            featured work
+            products i've built
         </h2>
-        <p class="text-lg leading-7">
-            Products I own end to end, from architecture and backend through to the apps people install. They are the
-            clearest evidence of how I design, ship, and keep a system running.
+        <p class="section-intro">
+            Independent apps I design, build, and maintain across web, mobile, and desktop.
         </p>
-        <div style="margin-top: 20px">
-            <template v-for="(work, i) in works.works" :key="i">
-                <div v-scrollanimation class="work-info mx-0 md:my-30 my-1" style="transition-delay: 500ms">
-                    <div class="work-info-details" :class="(i as number) % 2 == 0 ? 'left-content' : 'right-content'">
-                        <div class="project-header">
-                            <img
-                                v-if="work.logo"
-                                class="project-logo"
-                                loading="lazy"
-                                :src="work.logo"
-                                :alt="`${work.title} logo`"
-                            />
-                            <div class="project-heading">
-                                <p class="project-overline text-[var(--primary)] font-600">
-                                    {{ work.overline }}
-                                    <span v-if="work.platforms?.length" class="project-platforms">
-                                        {{ work.platforms.join(' · ') }}
-                                    </span>
-                                </p>
-                                <a
-                                    class="project-title-link"
-                                    :href="work.imageLink"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <h3 class="project-title text-xl font-700">{{ work.title }}</h3>
-                                </a>
-                            </div>
+        <article v-for="work in Project.works" :id="work.id" :key="work.id" class="case-study">
+            <div class="project-layout">
+                <div class="project-intro">
+                    <header class="project-heading">
+                        <img :src="work.logo" alt="" loading="lazy" width="56" height="56" />
+                        <div>
+                            <p class="project-overline">{{ work.overline }} · {{ work.platforms.join(" / ") }}</p>
+                            <h3>{{ work.title }}</h3>
                         </div>
-                        <div class="info-des-container">
-                            <p v-html="work.des"></p>
-                            <p v-if="work.role" class="project-role">
-                                <span class="project-role-label">My role</span>
-                                {{ work.role }}
-                            </p>
-                            <ul class="info-tech-list" :class="(i as number) % 2 == 0 ? '' : 'work-links-right'">
-                                <li v-for="tech in work.techs" :key="tech">
-                                    <Icon :icon="getTechIcon(tech)" class="tech-icon" />
-                                    {{ tech }}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="work-info-image" :class="(i as number) % 2 == 0 ? 'right-image' : 'left-image'">
-                        <div class="work-info-image-link" @click="openSite(work.imageLink)">
-                            <div class="image-wrapping">
-                                <div class="front-filter"></div>
-                                <img loading="lazy" :src="work.img" :alt="`${work.title} - Image`" />
-                            </div>
-                        </div>
+                    </header>
+                    <p class="project-summary">{{ work.summary }}</p>
+                    <div class="project-links">
+                        <a
+                            :href="work.imageLink"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            :aria-label="'Visit ' + work.title + ' product website'"
+                        >
+                            {{ work.links.find((link) => link.link === work.imageLink)?.tooltip || "Visit product" }}
+                            <Icon icon="tabler:arrow-up-right" aria-hidden="true" />
+                        </a>
+                        <a
+                            v-for="link in work.links.filter((link) => link.link !== work.imageLink)"
+                            :key="link.link"
+                            :href="link.link"
+                            :target="link.link.startsWith('ms-windows-store:') ? undefined : '_blank'"
+                            rel="noopener noreferrer"
+                            :aria-label="work.title + ': ' + link.tooltip"
+                        >
+                            {{ link.tooltip === "View source on GitHub" ? "View source" : link.tooltip }}
+                            <Icon :icon="link.icon || 'tabler:brand-github'" aria-hidden="true" />
+                        </a>
                     </div>
                 </div>
-            </template>
-        </div>
+                <a
+                    :href="work.imageLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-screenshot"
+                    :aria-label="'Visit ' + work.title + ' product website'"
+                >
+                    <img :src="work.img" :alt="work.title + ' application preview'" loading="lazy" />
+                </a>
+            </div>
+            <ul class="project-features" aria-label="Product capabilities">
+                <li v-for="feature in work.features" :key="feature.title">
+                    <Icon :icon="feature.icon" class="feature-icon" aria-hidden="true" />
+                    <h4>{{ feature.title }}</h4>
+                    <p>{{ feature.description }}</p>
+                </li>
+            </ul>
+            <div class="project-contribution">
+                <p>{{ work.role }}</p>
+            </div>
+            <ul class="project-tech" aria-label="Technology stack">
+                <li v-for="tech in work.techs" :key="tech">{{ tech }}</li>
+            </ul>
+            <details class="project-architecture">
+                <summary>Explore the architecture <Icon icon="tabler:chevron-down" aria-hidden="true" /></summary>
+                <div class="architecture-content">
+                    <h4>The challenge</h4>
+                    <p>{{ work.problem }}</p>
+                    <h4>How it is built</h4>
+                    <p>{{ work.implementation }}</p>
+                    <a
+                        :href="
+                            'mailto:me@jenuel.dev?subject=' +
+                            encodeURIComponent('Architecture discussion: ' + work.title)
+                        "
+                    >
+                        Discuss the architecture <Icon icon="tabler:mail" aria-hidden="true" />
+                    </a>
+                </div>
+            </details>
+        </article>
+        <router-link to="/project-archives" class="archive-link"
+            >View more projects and open-source work <span aria-hidden="true">→</span></router-link
+        >
     </section>
-    <CodeChallenge />
 </template>
-
-<style lang="scss">
-.my-work {
-    &.a-before-enter {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: 0.3s ease-in;
+<style scoped lang="scss">
+.selected-work {
+    letter-spacing: 0;
+}
+.section-intro {
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+.case-study {
+    margin: 0 0 28px;
+    padding: 28px;
+    border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+    border-radius: 16px;
+    background: var(--lightBackground);
+}
+.project-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    img {
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+        border-radius: 12px;
+        flex-shrink: 0;
     }
-
-    &.a-enter {
-        opacity: 1;
-        transform: translateY(0);
+    h3 {
+        margin: 0;
+        color: var(--lightestSlate);
+        font-size: 28px;
     }
-
-    .work-info {
-        visibility: visible;
-        opacity: 1;
-        display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(12, 1fr);
-        -webkit-box-align: center;
+}
+.project-overline {
+    color: var(--primary);
+    font-size: 13px;
+    margin: 0 0 4px;
+}
+.project-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 28px;
+    align-items: center;
+}
+.project-summary {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 24px;
+}
+.project-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 24px 0;
+    margin: 28px 0 24px;
+    list-style: none;
+    border-top: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+    li {
+        min-width: 0;
+    }
+}
+.feature-icon {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+.case-study h4 {
+    color: var(--lightestSlate);
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+.project-features p,
+.project-contribution p,
+.architecture-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+}
+.project-screenshot {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    li {
+        padding: 5px 10px;
+        border-radius: 6px;
+        background: color-mix(in srgb, var(--primary) 9%, transparent);
+        color: var(--lightestSlate);
+        font-size: 13px;
+    }
+}
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    a {
+        display: inline-flex;
         align-items: center;
+        gap: 6px;
+        min-height: 44px;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        text-underline-offset: 4px;
 
-        &.a-before-enter {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: 0.2s ease-in-out 400ms;
-        }
-
-        &.a-enter {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .left-content {
-            position: relative;
-            grid-area: 2 / 2 / 1 / 7;
-        }
-
-        .right-image {
-            position: relative;
-            grid-area: 1/6/-1/-1;
-        }
-
-        .right-content {
-            position: relative;
-            grid-area: 1/7/-1/-2;
-            text-align: right;
-
-            .project-header {
-                flex-direction: row-reverse;
-            }
-        }
-
-        .left-image {
-            position: relative;
-            grid-area: 1 / 1 / 1 / 8;
-        }
-
-        .work-info-details {
-            .project-header {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                margin: 0 0 18px;
-            }
-
-            .project-logo {
-                height: 72px;
-                width: auto;
-                border-radius: 16px;
-                flex-shrink: 0;
-                vertical-align: middle;
-            }
-
-            .project-heading {
-                min-width: 0;
-            }
-
-            .project-overline {
-                margin: 0 0 6px;
-                letter-spacing: 0;
-            }
-
-            .project-title {
-                margin: 0;
-                color: inherit;
-                letter-spacing: 0;
-                line-height: 1.15;
-            }
-
-            .project-title-link {
-                display: inline-block;
-                border-radius: 3px;
-                color: color-mix(in srgb, var(--lightestSlate) 94%, transparent);
-                text-decoration: none;
-                transition: color 0.2s ease;
-
-                &:hover,
-                &:focus-visible {
-                    color: var(--primary);
-                }
-
-                &:focus-visible {
-                    outline: 2px solid var(--primary);
-                    outline-offset: 4px;
-                }
-            }
-
-            .project-platforms {
-                display: inline-block;
-                margin-left: 8px;
-                padding-left: 9px;
-                border-left: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
-                color: color-mix(in srgb, var(--lightestSlate) 62%, transparent);
-                font-size: 13px;
-                font-weight: 500;
-            }
-
-            .project-role {
-                margin: 0 0 18px !important;
-                font-size: 14px;
-                line-height: 1.55;
-            }
-
-            .project-role-label {
-                display: block;
-                margin-bottom: 3px;
-                color: var(--primary);
-                font-size: 12px;
-                font-weight: 700;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-            }
-
-            .info-des-container {
-                position: relative;
-                z-index: 10;
-                border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-                border-radius: 8px;
-                padding: 20px;
-                background: color-mix(in srgb, var(--background) 92%, #001e2e);
-                color: color-mix(in srgb, var(--lightestSlate) 76%, transparent);
-                line-height: 1.55;
-
-                p {
-                    margin: 0 0 18px;
-                }
-            }
-
-            .info-tech-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                margin: 0 0 14px;
-                padding: 0;
-                list-style: none;
-
-                li {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 6px;
-                    padding: 5px 11px;
-                    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-                    border-radius: 999px;
-                    background: color-mix(in srgb, var(--primary) 6%, transparent);
-                    color: color-mix(in srgb, var(--lightestSlate) 82%, transparent);
-                    font-size: 13px;
-                    white-space: nowrap;
-                    line-height: 1;
-
-                    .tech-icon {
-                        width: 15px;
-                        height: 15px;
-                        flex-shrink: 0;
-                    }
-                }
-
-                &.work-links-right {
-                    justify-content: flex-end;
-                }
-            }
-
-            .work-links {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-
-                &.work-links-right {
-                    justify-content: flex-end;
-                }
-
-                .work-links-toggle {
-                    display: grid;
-                    width: 34px;
-                    height: 34px;
-                    place-items: center;
-                    border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
-                    border-radius: 6px;
-                    background: transparent;
-                    color: var(--primary);
-                    cursor: pointer;
-                    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-
-                    svg {
-                        width: 18px;
-                        height: 18px;
-                    }
-
-                    &:hover {
-                        transform: translateY(-2px);
-                        border-color: color-mix(in srgb, var(--primary) 55%, transparent);
-                        background: color-mix(in srgb, var(--primary) 8%, transparent);
-                    }
-                }
-            }
-        }
-
-        .work-info-image {
-            transition: var(--transition);
-
-            .work-info-image-link {
-                width: 90%;
-                background-color: var(--image-cover);
-                border-radius: var(--border-radius);
-                vertical-align: middle;
-                cursor: pointer;
-                transition: 0.25s !important;
-
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    top: 0px;
-                    left: 0px;
-                    right: 0px;
-                    bottom: 0px;
-                    z-index: 3;
-                    transition: var(--transition);
-                    background-color: var(--navy);
-                    mix-blend-mode: screen;
-                }
-
-                .image-wrapping {
-                    position: relative;
-                    overflow: hidden;
-                    border-radius: var(--border-radius);
-                    mix-blend-mode: multiply;
-                    filter: grayscale(100%) contrast(1) brightness(90%);
-
-                    .front-filter {
-                        width: 100%;
-                        padding-bottom: 62.2857%;
-                    }
-
-                    img {
-                        position: absolute;
-                        top: 0px;
-                        left: 0px;
-                        height: 100%;
-                        object-fit: cover;
-                        object-position: center center;
-                        vertical-align: middle;
-                    }
-                }
-
-                &:hover {
-                    background-color: rgba(0, 0, 0, 0);
-
-                    .image-wrapping {
-                        filter: grayscale(0%) contrast(1) brightness(90%);
-                    }
-                }
-            }
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
         }
     }
 }
-
-@media only screen and (max-width: 768px) {
-    .my-work {
-        padding-inline: 10px;
-
-        .work-info {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(12, 1fr);
-            -webkit-box-align: center;
-            align-items: center;
-
-            .left-content {
-                grid-column: 1 / -1;
-                padding: 40px 40px 30px;
-                z-index: 5;
-            }
-
-            .right-image {
-                grid-column: 1 / -1;
-                height: 100%;
-                opacity: 0.25;
-            }
-
-            .right-content {
-                grid-column: 1 / -1;
-                padding: 40px 40px 30px;
-                z-index: 5;
-                text-align: left;
-
-                .project-header {
-                    flex-direction: row;
-                }
-
-                .info-tech-list,
-                .work-links {
-                    justify-content: flex-start !important;
-                }
-            }
-
-            .left-image {
-                grid-column: 1 / -1;
-                height: 100%;
-                opacity: 0.25;
-            }
-
-            .work-info-details {
-                .info-des-container {
-                    padding: 18px;
-                    line-height: 1.5;
-                }
-            }
+.case-study a:focus-visible,
+.project-architecture summary:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 5px;
+}
+.project-architecture {
+    border-top: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+    summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 48px;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        list-style: none;
+        &::-webkit-details-marker {
+            display: none;
         }
+    }
+    &[open] summary svg {
+        transform: rotate(180deg);
+    }
+}
+.architecture-content {
+    padding: 8px 0;
+    p {
+        margin-bottom: 20px;
+    }
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 44px;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+.archive-link {
+    color: var(--primary);
+    display: inline-block;
+    padding: 12px 0;
+}
+@media (max-width: 768px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+    }
+    .case-study {
+        padding: 20px;
+    }
+}
+@media (max-width: 425px) {
+    .project-features {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .case-study {
+        padding: 16px;
+    }
+    .project-heading h3 {
+        font-size: 23px;
     }
 }
 </style>

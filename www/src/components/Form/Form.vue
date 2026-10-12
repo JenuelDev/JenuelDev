@@ -38,8 +38,8 @@ const alertSet = ({ title, description, type, show }: any) => {
 const validateForm = async (sentSuccess = false) => {
     if (sentSuccess === true) {
         alertSet({
-            title: `Successfully Sent! I'll Check them later. 😁👍`,
-            description: `It seams that your message was send successfuly. I'm not online always but I will definitely check your message when I go online.`,
+            title: `Message sent`,
+            description: `Thank you for getting in touch. I will review your message and reply by email.`,
             type: "success",
             show: true,
         });
@@ -52,8 +52,8 @@ const validateForm = async (sentSuccess = false) => {
 
     if (checkProperties() === true) {
         alertSet({
-            title: "Some Fields Are Empty 😢😭📧",
-            description: "Sorry about that, it seems that there are empty fields. Please fill them all out.",
+            title: "Please complete all fields",
+            description: "Include your name, email address, subject, and message.",
             type: "error",
             show: true,
         });
@@ -62,8 +62,8 @@ const validateForm = async (sentSuccess = false) => {
     }
     if (validateEmail(form.email) === false) {
         alertSet({
-            title: "Oops! Invalid Email 😢😭📧",
-            description: "Sorry about that, it seems that you have entered a wrong email format.",
+            title: "Check your email address",
+            description: "Enter a valid email address so I can reply.",
             type: "error",
             show: true,
         });
@@ -100,15 +100,12 @@ async function sendEmail() {
                         // ignore if emit isn't available for some reason
                     }
 
-                    if (error.response && error.response.status == 500) {
-                        alertSet({
-                            title: "Oops! Email Does not Exist! 😢😭📧",
-                            description:
-                                "Sorry about that, it seems that you have entered a wrong email, I cant find it anywhere.",
-                            type: "error",
-                            show: true,
-                        });
-                    }
+                    alertSet({
+                        title: "Message could not be sent",
+                        description: "Please try again or email me directly at me@jenuel.dev.",
+                        type: "error",
+                        show: true,
+                    });
                 },
             );
     } else {
@@ -122,31 +119,57 @@ async function sendEmail() {
             <Alert :show="alertShow" :description="alertDescription" :type="alertType" :title="alertTitle" />
             <div class="flex sm:flex-row flex-col text-left items-center gap-5 mb-5">
                 <div class="flex-1 w-full">
-                    <label>Name</label><br />
-                    <input v-model="form.name" type="text" placeholder="ex. Jenuel Dev"
-                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full" />
+                    <label for="contact-name">Name</label><br />
+                    <input
+                        id="contact-name"
+                        autocomplete="name"
+                        v-model="form.name"
+                        type="text"
+                        placeholder="ex. Jenuel Dev"
+                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-[var(--lightestSlate)] py-3 px-5 w-full"
+                    />
                 </div>
                 <div class="flex-1 w-full">
-                    <label>Email</label><br />
-                    <input v-model="form.email" type="email" placeholder="ex. me@jenuel.dev"
-                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full" />
+                    <label for="contact-email">Email</label><br />
+                    <input
+                        id="contact-email"
+                        autocomplete="email"
+                        v-model="form.email"
+                        type="email"
+                        placeholder="ex. me@jenuel.dev"
+                        class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-[var(--lightestSlate)] py-3 px-5 w-full"
+                    />
                 </div>
             </div>
             <div class="text-left mb-5">
-                <label>Subject</label>
-                <input v-model="form.subject" type="text" placeholder="What is this message about?"
-                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full" />
+                <label for="contact-subject">Subject</label>
+                <input
+                    id="contact-subject"
+                    v-model="form.subject"
+                    type="text"
+                    placeholder="What is this message about?"
+                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-[var(--lightestSlate)] py-3 px-5 w-full"
+                />
             </div>
             <div class="text-left">
-                <label>Message</label><br />
-                <textarea v-model="form.message" name="msg" placeholder="Let us know what’s on your mind." rows="8"
-                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-amber-1 py-3 px-5 w-full"></textarea>
+                <label for="contact-message">Message</label><br />
+                <textarea
+                    id="contact-message"
+                    v-model="form.message"
+                    name="msg"
+                    placeholder="Tell me about the role, team, and technical challenges."
+                    rows="8"
+                    class="rounded-1 border-[var(--lightBackground)] bg-[var(--lightBackground)] text-[var(--lightestSlate)] py-3 px-5 w-full"
+                ></textarea>
             </div>
             <div class="mt-10px">
-                <button type="button"
+                <button
+                    type="button"
                     class="bg-[var(--primary)] px-25px py-10px rounded-md text-[var(--background)] font-600 opacity-90 hover:opacity-100 w-[100%]"
-                    :class="{ 'opacity-50 hover:opacity-50 cursor-not-allowed': sending }" @click="sendEmail()"
-                    :disabled="sending">
+                    :class="{ 'opacity-50 hover:opacity-50 cursor-not-allowed': sending }"
+                    @click="sendEmail()"
+                    :disabled="sending"
+                >
                     <p style="margin: 0">{{ sending ? "Sending..." : "Send" }}</p>
                 </button>
             </div>
