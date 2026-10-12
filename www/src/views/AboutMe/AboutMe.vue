@@ -9,6 +9,7 @@ import Projects from "@/components/AboutMe/Projects.vue";
 import Achievements from "@/components/AboutMe/Achievements.vue";
 import LatestArticles from "@/components/AboutMe/LatestArticles.vue";
 import CtaSection from "@/components/AboutMe/CtaSection.vue";
+import ScrollSectionRail from "@/components/ScrollSectionRail.vue";
 
 const sectionLinks = [
     { id: "projects", label: "Selected work" },
@@ -21,22 +22,8 @@ const sectionLinks = [
     { id: "contact", label: "Get in touch" },
 ];
 const activeSection = ref("");
-const sectionMenuOpen = ref(false);
-const sectionNav = ref<HTMLElement | null>(null);
-const sectionMenuButton = ref<HTMLButtonElement | null>(null);
 let sections: HTMLElement[] = [];
 let scrollFrame = 0;
-
-function closeSectionMenu() {
-    if (sectionMenuOpen.value) sectionMenuButton.value?.focus();
-    sectionMenuOpen.value = false;
-}
-
-function handleOutsidePointer(event: PointerEvent) {
-    if (event.target instanceof Node && !sectionNav.value?.contains(event.target)) {
-        sectionMenuOpen.value = false;
-    }
-}
 
 function updateActiveSection() {
     scrollFrame = 0;
@@ -60,13 +47,11 @@ onMounted(() => {
     updateActiveSection();
     window.addEventListener("scroll", scheduleSectionUpdate, { passive: true });
     window.addEventListener("resize", scheduleSectionUpdate);
-    document.addEventListener("pointerdown", handleOutsidePointer);
 });
 
 onUnmounted(() => {
     window.removeEventListener("scroll", scheduleSectionUpdate);
     window.removeEventListener("resize", scheduleSectionUpdate);
-    document.removeEventListener("pointerdown", handleOutsidePointer);
     window.cancelAnimationFrame(scrollFrame);
 });
 </script>
@@ -81,36 +66,7 @@ onUnmounted(() => {
         <LatestArticles />
         <Achievements />
         <CtaSection />
-        <nav
-            ref="sectionNav"
-            class="craft-section-nav"
-            :class="{ 'is-open': sectionMenuOpen }"
-            aria-label="Page sections"
-            @keydown.esc.prevent="closeSectionMenu"
-        >
-            <button
-                ref="sectionMenuButton"
-                class="craft-section-toggle"
-                type="button"
-                :aria-expanded="sectionMenuOpen"
-                aria-controls="section-navigation-links"
-                @click="sectionMenuOpen = !sectionMenuOpen"
-            >
-                On this page <span aria-hidden="true">{{ sectionMenuOpen ? "−" : "+" }}</span>
-            </button>
-            <div id="section-navigation-links" class="craft-section-links">
-                <router-link
-                    v-for="section in sectionLinks"
-                    :key="section.id"
-                    :to="{ path: '/', hash: `#${section.id}` }"
-                    :class="{ 'is-current-section': activeSection === section.id }"
-                    :aria-current="activeSection === section.id ? 'location' : null"
-                    @click="closeSectionMenu"
-                >
-                    {{ section.label }}
-                </router-link>
-            </div>
-        </nav>
+        <ScrollSectionRail :sections="sectionLinks" :active-section="activeSection" />
     </div>
 </template>
 <style lang="scss">

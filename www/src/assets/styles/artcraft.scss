@@ -502,40 +502,6 @@ button {
     font: 10px var(--craft-mono);
     text-transform: uppercase;
 }
-.craft-section-nav {
-    position: fixed;
-    right: 28px;
-    bottom: 28px;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.craft-section-toggle {
-    display: none;
-}
-.craft-section-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.craft-section-nav a {
-    color: var(--slate);
-    font: 600 15px/1.6 var(--craft-heading);
-    text-transform: uppercase;
-    transform-origin: right center;
-    transition:
-        color 240ms ease,
-        transform 240ms ease;
-}
-.craft-section-nav a:hover,
-.craft-section-nav a:focus-visible,
-.craft-section-nav a.is-current-section {
-    color: var(--white);
-}
-.craft-section-nav a.is-current-section {
-    transform: scale(1.12);
-}
 .craft-footer {
     border-top: 1px solid var(--craft-line);
 }
@@ -595,48 +561,6 @@ button {
 @keyframes marquee {
     to {
         transform: translateX(-50%);
-    }
-}
-@media (min-width: 1500px) {
-    .craft-section-nav {
-        right: 58px;
-    }
-}
-@media (max-width: 1839px), (max-height: 500px) {
-    .craft-section-nav {
-        right: 20px;
-        bottom: 20px;
-    }
-    .craft-section-toggle {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 12px 16px;
-        border: 1px solid var(--craft-line);
-        background: var(--background);
-        color: var(--white);
-        font: 11px var(--craft-mono);
-        text-transform: uppercase;
-        cursor: pointer;
-    }
-    .craft-section-links {
-        display: none;
-        position: absolute;
-        right: 0;
-        bottom: calc(100% + 8px);
-        min-width: 220px;
-        max-height: calc(100dvh - 140px);
-        overflow-y: auto;
-        padding: 16px 24px;
-        border: 1px solid var(--craft-line);
-        background: var(--background);
-        box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
-    }
-    .craft-section-nav.is-open .craft-section-links {
-        display: flex;
-    }
-    .craft-section-links a {
-        line-height: 2;
     }
 }
 @media (max-width: 1100px) {
