@@ -127,7 +127,7 @@ const skillGroups = [
 </script>
 
 <template>
-    <div id="technical-skills" class="modal-window pt-20">
+    <div class="modal-window">
         <div class="modal-window-content">
             <transition name="modal">
                 <div class="box" v-show="dialog">
@@ -168,26 +168,21 @@ const skillGroups = [
             </div>
         </li>
     </ul>
-    <section class="flex flex-col w-[100%] max-w-900px visible opacity-100 z-10 px-10px mx-auto mb-90px">
+    <section
+        id="technical-skills"
+        class="flex flex-col w-[100%] max-w-900px visible opacity-100 z-10 px-10px mx-auto mb-90px"
+    >
         <h2
             v-scrollanimation
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mt-10px mb-15px"
         >
-            core technology
+            The tools <em>behind the work.</em>
         </h2>
-        <p
-            v-scrollanimation
-            class="text-lg w-[100%] max-w-[770px] leading-7"
-        >
+        <p v-scrollanimation class="text-lg w-[100%] max-w-[770px] leading-7">
             Grouped by how deeply I actually work with each one, rather than everything I have ever touched.
         </p>
         <div class="technical-skills-grid grid grid-cols-1 gap-22px mt-42px">
-            <div
-                v-scrollanimation
-                class="technical-skill-card"
-                v-for="group in skillGroups"
-                :key="group.title"
-            >
+            <div v-scrollanimation class="technical-skill-card" v-for="group in skillGroups" :key="group.title">
                 <div class="technical-skill-card-header">
                     <div class="technical-skill-icon">
                         <Icon :icon="group.icon" />
@@ -232,7 +227,9 @@ const skillGroups = [
     border-radius: 8px;
     padding: 22px;
     background: color-mix(in srgb, var(--background) 92%, #001e2e);
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
 
     &:hover {
         transform: translateY(-4px);
@@ -307,7 +304,10 @@ const skillGroups = [
     cursor: pointer;
     font: inherit;
     line-height: 1;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
 
     &:hover {
         border-color: color-mix(in srgb, var(--primary) 45%, transparent);

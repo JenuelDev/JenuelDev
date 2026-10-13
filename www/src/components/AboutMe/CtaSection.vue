@@ -4,7 +4,11 @@ import { Icon } from "@iconify/vue";
 </script>
 
 <template>
-    <section class="contact-section mx-auto w-full max-w-900px px-10px mb-90px" aria-labelledby="contact-heading">
+    <section
+        id="contact"
+        class="contact-section mx-auto w-full max-w-900px px-10px mb-90px"
+        aria-labelledby="contact-heading"
+    >
         <div v-scrollanimation class="cta-card">
             <p class="cta-overline">let's connect</p>
             <h2 id="contact-heading">Hiring for your next team?</h2>

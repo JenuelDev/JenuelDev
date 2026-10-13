@@ -37,7 +37,7 @@ function isCurrentRole(exp: ExperienceItem) {
                 v-scrollanimation
                 class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight"
             >
-                professional experience
+                Experience <em>beyond the launch.</em>
             </h2>
             <p v-scrollanimation class="experience-intro">
                 Building and supporting production software since 2018, primarily in Laravel and Vue, for teams that
@@ -51,7 +51,7 @@ function isCurrentRole(exp: ExperienceItem) {
                 :key="`${exp.company}-${index}`"
                 v-scrollanimation
                 class="experience-item"
-                :class="{ 'is-current': isCurrentRole(exp), 'is-flipped': index % 2 === 1 }"
+                :class="{ 'is-current': isCurrentRole(exp) }"
             >
                 <p class="experience-date">
                     <span v-html="`${exp.workStart} - ${exp.workUntil}`"></span>
@@ -103,309 +103,51 @@ function isCurrentRole(exp: ExperienceItem) {
     </section>
 </template>
 
-<style lang="scss" scoped>
-.work-experience {
-    width: 100%;
-    max-width: 1200px;
-    min-height: 50vh;
-    padding-inline: 10px;
-
-    &.a-before-enter {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: 0.3s ease-in;
-    }
-
-    &.a-enter {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.experience-heading {
-    max-width: 720px;
-    margin: 0 auto 60px;
-    text-align: center;
-
-    h2 {
-        margin: 7px 0 12px;
-    }
-}
-
-.experience-eyebrow {
-    margin: 0;
-    color: color-mix(in srgb, var(--lightestSlate) 72%, transparent);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-}
-
-.experience-intro {
-    max-width: 620px;
-    margin: 14px auto 0;
-    color: color-mix(in srgb, var(--lightestSlate) 70%, transparent);
-    font-size: 16px;
-    line-height: 1.7;
-}
-
+<style scoped lang="scss">
 .experience-timeline {
-    margin: 0;
-    padding: 0;
     list-style: none;
-}
-
-/* Alternate entries around the centered timeline, with room for wider text. */
-.experience-item {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    column-gap: 40px;
-
-    & + .experience-item {
-        margin-top: 34px;
-    }
-
-    &.a-before-enter {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: 0.35s ease-in;
-    }
-
-    &.a-enter {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.experience-date {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
+    padding: 0;
     margin: 0;
-    border-radius: 999px;
-    padding: 7px 15px;
-    background: color-mix(in srgb, var(--lightestSlate) 26%, transparent);
-    color: color-mix(in srgb, var(--lightestSlate) 92%, transparent);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 1;
-    white-space: nowrap;
 }
-
-.experience-track {
-    grid-column: 2;
-    grid-row: 2;
-    width: 1px;
-    margin-top: 18px;
-    background: color-mix(in srgb, var(--lightestSlate) 24%, transparent);
-}
-
-.experience-entry {
-    grid-column: 3;
-    grid-row: 2;
-    min-width: 0;
-    padding: 46px 0 44px;
-    text-align: left;
-}
-
-.experience-role {
-    margin: 0;
-    color: color-mix(in srgb, var(--lightestSlate) 72%, transparent);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1.3;
-    text-transform: uppercase;
-}
-
 .experience-company {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    margin: 8px 0 0;
-    color: color-mix(in srgb, var(--lightestSlate) 60%, transparent);
+    gap: 8px;
+    margin-top: 12px;
     font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s ease;
-
-    svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    &:hover {
-        color: var(--primary);
-    }
 }
-
 .experience-summary {
-    margin: 18px 0 0;
     padding: 0;
-    color: color-mix(in srgb, var(--lightestSlate) 62%, transparent);
-    font-size: 15px;
-    line-height: 1.65;
+    margin: 20px 0;
     list-style: none;
-
-    li {
-        position: relative;
-        margin: 0 0 10px;
-        padding-left: 18px;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 9px;
-            left: 0;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: color-mix(in srgb, var(--primary) 70%, transparent);
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
+    font-size: 15px;
+    line-height: 1.7;
 }
-
+.experience-summary li {
+    margin-bottom: 10px;
+}
 .experience-tech {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
-    margin: 16px 0 0;
-    padding: 0;
-    list-style: none;
-
-    li {
-        padding: 4px 10px;
-        border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-        border-radius: 999px;
-        color: color-mix(in srgb, var(--lightestSlate) 70%, transparent);
-        font-size: 12px;
-        line-height: 1.35;
-        white-space: nowrap;
-    }
+    gap: 10px 18px;
+    font: 11px var(--craft-mono);
 }
-
+.experience-tech li {
+    overflow-wrap: anywhere;
+}
 .experience-certificate {
     display: inline-flex;
+    gap: 8px;
     align-items: center;
-    gap: 6px;
-    margin-top: 16px;
     color: var(--primary);
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-
-    svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    &:hover span {
-        text-decoration: underline;
-        text-underline-offset: 3px;
-    }
+    font: 11px var(--craft-mono);
+    line-height: 1.6;
 }
-
-.experience-item.is-flipped .experience-entry {
-    grid-column: 1;
-    text-align: right;
-}
-
-.experience-item.is-flipped {
-    .experience-summary li {
-        padding-right: 18px;
-        padding-left: 0;
-
-        &::before {
-            right: 0;
-            left: auto;
-        }
-    }
-
-    .experience-tech {
-        justify-content: flex-end;
-    }
-}
-
-/* The role held today is the only one that carries the accent colour. */
-.experience-item.is-current {
-    .experience-date {
-        background: var(--primary);
-        color: var(--background);
-    }
-
-    .experience-track {
-        background: var(--primary);
-    }
-
-    .experience-role {
-        color: var(--primary);
-    }
-
-    .experience-company {
-        color: color-mix(in srgb, var(--lightestSlate) 88%, transparent);
-    }
-
-    .experience-summary {
-        color: color-mix(in srgb, var(--lightestSlate) 78%, transparent);
-    }
-}
-
-@media (max-width: 767px) {
-    .experience-heading {
-        margin-bottom: 44px;
-        text-align: left;
-    }
-
-    .experience-item {
-        grid-template-columns: 1px minmax(0, 1fr);
-        column-gap: 24px;
-
-        & + .experience-item {
-            margin-top: 26px;
-        }
-    }
-
-    .experience-date {
-        grid-column: 1 / -1;
-        justify-self: start;
-        margin-left: -1px;
-    }
-
-    .experience-track {
-        grid-column: 1;
-    }
-
-    .experience-entry,
-    .experience-item.is-flipped .experience-entry {
-        grid-column: 2;
-        padding: 30px 0 32px;
-        text-align: left;
-    }
-
-    .experience-item.is-flipped {
-        .experience-summary li {
-            padding-right: 0;
-            padding-left: 18px;
-
-            &::before {
-                right: auto;
-                left: 0;
-            }
-        }
-
-        .experience-tech {
-            justify-content: flex-start;
-        }
-    }
-}
-
-:deep(.present-work) {
-    font-weight: inherit;
+.experience-company:hover,
+.experience-certificate:hover {
+    text-decoration: underline;
 }
 </style>

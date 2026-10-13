@@ -8,7 +8,7 @@ import SvgDecoration from "./../SvgDecoration/SvgDecoration.vue";
             v-scrollanimation
             class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
         >
-            about
+            A developer. <em>A lifelong maker.</em>
         </h2>
 
         <div v-scrollanimation class="about-body text-lg leading-relaxed max-w-[770px]">
