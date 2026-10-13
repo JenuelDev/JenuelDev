@@ -4,6 +4,7 @@ import { onMounted, onUnmounted, ref, watch } from "vue";
 const props = defineProps<{
     sections: { id: string; label: string }[];
     activeSection: string;
+    path?: string;
 }>();
 const rail = ref<HTMLElement | null>(null);
 const progress = ref(0);
@@ -173,7 +174,7 @@ onUnmounted(() => {
         <router-link
             v-for="section in sections"
             :key="section.id"
-            :to="{ path: '/', hash: `#${section.id}` }"
+            :to="{ path: props.path ?? '/', hash: `#${section.id}` }"
             class="scroll-rail-link"
             :class="{ 'is-current-section': activeSection === section.id }"
             :aria-current="activeSection === section.id ? 'location' : null"

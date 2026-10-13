@@ -9,6 +9,7 @@ withDefaults(
         meta?: string;
         flush?: boolean;
         prose?: boolean;
+        headingId?: string;
     }>(),
     { flush: false, prose: false },
 );
@@ -20,7 +21,7 @@ withDefaults(
             <span>{{ label }}</span>
             <span v-if="meta">{{ meta }}</span>
         </div>
-        <header class="craft-page-heading">
+        <header :id="headingId" class="craft-page-heading">
             <router-link to="/" class="craft-page-back"><Icon icon="tabler:arrow-left" /> Back to home</router-link>
             <h1>
                 <slot name="title">{{ title }}</slot>
