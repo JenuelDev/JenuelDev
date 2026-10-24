@@ -42,11 +42,11 @@
 ### 🚨 Latest Blog posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Why I Switched to Zed, and Why You Should Too](https://blog.jenuel.dev/blog/why-i-switched-to-zed-and-why-you-should-too)
 - [How I Stopped Burning Through My Codex Usage Limit](https://blog.jenuel.dev/blog/how-i-stopped-burning-through-my-codex-usage-limit)
 - [AI Made Me Faster. Shouldn&#39;t I Be Paid More?](https://blog.jenuel.dev/blog/ai-made-me-faster-shouldnt-i-be-paid-more)
 - [AI Is Making Us More Capable. Is It Making Us Less Capable Too?](https://blog.jenuel.dev/blog/ai-is-making-us-more-capable-is-it-making-us-less-capable-too)
 - [StyleX explained: Meta&#39;s answer to CSS that gets harder as apps grow](https://blog.jenuel.dev/blog/stylex-css-meta-styling-system-explained)
-- [Why Gin Fits the AI Agent Era](https://blog.jenuel.dev/blog/why-gin-fits-the-ai-agent-era)
 <!-- BLOG-POST-LIST:END -->
 
 ### Personal Works
