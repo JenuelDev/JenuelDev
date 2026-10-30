@@ -1,6 +1,10 @@
 <a href="https://daily.dev/jenueldev"><img src="https://api.daily.dev/devcards/v2/JJtZr4Sjm.png?type=wide&r=ted" width="652" alt="Jenuel Oras Ganawed's Dev Card"/></a>
 
 
+### Repository documentation
+
+See [docs](docs/README.md) for local setup, architecture, deployment configuration, and the blog design guide.
+
 ### 🛠 Languages And Tools
 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)

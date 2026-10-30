@@ -1,30 +1,17 @@
 ---
-// ThemeScript.astro - Inline script that runs immediately to prevent theme flash
-// Must be placed first in <head>
+import { themes } from "../lib/themes";
 ---
-<script is:inline>
-  function applyTheme() {
-    var DARK_ACCENTS = ['greenLight', 'yellowOrange', 'underTheSea', 'NightBurns', 'supportTeal'];
 
-    var accent = localStorage.getItem('accent') || 'supportTeal';
-    var isDarkAccent = DARK_ACCENTS.indexOf(accent) !== -1;
-
-    var isDark;
-    if (isDarkAccent) {
-      isDark = true;
-    } else {
-      var stored = localStorage.getItem('theme');
-      isDark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+<script is:inline define:vars={{ themes }}>
+    // Run before the stylesheet paints, including after an Astro page swap.
+    function applyBlogTheme() {
+        var accent = "artcraft";
+        try { accent = localStorage.getItem("accent") || accent; } catch {}
+        var selected = themes.find(function (theme) { return theme.id === accent; }) || themes[0];
+        document.documentElement.dataset.accent = selected.id;
+        document.documentElement.classList.toggle("dark", selected.dark);
+        document.documentElement.style.colorScheme = selected.dark ? "dark" : "light";
     }
-
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    document.documentElement.setAttribute('data-accent', accent);
-  }
-
-  applyTheme();
-  document.addEventListener('astro:after-swap', applyTheme);
+    applyBlogTheme();
+    document.addEventListener("astro:after-swap", applyBlogTheme);
 </script>

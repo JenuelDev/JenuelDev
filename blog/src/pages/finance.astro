@@ -2,12 +2,12 @@
 export const prerender = true;
 import Layout from "../layouts/default.astro";
 import { supabase } from "../lib/supabase";
-import dayjs from "dayjs";
+import ArticleListing from "../components/ArticleListing.astro";
 const title = "Finance blog for developers";
 const description =
-    "A finance blog for developers—learn how to manage your money wisely and maximize your earnings in tech.";
+    "A finance blog for developers - learn how to manage your money wisely and maximize your earnings in tech.";
 
-    const limit = 50;
+const limit = 50;
 
 const { data, error } = await supabase
     .from("blogs")
@@ -47,28 +47,5 @@ const collectionJsonLd = JSON.stringify({
     <Fragment slot="head">
         <script type="application/ld+json" is:inline set:html={collectionJsonLd} />
     </Fragment>
-    <main>
-        <div class="flex flex-col gap-5 w-full max-w-800px mx-auto px-5 pt-28">
-            <h1 class="text-5xl font-bold pb-5">Finance for developers</h1>
-            {
-                blogs.map((blog) => (
-                    <>
-                        <a href={`/blog/${blog.slug}`} class="flex sm:flex-row flex-col gap-5 group">
-                            <div class="content-summary leading-5 col-span-6 ">
-                                <div class="text-xs sm:mb-1 text-secondary">
-                                    {dayjs(blog.updated_at).format("DD MMM, YYYY")}
-                                </div>
-                                <div class="sm:mb-2 text-2xl group-hover:underline underline-[var(--slate10)]">
-                                    {blog.title}
-                                </div>
-                                <p class={`line-clamp-6 text-sm ${blog.cover_img && "line-clamp-3"} text-secondary`}>
-                                    {blog.summary}
-                                </p>
-                            </div>
-                        </a>
-                    </>
-                ))
-            }
-        </div>
-    </main>
+    <ArticleListing blogs={blogs} category="finance" unavailable={Boolean(error)} />
 </Layout>
