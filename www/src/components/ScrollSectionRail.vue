@@ -11,6 +11,9 @@ const progress = ref(0);
 const rulerScroll = ref(0);
 const rulerSpan = ref(1);
 const progressMarker = ref(16);
+const isDragging = ref(false);
+let dragPointer: number | null = null;
+let dragOffset = 0;
 type Letter = { element: HTMLElement; advance: number; center: number };
 type RailWord = { element: HTMLElement; section: HTMLElement; letters: Letter[]; width: number };
 type Pose = { x: number; y: number; rotation: number; scale: number };
@@ -21,6 +24,76 @@ let reducedMotion: MediaQueryList;
 let disposed = false;
 const clamp = (value: number) => Math.max(0, Math.min(1, value));
 const ease = (value: number) => (value < 0.5 ? 4 * value ** 3 : 1 - (-2 * value + 2) ** 3 / 2);
+
+function scrollToProgress(value: number) {
+    const scrollRange = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({ top: clamp(value) * scrollRange, behavior: "instant" });
+    scheduleUpdate();
+}
+
+function scrollFromPointer(event: PointerEvent) {
+    const ruler = event.currentTarget as HTMLElement;
+    const bounds = ruler.getBoundingClientRect();
+    scrollToProgress((event.clientY - bounds.top - 16 - dragOffset) / Math.max(1, bounds.height - 32));
+}
+
+function startDrag(event: PointerEvent) {
+    if (!event.isPrimary || event.button !== 0 || dragPointer !== null) return;
+    event.preventDefault();
+    const ruler = event.currentTarget as HTMLElement;
+    ruler.focus({ preventScroll: true });
+    dragPointer = event.pointerId;
+    const target = event.target as HTMLElement;
+    dragOffset = target.closest(".scroll-rail-progress")
+        ? event.clientY - ruler.getBoundingClientRect().top - progressMarker.value
+        : 0;
+    ruler.setPointerCapture(event.pointerId);
+    isDragging.value = true;
+    scrollFromPointer(event);
+}
+
+function moveDrag(event: PointerEvent) {
+    if (event.pointerId === dragPointer) scrollFromPointer(event);
+}
+
+function stopDrag(event: PointerEvent) {
+    if (event.pointerId !== dragPointer) return;
+    dragPointer = null;
+    isDragging.value = false;
+    const ruler = event.currentTarget as HTMLElement;
+    if (ruler.hasPointerCapture(event.pointerId)) ruler.releasePointerCapture(event.pointerId);
+}
+
+function scrollWithKeyboard(event: KeyboardEvent) {
+    const scrollRange = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    let target = window.scrollY;
+    switch (event.key) {
+        case "ArrowDown":
+        case "ArrowRight":
+            target += 80;
+            break;
+        case "ArrowUp":
+        case "ArrowLeft":
+            target -= 80;
+            break;
+        case "PageDown":
+            target += window.innerHeight * 0.9;
+            break;
+        case "PageUp":
+            target -= window.innerHeight * 0.9;
+            break;
+        case "Home":
+            target = 0;
+            break;
+        case "End":
+            target = scrollRange;
+            break;
+        default:
+            return;
+    }
+    event.preventDefault();
+    scrollToProgress(target / scrollRange);
+}
 
 function measureWords() {
     if (!rail.value || disposed) return;
@@ -151,11 +224,30 @@ onUnmounted(() => {
 
 <template>
     <nav ref="rail" class="scroll-section-rail" aria-label="Page sections">
-        <div class="scroll-rail-ruler" aria-hidden="true">
+        <div
+            class="scroll-rail-ruler"
+            :class="{ 'is-dragging': isDragging }"
+            role="slider"
+            tabindex="0"
+            aria-label="Page scroll position"
+            aria-orientation="vertical"
+            :aria-valuemin="0"
+            :aria-valuemax="100"
+            :aria-valuenow="Math.round(progress)"
+            :aria-valuetext="`${Math.round(progress)}% of page`"
+            title="Drag to scroll, or use the arrow keys"
+            @pointerdown="startDrag"
+            @pointermove="moveDrag"
+            @pointerup="stopDrag"
+            @pointercancel="stopDrag"
+            @lostpointercapture="stopDrag"
+            @keydown="scrollWithKeyboard"
+        >
             <span
                 v-for="tick in 501"
                 :key="tick"
                 class="scroll-rail-tick"
+                aria-hidden="true"
                 :style="{ top: `${((tick - 1) / 500) * rulerSpan - rulerScroll + 16}px` }"
             >
                 <span
@@ -167,7 +259,7 @@ onUnmounted(() => {
                     >{{ (tick - 1) / 5 }}</span
                 >
             </span>
-            <div class="scroll-rail-progress" :style="{ top: `${progressMarker}px` }">
+            <div class="scroll-rail-progress" :style="{ top: `${progressMarker}px` }" aria-hidden="true">
                 <span>{{ Math.round(progress).toString().padStart(3, "0") }}%</span>
             </div>
         </div>
@@ -256,11 +348,22 @@ onUnmounted(() => {
 }
 .scroll-rail-ruler {
     position: absolute;
+    z-index: 1;
     inset: 0 -24px 0 auto;
     width: 64px;
     overflow: hidden;
     color: var(--slate);
     font: 9px var(--craft-mono);
+    pointer-events: auto;
+    touch-action: none;
+    user-select: none;
+    cursor: grab;
+    &.is-dragging {
+        cursor: grabbing;
+    }
+    &:focus {
+        outline: none;
+    }
 }
 .scroll-rail-tick {
     position: absolute;

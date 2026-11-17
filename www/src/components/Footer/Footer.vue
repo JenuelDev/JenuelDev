@@ -3,8 +3,8 @@ const columns = [
     {
         title: "Explore",
         links: [
-            { label: "Selected work", href: "/#projects" },
             { label: "Experience", href: "/#experience" },
+            { label: "Personal Projects", href: "/#projects" },
             { label: "About", href: "/#about" },
             { label: "Project archive", href: "/project-archives" },
         ],

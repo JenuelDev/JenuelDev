@@ -1,7 +1,14 @@
 export const themes = [
     {
+        name: "teal",
+        label: "Teal (Default)",
+        color1: "#2db3a4",
+        color2: "#238b80",
+        color3: "#071f26",
+    },
+    {
         name: "artcraft",
-        label: "Default",
+        label: "Artcraft",
         color1: "#f2f1ee",
         color2: "#999a9b",
         color3: "#121316",
@@ -41,12 +48,5 @@ export const themes = [
         color1: "#4b5ebe",
         color2: "#dcdcdc",
         color3: "#2b2b2b",
-    },
-    {
-        name: "teal",
-        label: "Teal",
-        color1: "#2db3a4",
-        color2: "#238b80",
-        color3: "#071f26",
     },
 ];

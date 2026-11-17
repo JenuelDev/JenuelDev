@@ -12,8 +12,8 @@ import CtaSection from "@/components/AboutMe/CtaSection.vue";
 import ScrollSectionRail from "@/components/ScrollSectionRail.vue";
 
 const sectionLinks = [
-    { id: "projects", label: "Selected work" },
     { id: "experience", label: "Experience" },
+    { id: "projects", label: "Personal Projects" },
     { id: "technical-skills", label: "Core technology" },
     { id: "expertise", label: "Expertise" },
     { id: "about", label: "About" },
@@ -58,8 +58,8 @@ onUnmounted(() => {
 <template>
     <div class="portfolio-page">
         <AboutMeSection />
-        <Projects />
         <Experience />
+        <Projects />
         <TechnicalSkills />
         <WhatIWorkOn />
         <AboutSection />

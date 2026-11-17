@@ -7,7 +7,7 @@ const savedTheme = storedTheme === "supportTeal" || storedTheme === "default" ? 
 if (savedTheme !== storedTheme && savedTheme) {
     localStorage.setItem("theme", savedTheme);
 }
-const selectedTheme = ref(themes.some((theme) => theme.name === savedTheme) ? savedTheme! : "artcraft");
+const selectedTheme = ref(themes.some((theme) => theme.name === savedTheme) ? savedTheme! : "teal");
 document.documentElement.setAttribute("theme", selectedTheme.value);
 const open = ref(false);
 const close = () => {

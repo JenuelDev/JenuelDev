@@ -4,15 +4,17 @@ import { Icon } from "@iconify/vue";
 </script>
 <template>
     <section id="projects" class="selected-work mx-auto max-w-900px px-10px mb-90px" aria-labelledby="projects-heading">
-        <div class="section-index"><span>01 / Selected work</span><span>Independently built & maintained</span></div>
+        <div class="section-index"><span>02 / Personal projects</span><span>Independently built & maintained</span></div>
         <div class="section-heading">
             <h2
                 id="projects-heading"
                 class="lg:text-size-44px md:text-size-38px text-size-28px font-600 text-[var(--primary)] tracking-tight mb-15px"
             >
-                Software for <em>everyday life.</em>
+                My personal <em>projects.</em>
             </h2>
-            <p class="section-intro">Independent apps I design, build, and maintain across web, mobile, and desktop.</p>
+            <p class="section-intro">
+                Apps I design, build, and maintain in my free time across web, mobile, and desktop.
+            </p>
         </div>
         <div class="craft-project-grid">
             <article v-for="(work, index) in Project.works" :id="work.id" :key="work.id" class="case-study">

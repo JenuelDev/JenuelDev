@@ -23,8 +23,8 @@ watch(
         </router-link>
         <nav class="craft-nav" aria-label="Main navigation">
             <router-link to="/" :class="{ 'is-active': route.path === '/' && !route.hash }">Home</router-link>
-            <router-link :to="{ path: '/', hash: '#projects' }">Work</router-link>
             <router-link :to="{ path: '/', hash: '#experience' }">Experience</router-link>
+            <router-link :to="{ path: '/', hash: '#projects' }">Personal Projects</router-link>
             <div class="craft-nav-dropdown">
                 <button type="button">Resources <Icon icon="tabler:chevron-down" /></button>
                 <div class="craft-nav-submenu">

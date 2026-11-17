@@ -20,7 +20,7 @@ export default [
                     path: '/',
                     hash: '#projects'
                 },
-                label: 'Featured Work',
+                label: 'Personal Projects',
                 description: 'Products I own end to end',
                 icon: 'tabler:terminal-2',
                 external: false

@@ -1,4 +1,3 @@
-:root:not([theme]),
 [theme="artcraft"] {
     --primary: #f2f1ee;
     --primary-darker: #c9c8c5;
@@ -185,6 +184,7 @@
     --profile-gradient-3: #778cf5;
 }
 
+:root:not([theme]),
 [theme="teal"] {
     --primary: #2db3a4;
     --image-cover: #2db3a4;

@@ -25,8 +25,8 @@ import { Icon } from "@iconify/vue";
                             ><Icon icon="tabler:file-type-doc" /> View resume</a
                         >
                     </div>
-                    <a href="#projects" class="profile-hero-work"
-                        >Explore my products <Icon icon="tabler:arrow-down" aria-hidden="true"
+                    <a href="#experience" class="profile-hero-work"
+                        >Explore my experience <Icon icon="tabler:arrow-down" aria-hidden="true"
                     /></a>
                     <div class="profile-hero-meta">
                         <span><Icon icon="tabler:map-pin" aria-hidden="true" /> Philippines · UTC+8</span>
@@ -39,14 +39,14 @@ import { Icon } from "@iconify/vue";
                 <figure class="profile-hero-portrait">
                     <div class="profile-hero-photo">
                         <img
-                            src="/profile_image-640.webp"
+                            src="/profile-colored-640.webp"
                             srcset="
-                                /profile_image-480.webp  480w,
-                                /profile_image-640.webp  640w,
-                                /profile_image-768.webp  768w,
-                                /profile_image.webp     1024w
+                                /profile-colored-480.webp   480w,
+                                /profile-colored-640.webp   640w,
+                                /profile-colored-768.webp   768w,
+                                /profile-colored-1024.webp 1024w
                             "
-                            sizes="(max-width: 700px) 240px, 300px"
+                            sizes="(max-width: 700px) 240px, (max-width: 1000px) 260px, 300px"
                             width="300"
                             height="300"
                             loading="eager"

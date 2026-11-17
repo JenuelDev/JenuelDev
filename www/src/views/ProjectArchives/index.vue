@@ -100,7 +100,7 @@ onUnmounted(() => {
                     <p>See the products I build and maintain, or follow my work and experiments on GitHub.</p>
                     <div class="archive-intro-actions">
                         <router-link :to="{ path: '/', hash: '#projects' }" class="craft-button"
-                            >View selected work <Icon icon="tabler:arrow-right"
+                            >View personal projects <Icon icon="tabler:arrow-right"
                         /></router-link>
                         <a
                             href="https://github.com/JenuelDev"
